@@ -78,14 +78,17 @@
       top: 0; }
 
 .page-form {
+  position: relative;
   background: url(../img/res1.gif) no-repeat;
   background-size: cover;
   background-position: center;
-  min-height: 100vh;
-  width: 100%; }
+  min-height: 100vh; }
   .page-form .panel {
-    width: 40%;
-    margin: 25% auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
     background: rgba(255, 255, 255, 0.8); }
     .page-form .panel .panel-heading {
       background: transparent;
@@ -94,6 +97,9 @@
         font-size: 20px;
         color: #9368E9;
         font-weight: bold; }
+
+.modal .modal-dialog .modal-content .modal-header .modal-title {
+  text-align: center; }
 
 .navbar-fixed .navbar-header .navbar-brand {
   margin: 0;
@@ -112,14 +118,14 @@
 .navbar-fixed .navbar-right .dropdown-menu li i {
   padding-right: 15%; }
 
-.login-form .wrp .panel .panel-body .bg-button {
+.login-form .panel .panel-body .bg-button {
   width: 100%; }
 
-.login-form .wrp .panel .panel-body .res-link a {
+.login-form .panel .panel-body .res-link a {
   color: #fb9678;
   font-weight: bold; }
 
-.register-form .cancel-btn a, .register-form .res-btn a {
+.register-form .cancel-btn .btn, .register-form .res-btn .btn {
   width: 100%; }
 
 .register-form .cancel-btn {

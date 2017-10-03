@@ -1,12 +1,15 @@
 .page-form {
+	position: relative;
 	background: url(../img/res1.gif) no-repeat;
     background-size: cover;
     background-position: center;
-	min-height: 100vh;
-	width: 100%;
-	.panel {
-		width: 40%;
-		margin: 25% auto;
+    min-height: 100vh;
+    .panel {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 30%;
 		background: rgba(255,255,255,0.8);
 		.panel-heading {
 			background: transparent;
@@ -17,8 +20,5 @@
 				font-weight: bold;
 			}
 		}
-		.panel-body {
-		
-		}
-	}
+    }
 }

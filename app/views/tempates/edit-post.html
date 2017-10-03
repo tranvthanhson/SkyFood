@@ -8,7 +8,7 @@
     <title>Sky Food</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
-    <!-- HBootstrap core CSS     -->
+    <!-- Bootstrap core CSS     -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Animation library for notifications   -->
     <link href="assets/css/animate.min.css" rel="stylesheet" />
@@ -43,7 +43,7 @@
                             <p>QL user</p>
                         </a>
                     </li>
-                    <li >
+                    <li>
                         <a href="categories.html">
                             <i class="pe-7s-news-paper"></i>
                             <p>QL danh mục</p>
@@ -102,32 +102,33 @@
                                     <h4 class="title">Sửa bài đăng</h4>
                                 </div>
                                 <div class="content">
-                                    <form>
+                                    <form data-toggle="validator" role="form">
                                         <div class="row">
                                             <div class="col-md-5">
                                                 <div class="form-group">
-                                                    <label>Tên địa điểm (<span>*</span>)</label>
-                                                    <input type="text" class="form-control" placeholder="Address's name" value="The Coffee House">
+                                                    <label for="place" class="control-label">Place's name (<span>*</span>)</label>
+                                                    <input type="text" class="form-control" id="place" placeholder="Tên địa điểm" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>Sđt (<span>*</span>)</label>
-                                                    <input type="text" class="form-control" placeholder="phone" value="">
+                                                    <label for="phone" class="control-label">Phone (<span>*</span>)</label>
+                                                    <input type="text" class="form-control" id="phone" placeholder="Số điện thoại" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label>Khuyến mãi</label>
-                                                    <input type="text" class="form-control" placeholder="Discount" value="0">
+                                                    <label for="discount" class="control-label">Discount (<span>*</span>)</label>
+                                                    <input type="text" class="form-control" id="discount" placeholder="Khuyến mãi" required>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="sel1">Danh mục (<span>*</span>)</label>
-                                                    <select class="form-control" id="sel1">
+                                                    <label for="type">Type (<span>*</span>)</label>
+                                                    <select class="form-control" id="type">
+                                                        <option>[Chọn]</option>
                                                         <option>Ăn vặt</option>
                                                         <option>Coffee</option>
                                                     </select>
@@ -135,8 +136,8 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Thành phố (<span>*</span>)</label>
-                                                    <input type="text" class="form-control" disabled placeholder="City" value="Đà Nẵng">
+                                                    <label for="city" class="control-label">City (<span>*</span>)</label>
+                                                    <input type="text" class="form-control" id="city" placeholder="Thành phố" value="Đà Nẵng" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -144,59 +145,59 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label>Địa chỉ (<span>*</span>)</label>
-                                                    <input id="pac-input" type="text" class="form-control" placeholder="Address" value="">
+                                                    <input id="pac-input" type="text" class="form-control" placeholder="Address" value="" required>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Latitude</label>
-                                                    <input disabled id="lat" type="text" class="form-control" placeholder="Latitude" value="">
+                                                    <label for="lat" class="control-label">Latitude</label>
+                                                    <input type="text" class="form-control" id="lat" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label>Lungtitude</label>
-                                                    <input disabled id="lung" type="text" class="form-control" placeholder="Lungtitude" value="">
+                                                    <label for="lung" class="control-label">Lungtide</label>
+                                                    <input type="text" class="form-control" id="lung" disabled>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>Giờ mửa cửa</label>
-                                                    <input type="text" class="form-control" placeholder="Open time" value="7:00 AM">
+                                                    <label for="openTime" class="control-label">Open time (<span>*</span>)</label>
+                                                    <input type="text" class="form-control" placeholder="Giờ mở cửa" value="" id="openTime" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>Giờ đóng cửa</label>
-                                                    <input type="text" class="form-control" placeholder="Close time" value="10:00 PM">
+                                                    <label for="closeTime" class="control-label">Close time (<span>*</span>)</label>
+                                                    <input type="text" class="form-control" placeholder="Giờ đóng cửa" value="" id="closeTime" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>Mức giá</label>
-                                                    <input type="text" class="form-control" placeholder="20.000đ - 50.000đ">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Chi tiết</label>
-                                                    <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
+                                                    <label for="price">Price (<span>*</span>)</label>
+                                                    <input type="text" class="form-control" placeholder="Mức giá ( VD: 2000đ - 50000đ )" value="" id="price" required>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <button onclick="test()" class="btn bg-button btn-fill pull-right">Hoàn thành</button>
+                                                 <div class="form-group">
+                                                    <label>Detail</label>
+                                                    <textarea rows="5" class="form-control" placeholder="Chi tiết địa điểm" value=""></textarea required>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="clearfix"></div>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <button type="submit" class="btn bg-button btn-fill pull-right">Hoàn thành</button>
+                                            </div>
+                                        </div>
                                     </form>
+
                                 </div>
                             </div>
                         </div>
@@ -248,6 +249,7 @@
 <!--   Core JS Files   -->
 <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/js/validator.min.js"></script>
 <!--  Checkbox, Radio & Switch Plugins -->
 <script src="assets/js/bootstrap-checkbox-radio-switch.js"></script>
 <!--  Charts Plugin -->
@@ -255,81 +257,11 @@
 <!--  Notifications Plugin    -->
 <script src="assets/js/bootstrap-notify.js"></script>
 <!--  Google Maps Plugin    -->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 <script src="assets/js/light-bootstrap-dashboard.js"></script>
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-<script src="assets/js/demo.js"></script>
-<script type="text/javascript">
-// $('#datetimepicker3').datetimepicker();
-function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: -33.8688, lng: 151.2195 },
-        zoom: 13
-    });
-    var input = document.getElementById('pac-input');
-
-    var autocomplete = new google.maps.places.Autocomplete(input);
-
-    autocomplete.bindTo('bounds', map);
-
-    var infowindow = new google.maps.InfoWindow();
-    var infowindowContent = document.getElementById('infowindow-content');
-    infowindow.setContent(infowindowContent);
-    var marker = new google.maps.Marker({
-        map: map,
-        anchorPoint: new google.maps.Point(0, -29)
-    });
-
-    autocomplete.addListener('place_changed', function() {
-        infowindow.close();
-        marker.setVisible(false);
-
-        var place = autocomplete.getPlace();
-        //Trả về lat và lng
-        var lat = place.geometry.location.lat();
-        var lung = place.geometry.location.lng();
-        console.log(lat);
-        console.log(lung);
-        var latInput = document.getElementById("lat");
-        var lungInput = document.getElementById("lung");
-        latInput.value = lat;
-        lungInput.value = lung;
-        // console.log(latInput.value);
-
-        //Gán vào input
-
-
-
-        if (!place.geometry) {
-            window.alert("No details available for input: '" + place.name + "'");
-            return;
-        }
-        if (place.geometry.viewport) {
-            map.fitBounds(place.geometry.viewport);
-        } else {
-            map.setCenter(place.geometry.location);
-            map.setZoom(17); // Why 17? Because it looks good.
-        }
-        marker.setPosition(place.geometry.location);
-        marker.setVisible(true);
-
-        var address = '';
-        if (place.address_components) {
-            address = [
-                (place.address_components[0] && place.address_components[0].short_name || ''),
-                (place.address_components[1] && place.address_components[1].short_name || ''),
-                (place.address_components[2] && place.address_components[2].short_name || '')
-            ].join(' ');
-        }
-
-        infowindowContent.children['place-icon'].src = place.icon;
-        infowindowContent.children['place-name'].textContent = place.name;
-        infowindowContent.children['place-address'].textContent = address;
-        infowindow.open(map, marker);
-    });
-}
-</script>
+<script src="assets/js/demo.js" type="text/javascript"></script>
+<script src="assets/js/mapPost.js" type="text/javascript"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbJTv1mpf9Tm1fWBip0XKIuE1tBcv9GMc&libraries=places&callback=initMap" async defer></script>
-
 </html>
