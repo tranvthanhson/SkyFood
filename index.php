@@ -4,10 +4,12 @@
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
 
-require "vendor/autoload.php";
+require "core/Autoload.php";
+new core\Autoload;
+// require "vendor/autoload.php";
 require "core/bootstrap.php";
 
-use App\Core\{Router, Request};
+use core\{Router, Request};
 
 Router::load("app/routes.php")
 	->direct(Request::uri(), Request::method());

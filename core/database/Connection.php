@@ -1,5 +1,8 @@
 <?php 
 
+namespace core\database;
+use PDO;
+
 class Connection {
 
 	public static function make($config){
