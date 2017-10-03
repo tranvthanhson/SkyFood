@@ -102,12 +102,12 @@
                                     <h4 class="title">Thêm danh mục</h4>
                                 </div>
                                 <div class="content">
-                                    <form>
+                                    <form  data-toggle="validator" role="form">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label>Tên danh mục (<span>*</span>)</label>
-                                                    <input type="text" class="form-control" placeholder="Nhập tên danh mục" value="">
+                                                    <input type="text" class="form-control" placeholder="Nhập tên danh mục" value="" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -137,6 +137,7 @@
 <!--   Core JS Files   -->
 <script src="assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/js/validator.min.js"></script>
 <!--  Checkbox, Radio & Switch Plugins -->
 <script src="assets/js/bootstrap-checkbox-radio-switch.js"></script>
 <!--  Charts Plugin -->
