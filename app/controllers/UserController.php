@@ -1,8 +1,8 @@
 <?php 
 
-namespace App\Controllers;
+namespace app\controllers;
 
-use App\Core\App;
+use core\App;
 
 class UserController
 {

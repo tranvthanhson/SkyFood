@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Core;
+namespace core;
 
 class Router
 {
@@ -46,7 +46,7 @@ class Router
 	}
 
 	public function callAction($controller, $action) {
-		$controller = "App\\Controllers\\{$controller}";
+		$controller = "app\\controllers\\{$controller}";
 		$controller = new $controller;
 
 		if(! method_exists($controller, $action)) {
