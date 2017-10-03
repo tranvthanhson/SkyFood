@@ -1,6 +1,10 @@
 <!-- Require head-->
 <?php view_include('layouts.head-master')?>
 
+
+<!-- Require modal -->
+<?php view_include('feedback.partials.modal')?>
+
 <div class="wrapper">
 
     <!-- Require side-bar -->
@@ -136,5 +140,6 @@
     </div>
 </div>
 
-<!-- Require modal -->
-<?php view_include('layouts.modal')?>
+
+<!-- Require foot -->
+<?php view_include('layouts.foot-master')?>
