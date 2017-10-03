@@ -1,6 +1,6 @@
 <?php 
 
-namespace core;
+namespace Core;
 
 class Router
 {
@@ -49,10 +49,9 @@ class Router
 		$controller = "app\\controllers\\{$controller}";
 		$controller = new $controller;
 
-		if(! method_exists($controller, $action)) {
+		if (!method_exists($controller, $action)) {
 			throw new Exception("{$controller} does not response to the {$action} action", 1);
 		}
-		// return (new PageController)->home();
 		return $controller->$action();
 	}
 }

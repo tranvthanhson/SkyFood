@@ -1,0 +1,23 @@
+.author {
+	margin-top: 0 !important;
+	.edit-avatar {
+		.wrp {
+			position: relative;
+			overflow: hidden;
+			padding: 3px 10px;	
+			i {
+				padding-right: 2%;
+			}
+			input {
+				position: absolute;
+				font-size: 50px;
+				opacity: 0;
+				right: 0;
+				top: 0;
+			}
+		}
+	}
+	// .title {
+	//     margin-top: 5%;
+	// }
+}
