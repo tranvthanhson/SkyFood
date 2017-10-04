@@ -8,30 +8,30 @@
             <div class="panel-title text-center">ĐĂNG KÍ</div>
         </div>
         <div class="panel-body">
-            <form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" action="/register" method="POST">
+            <form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" method="POST" data-toggle="validator" role="form">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <input type="text" class="form-control" value="thuong" name="username" placeholder="Tên đăng nhập">
+                        <input type="text" class="form-control" value="" placeholder="Tên đăng nhập" required>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <input type="password" class="form-control" value="thuong" name="password" placeholder="Mật khẩu">
+                        <input type="password" class="form-control" value="" placeholder="Mật khẩu" required>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="first_name" value="thuong" placeholder="Họ">
+                        <input type="text" class="form-control" value="" placeholder="Họ" required>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="last_name" value="thuong" placeholder="Tên">
+                        <input type="text" class="form-control" value="" placeholder="Tên" required>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <input type="email" class="form-control" name="email" value="thuong@thuong" placeholder="Email">
+                        <input type="email" class="form-control" value="" placeholder="Email" required>
                     </div>
                 </div>
                 <div class="col-md-6">
