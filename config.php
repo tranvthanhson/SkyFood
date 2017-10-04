@@ -2,9 +2,9 @@
 
 return [
 	'database' => [
-		'name' => 'TESTINGDB',
+		'name' => 'SkyFoodDB',
 		'username' => 'root',
-		'password' => '1',
+		'password' => 'ht180395',
 		'connection' => 'mysql:host=127.0.0.1',
 		'options' => [
 
