@@ -22,12 +22,20 @@ class LoginController
             if (($th[0]->USERNAME == $username) && ($th[0]->PASSWORD == $password)) {
                 if ((1 == $th[0]->ROLE) || (2 == $th[0]->ROLE)) {
                     $_SESSION['user'] = $th[0];
-                    //var_dump($_SESSION['user']);
+                    //die(var_dump($_SESSION['user']));
                     return redirect('users');
                 }
             } else {
                 return redirect('');
             }
+        }
+    }
+
+    public function logout()
+    {
+        if (isset($_SESSION['user'])) {
+            unset($_SESSION['user']);
+            return redirect('login');
         }
     }
 }
