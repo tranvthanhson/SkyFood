@@ -1,5 +1,9 @@
 <!-- Require head-->
-<?php view_include('layouts.head-master')?>
+<?php view_include('layouts.head-master', ['title' => 'Feedback'])?>
+
+
+<!-- Require modal -->
+<?php view_include('feedback.partials.modal')?>
 
 <div class="wrapper">
 
@@ -44,6 +48,7 @@
                                         <th>Control</th>
                                     </thead>
                                     <tbody>
+                                        <?php for ($i = 0; $i < 5; $i++) {?>
                                         <tr>
                                             <td>1</td>
                                             <td>Trần Thị Như Hiếu</td>
@@ -66,50 +71,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Trần Thị Như Hiếu</td>
-                                            <td>hieutran@gmail.com</td>
-                                            <td>0905594382</td>
-                                            <td>The Coffee House có 3 món nước mới là Trà Đen Macchiato (mới), Trà Xanh Macchiato và Đậu Biếc Macchiato.</td>
-                                            <td class="control">
-                                                <div class="form-group">
-                                                    <div class="item-col">
-                                                        <a data-toggle="modal" data-target="#replyContact" href="" class="btn btn-primary" title="Trả lời">
-                                                            <i class="pe-7s-back"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="item-col">
-                                                        <a data-toggle="modal" data-target="#delContact" href="" class="btn btn-danger" title="Xoá">
-                                                            <i class="pe-7s-trash"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Trần Thị Như Hiếu</td>
-                                            <td>hieutran@gmail.com</td>
-                                            <td>0905594382</td>
-                                            <td>The Coffee House có 3 món nước mới là Trà Đen Macchiato (mới), Trà Xanh Macchiato và Đậu Biếc Macchiato.</td>
-                                            <td class="control">
-                                                <div class="form-group">
-                                                    <div class="item-col">
-                                                        <a data-toggle="modal" data-target="#replyContact" href="" class="btn btn-primary" title="Trả lời">
-                                                            <i class="pe-7s-back"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="item-col">
-                                                        <a data-toggle="modal" data-target="#delContact" href="" class="btn btn-danger" title="Xoá">
-                                                            <i class="pe-7s-trash"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                        <?php }?>
                                     </tbody>
                                 </table>
                             </div>
@@ -136,5 +98,5 @@
     </div>
 </div>
 
-<!-- Require modal -->
-<?php view_include('layouts.modal')?>
+<!-- Require foot -->
+<?php view_include('layouts.foot-master')?>

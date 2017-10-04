@@ -1,4 +1,4 @@
-<div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+<div class="sidebar" data-color="purple" data-image="public/assets/img/sidebar-5.jpg">
     <div class="sidebar-wrapper">
         <div class="logo">
             <a href="index.html" class="simple-text">Sky Food</a>
