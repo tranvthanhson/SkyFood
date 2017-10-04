@@ -17,5 +17,3 @@ $router->get('login', 'LoginController@index');
 
 // Register
 $router->get('register', 'RegisterController@index');
-
-// New routes
