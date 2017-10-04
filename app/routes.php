@@ -15,6 +15,8 @@ $router->get('feedback', 'FeedbackController@index');
 // Login
 $router->get('login', 'LoginController@index');
 $router->post('login', 'LoginController@login');
+//LOGOUT
+$router->get('logout', 'LoginController@logout');
 // Register
 $router->get('register', 'RegisterController@index');
 $router->post('register', 'RegisterController@register');

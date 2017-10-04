@@ -15,4 +15,12 @@ class LoginController
     {
         Account::login();
     }
+
+    public function logout()
+    {
+        if (isset($_SESSION['user'])) {
+            unset($_SESSION['user']);
+            return redirect('login');
+        }
+    }
 }
