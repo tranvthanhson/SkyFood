@@ -1,5 +1,6 @@
 <?php
-namespace core;
+
+namespace Core;
 
 class Autoload
 {
@@ -9,12 +10,16 @@ class Autoload
 	}
 	private function _autoload($file)
 	{
-		$file = str_replace("\\", "/", trim($file, '\\')) . '.php';
-		// echo "<br>Autoload : " . $file . "</br>";
-		if(file_exists($file)) {
+		// echo $file . "<br>";
+		$chunks = explode("\\", $file);
+		$chunks = array_map(function ($item) {
+			return ucfirst($item);
+		}, $chunks);
+		$file = implode('/', $chunks);
+		$file = lcfirst($file) . '.php';
+		// echo $file . '<br>';
+		if (file_exists($file)) {
 			require $file;
 		}
-		/*echo 'Trying to load ', $file, ' via ', __METHOD__, "()\n";
-		require $file . '.php'*/;
 	}	
 }
