@@ -17,6 +17,7 @@ $router->get('login', 'LoginController@index');
 $router->post('login', 'LoginController@login');
 // Register
 $router->get('register', 'RegisterController@index');
+$router->post('register', 'RegisterController@register');
 // ADMIN
 
 // User
