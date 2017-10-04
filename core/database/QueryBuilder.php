@@ -10,7 +10,16 @@ class QueryBuilder {
 	public function __construct($pdo) {
 		$this->pdo = $pdo;
 	}
-
+	//USER
+	public function testUser($table, $username, $password)
+	{
+		$sql = "SELECT * FROM {$table} WHERE
+			USERNAME='{$username}' AND PASSWORD='{$password}'";
+		$statement = $this->pdo->prepare($sql);
+		// die($sql);
+		$statement->execute(); 
+		return $statement->fetchAll(PDO::FETCH_CLASS);
+	}
 	public function selectAll($table) {
 		$statement = $this->pdo->prepare("SELECT * FROM {$table}");
 		$statement->execute(); 

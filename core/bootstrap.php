@@ -18,3 +18,5 @@ function view($name, $data = []) {
 function redirect($path) {
 	header("Location: /{$path}");
 }
+	session_start();
+		// ob_start();

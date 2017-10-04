@@ -32,20 +32,22 @@
                     <div class="panel-title text-center">ĐĂNG NHẬP</div>
                 </div>
                 <div class="panel-body">
-                    <form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" method="POST">
+                    <form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" method="POST" action="/login">
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input type="text" class="form-control" value="" placeholder="Tên đăng nhập">
+                                <input type="text" class="form-control" value="Admin" placeholder="Tên đăng nhập" name="username">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <input type="password" class="form-control" value="" placeholder="Mật khẩu">
+                                <input type="password" class="form-control" name="password" value="admin" placeholder="Mật khẩu">
                             </div>
                         </div>
+                        <!-- <input type="submit" name="ok" value="ok"> -->
                         <div class="col-md-12">
                             <div class="form-group login-btn">
-                                <a href="" class=" btn bg-button">Đăng nhập</a>
+                                <!-- <a href="" class=" btn bg-button">Đăng nhập</a> -->
+                                <input class=" btn bg-button" type="submit" name="login" value="login">
                             </div>
                         </div>
                         <div class="clearfix"></div>
