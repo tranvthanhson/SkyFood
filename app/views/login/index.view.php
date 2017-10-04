@@ -20,7 +20,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="form-group login-btn">
-                        <input type="submit" class=" btn bg-button" value="Đăng nhập" />
+                        <input type="submit" class=" btn bg-button" name="login" value="Đăng nhập" />
                     </div>
                 </div>
                 <div class="clearfix"></div>

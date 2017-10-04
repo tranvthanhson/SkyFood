@@ -41,7 +41,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group res-btn">
-                        <input type="submit" class=" btn bg-button" value="Đăng kí" />
+                        <input type="submit" class=" btn bg-button" name="register" value="Đăng kí" />
                     </div>
                 </div>
                 <div class="clearfix"></div>

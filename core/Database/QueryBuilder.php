@@ -25,6 +25,27 @@ class QueryBuilder
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
 
+    //RESGITER
+    public function testUserAlready($table, $username)
+    {
+        $sql = "SELECT * FROM {$table} WHERE
+			USERNAME='{$username}'";
+        $statement = $this->pdo->prepare($sql);
+        // die($sql);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_CLASS);
+    }
+
+    //  public function testUser($table, $username, $password)
+    //  {
+    //      $sql = "SELECT * FROM {$table} WHERE
+    // USERNAME='{$username}' AND PASSWORD='{$password}'";
+    //      $statement = $this->pdo->prepare($sql);
+    //      // die($sql);
+    //      $statement->execute();
+    //      return $statement->fetchAll(PDO::FETCH_CLASS);
+    //  }
+
     public function selectAll($table)
     {
         $statement = $this->pdo->prepare("SELECT * FROM {$table}");
@@ -63,4 +84,20 @@ class QueryBuilder
     //         die('Whoops, something went wrong!');
     //     }
     // }
+    public function delete($table, $parameters)
+    {
+        //DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
+        $sql = sprintf('DELETE FROM %s WHERE (%s) = %s',
+            $table,
+            implode(', ', array_keys($parameters)),
+            ':' . implode(', :', array_keys($parameters))
+        );
+        echo $sql;
+        try {
+            $statement = $this->pdo->prepare($sql);
+            $statement->execute($parameters);
+        } catch (Exception $ex) {
+            die('Whoops, something went wrong!');
+        }
+    }
 }
