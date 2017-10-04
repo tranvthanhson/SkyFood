@@ -1,40 +1,28 @@
 <?php
 
+/**
+ *
+ */
+
 namespace App\Controllers;
 
 use Core\App;
 
 class UserController
 {
+
     public function index()
     {
-        $users = App::get('database')->selectAll('users');
-
-        return view('users', compact('users'));
+        return view('user/index');
     }
 
-    public function store()
+    public function add()
     {
-        //die($_POST['name']);
-        App::get('database')->insert('users', [
-            'name' => $_POST['name'],
-        ]);
-
-        return redirect('users');
-        // header('Location: /users');
+        return view('user/add');
     }
 
-    public function delete()
+    public function edit()
     {
-        App::get('database')->delete('users', [
-            'name' => $_POST['name'],
-        ]);
-
-        return redirect('users');
+        return view('user/edit');
     }
-
-    // public function test()
-    // {
-    //     return view('test');
-    // }
 }

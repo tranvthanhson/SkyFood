@@ -211,5 +211,5 @@
         </div>
     </div>
     <!-- Modal -->
-    <?php view_include('partials.modal1', ['title' => 'Xoa bai dang', 'content' => 'Ban co chac chan muon xoa khong?']);?>
+    <?php view_include('partials.modal1', ['id_model' => 'delPost', 'title' => 'Xoa bai dang', 'content' => 'Ban co chac chan muon xoa khong?']);?>
 <?php view_include('layouts.foot-master');?>

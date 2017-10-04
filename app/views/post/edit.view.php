@@ -1,17 +1,15 @@
-<?php view_include('layouts.head-master', ['title' => 'Post']);?>
-
-<body>
+<?php view_include('layouts.head-master', ['title' => 'CHỈNH SỬA ĐỊA ĐIỂM']);?>
     <div class="wrapper">
-        <?php view_include('layouts.side-bar');?>
+       <?php view_include('layouts.side-bar');?>
         <div class="main-panel">
-            <?php view_include('partials.header', ['title' => 'THÊM ĐỊA ĐIỂM'])?>
+           <?php view_include('partials.header', ['title' => 'CHỈNH SỬA ĐỊA ĐIỂM'])?>
             <div class="content edit-post">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-8">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Thêm bài đăng</h4>
+                                    <h4 class="title">Sửa bài đăng</h4>
                                 </div>
                                 <div class="content">
                                     <form data-toggle="validator" role="form">
@@ -148,7 +146,7 @@
                     </div>
                 </div>
             </div>
-            <?php view_include('partials.footer');?>
+              <?php view_include('partials.footer');?>
         </div>
     </div>
 <?php view_include('layouts.foot-master');?>
