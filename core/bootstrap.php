@@ -18,6 +18,10 @@ function view($name, $data = []) {
 function redirect($path) {
 	header("Location: /{$path}");
 }
+<<<<<<< HEAD
+	session_start();
+		// ob_start();
+=======
 
 
 function view_include($viewName, $data = [])
@@ -35,3 +39,4 @@ function view_include($viewName, $data = [])
 
 define('ROOT_DIR', dirname(__DIR__, 1), true);
 define('APP_DIR', ROOT_DIR . '/app');
+>>>>>>> dev

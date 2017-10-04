@@ -15,6 +15,7 @@ class UserController
 
 	public function store()
 	{
+		//die($_POST['name']);
 		App::get('database')->insert('users', [
 			'name' => $_POST['name']	
 		]);
