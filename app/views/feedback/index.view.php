@@ -3,7 +3,7 @@
 
 
 <!-- Require modal -->
-<?php view_include('feedback.partials.modal')?>
+<?php view_include('partials.modal')?>
 
 <div class="wrapper">
 
