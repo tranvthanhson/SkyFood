@@ -13,7 +13,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <span><img src="public/assets/img/user.png" alt=""></span>
+                        <span><img src="/public/assets/img/user.png" alt=""></span>
                         Hiếu Trần
                         <b class="caret"></b>
                     </a>
