@@ -5,9 +5,9 @@ $router->get('', 'PageController@home');
 $router->get('about', 'PageController@about');
 $router->get('contact', 'PageController@contact');
 
-$router->get('users', 'UserController@index');
-$router->post('users', 'UserController@store');
-$router->post('users/delete', 'UserController@delete');
+// $router->get('users', 'UserController@index');
+// $router->post('users', 'UserController@store');
+// $router->post('users/delete', 'UserController@delete');
 
 // Feedback
 $router->get('feedback', 'FeedbackController@index');
@@ -21,3 +21,10 @@ $router->get('logout', 'LoginController@logout');
 $router->get('register', 'RegisterController@index');
 $router->post('register', 'RegisterController@register');
 // ADMIN
+
+// User
+$router->get('users/index', 'AdminUserController@index');
+// $router->post('login', 'LoginController@login');
+
+//POST
+$router->get('post', 'PostController@index');
