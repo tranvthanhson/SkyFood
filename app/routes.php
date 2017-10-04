@@ -21,7 +21,3 @@ $router->get('logout', 'LoginController@logout');
 $router->get('register', 'RegisterController@index');
 $router->post('register', 'RegisterController@register');
 // ADMIN
-
-// User
-$router->get('login', 'LoginController@index');
-$router->post('login', 'LoginController@login');
