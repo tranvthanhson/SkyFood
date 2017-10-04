@@ -7,6 +7,7 @@ class PostController
 {
     public function index()
     {
-        return view('post/index');
+    	$post=App::get('database')->selectAll('SHOP');
+    	return view('post/index',compact('post'));
     }
 }

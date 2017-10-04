@@ -41,11 +41,14 @@
                                             <th>Control</th>
                                         </thead>
                                         <tbody>
+                                            <?php
+                                           foreach ($post as $value) {
+                                            ?>
                                             <tr>
                                                 <td>1</td>
-                                                <td class="name-place"><a href="">Dakota Rice</a></td>
+                                                <td class="name-place"><a href=""><?=$value->SHOP_NAME?></a></td>
                                                 <td class="img-post">
-                                                    <a href=""><img  src="assets/img/res1.jpg" /></a>
+                                                    <a href=""><img  src="assets/img/<?=$value->VIEW?>" /></a>
                                                 </td>
                                                 <td>Niger</td>
                                                 <td>50</td>
@@ -90,104 +93,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td class="name-place"><a href="">Dakota Rice</a></td>
-                                                <td class="img-post">
-                                                    <a href=""><img  src="assets/img/res3.jpg" /></a>
-                                                </td>
-                                                <td>Niger</td>
-                                                <td>50</td>
-                                                <td class="percent-input">
-                                                    <div class="form-group">
-                                                        <div class="item-col">
-                                                            <input type="text" class="form-control" id="discount" placeholder="Giảm %">
-                                                        </div>
-                                                        <div class="item-col">
-                                                            <button type="submit" class="btn btn-success">Nhập</button>
-                                                        </div>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <label class="checkbox">
-                                                        <input type="checkbox" value="" data-toggle="checkbox">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <div class="form-group">
-                                                        <div class="item-col">
-                                                            <a href="comments.html" class="btn btn-warning" title="Xem">
-                                                                <i class="pe-7s-look"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="control">
-                                                    <div class="form-group">
-                                                        <div class="item-col">
-                                                            <a href="edit-post.html" class="btn btn-success" title="Sửa">
-                                                            <i class="pe-7s-note"></i>
-                                                        </a>
-                                                        </div>
-                                                        <div class="item-col">
-                                                            <a data-toggle="modal" data-target="#delPost" href="" class="btn btn-danger" title="Xoá">
-                                                            <i class="pe-7s-trash"></i>
-                                                        </a>
-                                                        </div>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td class="name-place"><a href="">Dakota Rice</a></td>
-                                                <td class="img-post">
-                                                    <a href=""><img  src="assets/img/res2.jpg" /></a>
-                                                </td>
-                                                <td>Niger</td>
-                                                <td>50</td>
-                                                <td class="percent-input">
-                                                    <div class="form-group">
-                                                        <div class="item-col">
-                                                            <input type="text" class="form-control" id="discount" placeholder="Giảm %">
-                                                        </div>
-                                                        <div class="item-col">
-                                                            <button type="submit" class="btn btn-success">Nhập</button>
-                                                        </div>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <label class="checkbox">
-                                                        <input type="checkbox" value="" data-toggle="checkbox">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <div class="form-group">
-                                                        <div class="item-col">
-                                                            <a href="comments.html" class="btn btn-warning" title="Xem">
-                                                                <i class="pe-7s-look"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td class="control">
-                                                    <div class="form-group">
-                                                        <div class="item-col">
-                                                            <a href="edit-post.html" class="btn btn-success" title="Sửa">
-                                                            <i class="pe-7s-note"></i>
-                                                        </a>
-                                                        </div>
-                                                        <div class="item-col">
-                                                            <a data-toggle="modal" data-target="#delPost" href="" class="btn btn-danger" title="Xoá">
-                                                            <i class="pe-7s-trash"></i>
-                                                        </a>
-                                                        </div>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            <?php  } ?>
                                         </tbody>
                                     </table>
                                 </div>
