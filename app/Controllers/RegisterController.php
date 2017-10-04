@@ -22,16 +22,13 @@ class RegisterController
             $user['EMAIL'] = $_POST['email'];
             $user['FULL_NAME'] = $user['LAST_NAME'] . ' ' . $user['FIRST_NAME'];
             $user['ROLE'] = 3;
+            //die(var_dump($user));
             $th = App::get('database')->testUserAlready('ACCOUNT', $user['USERNAME']);
             if (null != $th[0]) {
                 echo 'Username already!';
             } else {
                 $check = App::get('database')->insert('ACCOUNT', $user);
-                if (isset($check)) {
-                    echo 'cc';
-                } else {
-                    echo 'kk';
-                }
+                return redirect('');
             }
         }
     }
