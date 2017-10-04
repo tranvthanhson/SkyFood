@@ -2,7 +2,7 @@
     <div class="wrapper">
        <?php view_include('layouts.side-bar');?>
         <div class="main-panel">
-         <?php view_include('partials.header')?>
+         <?php view_include('partials.header', ['title' => 'QUẢN LÝ ĐỊA ĐIỂM'])?>
             <div class="content posts">
                 <div class="container-fluid">
                     <div class="row">

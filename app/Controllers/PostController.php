@@ -9,4 +9,10 @@ class PostController
     {
         return view('post/index');
     }
+
+    public function add()
+    {
+        //echo 'cc';
+        return view('post/create');
+    }
 }

@@ -28,3 +28,4 @@ $router->get('users/index', 'AdminUserController@index');
 
 //POST
 $router->get('post', 'PostController@index');
+$router->get('post/add', 'PostController@add');
