@@ -14,13 +14,9 @@ class QueryBuilder
         $this->pdo = $pdo;
     }
 
-    //USER
-    public function testUser($table, $username, $password)
+    public function execute($sql)
     {
-        $sql = "SELECT * FROM {$table} WHERE
-			USERNAME='{$username}' AND PASSWORD='{$password}'";
         $statement = $this->pdo->prepare($sql);
-        // die($sql);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_CLASS);
     }
@@ -29,7 +25,7 @@ class QueryBuilder
     public function testUserAlready($table, $username)
     {
         $sql = "SELECT * FROM {$table} WHERE
-			USERNAME='{$username}'";
+        USERNAME='{$username}'";
         $statement = $this->pdo->prepare($sql);
         // die($sql);
         $statement->execute();
