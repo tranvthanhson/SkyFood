@@ -3,21 +3,21 @@ namespace App\Controllers;
 
 use Core\App;
 
-class PostController
+class CategoryController
 {
     public function index()
     {
-        return view('post/index');
+        return view('category/index');
     }
 
     public function add()
     {
-        //echo 'cc';
-        return view('post/create');
+        return view('category/add');
     }
 
     public function edit()
     {
-        return view('post/edit');
+        return view('category/edit');
     }
+
 }
