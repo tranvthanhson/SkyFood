@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use app\Models\Account;
+use App\Models\Account;
 
 class LoginController
 {
@@ -13,14 +13,6 @@ class LoginController
 
     public function login()
     {
-        Account::login();
-    }
-
-    public function logout()
-    {
-        if (isset($_SESSION['user'])) {
-            unset($_SESSION['user']);
-            return redirect('login');
-        }
+        (new Account)->login();
     }
 }
