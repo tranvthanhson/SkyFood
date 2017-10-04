@@ -3,7 +3,7 @@
 
 
 <!-- Require modal -->
-<?php view_include('partials.modal')?>
+<?php view_include('partials.modal', ['title1' => 'Delete Post', 'content' => 'Ban co chac chan muon xoa khong?', 'title2' => 'Feedback'])?>
 
 <div class="wrapper">
 

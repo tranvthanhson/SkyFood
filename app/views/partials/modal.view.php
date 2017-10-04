@@ -5,10 +5,10 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">XOÁ LIÊN HỆ</h4>
+                <h4 class="modal-title"><?=$title1?></h4>
             </div>
             <div class="modal-body">
-                <p>Bạn có muốn xoá liên hệ này?.</p>
+                <p><?=$content?></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Xoá</button>
@@ -23,7 +23,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">PHẢN HỒI</h4>
+                <h4 class="modal-title"><?=$title2?></h4>
             </div>
             <div class="modal-body">
                 <div class="form-group">
