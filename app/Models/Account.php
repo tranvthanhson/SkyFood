@@ -54,10 +54,8 @@ class Account extends Model
             if (null != $checkId->USERNAME) {
                 echo 'Username already!';
             } else {
-                echo 'Register Successful!';
-                // $check = App::get('database')->insert('ACCOUNT', $user);
-                // $check = $this->insert;
                 $this->insert($user);
+                echo 'Register Successful!';
                 // return redirect('');
             }
         }

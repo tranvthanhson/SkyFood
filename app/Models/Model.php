@@ -39,13 +39,10 @@ class Model
         return $this->rawQuery($sql, $param);
     }
 
-    public function delete($param)
+    public function deleteById($id)
     {
-        $sql = sprintf('DELETE FROM %s WHERE (%s) = %s',
-            $this->table,
-            implode(', ', array_keys($param)),
-            ':' . implode(', :', array_keys($param))
-        );
+        $sql = "DELETE FROM {$this->table} WHERE {$this->primaryKey} = '{$id}'";
+        echo $sql;
 
         return $this->rawQuery($sql, $param);
     }
@@ -53,7 +50,9 @@ class Model
     public function findById($id, $fields = ['*'])
     {
         $sql = "SELECT {$fields} FROM {$this->table} WHERE {$this->primaryKey} = '{$id}'";
+
         $models = $this->rawQuery($sql);
+
         if (count($models) > 0) {
             return $models[0];
         }
