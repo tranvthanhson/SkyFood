@@ -68,6 +68,15 @@
                                                 </div>
                                             </div>
                                         </div>
+                                         <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="confirmPass" class="control-label">Email (<span>*</span>)</label>
+                                                    <input type="password" value="thuong" name="email" class="form-control" id="confirmPass">
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">

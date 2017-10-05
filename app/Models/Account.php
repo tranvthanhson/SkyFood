@@ -76,11 +76,24 @@ class Account extends Model
             $user['PASSWORD'] = md5($_POST['password']);
             $user['FIRST_NAME'] = $_POST['firstName'];
             $user['LAST_NAME'] = $_POST['lastName'];
+            $user['ADDRESS'] = $_POST['address'];
+            // $user['IMAGE'] = $_POST['img'];
             $user['EMAIL'] = $_POST['email'];
             $user['FULL_NAME'] = $user['lastName'] . ' ' . $user['firstName'];
             $user['ROLE'] = $_POST['role'];
-
-            echo $username = $_POST['username'];
+            $user['PHONE'] = $_POST['phone'];
+            $checkId = $this->findById($user['USERNAME'], 'USERNAME');
+            if (null != $checkId->USERNAME) {
+                echo 'Username already!';
+            } else {
+                //echo 'Register Successful!';
+                // $check = App::get('database')->insert('ACCOUNT', $user);
+                // $check = $this->insert;
+                //$this->insert($user);
+                // return redirect('');
+            }
+            //echo $username = $_POST['username'];
+            //var_dump($user);
         }
 
         // return $this->insert();
