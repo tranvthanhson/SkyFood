@@ -42,9 +42,9 @@
                                                     <select class="form-control" id="type">
                                                         <option>[Chọn]</option>
                                                         <?php
-                                                            foreach ($post as $value) {
-                                                           ?>
-                                                        <option value="<?= $value->TYPE_ID?>"><?php echo $value->TYPE_NAME?></option>
+foreach ($post as $value) {
+    ?>
+                                                        <option value="<?=$value->TYPE_ID?>"><?php echo $value->TYPE_NAME ?></option>
                                                         <?php }?>
                                                        </select>
                                                 </div>
@@ -147,7 +147,7 @@
                                     <span id="place-address"></span>
                                 </div>
                             </div>
-                        </div> 
+                        </div>
                     </div>
                 </div>
             </div>
