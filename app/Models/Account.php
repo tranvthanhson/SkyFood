@@ -21,11 +21,10 @@ class Account extends Model
     public function login()
     {
         if (isset($_POST['login'])) {
-            $table = 'ACCOUNT';
             $username = $_POST['username'];
             $password = md5($_POST['password']);
 
-            $th = $this->checkUser($table, $username, $password);
+            $th = $this->checkUser($this->table, $username, $password);
 
             if (($th[0]->USERNAME == $username) && ($th[0]->PASSWORD == $password)) {
                 if ((1 == $th[0]->ROLE) || (2 == $th[0]->ROLE)) {
@@ -37,5 +36,13 @@ class Account extends Model
                 // return redirect('');
             }
         }
+    }
+
+    public function selectAll()
+    {
+        //echo 'cc';
+        $aaa = $this->all();
+        //print_r($aaa);
+        return $this->all();
     }
 }

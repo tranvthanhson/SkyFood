@@ -3,7 +3,13 @@
 
 
 <!-- Require modal -->
-<?php view_include('partials.modal', ['title1' => 'Delete Post', 'content' => 'Ban co chac chan muon xoa khong?', 'title2' => 'Feedback'])?>
+
+ <?php view_include('partials.modal', ['id_model' => 'delContact', 'title' => 'XÓA PHẢN HỒI', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa']);?>
+ <?php view_include('partials.modal', ['id_model' => 'replyContact', 'title' => 'GỬI PHẢN HỒI', 'content' => '<div class="form-group">
+                    <textarea class="form-control" rows="5" id=""></textarea>
+                </div>', 'bt' => 'GỬI']);?>
+
+
 
 <div class="wrapper">
 

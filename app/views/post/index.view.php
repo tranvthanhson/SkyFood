@@ -211,5 +211,6 @@
         </div>
     </div>
     <!-- Modal -->
-    <?php view_include('partials.modal1', ['id_model' => 'delPost', 'title' => 'Xoa bai dang', 'content' => 'Ban co chac chan muon xoa khong?']);?>
+
+     <?php view_include('partials.modal', ['id_model' => 'delPost', 'title' => 'XÓA BÀI ĐĂNG ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa']);?>
 <?php view_include('layouts.foot-master');?>
