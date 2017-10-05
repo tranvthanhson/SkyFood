@@ -62,20 +62,22 @@
     background: #b08fe2 !important;
     border-color: #b08fe2 !important; }
 
-.author {
-  margin-top: 0 !important; }
-  .author .edit-avatar .wrp {
-    position: relative;
-    overflow: hidden;
-    padding: 3px 10px; }
-    .author .edit-avatar .wrp i {
-      padding-right: 2%; }
-    .author .edit-avatar .wrp input {
-      position: absolute;
-      font-size: 50px;
-      opacity: 0;
-      right: 0;
-      top: 0; }
+.wrp-card {
+  padding: 15px !important; }
+  .wrp-card .author {
+    margin-top: 0 !important; }
+    .wrp-card .author .edit-avatar .file {
+      position: relative;
+      overflow: hidden;
+      padding: 3px 10px; }
+      .wrp-card .author .edit-avatar .file i {
+        padding-right: 2%; }
+      .wrp-card .author .edit-avatar .file input {
+        position: absolute;
+        font-size: 50px;
+        opacity: 0;
+        right: 0;
+        top: 0; }
 
 .page-form {
   position: relative;
