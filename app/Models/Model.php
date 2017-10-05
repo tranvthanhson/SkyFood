@@ -39,10 +39,20 @@ class Model
         return $this->rawQuery($sql, $param);
     }
 
+    public function deleteById($id)
+    {
+        $sql = "DELETE FROM {$this->table} WHERE {$this->primaryKey} = '{$id}'";
+        echo $sql;
+
+        return $this->rawQuery($sql, $param);
+    }
+
     public function findById($id, $fields = ['*'])
     {
         $sql = "SELECT {$fields} FROM {$this->table} WHERE {$this->primaryKey} = '{$id}'";
+
         $models = $this->rawQuery($sql);
+
         if (count($models) > 0) {
             return $models[0];
         }
