@@ -55,6 +55,7 @@ class Account extends Model
                 echo 'Username already!';
             } else {
                 $this->insert($user);
+
                 echo 'Register Successful!';
                 // return redirect('');
             }
@@ -76,14 +77,14 @@ class Account extends Model
             $user['LAST_NAME'] = $_POST['lastName'];
             $user['ADDRESS'] = $_POST['address'];
             $user['EMAIL'] = $_POST['email'];
-            $user['FULL_NAME'] = $user['lastName'] . ' ' . $user['firstName'];
+            $user['FULL_NAME'] = $user['LAST_NAME'] . ' ' . $user['FIRST_NAME'];
             $user['ROLE'] = $_POST['role'];
             $user['PHONE'] = $_POST['phone'];
             $checkId = $this->findById($user['USERNAME'], 'USERNAME');
+
             if (null != $checkId->USERNAME) {
                 echo 'Username already!';
             } else {
-
                 $this->insert($user);
                 echo 'Register Successful!';
             }

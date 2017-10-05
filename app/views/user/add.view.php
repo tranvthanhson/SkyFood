@@ -24,10 +24,10 @@
                                                 <div class="form-group">
                                                     <label for="role">Role (<span>*</span>)</label>
                                                     <select class="form-control" name="role" id="role">
-                                                        <option>[Chọn]</option>
-                                                        <option>admin</option>
-                                                        <option>Staff</option>
-                                                        <option>User</option>
+
+                                                        <option value="1">Admin</option>
+                                                        <option value="2">Staff</option>
+                                                        <option value="3">User</option>
                                                     </select>
                                                 </div>
                                             </div>

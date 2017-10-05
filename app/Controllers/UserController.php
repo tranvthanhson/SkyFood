@@ -28,18 +28,13 @@ class UserController
     public function store()
     {
         (new Account)->addUser();
-        // $username = $_POST['username'];
-        // $role = $_POST['role'];
-        // $password = $_POST['password'];
-        // $confirmPass = $_POST['confirmPass'];
-        // $firstName = $_POST['first-name'];
-        // $lastName = $_POST['lastName'];
-        // $address = $_POST['username'];
-        // $username = $_POST['username'];
+
     }
 
     public function edit()
     {
         return view('user/edit');
     }
+
+    public function del() {}
 }
