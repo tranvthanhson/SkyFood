@@ -5,31 +5,31 @@
         </div>
         <ul class="nav">
             <li>
-                <a href="post.html">
+                <a href="/post">
                     <i class="pe-7s-note2"></i>
                     <p>QL bài đăng</p>
                 </a>
             </li>
             <li>
-                <a href="user.html">
+                <a href="/user">
                     <i class="pe-7s-user"></i>
                     <p>QL user</p>
                 </a>
             </li>
             <li >
-                <a href="categories.html">
+                <a href="/cat">
                     <i class="pe-7s-news-paper"></i>
                     <p>QL danh mục</p>
                 </a>
             </li>
             <li class="active">
-                <a href="feedbacks.html">
+                <a href="/feedback">
                     <i class="pe-7s-back-2"></i>
                     <p>QL phản hồi</p>
                 </a>
             </li>
             <li>
-                <a href="statistics.html">
+                <a href="/statistics">
                     <i class="pe-7s-graph1"></i>
                     <p>QL thống kê</p>
                 </a>

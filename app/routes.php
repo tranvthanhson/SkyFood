@@ -38,3 +38,6 @@ $router->get('post/edit', 'PostController@edit');
 $router->get('cat', 'CategoryController@index');
 $router->get('cat/add', 'CategoryController@add');
 $router->get('cat/edit', 'CategoryController@edit');
+
+//STATISTICS
+$router->get('statistics', 'StatisticsController@index');
