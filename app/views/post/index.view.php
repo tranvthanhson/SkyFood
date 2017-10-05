@@ -2,7 +2,7 @@
     <div class="wrapper">
        <?php view_include('layouts.side-bar');?>
         <div class="main-panel">
-         <?php view_include('partials.header')?>
+         <?php view_include('partials.header', ['title' => 'QUẢN LÝ ĐỊA ĐIỂM'])?>
             <div class="content posts">
                 <div class="container-fluid">
                     <div class="row">
@@ -211,5 +211,6 @@
         </div>
     </div>
     <!-- Modal -->
-    <?php view_include('partials.modal1', ['title' => 'Xoa bai dang', 'content' => 'Ban co chac chan muon xoa khong?']);?>
+
+     <?php view_include('partials.modal', ['id_model' => 'delPost', 'title' => 'XÓA BÀI ĐĂNG ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa']);?>
 <?php view_include('layouts.foot-master');?>

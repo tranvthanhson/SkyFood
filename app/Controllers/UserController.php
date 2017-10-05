@@ -1,40 +1,44 @@
 <?php
 
+/**
+ *
+ */
+
 namespace App\Controllers;
 
+use app\Models\Account;
 use Core\App;
 
 class UserController
 {
+
     public function index()
     {
-        $users = App::get('database')->selectAll('users');
+        $users = (new Account)->selectAll();
 
-        return view('users', compact('users'));
+        return view('user/index', ['users' => $users]);
+    }
+
+    public function add()
+    {
+
+        return view('user/add');
     }
 
     public function store()
     {
-        //die($_POST['name']);
-        App::get('database')->insert('users', [
-            'name' => $_POST['name'],
-        ]);
-
-        return redirect('users');
-        // header('Location: /users');
+        $username = $_POST['username'];
+        $role = $_POST['role'];
+        $password = $_POST['password'];
+        $confirmPass = $_POST['confirmPass'];
+        $firstName = $_POST['first-name'];
+        $lastName = $_POST['lastName'];
+        $address = $_POST['username'];
+        $username = $_POST['username'];
     }
 
-    public function delete()
+    public function edit()
     {
-        App::get('database')->delete('users', [
-            'name' => $_POST['name'],
-        ]);
-
-        return redirect('users');
+        return view('user/edit');
     }
-
-    // public function test()
-    // {
-    //     return view('test');
-    // }
 }
