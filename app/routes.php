@@ -32,7 +32,9 @@ $router->get('user/edit', 'UserController@edit');
 //POST
 $router->get('post', 'PostController@index');
 $router->get('post/add', 'PostController@add');
+$router->post('post/add', 'PostController@addPost');
 $router->get('post/edit', 'PostController@edit');
+$router->get('post/del', 'PostController@del');
 
 //CATEGORY
 $router->get('cat', 'CategoryController@index');

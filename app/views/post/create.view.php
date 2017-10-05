@@ -14,7 +14,7 @@
                                     <h4 class="title">Thêm bài đăng</h4>
                                 </div>
                                 <div class="content">
-                                    <form data-toggle="validator" role="form">
+                                    <form data-toggle="validator" role="form" action="post/add" method="POST">
                                         <div class="row">
                                             <div class="col-md-5">
                                                 <div class="form-group">
@@ -105,7 +105,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <button type="submit" class="btn bg-button btn-fill pull-right">Hoàn thành</button>
+                                                <input type="submit" class="btn bg-button btn-fill pull-right" name="them" value="them" />
                                             </div>
                                         </div>
                                     </form>
