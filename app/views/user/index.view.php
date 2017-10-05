@@ -1,8 +1,8 @@
-<?php view_include('layouts.head-master', ['title' => 'Post']);?>
+<?php view_include('layouts.head-master', ['title' => 'NGƯỜI DÙNG']);?>
     <div class="wrapper">
-       <?php view_include('layouts.side-bar');?>
+        <?php view_include('layouts.side-bar');?>
         <div class="main-panel">
-         <?php view_include('partials.header', ['title' => 'QUẢN LÝ ĐỊA ĐIỂM'])?>
+            <?php view_include('partials.header', ['title' => 'NGƯỜI DÙNG'])?>
             <div class="content posts">
                 <div class="container-fluid">
                     <div class="row">
@@ -12,7 +12,7 @@
                                     <div class="row">
                                         <div class="col-md-2 col-sm-2 col-xs-4">
                                             <div class="add-btn">
-                                                <a href="add-post.html" class="btn bg-button"><i class="fa fa-plus"></i> Thêm</a>
+                                                <a href="add-user.html" class="btn bg-button"><i class="fa fa-plus"></i> Thêm</a>
                                             </div>
                                         </div>
                                         <div class="col-lg-offset-6 col-md-4 col-md-offset-6 col-sm-5 col-sm-offset-5 col-xs-8">
@@ -31,61 +31,36 @@
                                     <table id="view-post" class="table table-hover table-striped">
                                         <thead>
                                             <th>#</th>
-                                            <th>Tên địa điểm</th>
-                                            <th>Ảnh</th>
-                                            <th>Danh mục</th>
-                                            <th>%</th>
-                                            <th>Khuyến mãi</th>
-                                            <th>Action</th>
-                                            <th>Bình luận</th>
+                                            <th>User name</th>
+                                            <th>Avatar</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Address</th>
+                                            <th>Phone</th>
+                                            <th>Role</th>
                                             <th>Control</th>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                           foreach ($post as $value) {
-                                            ?>
                                             <tr>
                                                 <td>1</td>
-                                                <td class="name-place"><a href=""><?=$value->SHOP_NAME?></a></td>
+                                                <td class="username"><a href="">hieutran</a></td>
                                                 <td class="img-post">
-                                                    <a href=""><img  src="assets/img/<?=$value->VIEW?>" /></a>
+                                                    <a href=""><img  src="assets/img/user.png" /></a>
                                                 </td>
-                                                <td>Niger</td>
-                                                <td>50</td>
-                                                <td class="percent-input">
-                                                    <div class="form-group">
-                                                        <div class="item-col">
-                                                            <input type="text" class="form-control" id="discount" placeholder="Giảm %">
-                                                        </div>
-                                                        <div class="item-col">
-                                                            <button type="submit" class="btn btn-success">Nhập</button>
-                                                        </div>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <label class="checkbox">
-                                                        <input type="checkbox" value="" data-toggle="checkbox">
-                                                    </label>
-                                                </td>
-                                                <td>
-                                                    <div class="form-group">
-                                                        <div class="item-col">
-                                                            <a href="comments.html" class="btn btn-warning" title="Xem">
-                                                                <i class="pe-7s-look"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                </td>
+                                                <td>Trần Thị Như Hiếu</td>
+                                                <td>hieutran@gmail.com</td>
+                                                <td>242 Nguyễn Hoàng, Thanh Khê, Đà Nẵng</td>
+                                                <td>0905594382</td>
+                                                <td>admin</td>
                                                 <td class="control">
                                                     <div class="form-group">
                                                         <div class="item-col">
-                                                            <a href="edit-post.html" class="btn btn-success" title="Sửa">
+                                                            <a href="edit-user.html" class="btn btn-success" title="Sửa">
                                                             <i class="pe-7s-note"></i>
                                                         </a>
                                                         </div>
                                                         <div class="item-col">
-                                                            <a data-toggle="modal" data-target="#delPost" href="" class="btn btn-danger" title="Xoá">
+                                                            <a data-toggle="modal" data-target="#delUser" href="" class="btn btn-danger" title="Xoá">
                                                             <i class="pe-7s-trash"></i>
                                                         </a>
                                                         </div>
@@ -93,7 +68,60 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <?php  } ?>
+                                            <tr>
+                                                <td>1</td>
+                                                <td class="username"><a href="">hieutran</a></td>
+                                                <td class="img-post">
+                                                    <a href=""><img  src="assets/img/user.png" /></a>
+                                                </td>
+                                                <td>Trần Thị Như Hiếu</td>
+                                                <td>hieutran@gmail.com</td>
+                                                <td>242 Nguyễn Hoàng, Thanh Khê, Đà Nẵng</td>
+                                                <td>0905594382</td>
+                                                <td>admin</td>
+                                                <td class="control">
+                                                    <div class="form-group">
+                                                        <div class="item-col">
+                                                            <a href="edit-user.html" class="btn btn-success" title="Sửa">
+                                                            <i class="pe-7s-note"></i>
+                                                        </a>
+                                                        </div>
+                                                        <div class="item-col">
+                                                            <a data-toggle="modal" data-target="#delUser" href="" class="btn btn-danger" title="Xoá">
+                                                            <i class="pe-7s-trash"></i>
+                                                        </a>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>1</td>
+                                                <td class="username"><a href="">hieutran</a></td>
+                                                <td class="img-post">
+                                                    <a href=""><img  src="assets/img/user.png" /></a>
+                                                </td>
+                                                <td>Lê Thị Hoài Thương</td>
+                                                <td>hieutran@gmail.com</td>
+                                                <td>242 Nguyễn Hoàng, Thanh Khê, Đà Nẵng</td>
+                                                <td>0905594382</td>
+                                                <td>admin</td>
+                                                <td class="control">
+                                                    <div class="form-group">
+                                                        <div class="item-col">
+                                                            <a href="edit-user.html" class="btn btn-success" title="Sửa">
+                                                            <i class="pe-7s-note"></i>
+                                                        </a>
+                                                        </div>
+                                                        <div class="item-col">
+                                                            <a data-toggle="modal" data-target="#delUser" href="" class="btn btn-danger" title="Xoá">
+                                                            <i class="pe-7s-trash"></i>
+                                                        </a>
+                                                        </div>
+                                                        <div class="clearfix"></div>
+                                                    </div>
+                                                </td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -113,9 +141,9 @@
                     </div>
                 </div>
             </div>
-            <?php view_include('partials.footer');?>
+           <?php view_include('partials.footer');?>
         </div>
     </div>
     <!-- Modal -->
-    <?php view_include('partials.modal1', ['id_model' => 'delPost', 'title' => 'Xoa bai dang', 'content' => 'Ban co chac chan muon xoa khong?']);?>
+   <?php view_include('partials.modal1', ['id_model' => 'delUser', 'title' => 'XÓA NGƯỜI DÙNG', 'content' => 'Ban co chac chan muon xoa khong?']);?>
 <?php view_include('layouts.foot-master');?>

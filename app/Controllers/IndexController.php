@@ -1,18 +1,13 @@
 <?php
-
-/**
- *
- */
-
 namespace App\Controllers;
 
 use Core\App;
 
-class AdminUserController
+class IndexController
 {
-
     public function index()
     {
-        return view('templates/user');
+        return view('index/index');
     }
+
 }

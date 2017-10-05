@@ -1,28 +1,23 @@
 <?php
-
-/**
- *
- */
-
 namespace App\Controllers;
 
 use Core\App;
 
-class UserController
+class CategoryController
 {
-
     public function index()
     {
-        return view('user/index');
+        return view('category/index');
     }
 
     public function add()
     {
-        return view('user/add');
+        return view('category/add');
     }
 
     public function edit()
     {
-        return view('user/edit');
+        return view('category/edit');
     }
+
 }

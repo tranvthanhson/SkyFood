@@ -1,4 +1,4 @@
-<div class="modal fade" id="delPost" role="dialog">
+<div class="modal fade" id="<?=$id_model?>" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
