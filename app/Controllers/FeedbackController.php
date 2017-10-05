@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Models\Project;
-use Core\App;
 
 class FeedbackController
 {
@@ -12,8 +11,4 @@ class FeedbackController
         $greeting = Project::greeting();
         return view('feedback/index', compact('greeting'));
     }
-
-    public function store() {}
-
-    public function delete() {}
 }
