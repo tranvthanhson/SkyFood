@@ -19,19 +19,19 @@
                                             <div class="col-md-5">
                                                 <div class="form-group">
                                                     <label for="place" class="control-label">Place's name (<span>*</span>)</label>
-                                                    <input type="text" class="form-control" id="place" placeholder="Tên địa điểm" required>
+                                                    <input type="text" class="form-control" id="place" placeholder="Tên địa điểm" name="SHOP_NAME" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="phone" class="control-label">Phone (<span>*</span>)</label>
-                                                    <input type="text" class="form-control" id="phone" placeholder="Số điện thoại" required>
+                                                    <input type="text" class="form-control" id="phone" placeholder="Số điện thoại" name="PHONE" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label for="discount" class="control-label">Discount (<span>*</span>)</label>
-                                                    <input type="text" class="form-control" id="discount" placeholder="Khuyến mãi" required>
+                                                    <input type="text" class="form-control" id="discount" placeholder="Khuyến mãi" name="DISCOUNT" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -41,9 +41,12 @@
                                                     <label for="type">Type (<span>*</span>)</label>
                                                     <select class="form-control" id="type">
                                                         <option>[Chọn]</option>
-                                                        <option>Ăn vặt</option>
-                                                        <option>Coffee</option>
-                                                    </select>
+                                                        <?php
+                                                            foreach ($post as $value) {
+                                                           ?>
+                                                        <option value="<?= $value->TYPE_ID?>"><?php echo $value->TYPE_NAME?></option>
+                                                        <?php }?>
+                                                       </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -57,7 +60,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label>Địa chỉ (<span>*</span>)</label>
-                                                    <input id="pac-input" type="text" class="form-control" placeholder="Address" value="" required>
+                                                    <input id="pac-input" type="text" class="form-control" placeholder="Address" name='ADDRESS' required>
                                                 </div>
                                             </div>
                                         </div>
@@ -65,13 +68,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="lat" class="control-label">Latitude</label>
-                                                    <input type="text" class="form-control" id="lat" disabled>
+                                                    <input type="text" class="form-control" id="lat" name="LAT" disabled>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="lung" class="control-label">Lungtide</label>
-                                                    <input type="text" class="form-control" id="lung" disabled>
+                                                    <input type="text" class="form-control" id="lung" name="LNG" disabled>
                                                 </div>
                                             </div>
                                         </div>
@@ -79,27 +82,27 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="openTime" class="control-label">Open time (<span>*</span>)</label>
-                                                    <input type="text" class="form-control" placeholder="Giờ mở cửa" value="" id="openTime" required>
+                                                    <input type="text" class="form-control" placeholder="Giờ mở cửa" value="" id="openTime" name="TIME_OPEN" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="closeTime" class="control-label">Close time (<span>*</span>)</label>
-                                                    <input type="text" class="form-control" placeholder="Giờ đóng cửa" value="" id="closeTime" required>
+                                                    <input type="text" class="form-control" placeholder="Giờ đóng cửa" value="" id="closeTime" name="TIME_CLOSE" required>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <!-- <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="price">Price (<span>*</span>)</label>
                                                     <input type="text" class="form-control" placeholder="Mức giá ( VD: 2000đ - 50000đ )" value="" id="price" required>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
                                                  <div class="form-group">
                                                     <label>Detail</label>
-                                                    <textarea rows="5" class="form-control" placeholder="Chi tiết địa điểm" value=""></textarea required>
+                                                    <textarea rows="5" class="form-control" placeholder="Chi tiết địa điểm" value="" name="DETAIL"></textarea required>
                                                 </div>
                                             </div>
                                         </div>
@@ -113,7 +116,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                         <div class="col-md-4">
                             <div class="card card-user">
                                 <div class="content">
                                     <div class="author">
@@ -144,7 +147,7 @@
                                     <span id="place-address"></span>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                     </div>
                 </div>
             </div>

@@ -12,6 +12,7 @@ class QueryBuilder
     public function __construct($pdo)
     {
         $this->pdo = $pdo;
+        $this->pdo->exec("set names utf8");
     }
 
     public function execute($sql)
