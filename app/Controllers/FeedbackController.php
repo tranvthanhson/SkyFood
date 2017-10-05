@@ -2,10 +2,13 @@
 
 namespace App\Controllers;
 
+use App\Models\Feedback;
+
 class FeedbackController
 {
     public function index()
     {
-        return view('category/index');
+        $feedbacks = (new Feedback)->selectAll();
+        return view('feedback/index');
     }
 }

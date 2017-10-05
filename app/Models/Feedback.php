@@ -9,4 +9,9 @@ class Feedback extends Model
     protected $table = 'FEEDBACK';
     protected $primaryKey = 'FEEDBACK_ID';
 
+    public function selectAll()
+    {
+        return $this->all();
+    }
+
 }
