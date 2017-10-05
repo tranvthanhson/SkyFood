@@ -71,4 +71,11 @@ class QueryBuilder
             die('Whoops, something went wrong!');
         }
     }
+    //connect table SHOP-TYPE
+    public function query($sql){
+        
+        $statement = $this->pdo->prepare($sql);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_CLASS);
+    }
 }

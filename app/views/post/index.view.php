@@ -48,14 +48,14 @@
                                                 <td>1</td>
                                                 <td class="name-place"><a href=""><?=$value->SHOP_NAME?></a></td>
                                                 <td class="img-post">
-                                                    <a href=""><img  src="assets/img/<?=$value->VIEW?>" /></a>
+                                                    <a href=""><img  src="assets/img/<?=$value->IMAGE?>" /></a>
                                                 </td>
-                                                <td>Niger</td>
+                                                <td><?= $value->tn?></td>
                                                 <td>50</td>
                                                 <td class="percent-input">
                                                     <div class="form-group">
                                                         <div class="item-col">
-                                                            <input type="text" class="form-control" id="discount" placeholder="Giảm %">
+                                                            <input type="text" class="form-control" id="discount" value="<?= $value->DISCOUNT?>">
                                                         </div>
                                                         <div class="item-col">
                                                             <button type="submit" class="btn btn-success">Nhập</button>
@@ -65,7 +65,15 @@
                                                 </td>
                                                 <td>
                                                     <label class="checkbox">
-                                                        <input type="checkbox" value="" data-toggle="checkbox">
+                                                        <?php
+                                                        if($value->STATUS==1){
+                                                        ?>
+                                                        <input type="checkbox" value="" data-toggle="checkbox" checked="">
+                                                        <?php
+                                                        }else{
+                                                        ?>
+                                                     <input type="checkbox" value="" data-toggle="checkbox" >
+                                                     <?php } ?>
                                                     </label>
                                                 </td>
                                                 <td>

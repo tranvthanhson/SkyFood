@@ -7,7 +7,9 @@ class PostController
 {
     public function index()
     {
-    	$post=App::get('database')->selectAll('SHOP');
+    	$sql='SELECT *,TYPE.TYPE_NAME as tn FROM TYPE_SHOP INNER JOIN SHOP ON SHOP.SHOP_ID =TYPE_SHOP.SHOP_ID
+    	INNER JOIN TYPE ON TYPE.TYPE_ID =TYPE_SHOP.TYPE_ID';
+    	$post=App::get('database')->query($sql);
     	return view('post/index',compact('post'));
     }
 
