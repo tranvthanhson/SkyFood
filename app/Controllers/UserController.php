@@ -36,5 +36,8 @@ class UserController
         return view('user/edit');
     }
 
-    public function del() {}
+    public function del()
+    {
+        echo 'cc';
+    }
 }
