@@ -12,7 +12,6 @@ class Account extends Model
 
     public function checkUser($table, $username, $password)
     {
-
         $sql = "SELECT * FROM {$table} WHERE
         USERNAME='{$username}' AND PASSWORD='{$password}'";
         return $this->rawQuery($sql);
@@ -56,8 +55,9 @@ class Account extends Model
                 echo 'Username already!';
             } else {
                 echo 'Register Successful!';
-                $check = App::get('database')->insert('ACCOUNT', $user);
-                $check = $this->insert;
+                // $check = App::get('database')->insert('ACCOUNT', $user);
+                // $check = $this->insert;
+                $this->insert($user);
                 // return redirect('');
             }
         }

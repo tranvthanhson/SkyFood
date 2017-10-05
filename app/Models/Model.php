@@ -28,13 +28,14 @@ class Model
         return $this->rawQuery($sql);
     }
 
-    public function insert($parameters)
+    public function insert($param)
     {
         $sql = sprintf('INSERT INTO %s (%s) VALUES (%s)',
-            $table,
-            implode(', ', array_keys($parameters)),
-            ':' . implode(', :', array_keys($parameters))
+            $this->table,
+            implode(', ', array_keys($param)),
+            ':' . implode(', :', array_keys($param))
         );
+
         return $this->rawQuery($sql, $param);
     }
 
