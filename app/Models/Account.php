@@ -28,7 +28,7 @@ class Account extends Model
             if (($th[0]->USERNAME == $username) && ($th[0]->PASSWORD == $password)) {
                 if ((1 == $th[0]->ROLE) || (2 == $th[0]->ROLE)) {
                     $_SESSION['user'] = $th[0];
-                    die(var_dump($_SESSION['user']));
+                    var_dump($_SESSION['user']);
                     // return redirect('users');
                 }
             } else {

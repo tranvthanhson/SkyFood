@@ -12,7 +12,7 @@ class QueryBuilder
     public function __construct($pdo)
     {
         $this->pdo = $pdo;
-        $this->pdo->exec("set names utf8");
+        $this->pdo->exec('set names utf8');
     }
 
     public function execute($sql, $param = '')
@@ -29,9 +29,11 @@ class QueryBuilder
             die('Whoops, something went wrong!');
         }
     }
+
     //connect table SHOP-TYPE
-    public function query($sql){
-        
+    public function query($sql)
+    {
+
         $statement = $this->pdo->prepare($sql);
         $statement->execute();
         return $statement->fetchAll(PDO::FETCH_CLASS);
