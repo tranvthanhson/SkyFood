@@ -17,7 +17,7 @@
                                             <div class="col-md-8">
                                                 <div class="form-group">
                                                     <label for="userName" class="control-label">Username (<span>*</span>)</label>
-                                                    <input type="text" class="form-control" name="username" id="userName" placeholder="Nhập tài khoản đăng nhập" required>
+                                                    <input type="text" value="thuong" class="form-control" name="username" id="userName" placeholder="Nhập tài khoản đăng nhập" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -36,7 +36,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="pass" class="control-label">Password (<span>*</span>)</label>
-                                                    <input type="password" data-minlength="6" class="form-control" id="pass" name="password" placeholder="Password" required>
+                                                    <input type="password" value="thuong" data-minlength="6" class="form-control" id="pass" name="password" placeholder="Password" required>
                                                     <div class="help-block">(Mật khẩu ít nhất 6 kí tự)</div>
                                                 </div>
                                             </div>
@@ -45,7 +45,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Confirm Password (<span>*</span>)</label>
-                                                    <input type="password" name="confirmPass" class="form-control" id="confirmPass" data-match="#pass" data-match-error="Mật khẩu không trùng khớp" placeholder="Confirm" required>
+                                                    <input type="password" value="thuong" name="confirmPass" class="form-control" id="confirmPass" data-match="#pass" data-match-error="Mật khẩu không trùng khớp" placeholder="Confirm" required>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
@@ -54,7 +54,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Address (<span>*</span>)</label>
-                                                    <input type="text" name="address" class="form-control" id="confirmPass" >
+                                                    <input type="text" value="thuong" name="address" class="form-control" id="confirmPass" >
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
@@ -63,7 +63,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Phone (<span>*</span>)</label>
-                                                    <input type="password" name="phone" class="form-control" id="confirmPass">
+                                                    <input type="password" value="thuong" name="phone" class="form-control" id="confirmPass">
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
@@ -72,20 +72,20 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="firstName" class="control-label">First name (<span>*</span>)</label>
-                                                    <input type="text" class="form-control" name="firstName" placeholder="Họ" value="" id="firstName" required>
+                                                    <input type="text" value="thuong" class="form-control" name="firstName" placeholder="Họ" value="" id="firstName" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="lastName">Last name (<span>*</span>)</label>
-                                                    <input type="text" name="lastName" class="form-control" placeholder="Tên" value="" id="lastName" required>
+                                                    <input type="text" value="thuong" name="lastName" class="form-control" placeholder="Tên" value="" id="lastName" required>
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <input type="submit" class="btn bg-button btn-fill pull-right" value="Hoàn thành"/>
+                                                <input type="submit" class="btn bg-button btn-fill pull-right" name="add" value="Hoàn thành"/>
                                             </div>
                                         </div>
                                     </form>

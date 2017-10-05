@@ -67,4 +67,22 @@ class Account extends Model
     {
         return $this->all();
     }
+
+    public function addUser()
+    {
+        if (isset($_POST['add'])) {
+            $user = [];
+            $user['USERNAME'] = $_POST['username'];
+            $user['PASSWORD'] = md5($_POST['password']);
+            $user['FIRST_NAME'] = $_POST['firstName'];
+            $user['LAST_NAME'] = $_POST['lastName'];
+            $user['EMAIL'] = $_POST['email'];
+            $user['FULL_NAME'] = $user['lastName'] . ' ' . $user['firstName'];
+            $user['ROLE'] = $_POST['role'];
+
+            echo $username = $_POST['username'];
+        }
+
+        // return $this->insert();
+    }
 }
