@@ -103,6 +103,12 @@
 .modal .modal-dialog .modal-content .modal-header .modal-title {
   text-align: center; }
 
+body .modal-backdrop {
+  position: unset; }
+
+body .modal {
+  background: rgba(0, 0, 0, 0.8); }
+
 .navbar-fixed .navbar-header .navbar-brand {
   margin: 0;
   padding: 15px; }
