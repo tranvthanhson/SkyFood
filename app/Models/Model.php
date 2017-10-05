@@ -16,23 +16,32 @@ class Model
         $this->db = App::get('database');
     }
 
-    public function rawQuery($sql)
+    public function rawQuery($sql, $param = '')
     {
-        return $this->db->execute($sql);
+        return $this->db->execute($sql, $param);
     }
 
     public function all($fields = ['*'])
     {
         $fields = implode(',', $fields);
         $sql = "SELECT {$fields} FROM {$this->table}";
-        return $this->db->execute($sql);
+        return $this->rawQuery($sql);
     }
 
-    public function find($id, $fields = ['*'])
+    public function insert($parameters)
     {
-        $fields = implode(',', $fields);
+        $sql = sprintf('INSERT INTO %s (%s) VALUES (%s)',
+            $table,
+            implode(', ', array_keys($parameters)),
+            ':' . implode(', :', array_keys($parameters))
+        );
+        return $this->rawQuery($sql, $param);
+    }
+
+    public function findById($id, $fields = ['*'])
+    {
         $sql = "SELECT {$fields} FROM {$this->table} WHERE {$this->primaryKey} = '{$id}'";
-        $models = $this->db->execute($sql);
+        $models = $this->rawQuery($sql);
         if (count($models) > 0) {
             return $models[0];
         }

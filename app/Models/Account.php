@@ -14,7 +14,7 @@ class Account extends Model
     {
 
         $sql = "SELECT * FROM {$table} WHERE
-            USERNAME='{$username}' AND PASSWORD='{$password}'";
+        USERNAME='{$username}' AND PASSWORD='{$password}'";
         return $this->rawQuery($sql);
     }
 
@@ -38,11 +38,33 @@ class Account extends Model
         }
     }
 
+    public function register()
+    {
+        if (isset($_POST['register'])) {
+            $user = [];
+            $user['USERNAME'] = $_POST['username'];
+            $user['PASSWORD'] = md5($_POST['password']);
+            $user['FIRST_NAME'] = $_POST['first_name'];
+            $user['LAST_NAME'] = $_POST['last_name'];
+            $user['EMAIL'] = $_POST['email'];
+            $user['FULL_NAME'] = $user['LAST_NAME'] . ' ' . $user['FIRST_NAME'];
+            $user['ROLE'] = 3;
+
+            $checkId = $this->findById($user['USERNAME'], 'USERNAME');
+
+            if (null != $checkId->USERNAME) {
+                echo 'Username already!';
+            } else {
+                echo 'Register Successful!';
+                $check = App::get('database')->insert('ACCOUNT', $user);
+                $check = $this->insert;
+                // return redirect('');
+            }
+        }
+    }
+
     public function selectAll()
     {
-        //echo 'cc';
-        $aaa = $this->all();
-        //print_r($aaa);
         return $this->all();
     }
 }
