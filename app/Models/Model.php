@@ -39,6 +39,17 @@ class Model
         return $this->rawQuery($sql, $param);
     }
 
+    public function delete($param)
+    {
+        $sql = sprintf('DELETE FROM %s WHERE (%s) = %s',
+            $this->table,
+            implode(', ', array_keys($param)),
+            ':' . implode(', :', array_keys($param))
+        );
+
+        return $this->rawQuery($sql, $param);
+    }
+
     public function findById($id, $fields = ['*'])
     {
         $sql = "SELECT {$fields} FROM {$this->table} WHERE {$this->primaryKey} = '{$id}'";
