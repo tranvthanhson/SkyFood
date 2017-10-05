@@ -1,2 +1,4 @@
 -- Create Database
 CREATE DATABASE SkyFoodDB;
+DEFAULT CHARACTER SET utf8
+DEFAULT COLLATE utf8_general_ci;
