@@ -26,6 +26,7 @@ $router->post('register', 'RegisterController@register');
 // User
 $router->get('user', 'UserController@index');
 $router->get('user/add', 'UserController@add');
+$router->post('user/add', 'UserController@store');
 $router->get('user/edit', 'UserController@edit');
 // $router->post('login', 'LoginController@login');
 

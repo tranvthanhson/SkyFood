@@ -95,5 +95,5 @@
         </div>
     </div>
     <!-- Modal -->
-     <?php view_include('partials.modal1', ['id_model' => 'delCat', 'title' => 'XÓA DANH MỤC ', 'content' => 'Ban co chac chan muon xoa khong?']);?>
+          <?php view_include('partials.modal', ['id_model' => 'delCat', 'title' => 'XÓA DANH MỤC ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa']);?>
 <?php view_include('layouts.foot-master');?>

@@ -12,21 +12,22 @@
                                     <h4 class="title">Thêm user</h4>
                                 </div>
                                 <div class="content">
-                                    <form data-toggle="validator" role="form">
+                                    <form data-toggle="validator" role="form" method="POST" action="/user/add" enctype="multipart/form-data">
                                         <div class="row">
                                             <div class="col-md-8">
                                                 <div class="form-group">
                                                     <label for="userName" class="control-label">Username (<span>*</span>)</label>
-                                                    <input type="text" class="form-control" id="userName" placeholder="Nhập tài khoản đăng nhập" required>
+                                                    <input type="text" class="form-control" name="username" id="userName" placeholder="Nhập tài khoản đăng nhập" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="role">Role (<span>*</span>)</label>
-                                                    <select class="form-control" id="role">
+                                                    <select class="form-control" name="role" id="role">
                                                         <option>[Chọn]</option>
                                                         <option>admin</option>
-                                                        <option>user</option>
+                                                        <option>Staff</option>
+                                                        <option>User</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -35,7 +36,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="pass" class="control-label">Password (<span>*</span>)</label>
-                                                    <input type="password" data-minlength="6" class="form-control" id="pass" placeholder="Password" required>
+                                                    <input type="password" data-minlength="6" class="form-control" id="pass" name="password" placeholder="Password" required>
                                                     <div class="help-block">(Mật khẩu ít nhất 6 kí tự)</div>
                                                 </div>
                                             </div>
@@ -44,7 +45,25 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Confirm Password (<span>*</span>)</label>
-                                                    <input type="password" class="form-control" id="confirmPass" data-match="#pass" data-match-error="Mật khẩu không trùng khớp" placeholder="Confirm" required>
+                                                    <input type="password" name="confirmPass" class="form-control" id="confirmPass" data-match="#pass" data-match-error="Mật khẩu không trùng khớp" placeholder="Confirm" required>
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="confirmPass" class="control-label">Address (<span>*</span>)</label>
+                                                    <input type="text" name="address" class="form-control" id="confirmPass" >
+                                                    <div class="help-block with-errors"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                         <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="confirmPass" class="control-label">Phone (<span>*</span>)</label>
+                                                    <input type="password" name="phone" class="form-control" id="confirmPass">
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
@@ -53,27 +72,20 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="firstName" class="control-label">First name (<span>*</span>)</label>
-                                                    <input type="text" class="form-control" placeholder="Họ" value="" id="firstName" required>
+                                                    <input type="text" class="form-control" name="firstName" placeholder="Họ" value="" id="firstName" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="lastName">Last name (<span>*</span>)</label>
-                                                    <input type="text" class="form-control" placeholder="Tên" value="" id="lastName" required>
+                                                    <input type="text" name="lastName" class="form-control" placeholder="Tên" value="" id="lastName" required>
                                                 </div>
                                             </div>
                                         </div>
+
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>Full name</label>
-                                                    <input type="text" class="form-control" placeholder="Họ và tên" value="" readonly>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <button type="submit" class="btn bg-button btn-fill pull-right">Hoàn thành</button>
+                                                <input type="submit" class="btn bg-button btn-fill pull-right" value="Hoàn thành"/>
                                             </div>
                                         </div>
                                     </form>
