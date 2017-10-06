@@ -11,6 +11,7 @@ $router->get('admin', 'IndexController@index');
 // Feedback
 $router->get('feedback', 'FeedbackController@index');
 $router->get('feedback/delete', 'FeedbackController@delete');
+$router->get('feedback/reply', 'FeedbackController@reply');
 
 // Login
 $router->get('login', 'LoginController@index');

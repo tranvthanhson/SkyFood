@@ -65,44 +65,66 @@
                                                         <div class="item-col">
                                                             <a data-toggle="modal" data-target="#delContact<?=$feedback->FEEDBACK_ID?>" href="" class="btn btn-danger" title="Xoá">
                                                                 <i class="pe-7s-trash"></i>
-
                                                             </a>
                                                         </div>
-                                                        <?php view_include('partials.modal', ['id_model' => 'replyContact' . $feedback->FEEDBACK_ID, 'title' => 'GỬI PHẢN HỒI', 'content' => '<div class="form-group">
-                                                            <textarea class="form-control" rows="5" id=""></textarea>
-                                                        </div>', 'bt' => 'GỬI', 'link' => '/feedback/reply?feedbackid=' . $feedback->FEEDBACK_ID]);?>
-                                                        <?php view_include('partials.modal', ['id_model' => 'delContact' . $feedback->FEEDBACK_ID, 'title' => 'XÓA PHẢN HỒI', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => '/feedback/delete?id=' . $feedback->FEEDBACK_ID]);?>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-                                                </td>
-                                            </tr>
 
-                                        <?php endforeach;?>
-                                    </tbody>
-                                </table>
+                                                        <div class="modal fade" id="replyContact<?=$feedback->FEEDBACK_ID?>" role="dialog">
+                                                            <div class="modal-dialog">
+                                                                <!-- Modal content-->
+                                                                <form action="/feedback/reply" method="GET">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                            <h4 class="modal-title">GỬI PHẢN HỒI</h4>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <p>
+                                                                                <div class="form-group">
+                                                                                    <input type="hidden" name="emailTo" value="<?=$feedback->EMAIL;?>">
+                                                                                    <textarea class="form-control" rows="5" id="" name="content"></textarea>
+                                                                                </div>
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="submit" class="btn btn-primary" >GỬI</a>
+                                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ</button>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <?php view_include('partials.modal', ['id_model' => 'delContact' . $feedback->FEEDBACK_ID, 'title' => 'XÓA PHẢN HỒI', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => '/feedback/delete?id=' . $feedback->FEEDBACK_ID]);?>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                            <?php endforeach;?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <nav class="nav-pag">
+                                    <ul class="pagination">
+                                        <li><a href="" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                        <li class="active"><a href="#">1</a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                    </ul>
+                                </nav>
                             </div>
-                            <nav class="nav-pag">
-                                <ul class="pagination">
-                                    <li><a href="" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                                </ul>
-                            </nav>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Require footer -->
+            <?php view_include('partials.footer')?>
+
         </div>
-
-        <!-- Require footer -->
-        <?php view_include('partials.footer')?>
-
     </div>
-</div>
 
-<!-- Require foot -->
-<?php view_include('layouts.foot-master')?>
+    <!-- Require foot -->
+    <?php view_include('layouts.foot-master')?>

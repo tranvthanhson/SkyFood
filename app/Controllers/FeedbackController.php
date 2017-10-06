@@ -23,10 +23,14 @@ class FeedbackController
     {
         if (isset($_GET['id'])) {
             $this->feedback->deleteItem($_GET['id']);
-            echo 'Deleted';
             redirect('feedback');
         } else {
             echo 'Delete error';
         }
+    }
+
+    public function reply()
+    {
+        echo $_GET['emailTo'] . ' _ ' . $_GET['content'];
     }
 }
