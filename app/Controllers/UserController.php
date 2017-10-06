@@ -33,7 +33,14 @@ class UserController
 
     public function edit()
     {
-        return view('user/edit');
+        $Info_User = (new Account)->edit();
+        //var_dump($Info_User[0]->USERNAME);
+        return view('user/edit', compact('Info_User'));
+    }
+
+    public function update()
+    {
+        (new Account)->update();
     }
 
     public function del()

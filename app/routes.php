@@ -28,6 +28,7 @@ $router->get('user', 'UserController@index');
 $router->get('user/add', 'UserController@add');
 $router->post('user/add', 'UserController@store');
 $router->get('user/edit', 'UserController@edit');
+$router->post('user/edit', 'UserController@update');
 $router->get('user/del', 'UserController@del');
 
 // Post
