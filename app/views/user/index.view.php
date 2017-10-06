@@ -49,7 +49,7 @@
                                             <td><?=$i;?></td>
                                             <td class="username"><a href=""><?=$user->USERNAME;?></a></td>
                                             <td class="img-post">
-                                                <a href=""><img  src="assets/img/<?=$user->IMAGES;?>" /></a>
+                                                <a href=""><img  src="/public/assets/img/imagesUser/<?=$user->IMAGE;?>" /></a>
                                             </td>
                                             <td><?=$user->FULL_NAME;?></td>
                                             <td><?=$user->EMAIL;?></td>
