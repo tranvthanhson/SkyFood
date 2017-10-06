@@ -70,23 +70,57 @@ class Account extends Model
     public function addUser()
     {
         if (isset($_POST['add'])) {
-            $user = [];
-            $user['USERNAME'] = $_POST['username'];
-            $user['PASSWORD'] = md5($_POST['password']);
-            $user['FIRST_NAME'] = $_POST['firstName'];
-            $user['LAST_NAME'] = $_POST['lastName'];
-            $user['ADDRESS'] = $_POST['address'];
-            $user['EMAIL'] = $_POST['email'];
-            $user['FULL_NAME'] = $user['LAST_NAME'] . ' ' . $user['FIRST_NAME'];
-            $user['ROLE'] = $_POST['role'];
-            $user['PHONE'] = $_POST['phone'];
-            $checkId = $this->findById($user['USERNAME'], 'USERNAME');
+            if (null == $_FILES['file']['name']) {
+                $user = [];
+                $user['USERNAME'] = $_POST['username'];
+                $user['PASSWORD'] = md5($_POST['password']);
+                $user['FIRST_NAME'] = $_POST['firstName'];
+                $user['LAST_NAME'] = $_POST['lastName'];
+                $user['ADDRESS'] = $_POST['address'];
+                $user['EMAIL'] = $_POST['email'];
+                $user['FULL_NAME'] = $user['LAST_NAME'] . ' ' . $user['FIRST_NAME'];
+                $user['ROLE'] = $_POST['role'];
+                $user['PHONE'] = $_POST['phone'];
+                $checkId = $this->findById($user['USERNAME'], 'USERNAME');
 
-            if (null != $checkId->USERNAME) {
-                echo 'Username already!';
+                if (null != $checkId->USERNAME) {
+                    echo 'Username already!';
+                } else {
+                    $this->insert($user);
+                    echo 'Register Successful!';
+                }
             } else {
-                $this->insert($user);
-                echo 'Register Successful!';
+                // Upload img
+
+                $hinhanh = $_FILES['file']['name'];
+                $arr_tach = explode('.', $hinhanh);
+                $duoifile = end($arr_tach);
+                $hinhanh = 'hinh-' . time() . '.' . $duoifile;
+                $tmp_name = $_FILES['file']['tmp_name'];
+                $path_upload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $hinhanh;
+                move_uploaded_file($tmp_name, $path_upload);
+
+                // Add user
+
+                $user = [];
+                $user['USERNAME'] = $_POST['username'];
+                $user['PASSWORD'] = md5($_POST['password']);
+                $user['FIRST_NAME'] = $_POST['firstName'];
+                $user['LAST_NAME'] = $_POST['lastName'];
+                $user['ADDRESS'] = $_POST['address'];
+                $user['IMAGE'] = $hinhanh;
+                $user['EMAIL'] = $_POST['email'];
+                $user['FULL_NAME'] = $user['LAST_NAME'] . ' ' . $user['FIRST_NAME'];
+                $user['ROLE'] = $_POST['role'];
+                $user['PHONE'] = $_POST['phone'];
+                $checkId = $this->findById($user['USERNAME'], 'USERNAME');
+
+                if (null != $checkId->USERNAME) {
+                    echo 'Username already!';
+                } else {
+                    $this->insert($user);
+                    echo 'Register Successful!';
+                }
             }
         }
     }
