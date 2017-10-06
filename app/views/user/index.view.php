@@ -99,5 +99,5 @@
 </div>
 <!-- Modal -->
 
- <?php view_include('partials.modal', ['id_model' => 'delUser', 'title' => 'XÓA NGƯỜI DÙNG ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'linkdel' => '/user/del?username=ngan']);?>
+<?php view_include('partials.modal', ['id_model' => 'delUser', 'title' => 'XÓA NGƯỜI DÙNG ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'linkdel' => '/user/del?username=ngan']);?>
 <?php view_include('layouts.foot-master');?>
