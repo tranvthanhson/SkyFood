@@ -10,7 +10,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 class Mailer
 {
-
     public $mail;
     protected $name;
     protected $emailTo;

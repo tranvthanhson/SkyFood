@@ -18,12 +18,8 @@ class FeedbackController
 
     public function index()
     {
-        // $feedbacks = $this->feedback->selectAll();
-        // return view('/feedback/index', compact('feedbacks'));
-
-        $this->mailer->setEmailTo('tranvthanhson@gmail.com');
-        $this->mailer->setContent('Dell Vostro so coll');
-        $this->mailer->sendMail();
+        $feedbacks = $this->feedback->selectAll();
+        return view('/feedback/index', compact('feedbacks'));
     }
 
     public function delete()
@@ -38,8 +34,11 @@ class FeedbackController
 
     public function reply()
     {
-        // redirect('feedback');
-        // echo 'hihi';
-        // echo $_GET['emailTo'] . ' _ ' . $_GET['content'];
+        if (isset($_POST['emailTo']) && isset($_POST['content'])) {
+            $this->mailer->setEmailTo($_POST['emailTo']);
+            $this->mailer->setContent($_POST['content']);
+            $this->mailer->sendMail();
+            redirect('feedback');
+        }
     }
 }
