@@ -11,4 +11,9 @@ class FeedbackController
         $feedbacks = (new Feedback)->selectAll();
         return view('feedback/index', compact('feedbacks'));
     }
+
+    public function delete()
+    {
+        echo 'a';
+    }
 }
