@@ -6,14 +6,27 @@ use App\Models\Feedback;
 
 class FeedbackController
 {
+    protected $feedback;
+
+    public function __construct()
+    {
+        $this->feedback = new Feedback;
+    }
+
     public function index()
     {
-        $feedbacks = (new Feedback)->selectAll();
-        return view('feedback/index', compact('feedbacks'));
+        $feedbacks = $this->feedback->selectAll();
+        return view('/feedback/index', compact('feedbacks'));
     }
 
     public function delete()
     {
-        echo 'a';
+        if (isset($_GET['id'])) {
+            $this->feedback->deleteItem($_GET['id']);
+            echo 'Deleted';
+            redirect('feedback');
+        } else {
+            echo 'Delete error';
+        }
     }
 }

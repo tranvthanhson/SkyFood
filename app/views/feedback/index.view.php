@@ -2,10 +2,8 @@
 <?php view_include('layouts.head-master', ['title' => 'Feedback'])?>
 
 <!-- Require modal -->
-<?php view_include('partials.modal', ['id_model' => 'delContact', 'title' => 'XÓA PHẢN HỒI', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa']);?>
-<?php view_include('partials.modal', ['id_model' => 'replyContact', 'title' => 'GỬI PHẢN HỒI', 'content' => '<div class="form-group">
-    <textarea class="form-control" rows="5" id=""></textarea>
-</div>', 'bt' => 'GỬI']);?>
+
+
 
 <div class="wrapper">
     <!-- Require side-bar -->
@@ -60,19 +58,25 @@
                                                 <td class="control">
                                                     <div class="form-group">
                                                         <div class="item-col">
-                                                            <a data-toggle="modal" data-target="#replyContact" href="" class="btn btn-primary" title="Trả lời">
+                                                            <a data-toggle="modal" data-target="#replyContact<?=$feedback->FEEDBACK_ID?>" href="" class="btn btn-primary" title="Trả lời">
                                                                 <i class="pe-7s-back"></i>
                                                             </a>
                                                         </div>
                                                         <div class="item-col">
-                                                            <a data-toggle="modal" data-target="#delContact" href="" class="btn btn-danger" title="Xoá">
+                                                            <a data-toggle="modal" data-target="#delContact<?=$feedback->FEEDBACK_ID?>" href="" class="btn btn-danger" title="Xoá">
                                                                 <i class="pe-7s-trash"></i>
+
                                                             </a>
                                                         </div>
+                                                        <?php view_include('partials.modal', ['id_model' => 'replyContact' . $feedback->FEEDBACK_ID, 'title' => 'GỬI PHẢN HỒI', 'content' => '<div class="form-group">
+                                                            <textarea class="form-control" rows="5" id=""></textarea>
+                                                        </div>', 'bt' => 'GỬI', 'link' => '/feedback/reply?feedbackid=' . $feedback->FEEDBACK_ID]);?>
+                                                        <?php view_include('partials.modal', ['id_model' => 'delContact' . $feedback->FEEDBACK_ID, 'title' => 'XÓA PHẢN HỒI', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => '/feedback/delete?id=' . $feedback->FEEDBACK_ID]);?>
                                                         <div class="clearfix"></div>
                                                     </div>
                                                 </td>
                                             </tr>
+
                                         <?php endforeach;?>
                                     </tbody>
                                 </table>
