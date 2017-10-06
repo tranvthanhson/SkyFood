@@ -2,21 +2,28 @@
 
 namespace App\Controllers;
 
+use App\Mailer\Mailer;
 use App\Models\Feedback;
 
 class FeedbackController
 {
     protected $feedback;
+    protected $mailer;
 
     public function __construct()
     {
         $this->feedback = new Feedback;
+        $this->mailer = new Mailer;
     }
 
     public function index()
     {
-        $feedbacks = $this->feedback->selectAll();
-        return view('/feedback/index', compact('feedbacks'));
+        // $feedbacks = $this->feedback->selectAll();
+        // return view('/feedback/index', compact('feedbacks'));
+
+        $this->mailer->setEmailTo('tranvthanhson@gmail.com');
+        $this->mailer->setContent('Dell Vostro so coll');
+        $this->mailer->sendMail();
     }
 
     public function delete()
@@ -31,6 +38,8 @@ class FeedbackController
 
     public function reply()
     {
-        echo $_GET['emailTo'] . ' _ ' . $_GET['content'];
+        // redirect('feedback');
+        // echo 'hihi';
+        // echo $_GET['emailTo'] . ' _ ' . $_GET['content'];
     }
 }
