@@ -39,5 +39,6 @@ class UserController
     public function del()
     {
         (new Account)->del();
+        return redirect('user');
     }
 }

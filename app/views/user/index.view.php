@@ -74,7 +74,10 @@
                                         </tr>
                                         <?php $i++;?>
                                         <!-- Modal -->
-                                        <?php view_include('partials.modal', ['id_model' => 'delUser' . $user->USERNAME, 'title' => 'XÓA NGƯỜI DÙNG ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => '/user/del?username=' . $user->USERNAME]);?>
+                                        <?php view_include('partials.modal', ['id_model' => 'delUser' . $user->USERNAME, 'title' => 'XÓA NGƯỜI DÙNG', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => 'user/del?username=' . $user->USERNAME]);?>
+
+
+
                                     <?php endforeach;?>
 
                                 </tbody>
