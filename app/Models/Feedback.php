@@ -16,4 +16,8 @@ class Feedback extends Model
         return $this->rawQuery($sql);
     }
 
+    public function deleteItem($id)
+    {
+        return $this->deleteById($id);
+    }
 }
