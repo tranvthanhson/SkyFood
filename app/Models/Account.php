@@ -124,4 +124,9 @@ class Account extends Model
             }
         }
     }
+
+    public function del()
+    {
+        die($_GET['username']);
+    }
 }

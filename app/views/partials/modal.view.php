@@ -10,7 +10,7 @@
                 <p><?=$content?></p>
             </div>
             <div class="modal-footer">
-                <a href="<?=$linkdel?>"  class="btn btn-danger" data-dismiss="modal"><?=$bt?></a>
+                <a href="<?=$linkdel?>"  class="btn btn-danger" ><?=$bt?></a>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ</button>
             </div>
         </div>

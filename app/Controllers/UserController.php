@@ -38,6 +38,6 @@ class UserController
 
     public function del()
     {
-        echo 'cc';
+        (new Account)->del();
     }
 }
