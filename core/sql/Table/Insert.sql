@@ -1,7 +1,7 @@
 -- Insert value to Account Table
 INSERT INTO ACCOUNT (USERNAME, PASSWORD, FIRST_NAME, LAST_NAME, FULL_NAME, EMAIL, ROLE) VALUES
-    ('Admin', '21232f297a57a5a743894a0e4a801fc3', 'Admin', 'Admin', 'Admin', 'Admin@admin' ,1),
-    ('thuong', '619170c4d559a0786a141d489d019e22', 'thuong', 'thuong', 'thuong thuong', 'thuong@thuong', 2),
+    ('Admin', '21232f297a57a5a743894a0e4a801fc3', 'Admin', 'Admin', 'Admin', 'tranvthanhson@gmail.com' ,1),
+    ('thuong', '619170c4d559a0786a141d489d019e22', 'thuong', 'thuong', 'thuong thuong', 'hoaithuon14cntt@gmail.com', 2),
     ('hieu', '619170c4d559a0786a141d489d019e22', 'thuong', 'thuong', 'thuong thuong', 'thuong@thuong', 3),
     ('ngan', '4df26b7d69a26516915261039bbb1cb6', 'thuong', 'thuong', 'thuong thuong', 'thuong@thuong', 3);
 
