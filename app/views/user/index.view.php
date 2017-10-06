@@ -64,7 +64,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="item-col">
-                                                        <a data-toggle="modal" data-target="#delUser" href="" class="btn btn-danger" title="Xoá">
+                                                        <a data-toggle="modal" data-target="#delUser<?=$user->USERNAME?>" href="" class="btn btn-danger" title="Xoá">
                                                             <i class="pe-7s-trash"></i>
                                                         </a>
                                                     </div>
@@ -74,7 +74,10 @@
                                         </tr>
                                         <?php $i++;?>
                                         <!-- Modal -->
-                                        <?php view_include('partials.modal', ['id_model' => 'delUser', 'title' => 'XÓA NGƯỜI DÙNG ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'linkdel' => '/user/del?username=ngan']);?>
+                                        <?php view_include('partials.modal', ['id_model' => 'delUser' . $user->USERNAME, 'title' => 'XÓA NGƯỜI DÙNG', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => 'user/del?username=' . $user->USERNAME]);?>
+
+
+
                                     <?php endforeach;?>
 
                                 </tbody>
