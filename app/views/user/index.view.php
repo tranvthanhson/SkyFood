@@ -43,7 +43,7 @@
                                     </thead>
                                     <tbody>
                                         <?php $i = 1;?>
-                                        <?php foreach ($users as $user): ?>
+                                        <?php foreach ($users['sql1'] as $user): ?>
 
                                           <tr>
                                             <td><?=$i;?></td>
@@ -85,13 +85,25 @@
                         </div>
                         <nav class="nav-pag">
                             <ul class="pagination">
-                                <li><a href="" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+
+                             <!-- nếu current_page > 1 và total_page > 1 mới hiển thị nút prev -->
+                                <?php if ($users['current_page'] > 1 && $users['total_page'] > 1) {?>
+                                    <li><a href="/user?page=<?=($users['current_page'] - 1)?>" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                <?php }?>
+                                 <!-- Lặp khoảng giữa -->
+                                <?php for ($i = 1; $i <= $users['total_page']; $i++) {?>
+                                <!-- // Nếu là trang hiện tại thì hiển thị thẻ span
+                                // ngược lại hiển thị thẻ a -->
+                                    <?php if ($i == $users['current_page']) {?>
+                                        <li class="active"><a href="/user?page=<?=$i?>"><?=$i?></a></li>
+                                     <?php } else {?>
+                                        <li><a href="/user?page=<?=$i?>"><?=$i?></a></li>
+                                    <?php }?>
+                                 <?php }?>
+                                <!-- // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev -->
+                                <?php if ($users['current_page'] < $users['total_page'] && $users['total_page'] > 1) {?>
+                                    <li><a href="/user?page=<?=($users['current_page'] + 1)?>" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                <?php }?>
                             </ul>
                         </nav>
                     </div>
