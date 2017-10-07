@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 function view($name, $data = [])
 {
     extract($data);
@@ -10,9 +12,6 @@ function redirect($path)
 {
     header("Location: /{$path}");
 }
-
-session_start();
-// ob_start();
 
 function view_include($viewName, $data = [])
 {
