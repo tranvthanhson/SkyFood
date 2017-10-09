@@ -59,7 +59,7 @@
                                             <td class="control">
                                                 <div class="form-group">
                                                     <div class="item-col">
-                                                        <a href="/user/edit?idu=<?=$user->USERNAME?>" class="btn btn-success" title="Sửa">
+                                                        <a href="/user/edit?idUser=<?=$user->USERNAME?>" class="btn btn-success" title="Sửa">
                                                             <i class="pe-7s-note"></i>
                                                         </a>
                                                     </div>
