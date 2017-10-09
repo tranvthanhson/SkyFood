@@ -30,7 +30,8 @@
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
-
+                            <div class="content content-card table-responsive table-full-width">
+                                <table id="view-post" class="table table-hover table-striped">
                             <div class="content content-card table-responsive table-full-width ">
                                 <table id="view-post"  class="table table-hover table-striped tableSearch">
                                     <thead>
