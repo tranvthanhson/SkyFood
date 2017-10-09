@@ -25,32 +25,32 @@ class UserController
         }
     }
 
-    public function add()
+    public function addUser()
     {
 
         return view('user/add');
     }
 
-    public function store()
+    public function storeUser()
     {
         (new Account)->addUser();
     }
 
-    public function edit()
+    public function editUser()
     {
-        $Info_User = (new Account)->edit();
-        //var_dump($Info_User[0]->USERNAME);
-        return view('user/edit', compact('Info_User'));
+        $infoUser = (new Account)->getUser($_GET['idUser']);
+
+        return view('user/edit', compact('infoUser'));
     }
 
-    public function update()
+    public function updateUser()
     {
         (new Account)->update();
     }
 
-    public function del()
+    public function deleteUser()
     {
-        (new Account)->del();
+        (new Account)->delete();
         return redirect('user');
     }
 }

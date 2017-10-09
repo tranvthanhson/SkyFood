@@ -19,7 +19,7 @@
                                             <div class="col-md-8">
                                                 <div class="form-group">
                                                     <label for="userName" class="control-label">Username (<span>*</span>)</label>
-                                                    <input type="text" name="username" value="<?=$Info_User[0]->USERNAME?>" class="form-control" id="userName" readonly placeholder="Nhập tài khoản đăng nhập" required>
+                                                    <input type="text" name="username" value="<?=$infoUser[0]->USERNAME?>" class="form-control" id="userName" readonly placeholder="Nhập tài khoản đăng nhập" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -28,9 +28,9 @@
                                                     <select class="form-control" name="role" id="role">
 
 
-                                                    <option <?php if (($Info_User[0]->ROLE) == 1) {echo 'Selected = "Selected"';}?> value="1">Admin</option>
-                                                    <option <?php if (($Info_User[0]->ROLE) == 2) {echo 'Selected = "Selected"';}?> value="2">Staff</option>
-                                                    <option <?php if (($Info_User[0]->ROLE) == 3) {echo 'Selected = "Selected"';}?> value="3">User</option>
+                                                    <option <?php if (($infoUser[0]->ROLE) == 1) {echo 'Selected = "Selected"';}?> value="1">Admin</option>
+                                                    <option <?php if (($infoUser[0]->ROLE) == 2) {echo 'Selected = "Selected"';}?> value="2">Staff</option>
+                                                    <option <?php if (($infoUser[0]->ROLE) == 3) {echo 'Selected = "Selected"';}?> value="3">User</option>
                                                 </select>
                                                 </div>
                                             </div>
@@ -57,7 +57,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Address (<span>*</span>)</label>
-                                                    <input type="text" value="<?=$Info_User[0]->ADDRESS?>" name="address" class="form-control" id="confirmPass" >
+                                                    <input type="text" value="<?=$infoUser[0]->ADDRESS?>" name="address" class="form-control" id="confirmPass" >
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
@@ -66,7 +66,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Phone (<span>*</span>)</label>
-                                                    <input type="text" value="<?=$Info_User[0]->PHONE?>" name="phone" class="form-control" id="confirmPass">
+                                                    <input type="text" value="<?=$infoUser[0]->PHONE?>" name="phone" class="form-control" id="confirmPass">
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
@@ -75,8 +75,8 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Email (<span>*</span>)</label>
-                                                    <input type="hidden" name="url_img" value="<?=$Info_User[0]->IMAGE?>">
-                                                    <input type="text" value="<?=$Info_User[0]->EMAIL?>" name="email" class="form-control" id="confirmPass">
+                                                    <input type="hidden" name="url_img" value="<?=$infoUser[0]->IMAGE?>">
+                                                    <input type="text" value="<?=$infoUser[0]->EMAIL?>" name="email" class="form-control" id="confirmPass">
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
@@ -85,13 +85,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="firstName" class="control-label">First name (<span>*</span>)</label>
-                                                    <input type="text" name="firstName" class="form-control" value="<?=$Info_User[0]->FIRST_NAME?>" placeholder="Họ" value="" id="firstName" required>
+                                                    <input type="text" name="firstName" class="form-control" value="<?=$infoUser[0]->FIRST_NAME?>" placeholder="Họ" value="" id="firstName" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="lastName">Last name (<span>*</span>)</label>
-                                                    <input type="text" name="lastName" class="form-control" value="<?=$Info_User[0]->LAST_NAME?>" placeholder="Tên" value="" id="lastName" required>
+                                                    <input type="text" name="lastName" class="form-control" value="<?=$infoUser[0]->LAST_NAME?>" placeholder="Tên" value="" id="lastName" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -102,7 +102,7 @@
                                          <div class="content">
                                              <div class="author">
                                                  <div>
-                                                     <img class="avatar border-gray" src="/public/assets/img/imagesUser/<?=$Info_User[0]->IMAGE?>" alt="..." />
+                                                     <img class="avatar border-gray" src="/public/assets/img/imagesUser/<?=$infoUser[0]->IMAGE?>" alt="..." />
                                                  </div>
                                                  <div class="edit-avatar ">
                                                      <div class="file bg-button">
