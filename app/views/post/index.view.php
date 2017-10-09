@@ -12,7 +12,7 @@
                                 <div class="row">
                                     <div class="col-md-2 col-sm-2 col-xs-4">
                                         <div class="add-btn">
-                                            <a href="post/add" class="btn bg-button"><i class="fa fa-plus"></i> Thêm</a>
+                                            <a href="/post/add" class="btn bg-button"><i class="fa fa-plus"></i> Thêm</a>
                                         </div>
                                     </div>
                                     <div class="col-lg-offset-6 col-md-4 col-md-offset-6 col-sm-5 col-sm-offset-5 col-xs-8">
@@ -43,13 +43,13 @@
                                     <tbody>
                                         <?php foreach ($post as $value) {?>
                                         <tr>
-                                            <td>1</td>
+                                            <td><?=$value->SHOP_ID?></td>
                                             <td class="name-place"><a href=""><?=$value->SHOP_NAME?></a></td>
                                             <td class="img-post">
-                                                <a href=""><img  src="assets/img/<?=$value->IMAGE?>" /></a>
+                                                <a href=""><img  src="/public/assets/img/img-shop/<?=$value->VIEW?>" /></a>
                                             </td>
-                                            <td><?=$value->tn?></td>
-                                            <td>50</td>
+                                            <td><?=$value->TYPE_NAME?></td>
+                                            <td><?=$value->DISCOUNT?></td>
                                             <td class="percent-input">
                                                 <div class="form-group">
                                                     <div class="item-col">
@@ -82,12 +82,12 @@
                                             <td class="control">
                                                 <div class="form-group">
                                                     <div class="item-col">
-                                                        <a href="post/edit?<?=$value->SHOP_ID?>" class="btn btn-success" title="Sửa">
+                                                        <a href="/post/edit?id=<?=$value->SHOP_ID?>" class="btn btn-success" title="Sửa">
                                                             <i class="pe-7s-note"></i>
                                                         </a>
                                                     </div>
                                                     <div class="item-col">
-                                                        <a data-toggle="modal" data-target="#delPost" href="post/del?<?=$value->SHOP_ID?>" class="btn btn-danger" title="Xoá">
+                                                        <a data-toggle="modal" data-target="#delPost" href="/post/del?id=<?=$value->SHOP_ID?>" class="btn btn-danger" title="Xoá">
                                                             <i class="pe-7s-trash"></i>
                                                         </a>
                                                     </div>

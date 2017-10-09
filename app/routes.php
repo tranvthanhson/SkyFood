@@ -40,6 +40,7 @@ $router->get('post', 'PostController@index');
 $router->get('post/add', 'PostController@add');
 $router->post('post/add', 'PostController@addPost');
 $router->get('post/edit', 'PostController@edit');
+$router->post('post/edit', 'PostController@editPost');
 $router->get('post/del', 'PostController@del');
 
 // Category
