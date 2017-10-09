@@ -45,12 +45,12 @@ class UserController
 
     public function updateUser()
     {
-        (new Account)->update();
+        (new Account)->updateUser();
     }
 
     public function deleteUser()
     {
-        (new Account)->delete();
+        (new Account)->deleteUser();
         return redirect('user');
     }
 

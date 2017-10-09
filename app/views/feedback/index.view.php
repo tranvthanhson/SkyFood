@@ -93,7 +93,16 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <?php view_include('partials.modal', ['id_model' => 'delContact' . $feedback->FEEDBACK_ID, 'title' => 'XÓA PHẢN HỒI', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => '/feedback/delete?id=' . $feedback->FEEDBACK_ID]);?>
+                                                            <?php
+$data = [
+    'id_model' => 'delContact' . $feedback->FEEDBACK_ID,
+    'title' => 'XÓA PHẢN HỒI',
+    'content' => 'Bạn có chắc chắn muốn xóa không??',
+    'bt' => 'Xóa',
+    'link' => '/feedback/delete?id=' . $feedback->FEEDBACK_ID,
+];
+?>
+                                                            <?php view_include('partials.modal', $data)?>
                                                             <div class="clearfix"></div>
                                                         </div>
                                                     </td>

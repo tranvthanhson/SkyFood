@@ -32,7 +32,7 @@
                             </div>
 
                             <div class="content content-card table-responsive table-full-width ">
-                                <table id="view-post"  class="table table-hover table-striped hello">
+                                <table id="view-post"  class="table table-hover table-striped tableSearch">
                                     <thead>
                                         <th>#</th>
                                         <th>User name</th>
@@ -100,7 +100,7 @@
                                                // aactive: active
                                             },
                                             success: function(data) {
-                                                $('.hello').html(data);
+                                                $('.tableSearch').html(data);
                                                 //alert($data);
                                             },
                                             error: function() {
