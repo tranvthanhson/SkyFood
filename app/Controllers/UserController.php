@@ -14,15 +14,17 @@ class UserController
 
     public function index()
     {
-        $users = (new Account)->selectAll();
+        // $users = (new Account)->selectAll();
 
-        if (isset($_SESSION['user'])) {
-            $users = (new Account)->selectAll();
-            return view('user/index', ['users' => $users]);
-        } else {
+        // if (isset($_SESSION['user'])) {
+        //     $users = (new Account)->selectAll();
 
-            return 'Ban khong duoc truy cap trang nay';
-        }
+        // } else {
+
+        //     return 'Ban khong duoc truy cap trang nay';
+        // }
+        $users = (new Account)->searchUser();
+        return view('user/index', ['users' => $users]);
     }
 
     public function addUser()
