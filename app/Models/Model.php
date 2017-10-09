@@ -28,15 +28,21 @@ class Model
         return $this->rawQuery($sql);
     }
 
-    public function insert($param)
+    public function insert($params)
     {
-        $sql = sprintf('INSERT INTO %s (%s) VALUES (%s)',
-            $this->table,
-            implode(', ', array_keys($param)),
-            ':' . implode(', :', array_keys($param))
-        );
-        die($sql);
-        return $this->rawQuery($sql, $param);
+
+        $sql = "INSERT INTO {$this->table} (";
+        foreach ($params as $key => $value) {
+            $sql .= "$key, ";
+        }
+        $sql = substr($sql, 0, -2) . ') VALUES (';
+        foreach ($params as $key => $value) {
+            $sql .= "'$value', ";
+        }
+        $sql = substr($sql, 0, -2) . ')';
+
+        // die($sql);
+        return $this->rawQuery($sql);
     }
 
     public function updateById($id, $params)
@@ -44,7 +50,7 @@ class Model
         // UPDATE Customers SET ContactName = 'Alfred Schmidt', City= 'Frankfurt' WHERE CustomerID = 1;
         $sql = "UPDATE {$this->table} SET ";
         foreach ($params as $key => $value) {
-            $sql .= "{$key} = '{$value}',";
+            $sql .= "{$key} = \"{$value}\",";
         }
         $sql = trim($sql, ',');
         $sql .= " WHERE $this->primaryKey = '{$id}'";
@@ -56,7 +62,6 @@ class Model
     {
         $sql = "DELETE FROM {$this->table} WHERE {$this->primaryKey} = '{$id}'";
         //echo $sql;
-
         return $this->rawQuery($sql, $param);
     }
 
