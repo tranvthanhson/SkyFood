@@ -59,9 +59,9 @@ class Shop extends Model
         }
     }
 
-    public function selectKey($lat, $lng)
+    public function selectKey()
     {
-        $sql = "SELECT SHOP_ID FROM SHOP WHERE LAT='" . $lat . "' AND LNG='" . $lng . "'";
+        $sql = 'SELECT MAX(SHOP_ID) AS MAX_ID FROM SHOP';
         return $this->rawQuery($sql);
     }
 

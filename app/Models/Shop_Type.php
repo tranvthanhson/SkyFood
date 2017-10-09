@@ -10,7 +10,6 @@ class Shop_Type extends Model
     public function add($shop, $type)
     {
         $sql = "INSERT INTO TYPE_SHOP(SHOP_ID,TYPE_ID) VALUES ({$shop},{$type})";
-        //die($sql);
         return $this->rawQuery($sql);
     }
 
