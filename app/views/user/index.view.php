@@ -31,7 +31,7 @@
                             </div>
 
                             <div class="content content-card table-responsive table-full-width">
-                                <table id="view-post" class="hello" class="table table-hover table-striped">
+                                <table id="view-post" class="table table-hover table-striped">
                                     <thead>
                                         <th>#</th>
                                         <th>User name</th>

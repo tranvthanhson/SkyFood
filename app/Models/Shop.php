@@ -53,7 +53,6 @@ class Shop extends Model
             $shop['VIEW'] = $picture;
             $shop['ADDRESS'] = $_POST['address'];
             $shop['DETAIL'] = $_POST['detail'];
-
             $sql = "INSERT INTO SHOP( SHOP_NAME, LAT, LNG, DATE_CREATED, PHONE, TIME_OPEN, TIME_CLOSE, STATUS, DISCOUNT, VIEW, ADDRESS, DETAIL) VALUES ('{$shop['SHOP_NAME']}','{$shop['LAT']}','{$shop['LNG']}','{$shop['DATE_CREATED']}','{$shop['PHONE']}','{$shop['TIME_OPEN']}','{$shop['TIME_CLOSE']}',{$shop['STATUS']},{$shop['DISCOUNT']},'{$shop['VIEW']}','{$shop['ADDRESS']}','{$shop['DETAIL']}')";
             return $this->rawQuery($sql);
         }
