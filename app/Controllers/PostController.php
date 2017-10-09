@@ -1,50 +1,53 @@
 <?php
 namespace App\Controllers;
 
-use Core\App;
+use App\Models\Shop;
+use App\Models\Shop_Type;
+use App\Models\Type;
 
 class PostController
 {
     public function index()
     {
-    	$sql='SELECT *,TYPE.TYPE_NAME as tn FROM TYPE_SHOP INNER JOIN SHOP ON SHOP.SHOP_ID =TYPE_SHOP.SHOP_ID
-    	INNER JOIN TYPE ON TYPE.TYPE_ID =TYPE_SHOP.TYPE_ID';
-    	$post=App::get('database')->query($sql);
-    	return view('post/index',compact('post'));
+        $post = (new Shop)->ShopConnectToType();
+        return view('post/index', compact('post'));
     }
 
     public function add()
     {
-        $sql="SELECT * FROM TYPE";
-        $post=App::get('database')->query($sql);
-        return view('post/create',compact('post'));
+        $types = (new Type)->selectAll();
+        return view('post/create', compact('types'));
     }
-    public function addPost(){
-    	if (isset($_POST['them'])) {
-            $user = [];
-            $user['SHOP_NAME'] = $_POST['SHOPNAME'];
-            $user['STATUS'] = $_POST['STATUS'];
-            $user['DATE_CREATE'] = ;
-            $user['DISCOUNT'] = $_POST['DISCOUNT'];
-            $user['LAT'] = $_POST['LAT'];
-            $user['LNG'] = $_POST['LNG'];
-            $user['PHONE'] =$_POST['PHONE'];
-            $user['TIME_CLOSE'] = $_POST['TIME_CLOSE'];
-            $user['TIME_OPEN'] = $_POST['TIME_OPEN'];
-            $user['VIEW'] = $_POST['STATUS'];
-            $user['ADDRESS'] = $_POST['ADDRESS'];
-            //die(var_dump($user));
-            $th = App::get('database')->testUserAlready('ACCOUNT', $user['USERNAME']);
-            if (null != $th[0]) {
-                echo 'Username already!';
-            } else {
-                $check = App::get('database')->insert('ACCOUNT', $user);
-                return redirect('');
-            }
-        }
+
+    public function addPost()
+    {
+        (new Shop)->insertShop();
+        $shop = (new Shop)->selectKey($_POST['lat'], $_POST['lng']);
+        $type = $_POST['type'];
+        (new Shop_Type)->add($shop[0]->SHOP_ID, $type);
+        return redirect('post');
     }
+
     public function edit()
     {
-        return view('post/edit');
+        $id = $_GET['id'];
+        $post = (new Shop)->selectByKey($id);
+        $post = $post[0];
+        $types = (new Type)->selectAll();
+        //die(var_dump($post));
+        return view('post/edit', compact('post', 'types'));
+    }
+
+    public function editPost()
+    {
+        (new Shop)->update();
+        (new Shop_Type)->update($_GET['id'], $_GET['type']);
+        return redirect('post');
+    }
+
+    public function del()
+    {
+        (new Shop)->delPost();
+        return redirect('post');
     }
 }
