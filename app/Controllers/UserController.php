@@ -56,6 +56,7 @@ class UserController
 
     public function searchUser()
     {
+
         (new Account)->searchUser();
     }
 }
