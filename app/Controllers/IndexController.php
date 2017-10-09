@@ -9,5 +9,4 @@ class IndexController
     {
         return view('index/index');
     }
-
 }

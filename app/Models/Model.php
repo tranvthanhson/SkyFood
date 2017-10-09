@@ -39,23 +39,36 @@ class Model
         return $this->rawQuery($sql, $param);
     }
 
-    public function deleteById($id)
+    public function updateById($id, $params)
     {
-        $sql = "DELETE FROM {$this->table} WHERE {$this->primaryKey} = '{$id}'";
-        //echo $sql;
-
-        return $this->rawQuery($sql, $param);
-    }
-
-    public function findById($id, $fields = ['*'])
-    {
-        $sql = "SELECT {$fields} FROM {$this->table} WHERE {$this->primaryKey} = '{$id}'";
-
-        $models = $this->rawQuery($sql);
-
-        if (count($models) > 0) {
-            return $models[0];
+        // UPDATE Customers SET ContactName = 'Alfred Schmidt', City= 'Frankfurt' WHERE CustomerID = 1;
+        $sql = "UPDATE {$this->table} SET ";
+        foreach ($params as $key => $value) {
+            $sql .= "{$key} = '{$value}',";
         }
-        return (object) [];
+        $sql = trim($sql, ',');
+        $sql .= " WHERE $this->primaryKey = '{$id}'";
+        // echo $sql;
+        return $this->rawQuery($sql);
     }
+}
+
+function deleteById($id)
+{
+    $sql = "DELETE FROM {$this->table} WHERE {$this->primaryKey} = '{$id}'";
+    //echo $sql;
+
+    return $this->rawQuery($sql, $param);
+}
+
+function findById($id, $fields = ['*'])
+{
+    $sql = "SELECT {$fields} FROM {$this->table} WHERE {$this->primaryKey} = '{$id}'";
+
+    $models = $this->rawQuery($sql);
+
+    if (count($models) > 0) {
+        return $models[0];
+    }
+    return (object) [];
 }
