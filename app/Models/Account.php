@@ -107,11 +107,11 @@ class Account extends Model
         // Tìm Start
         $start = ($currentPage - 1) * $limit;
         $sql = "SELECT * from {$this->table} LIMIT {$start},{$limit}";
-        $ar_pagination = [];
-        $ar_pagination['all'] = $this->rawQuery($sql);
-        $ar_pagination['currentPage'] = $currentPage;
-        $ar_pagination['totalPage'] = $totalPage;
-        return $ar_pagination;
+        $arrPagination = [];
+        $arrPagination['all'] = $this->rawQuery($sql);
+        $arrPagination['currentPage'] = $currentPage;
+        $arrPagination['totalPage'] = $totalPage;
+        return $arrPagination;
     }
 
     public function addUser()
@@ -128,19 +128,18 @@ class Account extends Model
                     echo 'Register Successful!';
                 }
             } else {
-                // Upload img
 
-                $hinhanh = $_FILES['file']['name'];
-                $arr_tach = explode('.', $hinhanh);
-                $duoifile = end($arr_tach);
-                $hinhanh = 'hinh-' . time() . '.' . $duoifile;
-                $tmp_name = $_FILES['file']['tmp_name'];
-                $path_upload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $hinhanh;
-                move_uploaded_file($tmp_name, $path_upload);
+                // Upload img
+                $image = $_FILES['file']['name'];
+                $splitArray = explode('.', $image);
+                $extention = end($splitArray);
+                $image = 'hinh-' . time() . '.' . $extention;
+                $tmpName = $_FILES['file']['tmpName'];
+                $pathUpload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $image;
+                move_uploaded_file($tmpName, $pathUpload);
 
                 // Add user
-
-                $this->setValue($_POST['username'], $_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $hinhanh, $_POST['email'], $_POST['role'], $_POST['phone']);
+                $this->setValue($_POST['username'], $_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $image, $_POST['email'], $_POST['role'], $_POST['phone']);
                 $checkId = $this->findById($user['USERNAME'], 'USERNAME');
 
                 if (null != $checkId->USERNAME) {
@@ -154,24 +153,20 @@ class Account extends Model
     }
 
     // Delete User
-
     public function delete()
     {
         return $this->deleteById($_GET['username']);
     }
 
     //Edit User
-
     public function getUser($username)
     {
-
         $sql = "SELECT * FROM {$this->table} WHERE USERNAME='{$username}'";
         return $this->rawQuery($sql);
     }
 
     public function update()
     {
-
         if (isset($_POST['add'])) {
             $account = $this->getUser($_POST['username']);
             if ('' == $_POST['password']) {
@@ -179,10 +174,10 @@ class Account extends Model
             }
 
             $image = $_FILES['file']['name'];
-            if ($_POST['url_img'] != $image) {
-                $_POST['url_img'] = $image;
+            if ($_POST['urlImage'] != $image) {
+                $_POST['urlImage'] = $image;
             }
-            $this->setValue($_POST['username'], $_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $_POST['url_img'], $_POST['email'], $_POST['role'], $_POST['phone']);
+            $this->setValue($_POST['username'], $_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $_POST['urlImage'], $_POST['email'], $_POST['role'], $_POST['phone']);
             $sql = "UPDATE {$this->table}
             SET FIRST_NAME ='{$this->fillable['FIRST_NAME']}',
             LAST_NAME='{$this->fillable['LAST_NAME']}',
