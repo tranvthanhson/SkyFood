@@ -78,12 +78,6 @@ class Account extends Model
         }
     }
 
-    public function selectAll()
-    {
-        $sql = "SELECT * from {$this->table}";
-        return $this->rawQuery($sql);
-    }
-
     public function addUser()
     {
         if (isset($_POST['add'])) {
@@ -157,39 +151,15 @@ class Account extends Model
     public function searchUser()
     {
         if (isset($_POST['ajaxKey'])) {
-            $sql = "SELECT count(USERNAME) as total FROM {$this->table} WHERE (USERNAME LIKE '%" . $_POST['ajaxKey'] . "%')";
+            $sql = "SELECT * FROM {$this->table} WHERE (USERNAME LIKE '%" . $_POST['ajaxKey'] . "%')";
+            $users = [];
+            $users['all'] = $this->rawQuery($sql);
+            $users['currentPage'] = $currentPage;
+            $users['totalPage'] = $totalPage;
 
-            $users = $this->rawQuery($sql);
-            die(var_dump($users));
-            // $total = $this->rawQuery($sql);
-
-            // $totalRecords = $total[0]->total;
-
-            // //Find limit and current page
-            // $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
-            // $limit = 5;
-            // $totalPage = ceil($totalRecords / $limit);
-            // // Giới hạn currentPage trong khoảng 1 đến totalPage
-            // if ($currentPage > $totalPage) {
-            //     $currentPage = $totalPage;
-            // } else if ($currentPage < 1) {
-            //     $currentPage = 1;
-            // }
-
-            // //  Tìm Start
-            // $start = ($currentPage - 1) * $limit;
-            // $sql = "SELECT * from {$this->table} LIMIT {$start},{$limit}";
-            // $users = [];
-            // $users['all'] = $this->rawQuery($sql);
-            // $users['currentPage'] = $currentPage;
-            // $users['totalPage'] = $totalPage;
-
-            // return $users;
-
-            // echo require 'app/views/user/UsersTable.view.php';
+            echo require 'app/views/user/UsersTable.view.php';
         } else {
-            // $sql = "SELECT * from {$this->table}";
-            // $this->rawQuery($sql);
+
             //     // Find sum record
 
             $sql = "SELECT count(USERNAME) as total from {$this->table}";
