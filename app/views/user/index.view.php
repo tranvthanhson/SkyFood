@@ -19,17 +19,19 @@
                                     <div class="col-lg-offset-6 col-md-4 col-md-offset-6 col-sm-5 col-sm-offset-5 col-xs-8">
                                         <div class="input-group search-btn">
                                             <div class="input-group-addon"><span>Tìm kiếm</span></div>
-                                            <input type="text" class="form-control" />
+                                            <input type="text" id="inputSearch" class="form-control" />
                                             <div class="input-group-btn">
-                                                <button class="btn btn-default" type="button"><i class="pe-7s-search"></i></button>
+                                                <button class="btn btn-default" id="search" onclick="search()" type="button"><i class="pe-7s-search"></i></button>
                                             </div>
+
                                         </div>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
+
                             <div class="content content-card table-responsive table-full-width">
-                                <table id="view-post" class="table table-hover table-striped">
+                                <table id="view-post" class="hello" class="table table-hover table-striped">
                                     <thead>
                                         <th>#</th>
                                         <th>User name</th>
@@ -106,6 +108,28 @@
                                 <?php }?>
                             </ul>
                         </nav>
+                        <script type="text/javascript">
+                                function search(){
+                                    var key = $('#inputSearch').val();
+                                     //alert(key);
+                                       $.ajax({
+                                            url: '/user/searchUser',
+                                            type: 'POST',
+                                            cache: false,
+                                            data: {
+                                                aid: key,
+                                               // aactive: active
+                                            },
+                                            success: function(data) {
+                                                $('#hello').html(data);
+                                                //alert($data);
+                                            },
+                                            error: function() {
+                                                alert('Có lỗi xảy ra');
+                                            }
+                                        });
+                                }
+                            </script>
                     </div>
                 </div>
             </div>

@@ -53,4 +53,9 @@ class UserController
         (new Account)->delete();
         return redirect('user');
     }
+
+    public function searchUser()
+    {
+        (new Account)->searchUser();
+    }
 }
