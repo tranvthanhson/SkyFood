@@ -41,7 +41,8 @@
                                         <th>Control</th>
                                     </thead>
                                     <tbody>
-                                        <?php foreach ($post as $value) {?>
+                                        <?php foreach ($post as $value) {
+    ?>
                                         <tr>
                                             <td><?=$value->SHOP_ID?></td>
                                             <td class="name-place"><a href=""><?=$value->SHOP_NAME?></a></td>
@@ -87,7 +88,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="item-col">
-                                                        <a data-toggle="modal" data-target="#delPost" href="/post/del?id=<?=$value->SHOP_ID?>" class="btn btn-danger" title="Xoá">
+                                                        <a data-toggle="modal" data-target="#delPost<?=$value->SHOP_ID?>"  href="" class="btn btn-danger" title="Xoá">
                                                             <i class="pe-7s-trash"></i>
                                                         </a>
                                                     </div>
@@ -95,7 +96,9 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <?php }?>
+                                        <?php view_include('partials.modal', ['id_model' => 'delPost' . $value->SHOP_ID, 'title' => 'XÓA BÀI ĐĂNG ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => '/post/del?id=' . $value->SHOP_ID]);
+}?>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -120,5 +123,5 @@
 </div>
 <!-- Modal -->
 
-<?php view_include('partials.modal', ['id_model' => 'delPost', 'title' => 'XÓA BÀI ĐĂNG ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa']);?>
+
 <?php view_include('layouts.foot-master');?>

@@ -118,11 +118,12 @@ class Shop extends Model
 
     public function delPost()
     {
+
         $path = $_SERVER['DOCUMENT_ROOT'];
         if ('default-avatar.png' != $picture) {
             $link = $path . '/public/assets/img/img-shop/' . $picture;
             unlink($link);
-        }
+        } //die($_GET['id']);
         return $this->deleteById($_GET['id']);
     }
 }

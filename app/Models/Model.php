@@ -55,8 +55,9 @@ class Model
 
 function deleteById($id)
 {
+    die('r');
     $sql = "DELETE FROM {$this->table} WHERE {$this->primaryKey} = '{$id}'";
-    //echo $sql;
+    die($sql);
 
     return $this->rawQuery($sql, $param);
 }
