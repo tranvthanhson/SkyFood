@@ -16,28 +16,41 @@ class UserController
     {
         $users = (new Account)->selectAll();
 
-        return view('user/index', ['users' => $users]);
+        if (isset($_SESSION['user'])) {
+            $users = (new Account)->selectAll();
+            return view('user/index', ['users' => $users]);
+        } else {
+
+            return 'Ban khong duoc truy cap trang nay';
+        }
     }
 
-    public function add()
+    public function addUser()
     {
 
         return view('user/add');
     }
 
-    public function store()
+    public function storeUser()
     {
         (new Account)->addUser();
-
     }
 
-    public function edit()
+    public function editUser()
     {
-        return view('user/edit');
+        $infoUser = (new Account)->getUser($_GET['idUser']);
+
+        return view('user/edit', compact('infoUser'));
     }
 
-    public function del()
+    public function updateUser()
     {
-        (new Account)->del();
+        (new Account)->update();
+    }
+
+    public function deleteUser()
+    {
+        (new Account)->delete();
+        return redirect('user');
     }
 }

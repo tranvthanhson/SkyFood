@@ -43,13 +43,13 @@
                                     </thead>
                                     <tbody>
                                         <?php $i = 1;?>
-                                        <?php foreach ($users as $user): ?>
+                                        <?php foreach ($users['sql1'] as $user): ?>
 
                                           <tr>
                                             <td><?=$i;?></td>
                                             <td class="username"><a href=""><?=$user->USERNAME;?></a></td>
                                             <td class="img-post">
-                                                <a href=""><img  src="assets/img/<?=$user->IMAGES;?>" /></a>
+                                                <a href=""><img  src="/public/assets/img/imagesUser/<?=$user->IMAGE;?>" /></a>
                                             </td>
                                             <td><?=$user->FULL_NAME;?></td>
                                             <td><?=$user->EMAIL;?></td>
@@ -59,12 +59,12 @@
                                             <td class="control">
                                                 <div class="form-group">
                                                     <div class="item-col">
-                                                        <a href="edit-user.html" class="btn btn-success" title="Sửa">
+                                                        <a href="/user/edit?idUser=<?=$user->USERNAME?>" class="btn btn-success" title="Sửa">
                                                             <i class="pe-7s-note"></i>
                                                         </a>
                                                     </div>
                                                     <div class="item-col">
-                                                        <a data-toggle="modal" data-target="#delUser" href="" class="btn btn-danger" title="Xoá">
+                                                        <a data-toggle="modal" data-target="#delUser<?=$user->USERNAME?>" href="" class="btn btn-danger" title="Xoá">
                                                             <i class="pe-7s-trash"></i>
                                                         </a>
                                                     </div>
@@ -74,7 +74,10 @@
                                         </tr>
                                         <?php $i++;?>
                                         <!-- Modal -->
-                                        <?php view_include('partials.modal', ['id_model' => 'delUser', 'title' => 'XÓA NGƯỜI DÙNG ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'linkdel' => '/user/del?username=ngan']);?>
+                                        <?php view_include('partials.modal', ['id_model' => 'delUser' . $user->USERNAME, 'title' => 'XÓA NGƯỜI DÙNG', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => 'user/del?username=' . $user->USERNAME]);?>
+
+
+
                                     <?php endforeach;?>
 
                                 </tbody>
@@ -82,13 +85,25 @@
                         </div>
                         <nav class="nav-pag">
                             <ul class="pagination">
-                                <li><a href="" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                <li class="active"><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+
+                             <!-- nếu current_page > 1 và total_page > 1 mới hiển thị nút prev -->
+                                <?php if ($users['current_page'] > 1 && $users['total_page'] > 1) {?>
+                                    <li><a href="/user?page=<?=($users['current_page'] - 1)?>" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                <?php }?>
+                                 <!-- Lặp khoảng giữa -->
+                                <?php for ($i = 1; $i <= $users['total_page']; $i++) {?>
+                                <!-- // Nếu là trang hiện tại thì hiển thị thẻ span
+                                // ngược lại hiển thị thẻ a -->
+                                    <?php if ($i == $users['current_page']) {?>
+                                        <li class="active"><a href="/user?page=<?=$i?>"><?=$i?></a></li>
+                                     <?php } else {?>
+                                        <li><a href="/user?page=<?=$i?>"><?=$i?></a></li>
+                                    <?php }?>
+                                 <?php }?>
+                                <!-- // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev -->
+                                <?php if ($users['current_page'] < $users['total_page'] && $users['total_page'] > 1) {?>
+                                    <li><a href="/user?page=<?=($users['current_page'] + 1)?>" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                <?php }?>
                             </ul>
                         </nav>
                     </div>
