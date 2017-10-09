@@ -75,7 +75,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Email (<span>*</span>)</label>
-                                                    <input type="hidden" name="url_img" value="<?=$infoUser[0]->IMAGE?>">
+                                                    <input type="hidden" name="urlImage" value="<?=$infoUser[0]->IMAGE?>">
                                                     <input type="text" value="<?=$infoUser[0]->EMAIL?>" name="email" class="form-control" id="confirmPass">
                                                     <div class="help-block with-errors"></div>
                                                 </div>
