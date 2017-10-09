@@ -9,6 +9,24 @@ class Account extends Model
 
     protected $table = 'ACCOUNT';
     protected $primaryKey = 'USERNAME';
+    protected $fillable = [
+        'fisrtname', 'lastname', 'address', 'image', 'email', 'fullname', 'role', 'phone',
+    ];
+
+    public function setValue($password, $fisrtname, $lastname, $address, $image, $email, $role, $phone)
+    {
+        $this->fillable = [
+            'PASSWORD' => md5($password),
+            'FIRST_NAME' => $fisrtname,
+            'LAST_NAME' => $lastname,
+            'ADDRESS' => $address,
+            'IMAGE' => $image,
+            'EMAIL' => $email,
+            'FULL_NAME' => $lastname . ' ' . $fisrtname,
+            'ROLE' => $role,
+            'PHONE' => $phone,
+        ];
+    }
 
     public function checkUser($table, $username, $password)
     {
@@ -23,13 +41,12 @@ class Account extends Model
             $username = $_POST['username'];
             $password = md5($_POST['password']);
 
-            $th = $this->checkUser($this->table, $username, $password);
+            $user = $this->checkUser($this->table, $username, $password);
 
-            if (($th[0]->USERNAME == $username) && ($th[0]->PASSWORD == $password)) {
-                if ((1 == $th[0]->ROLE) || (2 == $th[0]->ROLE)) {
-                    $_SESSION['user'] = $th[0];
-                    var_dump($_SESSION['user']);
-                    // return redirect('users');
+            if (($user[0]->USERNAME == $username) && ($user[0]->PASSWORD == $password)) {
+                if (3 != $user[0]->ROLE) {
+                    $_SESSION['user'] = $user[0];
+                    return redirect('user');
                 }
             } else {
                 // return redirect('');
@@ -37,26 +54,25 @@ class Account extends Model
         }
     }
 
+    public function logout()
+    {
+        if (isset($_SESSION['user'])) {
+            session_destroy();
+        }
+    }
+
     public function register()
     {
         if (isset($_POST['register'])) {
-            $user = [];
-            $user['USERNAME'] = $_POST['username'];
-            $user['PASSWORD'] = md5($_POST['password']);
-            $user['FIRST_NAME'] = $_POST['first_name'];
-            $user['LAST_NAME'] = $_POST['last_name'];
-            $user['EMAIL'] = $_POST['email'];
-            $user['FULL_NAME'] = $user['LAST_NAME'] . ' ' . $user['FIRST_NAME'];
-            $user['ROLE'] = 3;
-
-            $checkId = $this->findById($user['USERNAME'], 'USERNAME');
+            $this->setValue($_POST['password'], $_POST['first_name'], $_POST['last_name'], '', '', $_POST['email'], 3, '');
+            $checkId = $this->findById($_POST['username'], 'USERNAME');
 
             if (null != $checkId->USERNAME) {
                 echo 'Username already!';
             } else {
-                $this->insert($user);
+                $this->insert($this->fillable);
 
-                echo 'Register Successful!';
+                // echo 'Register Successful!';
                 // return redirect('');
             }
         }
@@ -66,94 +82,66 @@ class Account extends Model
     {
 
         // Find sum record
-
         $sql = "SELECT count(USERNAME) as total from {$this->table}";
 
         $total = $this->rawQuery($sql);
 
-        $total_records = $total[0]->total;
+        $totalRecords = $total[0]->total;
 
-        // FIND LIMIT VÀ CURRENT_PAGE
+        // Find limit and current page
+        $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+        $limit = 5;
+        $totalPage = ceil($totalRecords / $limit);
 
-        $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-        $limit = 3;
-
-        // TÍNH TOÁN TOTAL_PAGE VÀ START
-        // tổng số trang
-
-        $total_page = ceil($total_records / $limit);
-
-        // Giới hạn current_page trong khoảng 1 đến total_page
-        if ($current_page > $total_page) {
-            $current_page = $total_page;
-        } else if ($current_page < 1) {
-            $current_page = 1;
+        // Giới hạn currentPage trong khoảng 1 đến totalPage
+        if ($currentPage > $totalPage) {
+            $currentPage = $totalPage;
+        } else if ($currentPage < 1) {
+            $currentPage = 1;
         }
-        // Tìm Start
-        $start = ($current_page - 1) * $limit;
 
-        $sql1 = "SELECT * from {$this->table} LIMIT {$start},{$limit}";
-        $ar_pagination = [];
-        $ar_pagination['sql1'] = $this->rawQuery($sql1);
-        $ar_pagination['current_page'] = $current_page;
-        $ar_pagination['total_page'] = $total_page;
-        return $ar_pagination;
+        // Tìm Start
+        $start = ($currentPage - 1) * $limit;
+        $sql = "SELECT * from {$this->table} LIMIT {$start},{$limit}";
+        $arrPagination = [];
+        $arrPagination['all'] = $this->rawQuery($sql);
+        $arrPagination['currentPage'] = $currentPage;
+        $arrPagination['totalPage'] = $totalPage;
+        return $arrPagination;
     }
 
     public function addUser()
     {
-        //echo $_POST['username'];
         if (isset($_POST['add'])) {
             if (null == $_FILES['file']['name']) {
-                $user = [];
-                $user['USERNAME'] = $_POST['username'];
-                $user['PASSWORD'] = md5($_POST['password']);
-                $user['FIRST_NAME'] = $_POST['firstName'];
-                $user['LAST_NAME'] = $_POST['lastName'];
-                $user['ADDRESS'] = $_POST['address'];
-                $user['EMAIL'] = $_POST['email'];
-                $user['FULL_NAME'] = $user['LAST_NAME'] . ' ' . $user['FIRST_NAME'];
-                $user['ROLE'] = $_POST['role'];
-                $user['PHONE'] = $_POST['phone'];
-                //die(var_dump($user));
-                $checkId = $this->findById($user['USERNAME'], 'USERNAME');
+                $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], '', $_POST['email'], $_POST['role'], $_POST['phone']);
+                $checkId = $this->findById($_POST['USERNAME'], 'USERNAME');
 
                 if (null != $checkId->USERNAME) {
                     echo 'Username already!';
                 } else {
-                    $this->insert($user);
+                    $this->insert($this->fillable);
                     echo 'Register Successful!';
                 }
             } else {
-                // Upload img
 
-                $hinhanh = $_FILES['file']['name'];
-                $arr_tach = explode('.', $hinhanh);
-                $duoifile = end($arr_tach);
-                $hinhanh = 'hinh-' . time() . '.' . $duoifile;
-                $tmp_name = $_FILES['file']['tmp_name'];
-                $path_upload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $hinhanh;
-                move_uploaded_file($tmp_name, $path_upload);
+                // Upload img
+                $image = $_FILES['file']['name'];
+                $splitArray = explode('.', $image);
+                $extention = end($splitArray);
+                $image = 'hinh-' . time() . '.' . $extention;
+                $tmpName = $_FILES['file']['tmpName'];
+                $pathUpload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $image;
+                move_uploaded_file($tmpName, $pathUpload);
 
                 // Add user
-
-                $user = [];
-                $user['USERNAME'] = $_POST['username'];
-                $user['PASSWORD'] = md5($_POST['password']);
-                $user['FIRST_NAME'] = $_POST['firstName'];
-                $user['LAST_NAME'] = $_POST['lastName'];
-                $user['ADDRESS'] = $_POST['address'];
-                $user['IMAGE'] = $hinhanh;
-                $user['EMAIL'] = $_POST['email'];
-                $user['FULL_NAME'] = $user['LAST_NAME'] . ' ' . $user['FIRST_NAME'];
-                $user['ROLE'] = $_POST['role'];
-                $user['PHONE'] = $_POST['phone'];
+                $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $image, $_POST['email'], $_POST['role'], $_POST['phone']);
                 $checkId = $this->findById($user['USERNAME'], 'USERNAME');
 
                 if (null != $checkId->USERNAME) {
                     echo 'Username already!';
                 } else {
-                    $this->insert($user);
+                    $this->insert($this->fillable);
                     echo 'Register Successful!';
                 }
             }
@@ -161,134 +149,87 @@ class Account extends Model
     }
 
     // Delete User
-
-    public function del()
+    public function deleteUser()
     {
         return $this->deleteById($_GET['username']);
     }
 
-    //Edit User
-
-    public function edit()
+    // Get User
+    public function getUser($username)
     {
-        $username = $_GET['idu'];
         $sql = "SELECT * FROM {$this->table} WHERE USERNAME='{$username}'";
         return $this->rawQuery($sql);
     }
 
-    public function update()
+    public function updateUser()
     {
-
         if (isset($_POST['add'])) {
-            //have pass
-            if ((null != $_POST['password'])) {
-                if (($_FILES[file]['name'])) {
-                    //  Update have pass, have img
-                    $picture_old = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $_POST['url_img'];
-                    unlink($picture_old);
-                    $hinhanh = $_FILES['file']['name'];
-                    $arr_tach = explode('.', $hinhanh);
-                    $duoifile = end($arr_tach);
-                    $hinhanh = 'hinh-' . time() . '.' . $duoifile;
-                    $tmp_name = $_FILES['file']['tmp_name'];
-                    $path_upload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $hinhanh;
-                    move_uploaded_file($tmp_name, $path_upload);
-
-                    // // Add user
-
-                    $user = [];
-                    $user['PASSWORD'] = md5($_POST['password']);
-                    $user['FIRST_NAME'] = $_POST['firstName'];
-                    $user['LAST_NAME'] = $_POST['lastName'];
-                    $user['ADDRESS'] = $_POST['address'];
-                    $user['IMAGE'] = $hinhanh;
-                    $user['EMAIL'] = $_POST['email'];
-                    $user['FULL_NAME'] = $user['LAST_NAME'] . ' ' . $user['FIRST_NAME'];
-                    $user['ROLE'] = $_POST['role'];
-                    $user['PHONE'] = $_POST['phone'];
-
-                    $sql = "UPDATE {$this->table}
-                    SET PASSWORD = '{$user['PASSWORD']}',FIRST_NAME ='{$_POST['firstName']}',LAST_NAME='{$_POST['lastName']}',PHONE='{$_POST['phone']}',EMAIL='{$_POST['email']}',ADDRESS='{$_POST['address']}',FULL_NAME='{$user['FULL_NAME']}',ROLE='{$_POST['role']}',IMAGE='{$hinhanh}'
-                    WHERE USERNAME='{$_POST['username']}'";
-                    $this->rawQuery($sql);
-                    echo 'Edit Successful!';
-                } else {
-                    // Update have pass, no img
-
-                    // Add user
-
-                    $user = [];
-                    $user['PASSWORD'] = md5($_POST['password']);
-                    $user['FIRST_NAME'] = $_POST['firstName'];
-                    $user['LAST_NAME'] = $_POST['lastName'];
-                    $user['ADDRESS'] = $_POST['address'];
-                    $user['IMAGE'] = $_POST['url_img'];
-                    $user['EMAIL'] = $_POST['email'];
-                    $user['FULL_NAME'] = $user['LAST_NAME'] . ' ' . $user['FIRST_NAME'];
-                    $user['ROLE'] = $_POST['role'];
-                    $user['PHONE'] = $_POST['phone'];
-
-                    $sql = "UPDATE {$this->table}
-                    SET PASSWORD = '{$user['PASSWORD']}',FIRST_NAME ='{$_POST['firstName']}',LAST_NAME='{$_POST['lastName']}',PHONE='{$_POST['phone']}',EMAIL='{$_POST['email']}',ADDRESS='{$_POST['address']}',FULL_NAME='{$user['FULL_NAME']}',ROLE='{$_POST['role']}',IMAGE='{$_POST['url_img']}'
-                    WHERE USERNAME='{$_POST['username']}'";
-                    $this->rawQuery($sql);
-                    echo 'Edit Successful!';
-                }
-            } else {
-                //no pass
-                if (($_FILES[file]['name'])) {
-                    //  Update no pass, have img
-                    $picture_old = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $_POST['url_img'];
-                    unlink($picture_old);
-                    $hinhanh = $_FILES['file']['name'];
-                    $arr_tach = explode('.', $hinhanh);
-                    $duoifile = end($arr_tach);
-                    $hinhanh = 'hinh-' . time() . '.' . $duoifile;
-                    $tmp_name = $_FILES['file']['tmp_name'];
-                    $path_upload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $hinhanh;
-                    move_uploaded_file($tmp_name, $path_upload);
-
-                    // // Add user
-
-                    $user = [];
-
-                    $user['FIRST_NAME'] = $_POST['firstName'];
-                    $user['LAST_NAME'] = $_POST['lastName'];
-                    $user['ADDRESS'] = $_POST['address'];
-                    $user['IMAGE'] = $hinhanh;
-                    $user['EMAIL'] = $_POST['email'];
-                    $user['FULL_NAME'] = $user['LAST_NAME'] . ' ' . $user['FIRST_NAME'];
-                    $user['ROLE'] = $_POST['role'];
-                    $user['PHONE'] = $_POST['phone'];
-
-                    $sql = "UPDATE {$this->table}
-                    SET FIRST_NAME ='{$_POST['firstName']}',LAST_NAME='{$_POST['lastName']}',PHONE='{$_POST['phone']}',EMAIL='{$_POST['email']}',ADDRESS='{$_POST['address']}',FULL_NAME='{$user['FULL_NAME']}',ROLE='{$_POST['role']}',IMAGE='{$hinhanh}'
-                    WHERE USERNAME='{$_POST['username']}'";
-                    $this->rawQuery($sql);
-                    echo 'Edit Successful!';
-                } else {
-                    // Update no pass, no img
-
-                    // Add user
-
-                    $user = [];
-
-                    $user['FIRST_NAME'] = $_POST['firstName'];
-                    $user['LAST_NAME'] = $_POST['lastName'];
-                    $user['ADDRESS'] = $_POST['address'];
-                    $user['IMAGE'] = $_POST['url_img'];
-                    $user['EMAIL'] = $_POST['email'];
-                    $user['FULL_NAME'] = $user['LAST_NAME'] . ' ' . $user['FIRST_NAME'];
-                    $user['ROLE'] = $_POST['role'];
-                    $user['PHONE'] = $_POST['phone'];
-
-                    $sql = "UPDATE {$this->table}
-                    SET FIRST_NAME ='{$_POST['firstName']}',LAST_NAME='{$_POST['lastName']}',PHONE='{$_POST['phone']}',EMAIL='{$_POST['email']}',ADDRESS='{$_POST['address']}',FULL_NAME='{$user['FULL_NAME']}',ROLE='{$_POST['role']}',IMAGE='{$_POST['url_img']}'
-                    WHERE USERNAME='{$_POST['username']}'";
-                    $this->rawQuery($sql);
-                    echo 'Edit Successful!';
-                }
+            $account = $this->getUser($_POST['username']);
+            if ('' == $_POST['password']) {
+                $_POST['password'] = $account[0]->PASSWORD;
             }
+
+            $image = $_FILES['file']['name'];
+            if ($_POST['urlImage'] != $image) {
+                $_POST['urlImage'] = $image;
+            }
+            $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $_POST['urlImage'], $_POST['email'], $_POST['role'], $_POST['phone']);
+            $this->updateById($_POST['username'], $this->fillable);
+            echo 'Edit Successful!';
         }
+    }
+
+    //SearchUser
+    public function searchUser()
+    {
+        $sql = "SELECT * FROM {$this->table} WHERE (USERNAME LIKE '%" . $_POST['aid'] . "%')";
+        $users['all'] = $this->rawQuery($sql);
+        //die(var_dump($search));
+        //echo '<span>' . $_POST['aid'] . '</span>';
+        echo ' <thead>
+                                        <th>#</th>
+                                        <th>User name</th>
+                                        <th>Avatar</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Address</th>
+                                        <th>Phone</th>
+                                        <th>Role</th>
+                                        <th>Control</th>
+                                    </thead>
+                                    <tbody>';
+        $i = 1;
+        foreach ($users['all'] as $user):
+            echo '<td>' . $i . '</td>
+				            <td class="username"><a href="">' . $user->USERNAME . '</a></td>
+				                                            <td class="img-post">
+				                                                <a href=""><img  src="/public/assets/img/imagesUser/' . $user->IMAGE . '" /></a>
+				                                            </td>
+				                                            <td>' . $user->FULL_NAME . '</td>
+				                                            <td>' . $user->EMAIL . '</td>
+				                                            <td>' . $user->ADDRESS . '</td>
+				                                            <td>' . $user->PHONE . '</td>
+				                                            <td>' . $user->ROLE . '</td>
+				                                            <td class="control">
+				                                                <div class="form-group">
+				                                                    <div class="item-col">
+				                                                        <a href="/user/edit?idUser=' . $user->USERNAME . '" class="btn btn-success" title="Sửa">
+				                                                            <i class="pe-7s-note"></i>
+				                                                        </a>
+				                                                    </div>
+				                                                    <div class="item-col">
+				                                                        <a data-toggle="modal" data-target="#delUser' . $user->USERNAME . '" href="" class="btn btn-danger" title="Xoá">
+				                                                            <i class="pe-7s-trash"></i>
+				                                                        </a>
+				                                                    </div>
+				                                                    <div class="clearfix"></div>
+				                                                </div>
+				                                            </td>
+				                                        </tr>';
+            $i++;
+
+            view_include('partials . modal', ['id_model' => 'delUser' . $user->USERNAME, 'title' => 'XÓANGƯỜIDÙNG', 'content' => 'Bạncóchắcchắnmuốnxóakhông ?? ', 'bt' => 'Xóa', 'link' => 'user / del ? username = ' . $user->USERNAME]);
+        endforeach;
+        echo '</tbody>';
     }
 }

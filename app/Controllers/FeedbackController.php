@@ -19,7 +19,7 @@ class FeedbackController
     public function index()
     {
         $feedbacks = $this->feedback->selectAll();
-        return view('/feedback/index', compact('feedbacks'));
+        return view('/feedback/index', compact('feedbacks', 'abc'));
     }
 
     public function delete()

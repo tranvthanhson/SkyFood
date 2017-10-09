@@ -15,4 +15,9 @@ class LoginController
     {
         (new Account)->login();
     }
+
+    public function logout()
+    {
+        (new Account)->logout();
+    }
 }

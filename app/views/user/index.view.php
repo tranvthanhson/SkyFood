@@ -19,17 +19,19 @@
                                     <div class="col-lg-offset-6 col-md-4 col-md-offset-6 col-sm-5 col-sm-offset-5 col-xs-8">
                                         <div class="input-group search-btn">
                                             <div class="input-group-addon"><span>Tìm kiếm</span></div>
-                                            <input type="text" class="form-control" />
+                                            <input type="text" id="inputSearch" class="form-control" />
                                             <div class="input-group-btn">
-                                                <button class="btn btn-default" type="button"><i class="pe-7s-search"></i></button>
+                                                <button class="btn btn-default" id="search" onclick="search()" type="button"><i class="pe-7s-search"></i></button>
                                             </div>
+
                                         </div>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
+
                             <div class="content content-card table-responsive table-full-width">
-                                <table id="view-post" class="table table-hover table-striped">
+                                <table id="view-post" class="hello" class="table table-hover table-striped">
                                     <thead>
                                         <th>#</th>
                                         <th>User name</th>
@@ -43,7 +45,7 @@
                                     </thead>
                                     <tbody>
                                         <?php $i = 1;?>
-                                        <?php foreach ($users['sql1'] as $user): ?>
+                                        <?php foreach ($users['all'] as $user): ?>
 
                                           <tr>
                                             <td><?=$i;?></td>
@@ -59,7 +61,7 @@
                                             <td class="control">
                                                 <div class="form-group">
                                                     <div class="item-col">
-                                                        <a href="/user/edit?idu=<?=$user->USERNAME?>" class="btn btn-success" title="Sửa">
+                                                        <a href="/user/edit?idUser=<?=$user->USERNAME?>" class="btn btn-success" title="Sửa">
                                                             <i class="pe-7s-note"></i>
                                                         </a>
                                                     </div>
@@ -86,26 +88,48 @@
                         <nav class="nav-pag">
                             <ul class="pagination">
 
-                             <!-- nếu current_page > 1 và total_page > 1 mới hiển thị nút prev -->
-                                <?php if ($users['current_page'] > 1 && $users['total_page'] > 1) {?>
-                                    <li><a href="/user?page=<?=($users['current_page'] - 1)?>" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                             <!-- nếu current_page > 1 và totalPage > 1 mới hiển thị nút prev -->
+                                <?php if ($users['currentPage'] > 1 && $users['totalPage'] > 1) {?>
+                                    <li><a href="/user?page=<?=($users['currentPage'] - 1)?>" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
                                 <?php }?>
                                  <!-- Lặp khoảng giữa -->
-                                <?php for ($i = 1; $i <= $users['total_page']; $i++) {?>
+                                <?php for ($i = 1; $i <= $users['totalPage']; $i++) {?>
                                 <!-- // Nếu là trang hiện tại thì hiển thị thẻ span
                                 // ngược lại hiển thị thẻ a -->
-                                    <?php if ($i == $users['current_page']) {?>
+                                    <?php if ($i == $users['currentPage']) {?>
                                         <li class="active"><a href="/user?page=<?=$i?>"><?=$i?></a></li>
                                      <?php } else {?>
                                         <li><a href="/user?page=<?=$i?>"><?=$i?></a></li>
                                     <?php }?>
                                  <?php }?>
-                                <!-- // nếu current_page < $total_page và total_page > 1 mới hiển thị nút prev -->
-                                <?php if ($users['current_page'] < $users['total_page'] && $users['total_page'] > 1) {?>
-                                    <li><a href="/user?page=<?=($users['current_page'] + 1)?>" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                <!-- // nếu currentPage < $totalPage và totalPage > 1 mới hiển thị nút prev -->
+                                <?php if ($users['currentPage'] < $users['totalPage'] && $users['totalPage'] > 1) {?>
+                                    <li><a href="/user?page=<?=($users['currentPage'] + 1)?>" aria-label="Next"><span aria-hidden="true">»</span></a></li>
                                 <?php }?>
                             </ul>
                         </nav>
+                        <script type="text/javascript">
+                                function search(){
+                                    var key = $('#inputSearch').val();
+                                     //alert(key);
+                                       $.ajax({
+                                            url: '/user/searchUser',
+                                            type: 'POST',
+                                            cache: false,
+                                            data: {
+                                                aid: key,
+                                               // aactive: active
+                                            },
+                                            success: function(data) {
+                                                $('#hello').html(data);
+                                                //alert($data);
+                                            },
+                                            error: function() {
+                                                alert('Có lỗi xảy ra');
+                                            }
+                                        });
+                                }
+                            </script>
                     </div>
                 </div>
             </div>

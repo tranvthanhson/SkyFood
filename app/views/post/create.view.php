@@ -51,6 +51,7 @@ foreach ($types as $value) {
                                                             <?php }?>
                                                         </select>
                                                     </div>
+
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
@@ -123,6 +124,7 @@ foreach ($types as $value) {
                                                          </h4>
                                                     </div>
 
+
                                                 </div>
                                             </div>
                                             <div class="">
@@ -141,6 +143,7 @@ foreach ($types as $value) {
                                                  </div>
                                             </div>
                                         </form>
+
                                 </div>
                             </div>
                         </div>
@@ -151,4 +154,4 @@ foreach ($types as $value) {
             <?php view_include('partials.footer');?>
         </div>
     </div>
-<?php view_include('layouts.foot-master');?>
+    <?php view_include('layouts.foot-master');?>
