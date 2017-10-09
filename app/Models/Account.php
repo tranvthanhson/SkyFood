@@ -9,6 +9,35 @@ class Account extends Model
 
     protected $table = 'ACCOUNT';
     protected $primaryKey = 'USERNAME';
+    protected $fillable = [
+        'fisrtname', 'lastname', 'address', 'image', 'email', 'fullname', 'role', 'phone',
+    ];
+
+    public function setValue($username, $fisrtname, $lastname, $address, $image, $email, $role, $phone)
+    {
+        $this->fillable = [
+            'username' => $username,
+            'fisrtname' => $fisrtname,
+            'lastname' => $lastname,
+            'address' => $address,
+            'image' => $image,
+            'email' => $email,
+            'fullname' => $lastname . ' ' . $fisrtname,
+            'role' => $role,
+            'phone' => $phone,
+        ];
+    }
+
+    // $user = [];
+
+    // $user['FIRST_NAME'] = $_POST['firstName'];
+    // $user['LAST_NAME'] = $_POST['lastName'];
+    // $user['ADDRESS'] = $_POST['address'];
+    // $user['IMAGE'] = $_POST['url_img'];
+    // $user['EMAIL'] = $_POST['email'];
+    // $user['FULL_NAME'] = $user['LAST_NAME'] . ' ' . $user['FIRST_NAME'];
+    // $user['ROLE'] = $_POST['role'];
+    // $user['PHONE'] = $_POST['phone'];
 
     public function checkUser($table, $username, $password)
     {
@@ -185,7 +214,6 @@ class Account extends Model
 
     public function update()
     {
-
         if (isset($_POST['add'])) {
             //have pass
             if ((null != $_POST['password'])) {
@@ -257,20 +285,23 @@ class Account extends Model
 
                     // // Add user
 
-                    $user = [];
+                    // $user = [];
+                    // setValue($username, $fisrtname, $lastname, $address, $image, $email, $fullname, $role, $phone)
+                    $this->setValue($_POST['username'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $hinhanh, $_POST['email'], $_POST['role'], $_POST['phone']);
 
-                    $user['FIRST_NAME'] = $_POST['firstName'];
-                    $user['LAST_NAME'] = $_POST['lastName'];
-                    $user['ADDRESS'] = $_POST['address'];
-                    $user['IMAGE'] = $hinhanh;
-                    $user['EMAIL'] = $_POST['email'];
-                    $user['FULL_NAME'] = $user['LAST_NAME'] . ' ' . $user['FIRST_NAME'];
-                    $user['ROLE'] = $_POST['role'];
-                    $user['PHONE'] = $_POST['phone'];
-
+                    // $user['FIRST_NAME'] = $_POST['firstName'];
+                    // $user['LAST_NAME'] = $_POST['lastName'];
+                    // $user['ADDRESS'] = $_POST['address'];
+                    // $user['IMAGE'] = $hinhanh;
+                    // $user['EMAIL'] = $_POST['email'];
+                    // $user['FULL_NAME'] = $user['LAST_NAME'] . ' ' . $user['FIRST_NAME'];
+                    // $user['ROLE'] = $_POST['role'];
+                    // $user['PHONE'] = $_POST['phone'];
+                    // die($_POST['role']);
                     $sql = "UPDATE {$this->table}
-                    SET FIRST_NAME ='{$_POST['firstName']}',LAST_NAME='{$_POST['lastName']}',PHONE='{$_POST['phone']}',EMAIL='{$_POST['email']}',ADDRESS='{$_POST['address']}',FULL_NAME='{$user['FULL_NAME']}',ROLE='{$_POST['role']}',IMAGE='{$hinhanh}'
-                    WHERE USERNAME='{$_POST['username']}'";
+                    SET FIRST_NAME ='{$this->fillable['fisrtname']}',LAST_NAME='{$this->fillable['lastname']}',PHONE='{$this->fillable['phone']}',EMAIL='{$this->fillable['email']}',ADDRESS='{$this->fillable['address']}',FULL_NAME='{$this->fillable['fulname']}',ROLE='{$this->fillable['role']}',IMAGE='{$this->fillable['image']}'
+                    WHERE USERNAME='{$this->fillable['username']}'";
+                    echo $sql;
                     $this->rawQuery($sql);
                     echo 'Edit Successful!';
                 } else {
