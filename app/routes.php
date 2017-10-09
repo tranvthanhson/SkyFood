@@ -32,6 +32,9 @@ $router->get('user/edit', 'UserController@editUser');
 $router->post('user/edit', 'UserController@updateUser');
 $router->get('user/del', 'UserController@deleteUser');
 
+//Search
+$router->post('user/searchUser', 'UserController@searchUser');
+
 // Post
 $router->get('post', 'PostController@index');
 $router->get('post/add', 'PostController@add');
