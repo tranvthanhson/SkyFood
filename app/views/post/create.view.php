@@ -41,12 +41,10 @@
                                                     <label for="type">Type (<span>*</span>)</label>
                                                     <select class="form-control" id="type">
                                                         <option>[Chọn]</option>
-                                                        <?php
-foreach ($post as $value) {
-    ?>
+                                                        <?php foreach ($post as $value) {?>
                                                         <option value="<?=$value->TYPE_ID?>"><?php echo $value->TYPE_NAME ?></option>
                                                         <?php }?>
-                                                       </select>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -100,9 +98,9 @@ foreach ($post as $value) {
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                 <div class="form-group">
-                                                    <label>Detail</label>
-                                                    <textarea rows="5" class="form-control" placeholder="Chi tiết địa điểm" value="" name="DETAIL"></textarea required>
+                                               <div class="form-group">
+                                                <label>Detail</label>
+                                                <textarea rows="5" class="form-control" placeholder="Chi tiết địa điểm" value="" name="DETAIL"></textarea required>
                                                 </div>
                                             </div>
                                         </div>
@@ -116,7 +114,7 @@ foreach ($post as $value) {
                                 </div>
                             </div>
                         </div>
-                         <div class="col-md-4">
+                        <div class="col-md-4">
                             <div class="card card-user">
                                 <div class="content">
                                     <div class="author">
@@ -130,8 +128,8 @@ foreach ($post as $value) {
                                             </div>
                                         </div>
                                         <h4 class="title">The Coffee House<br />
-                                        <small>0905594382</small>
-                                    </h4>
+                                            <small>0905594382</small>
+                                        </h4>
                                     </div>
                                     <p class="description text-center">
                                         "Lamborghini Merce Your chick she so thirsty I'm in that two seat Lambo"
@@ -154,4 +152,4 @@ foreach ($post as $value) {
             <?php view_include('partials.footer');?>
         </div>
     </div>
-<?php view_include('layouts.foot-master');?>
+    <?php view_include('layouts.foot-master');?>

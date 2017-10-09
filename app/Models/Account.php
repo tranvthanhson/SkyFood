@@ -13,10 +13,9 @@ class Account extends Model
         'fisrtname', 'lastname', 'address', 'image', 'email', 'fullname', 'role', 'phone',
     ];
 
-    public function setValue($username, $password, $fisrtname, $lastname, $address, $image, $email, $role, $phone)
+    public function setValue($password, $fisrtname, $lastname, $address, $image, $email, $role, $phone)
     {
         $this->fillable = [
-            'USERNAME' => $username,
             'PASSWORD' => md5($password),
             'FIRST_NAME' => $fisrtname,
             'LAST_NAME' => $lastname,
@@ -65,7 +64,7 @@ class Account extends Model
     public function register()
     {
         if (isset($_POST['register'])) {
-            $this->setValue($_POST['username'], $_POST['password'], $_POST['first_name'], $_POST['last_name'], '', '', $_POST['email'], 3, '');
+            $this->setValue($_POST['password'], $_POST['first_name'], $_POST['last_name'], '', '', $_POST['email'], 3, '');
             $checkId = $this->findById($_POST['username'], 'USERNAME');
 
             if (null != $checkId->USERNAME) {
@@ -73,7 +72,7 @@ class Account extends Model
             } else {
                 $this->insert($this->fillable);
 
-                echo 'Register Successful!';
+                // echo 'Register Successful!';
                 // return redirect('');
             }
         }
@@ -89,12 +88,9 @@ class Account extends Model
 
         $totalRecords = $total[0]->total;
 
-        // FIND LIMIT VÀ CURRENT_PAGE
+        // Find limit and current page
         $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
         $limit = 5;
-
-        // TÍNH TOÁN TOTAL_PAGE VÀ START
-        // tổng số trang
         $totalPage = ceil($totalRecords / $limit);
 
         // Giới hạn currentPage trong khoảng 1 đến totalPage
@@ -118,8 +114,8 @@ class Account extends Model
     {
         if (isset($_POST['add'])) {
             if (null == $_FILES['file']['name']) {
-                $this->setValue($_POST['username'], $_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], '', $_POST['email'], $_POST['role'], $_POST['phone']);
-                $checkId = $this->findById($user['USERNAME'], 'USERNAME');
+                $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], '', $_POST['email'], $_POST['role'], $_POST['phone']);
+                $checkId = $this->findById($_POST['USERNAME'], 'USERNAME');
 
                 if (null != $checkId->USERNAME) {
                     echo 'Username already!';
@@ -139,7 +135,7 @@ class Account extends Model
                 move_uploaded_file($tmpName, $pathUpload);
 
                 // Add user
-                $this->setValue($_POST['username'], $_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $image, $_POST['email'], $_POST['role'], $_POST['phone']);
+                $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $image, $_POST['email'], $_POST['role'], $_POST['phone']);
                 $checkId = $this->findById($user['USERNAME'], 'USERNAME');
 
                 if (null != $checkId->USERNAME) {
@@ -153,19 +149,19 @@ class Account extends Model
     }
 
     // Delete User
-    public function delete()
+    public function deleteUser()
     {
         return $this->deleteById($_GET['username']);
     }
 
-    //Edit User
+    // Get User
     public function getUser($username)
     {
         $sql = "SELECT * FROM {$this->table} WHERE USERNAME='{$username}'";
         return $this->rawQuery($sql);
     }
 
-    public function update()
+    public function updateUser()
     {
         if (isset($_POST['add'])) {
             $account = $this->getUser($_POST['username']);
@@ -177,20 +173,8 @@ class Account extends Model
             if ($_POST['urlImage'] != $image) {
                 $_POST['urlImage'] = $image;
             }
-            $this->setValue($_POST['username'], $_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $_POST['urlImage'], $_POST['email'], $_POST['role'], $_POST['phone']);
-            $sql = "UPDATE {$this->table}
-            SET FIRST_NAME ='{$this->fillable['FIRST_NAME']}',
-            LAST_NAME='{$this->fillable['LAST_NAME']}',
-            PHONE='{$this->fillable['PHONE']}',
-            EMAIL='{$this->fillable['EMAIL']}',
-            ADDRESS='{$this->fillable['ADDRESS']}',
-            FULL_NAME='{$this->fillable['FULL_NAME']}',
-            ROLE='{$this->fillable['ROLE']}',
-            IMAGE='{$this->fillable['IMAGE']}',
-            PASSWORD='{$this->fillable['PASSWORD']}'
-            WHERE USERNAME='{$this->fillable['USERNAME']}'";
-            echo $sql;
-            $this->rawQuery($sql);
+            $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $_POST['urlImage'], $_POST['email'], $_POST['role'], $_POST['phone']);
+            $this->updateById($_POST['username'], $this->fillable);
             echo 'Edit Successful!';
         }
     }
