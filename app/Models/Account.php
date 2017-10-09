@@ -42,11 +42,11 @@ class Account extends Model
             $username = $_POST['username'];
             $password = md5($_POST['password']);
 
-            $th = $this->checkUser($this->table, $username, $password);
+            $user = $this->checkUser($this->table, $username, $password);
 
-            if (($th[0]->USERNAME == $username) && ($th[0]->PASSWORD == $password)) {
-                if (3 != $th[0]->ROLE) {
-                    $_SESSION['user'] = $th[0];
+            if (($user[0]->USERNAME == $username) && ($user[0]->PASSWORD == $password)) {
+                if (3 != $user[0]->ROLE) {
+                    $_SESSION['user'] = $user[0];
                     return redirect('user');
                 }
             } else {
@@ -83,37 +83,34 @@ class Account extends Model
     {
 
         // Find sum record
-
         $sql = "SELECT count(USERNAME) as total from {$this->table}";
 
         $total = $this->rawQuery($sql);
 
-        $total_records = $total[0]->total;
+        $totalRecords = $total[0]->total;
 
         // FIND LIMIT VÀ CURRENT_PAGE
-
-        $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+        $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
         $limit = 5;
 
         // TÍNH TOÁN TOTAL_PAGE VÀ START
         // tổng số trang
+        $totalPage = ceil($totalRecords / $limit);
 
-        $total_page = ceil($total_records / $limit);
-
-        // Giới hạn current_page trong khoảng 1 đến total_page
-        if ($current_page > $total_page) {
-            $current_page = $total_page;
-        } else if ($current_page < 1) {
-            $current_page = 1;
+        // Giới hạn currentPage trong khoảng 1 đến totalPage
+        if ($currentPage > $totalPage) {
+            $currentPage = $totalPage;
+        } else if ($currentPage < 1) {
+            $currentPage = 1;
         }
-        // Tìm Start
-        $start = ($current_page - 1) * $limit;
 
-        $sql1 = "SELECT * from {$this->table} LIMIT {$start},{$limit}";
+        // Tìm Start
+        $start = ($currentPage - 1) * $limit;
+        $sql = "SELECT * from {$this->table} LIMIT {$start},{$limit}";
         $ar_pagination = [];
-        $ar_pagination['sql1'] = $this->rawQuery($sql1);
-        $ar_pagination['current_page'] = $current_page;
-        $ar_pagination['total_page'] = $total_page;
+        $ar_pagination['all'] = $this->rawQuery($sql);
+        $ar_pagination['currentPage'] = $currentPage;
+        $ar_pagination['totalPage'] = $totalPage;
         return $ar_pagination;
     }
 
