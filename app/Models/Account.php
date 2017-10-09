@@ -84,33 +84,6 @@ class Account extends Model
     {
         $sql = "SELECT * from {$this->table}";
         return $this->rawQuery($sql);
-        // Find sum record
-
-        //         $sql = "SELECT count(USERNAME) as total from {$this->table}";
-
-//         $total = $this->rawQuery($sql);
-
-//         $totalRecords = $total[0]->total;
-
-        // Find limit and current page
-        //         $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
-        //         $limit = 5;
-        //         $totalPage = ceil($totalRecords / $limit);
-        // Giới hạn currentPage trong khoảng 1 đến totalPage
-        //         if ($currentPage > $totalPage) {
-        //             $currentPage = $totalPage;
-        //         } else if ($currentPage < 1) {
-        //             $currentPage = 1;
-        //         }
-
-        // Tìm Start
-        //         $start = ($currentPage - 1) * $limit;
-        //         $sql = "SELECT * from {$this->table} LIMIT {$start},{$limit}";
-        //         $arrPagination = [];
-        //         $arrPagination['all'] = $this->rawQuery($sql);
-        //         $arrPagination['currentPage'] = $currentPage;
-        //         $arrPagination['totalPage'] = $totalPage;
-        //         return $arrPagination;
     }
 
     public function addUser()
@@ -185,56 +158,68 @@ class Account extends Model
     //SearchUser
     public function searchUser()
     {
-        $sql = "SELECT * FROM {$this->table} WHERE (USERNAME LIKE '%" . $_POST['ajaxKey'] . "%')";
-        $users = $this->rawQuery($sql);
-        echo ' <thead>
-        <th>#</th>
-        <th>User name</th>
-        <th>Avatar</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Address</th>
-        <th>Phone</th>
-        <th>Role</th>
-        <th>Control</th>
-    </thead>
-    <tbody>';
-        $i = 1;
-        foreach ($users as $user):
+        if (isset($_POST['ajaxKey'])) {
+            $sql = "SELECT count(USERNAME) as total FROM {$this->table} WHERE (USERNAME LIKE '%" . $_POST['ajaxKey'] . "%')";
 
-            echo '<tr>
-							        <td>' . $i . '</td>
-							        <td class="username"><a href="">' . $user->USERNAME . '</a></td>
-							        <td class="img-post">
-							            <a href=""><img  src="/public/assets/img/imagesUser/' . $user->IMAGE . '" /></a>
-							        </td>
-							        <td>' . $user->FULL_NAME . '</td>
-							        <td>' . $user->EMAIL . '</td>
-							        <td>' . $user->ADDRESS . '</td>
-							        <td>' . $user->PHONE . '</td>
-							        <td>' . $user->ROLE . '</td>
-							        <td class="control">
-							            <div class="form-group">
-							                <div class="item-col">
-							                    <a href="/user/edit?idUser=' . $user->USERNAME . '" class="btn btn-success" title="Sửa">
-							                        <i class="pe-7s-note"></i>
-							                    </a>
-							                </div>
-							                <div class="item-col">
-							                    <a data-toggle="modal" data-target="#delUser' . $user->USERNAME . '" href="" class="btn btn-danger" title="Xoá">
-							                        <i class="pe-7s-trash"></i>
-							                    </a>
-							                </div>
-							                <div class="clearfix"></div>
-							            </div>
-							        </td>
-							    </tr>';
-            $i++;
+            $users = $this->rawQuery($sql);
+            die(var_dump($users));
+            // $total = $this->rawQuery($sql);
 
-            echo "view_include('partials . modal', ['id_model' => 'delUser' . $user->USERNAME, 'title' => 'XÓANGƯỜIDÙNG', 'content' => 'Bạncóchắcchắnmuốnxóakhông ?? ', 'bt' => 'Xóa', 'link' => 'user / del ? username = ' . $user->USERNAME])";
+            // $totalRecords = $total[0]->total;
 
-        endforeach;
+            // //Find limit and current page
+            // $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+            // $limit = 5;
+            // $totalPage = ceil($totalRecords / $limit);
+            // // Giới hạn currentPage trong khoảng 1 đến totalPage
+            // if ($currentPage > $totalPage) {
+            //     $currentPage = $totalPage;
+            // } else if ($currentPage < 1) {
+            //     $currentPage = 1;
+            // }
 
-        echo '</tbody>';
+            // //  Tìm Start
+            // $start = ($currentPage - 1) * $limit;
+            // $sql = "SELECT * from {$this->table} LIMIT {$start},{$limit}";
+            // $users = [];
+            // $users['all'] = $this->rawQuery($sql);
+            // $users['currentPage'] = $currentPage;
+            // $users['totalPage'] = $totalPage;
+
+            // return $users;
+
+            // echo require 'app/views/user/UsersTable.view.php';
+        } else {
+            // $sql = "SELECT * from {$this->table}";
+            // $this->rawQuery($sql);
+            //     // Find sum record
+
+            $sql = "SELECT count(USERNAME) as total from {$this->table}";
+
+            $total = $this->rawQuery($sql);
+
+            $totalRecords = $total[0]->total;
+
+            //Find limit and current page
+            $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+            $limit = 5;
+            $totalPage = ceil($totalRecords / $limit);
+            // Giới hạn currentPage trong khoảng 1 đến totalPage
+            if ($currentPage > $totalPage) {
+                $currentPage = $totalPage;
+            } else if ($currentPage < 1) {
+                $currentPage = 1;
+            }
+
+            //  Tìm Start
+            $start = ($currentPage - 1) * $limit;
+            $sql = "SELECT * from {$this->table} LIMIT {$start},{$limit}";
+            $arrPagination = [];
+            $arrPagination['all'] = $this->rawQuery($sql);
+            $arrPagination['currentPage'] = $currentPage;
+            $arrPagination['totalPage'] = $totalPage;
+
+            return $arrPagination;
+        }
     }
 }

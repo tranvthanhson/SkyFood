@@ -15,5 +15,7 @@
 <script src="/public/assets/js/light-bootstrap-dashboard.js"></script>
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="/public/assets/js/demo.js"></script>
+<!-- Search User -->
+<script src="/public/assets/js/searchUsers.js"></script>
 
 </html>
