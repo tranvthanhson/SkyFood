@@ -33,7 +33,7 @@
                             <div class="content content-card table-responsive table-full-width">
                                 <table id="view-post" class="table table-hover table-striped">
                             <div class="content content-card table-responsive table-full-width ">
-                                <table id="view-post"  class="table table-hover table-striped tableSearch">
+                                <table id="view-post"  class="table table-hover table-striped ">
                                     <thead>
                                         <th>#</th>
                                         <th>User name</th>
@@ -45,7 +45,7 @@
                                         <th>Role</th>
                                         <th>Control</th>
                                     </thead>
-                                    <tbody>
+                                    <tbody class="tableSearch">
                                         <?php $i = 1;?>
                                         <?php foreach ($users as $user): ?>
 
@@ -88,28 +88,7 @@
                             </table>
                         </div>
 
-                        <script type="text/javascript">
-                                function search(){
-                                    var key = $('#inputSearch').val();
-                                     //alert(key);
-                                       $.ajax({
-                                            url: '/user/searchUser',
-                                            type: 'POST',
-                                            cache: false,
-                                            data: {
-                                                ajaxKey: key,
-                                               // aactive: active
-                                            },
-                                            success: function(data) {
-                                                $('.tableSearch').html(data);
-                                                //alert($data);
-                                            },
-                                            error: function() {
-                                                alert('Có lỗi xảy ra');
-                                            }
-                                        });
-                                }
-                            </script>
+
                     </div>
                 </div>
             </div>
