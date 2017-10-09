@@ -16,7 +16,13 @@ class UserController
     {
         $users = (new Account)->selectAll();
 
-        return view('user/index', ['users' => $users]);
+        if (isset($_SESSION['user'])) {
+            $users = (new Account)->selectAll();
+            return view('user/index', ['users' => $users]);
+        } else {
+
+            return 'Ban khong duoc truy cap trang nay';
+        }
     }
 
     public function add()
@@ -28,7 +34,6 @@ class UserController
     public function store()
     {
         (new Account)->addUser();
-
     }
 
     public function edit()

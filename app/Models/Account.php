@@ -26,14 +26,21 @@ class Account extends Model
             $th = $this->checkUser($this->table, $username, $password);
 
             if (($th[0]->USERNAME == $username) && ($th[0]->PASSWORD == $password)) {
-                if ((1 == $th[0]->ROLE) || (2 == $th[0]->ROLE)) {
+                if (3 != $th[0]->ROLE) {
                     $_SESSION['user'] = $th[0];
-                    var_dump($_SESSION['user']);
-                    // return redirect('users');
+                    //var_dump($_SESSION['user']);
+                    return redirect('user');
                 }
             } else {
                 // return redirect('');
             }
+        }
+    }
+
+    public function logout()
+    {
+        if (isset($_SESSION['user'])) {
+            session_destroy();
         }
     }
 
@@ -76,7 +83,7 @@ class Account extends Model
         // FIND LIMIT VÀ CURRENT_PAGE
 
         $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-        $limit = 3;
+        $limit = 5;
 
         // TÍNH TOÁN TOTAL_PAGE VÀ START
         // tổng số trang
