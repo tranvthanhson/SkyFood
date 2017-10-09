@@ -65,7 +65,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Phone (<span>*</span>)</label>
-                                                    <input type="password" value="thuong" name="phone" class="form-control" id="confirmPass">
+                                                    <input type="text" value="thuong" name="phone" class="form-control" id="confirmPass">
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
@@ -74,7 +74,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Email (<span>*</span>)</label>
-                                                    <input type="password" value="thuong" name="email" class="form-control" id="confirmPass">
+                                                    <input type="text" value="thuong" name="email" class="form-control" id="confirmPass">
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>

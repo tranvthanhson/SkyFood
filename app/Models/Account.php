@@ -16,29 +16,18 @@ class Account extends Model
     public function setValue($username, $password, $fisrtname, $lastname, $address, $image, $email, $role, $phone)
     {
         $this->fillable = [
-            'username' => $username,
-            'password' => md5($password),
-            'fisrtname' => $fisrtname,
-            'lastname' => $lastname,
-            'address' => $address,
-            'image' => $image,
-            'email' => $email,
-            'fullname' => $lastname . ' ' . $fisrtname,
-            'role' => $role,
-            'phone' => $phone,
+            'USERNAME' => $username,
+            'PASSWORD' => md5($password),
+            'FIRST_NAME' => $fisrtname,
+            'LAST_NAME' => $lastname,
+            'ADDRESS' => $address,
+            'IMAGE' => $image,
+            'EMAIL' => $email,
+            'FULL_NAME' => $lastname . ' ' . $fisrtname,
+            'ROLE' => $role,
+            'PHONE' => $phone,
         ];
     }
-
-    // $user = [];
-
-    // $user['FIRST_NAME'] = $_POST['firstName'];
-    // $user['LAST_NAME'] = $_POST['lastName'];
-    // $user['ADDRESS'] = $_POST['address'];
-    // $user['IMAGE'] = $_POST['url_img'];
-    // $user['EMAIL'] = $_POST['email'];
-    // $user['FULL_NAME'] = $user['LAST_NAME'] . ' ' . $user['FIRST_NAME'];
-    // $user['ROLE'] = $_POST['role'];
-    // $user['PHONE'] = $_POST['phone'];
 
     public function checkUser($table, $username, $password)
     {
@@ -58,7 +47,6 @@ class Account extends Model
             if (($th[0]->USERNAME == $username) && ($th[0]->PASSWORD == $password)) {
                 if (3 != $th[0]->ROLE) {
                     $_SESSION['user'] = $th[0];
-                    //var_dump($_SESSION['user']);
                     return redirect('user');
                 }
             } else {
@@ -77,21 +65,13 @@ class Account extends Model
     public function register()
     {
         if (isset($_POST['register'])) {
-            $user = [];
-            $user['USERNAME'] = $_POST['username'];
-            $user['PASSWORD'] = md5($_POST['password']);
-            $user['FIRST_NAME'] = $_POST['first_name'];
-            $user['LAST_NAME'] = $_POST['last_name'];
-            $user['EMAIL'] = $_POST['email'];
-            $user['FULL_NAME'] = $user['LAST_NAME'] . ' ' . $user['FIRST_NAME'];
-            $user['ROLE'] = 3;
-
-            $checkId = $this->findById($user['USERNAME'], 'USERNAME');
+            $this->setValue($_POST['username'], $_POST['password'], $_POST['first_name'], $_POST['last_name'], '', '', $_POST['email'], 3, '');
+            $checkId = $this->findById($_POST['username'], 'USERNAME');
 
             if (null != $checkId->USERNAME) {
                 echo 'Username already!';
             } else {
-                $this->insert($user);
+                $this->insert($this->fillable);
 
                 echo 'Register Successful!';
                 // return redirect('');
@@ -139,26 +119,15 @@ class Account extends Model
 
     public function addUser()
     {
-        //echo $_POST['username'];
         if (isset($_POST['add'])) {
             if (null == $_FILES['file']['name']) {
-                $user = [];
-                $user['USERNAME'] = $_POST['username'];
-                $user['PASSWORD'] = md5($_POST['password']);
-                $user['FIRST_NAME'] = $_POST['firstName'];
-                $user['LAST_NAME'] = $_POST['lastName'];
-                $user['ADDRESS'] = $_POST['address'];
-                $user['EMAIL'] = $_POST['email'];
-                $user['FULL_NAME'] = $user['LAST_NAME'] . ' ' . $user['FIRST_NAME'];
-                $user['ROLE'] = $_POST['role'];
-                $user['PHONE'] = $_POST['phone'];
-                //die(var_dump($user));
+                $this->setValue($_POST['username'], $_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], '', $_POST['email'], $_POST['role'], $_POST['phone']);
                 $checkId = $this->findById($user['USERNAME'], 'USERNAME');
 
                 if (null != $checkId->USERNAME) {
                     echo 'Username already!';
                 } else {
-                    $this->insert($user);
+                    $this->insert($this->fillable);
                     echo 'Register Successful!';
                 }
             } else {
@@ -174,23 +143,13 @@ class Account extends Model
 
                 // Add user
 
-                $user = [];
-                $user['USERNAME'] = $_POST['username'];
-                $user['PASSWORD'] = md5($_POST['password']);
-                $user['FIRST_NAME'] = $_POST['firstName'];
-                $user['LAST_NAME'] = $_POST['lastName'];
-                $user['ADDRESS'] = $_POST['address'];
-                $user['IMAGE'] = $hinhanh;
-                $user['EMAIL'] = $_POST['email'];
-                $user['FULL_NAME'] = $user['LAST_NAME'] . ' ' . $user['FIRST_NAME'];
-                $user['ROLE'] = $_POST['role'];
-                $user['PHONE'] = $_POST['phone'];
+                $this->setValue($_POST['username'], $_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $hinhanh, $_POST['email'], $_POST['role'], $_POST['phone']);
                 $checkId = $this->findById($user['USERNAME'], 'USERNAME');
 
                 if (null != $checkId->USERNAME) {
                     echo 'Username already!';
                 } else {
-                    $this->insert($user);
+                    $this->insert($this->fillable);
                     echo 'Register Successful!';
                 }
             }
@@ -228,16 +187,16 @@ class Account extends Model
             }
             $this->setValue($_POST['username'], $_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $_POST['url_img'], $_POST['email'], $_POST['role'], $_POST['phone']);
             $sql = "UPDATE {$this->table}
-            SET FIRST_NAME ='{$this->fillable['fisrtname']}',
-            LAST_NAME='{$this->fillable['lastname']}',
-            PHONE='{$this->fillable['phone']}',
-            EMAIL='{$this->fillable['email']}',
-            ADDRESS='{$this->fillable['address']}',
-            FULL_NAME='{$this->fillable['fulname']}',
-            ROLE='{$this->fillable['role']}',
-            IMAGE='{$this->fillable['image']}',
-            PASSWORD='{$this->fillable['password']}'
-            WHERE USERNAME='{$this->fillable['username']}'";
+            SET FIRST_NAME ='{$this->fillable['FIRST_NAME']}',
+            LAST_NAME='{$this->fillable['LAST_NAME']}',
+            PHONE='{$this->fillable['PHONE']}',
+            EMAIL='{$this->fillable['EMAIL']}',
+            ADDRESS='{$this->fillable['ADDRESS']}',
+            FULL_NAME='{$this->fillable['FULL_NAME']}',
+            ROLE='{$this->fillable['ROLE']}',
+            IMAGE='{$this->fillable['IMAGE']}',
+            PASSWORD='{$this->fillable['PASSWORD']}'
+            WHERE USERNAME='{$this->fillable['USERNAME']}'";
             echo $sql;
             $this->rawQuery($sql);
             echo 'Edit Successful!';

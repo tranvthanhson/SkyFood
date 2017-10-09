@@ -35,7 +35,7 @@ class Model
             implode(', ', array_keys($param)),
             ':' . implode(', :', array_keys($param))
         );
-
+        //die($sql);
         return $this->rawQuery($sql, $param);
     }
 
