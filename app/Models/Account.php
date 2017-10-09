@@ -9,9 +9,7 @@ class Account extends Model
 
     protected $table = 'ACCOUNT';
     protected $primaryKey = 'USERNAME';
-    protected $fillable = [
-        'fisrtname', 'lastname', 'address', 'image', 'email', 'fullname', 'role', 'phone',
-    ];
+    protected $fillable = [];
 
     public function setValue($password, $fisrtname, $lastname, $address, $image, $email, $role, $phone)
     {
@@ -70,9 +68,11 @@ class Account extends Model
             if (null != $checkId->USERNAME) {
                 echo 'Username already!';
             } else {
+                $this->fillable['USERNAME'] = $_POST['username'];
                 $this->insert($this->fillable);
+                $this->fillable = [];
 
-                // echo 'Register Successful!';
+                echo 'Register Successful!';
                 // return redirect('');
             }
         }
