@@ -21,6 +21,9 @@ class UserController
     public function index()
     {
         $users = $this->account->searchUser();
+        // echo '<pre>';
+        // var_dump($users);
+        // echo '</pre>';
         return view('user/index', ['users' => $users]);
     }
 
