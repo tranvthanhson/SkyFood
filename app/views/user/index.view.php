@@ -32,7 +32,7 @@
                             </div>
 
                             <div class="content content-card table-responsive table-full-width ">
-                                <table id="view-post"  class="table table-hover table-striped tableSearch">
+                                <table id="view-post"  class="table table-hover table-striped ">
                                     <thead>
                                         <th>#</th>
                                         <th>User name</th>
@@ -44,7 +44,7 @@
                                         <th>Role</th>
                                         <th>Control</th>
                                     </thead>
-                                    <tbody>
+                                    <tbody class="tableSearch">
                                         <?php $i = 1;?>
                                         <?php foreach ($users as $user): ?>
 
