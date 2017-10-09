@@ -15,3 +15,11 @@ INSERT INTO FEEDBACK (USERNAME, CONTENT) VALUES
     ('thuong', 'Giao diện như cc1'),
     ('hieu', 'Giao diện như cc2'),
     ('ngan', 'Giao diện như cc3');
+
+-- Insert value to Type Table
+INSERT INTO TYPE (TYPE_NAME) VALUES ('cà phê');
+
+-- Insert value to Shop Table
+INSERT INTO SHOP (SHOP_NAME, LAT, LNG, DATE_CREATED, PHONE, TIME_OPEN, TIME_CLOSE, STATUS, DISCOUNT, VIEW, ADDRESS, DETAIL) VALUES
+('demo','1','1','2017-10-9 16:10:56','01283412220','2017-10-9 16:10:56','2017-10-9 16:10:56',0,1,'default-avatar.png','322323','1');
+

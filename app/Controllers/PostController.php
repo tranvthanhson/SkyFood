@@ -29,6 +29,7 @@ class PostController
     public function addPost()
     {
         $this->Shop->insertShop();
+        die('a');
         $shop = $this->Shop->selectKey();
         $shop = $shop[0]->MAX_ID;
         $type = $_POST['type'];
