@@ -36,11 +36,7 @@ class UserController
     public function addUser()
     {
 
-        if (isset($_SESSION['user'])) {
-            return view('user/add');
-        } else {
-            echo 'Ban khong co quyen truy cap trang nay';
-        }
+        return view('user/add');
     }
 
     public function storeUser()
