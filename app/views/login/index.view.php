@@ -25,7 +25,7 @@
                 </div>
                 <div class="clearfix"></div>
                 <hr>
-                <p class=" text-center res-link">Bạn chưa có tài khoản? <a href="register.html">Đăng kí</a></p>
+                <p class=" text-center res-link">Bạn chưa có tài khoản? <a href="/register">Đăng kí</a></p>
             </form>
         </div>
     </div>
