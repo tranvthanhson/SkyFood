@@ -83,12 +83,16 @@ class Account extends Model
         if (isset($_POST['add'])) {
             if (null == $_FILES['file']['name']) {
                 $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], '', $_POST['email'], $_POST['role'], $_POST['phone']);
-                $checkId = $this->findById($_POST['USERNAME'], 'USERNAME');
 
+                $checkId = $this->findById($_POST['username'], 'USERNAME');
+                //die('cc');
+                //die(var_dump($checkId));
                 if (null != $checkId->USERNAME) {
                     echo 'Username already!';
                 } else {
+                    $this->fillable['USERNAME'] = $_POST['username'];
                     $this->insert($this->fillable);
+                    $this->fillable = [];
                     echo 'Register Successful!';
                 }
             } else {
@@ -98,7 +102,7 @@ class Account extends Model
                 $splitArray = explode('.', $image);
                 $extention = end($splitArray);
                 $image = 'hinh-' . time() . '.' . $extention;
-                $tmpName = $_FILES['file']['tmpName'];
+                $tmpName = $_FILES['file']['tmp_name'];
                 $pathUpload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $image;
                 move_uploaded_file($tmpName, $pathUpload);
 
@@ -109,7 +113,9 @@ class Account extends Model
                 if (null != $checkId->USERNAME) {
                     echo 'Username already!';
                 } else {
+                    $this->fillable['USERNAME'] = $_POST['username'];
                     $this->insert($this->fillable);
+                    $this->fillable = [];
                     echo 'Register Successful!';
                 }
             }
@@ -138,8 +144,16 @@ class Account extends Model
             }
 
             $image = $_FILES['file']['name'];
+
             if ($_POST['urlImage'] != $image) {
                 $_POST['urlImage'] = $image;
+
+                $splitArray = explode('.', $image);
+                $extention = end($splitArray);
+                $image = 'hinh-' . time() . '.' . $extention;
+                $tmpName = $_FILES['file']['tmp_name'];
+                $pathUpload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $image;
+                move_uploaded_file($tmpName, $pathUpload);
             }
             $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $_POST['urlImage'], $_POST['email'], $_POST['role'], $_POST['phone']);
             $this->updateById($_POST['username'], $this->fillable);
@@ -154,8 +168,8 @@ class Account extends Model
             $sql = "SELECT * FROM {$this->table} WHERE (USERNAME LIKE '%" . $_POST['ajaxKey'] . "%')";
             $users = [];
             $users['all'] = $this->rawQuery($sql);
-            $users['currentPage'] = $currentPage;
-            $users['totalPage'] = $totalPage;
+            // $users['currentPage'] = $currentPage;
+            // $users['totalPage'] = $totalPage;
 
             echo require 'app/views/user/UsersTable.view.php';
         } else {

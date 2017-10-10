@@ -40,7 +40,6 @@ class Model
         }
         $sql = substr($sql, 0, -2) . ')';
 
-        // die($sql);
         return $this->rawQuery($sql);
     }
 
