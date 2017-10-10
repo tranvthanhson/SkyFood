@@ -18,9 +18,9 @@
                                     <div class="col-lg-offset-6 col-md-4 col-md-offset-6 col-sm-5 col-sm-offset-5 col-xs-8">
                                         <div class="input-group search-btn">
                                             <div class="input-group-addon"><span>Tìm kiếm</span></div>
-                                            <input type="text" class="form-control" />
+                                            <input type="text" class="form-control" id="inputSearch" />
                                             <div class="input-group-btn">
-                                                <button class="btn btn-default" type="button"><i class="pe-7s-search"></i></button>
+                                                <button class="btn btn-default" type="button" onclick="search('/post/searchPost')"><i class="pe-7s-search"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -40,8 +40,8 @@
                                         <th>Bình luận</th>
                                         <th>Control</th>
                                     </thead>
-                                    <tbody>
-                                        <?php foreach ($post as $value) {
+                                    <tbody class="tableSearch">
+                                        <?php foreach ($post['all'] as $value) {
     ?>
                                         <tr>
                                             <td><?=$value->SHOP_ID?></td>
@@ -104,14 +104,26 @@
                             </div>
                             <nav class="nav-pag">
                                 <ul class="pagination">
-                                    <li><a href="" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                                </ul>
+
+                             <!-- nếu current_page > 1 và totalPage > 1 mới hiển thị nút prev -->
+                                <?php if ($post['currentPage'] > 1 && $post['totalPage'] > 1) {?>
+                                    <li><a href="/post?page=<?=($post['currentPage'] - 1)?>" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                <?php }?>
+                                 <!-- Lặp khoảng giữa -->
+                                <?php for ($i = 1; $i <= $post['totalPage']; $i++) {?>
+                                <!-- // Nếu là trang hiện tại thì hiển thị thẻ span
+                                // ngược lại hiển thị thẻ a -->
+                                    <?php if ($i == $post['currentPage']) {?>
+                                        <li class="active"><a href="/post?page=<?=$i?>"><?=$i?></a></li>
+                                     <?php } else {?>
+                                        <li><a href="/post?page=<?=$i?>"><?=$i?></a></li>
+                                    <?php }?>
+                                 <?php }?>
+                                <!-- // nếu currentPage < $totalPage và totalPage > 1 mới hiển thị nút prev -->
+                                <?php if ($post['currentPage'] < $post['totalPage'] && $post['totalPage'] > 1) {?>
+                                    <li><a href="/post?page=<?=($post['currentPage'] + 1)?>" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                <?php }?>
+                            </ul>
                             </nav>
                         </div>
                     </div>

@@ -34,6 +34,7 @@ $router->get('user/del', 'UserController@deleteUser');
 
 //Search
 $router->post('user/searchUser', 'UserController@searchUser');
+$router->post('post/searchPost', 'PostController@searchPost');
 
 // Post
 $router->get('post', 'PostController@index');

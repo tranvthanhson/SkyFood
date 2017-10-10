@@ -56,6 +56,12 @@ class PostController
     public function del()
     {
         $this->Shop->delPost();
+        $this->Shop_Type->del();
         return redirect('post');
+    }
+
+    public function searchPost()
+    {
+        $this->Shop->search();
     }
 }

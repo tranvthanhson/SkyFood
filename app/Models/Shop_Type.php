@@ -18,4 +18,11 @@ class Shop_Type extends Model
         $sql = "UPDATE TYPE_SHOP SET TYPE_ID={$type} WHERE SHOP_ID={$shop}";
         return $this->rawQuery($sql);
     }
+
+    public function del()
+    {
+        $sql = "DELETE  FROM {$this->table} WHERE SHOP_ID={$_GET['id']}";
+        //die($sql);
+        return $this->rawQuery($sql);
+    }
 }
