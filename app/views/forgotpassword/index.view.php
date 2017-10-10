@@ -4,23 +4,19 @@
 <div class="login-form page-form">
     <div class="panel panel-default">
         <div class="panel-heading">
-            <div class="panel-title text-center">ĐĂNG NHẬP</div>
+            <div class="panel-title text-center">FORGOT PASSWORD</div>
         </div>
         <div class="panel-body">
-            <form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" action="/login" method="POST">
+            <form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" action="/forgotpassword" method="POST">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="username" value="Admin" placeholder="Tên đăng nhập">
+                        <input type="text" class="form-control" name="username" placeholder="Tên đăng nhập">
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <input type="password" class="form-control" name="password" value="admin" placeholder="Mật khẩu">
-                    </div>
-                </div>
+
                 <div class="col-md-12">
                     <div class="form-group login-btn">
-                        <input type="submit" class=" btn bg-button" name="login" value="Đăng nhập" />
+                        <input type="submit" class=" btn bg-button" name="send" value="Đăng nhập" />
                     </div>
                 </div>
                 <div class="clearfix"></div>

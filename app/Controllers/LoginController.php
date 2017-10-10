@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Account;
+use Core\App;
 
 class LoginController
 {
@@ -19,5 +20,16 @@ class LoginController
     public function logout()
     {
         (new Account)->logout();
+    }
+
+    public function viewForgotPassword()
+    {
+        return view('forgotpassword/index');
+    }
+
+    public function forgotPassword()
+    {
+        $this->account = new Account;
+        $this->account->forgotPassword();
     }
 }

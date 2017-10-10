@@ -1,9 +1,5 @@
 <?php
 
-/**
- *
- */
-
 namespace App\Controllers;
 
 use app\Models\Account;
@@ -15,15 +11,21 @@ class UserController
 
     public function __construct()
     {
-        $this->account = new Account;
+        $this->verify();
+    }
+
+    public function verify()
+    {
+        if (isset($_SESSION['user'])) {
+            $this->account = new Account;
+        } else {
+            echo 'Ban khong co quyen truy cap trang nay';
+        }
     }
 
     public function index()
     {
         $users = $this->account->searchUser();
-        // echo '<pre>';
-        // var_dump($users);
-        // echo '</pre>';
         return view('user/index', ['users' => $users]);
     }
 
