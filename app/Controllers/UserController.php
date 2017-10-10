@@ -16,6 +16,7 @@ class UserController
     public function __construct()
     {
         if (isset($_SESSION['user'])) {
+            // die(var_dump($_SESSION));
             $this->account = new Account;
         } else {
             echo 'Ban khong co quyen truy cap trang nay';

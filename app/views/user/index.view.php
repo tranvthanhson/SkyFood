@@ -53,7 +53,8 @@
                                                 <td><?=$i;?></td>
                                                 <td class="username"><a href=""><?=$user->USERNAME;?></a></td>
                                                 <td class="img-post">
-                                                    <a href=""><img  src="/public/assets/img/imagesUser/<?=$user->IMAGE;?>" /></a>
+                                                    <?php if (null != $user->IMAGE) {$image = $user->IMAGE;} else { $image = 'default-avatar.png';}?>
+                                                    <a href=""><img  src="/public/assets/img/imagesUser/<?=$image;?>" /></a>
                                                 </td>
                                                 <td><?=$user->FULL_NAME;?></td>
                                                 <td><?=$user->EMAIL;?></td>
@@ -62,12 +63,13 @@
                                                 <td><?=$user->ROLE?></td>
                                                 <td class="control">
                                                     <div class="form-group">
+                                                    <?php if (($_SESSION['user']->USERNAME == $user->USERNAME) || (1 == $_SESSION['user']->ROLE)) {?>
                                                         <div class="item-col">
                                                             <a href="/user/edit?idUser=<?=$user->USERNAME?>" class="btn btn-success" title="Sửa">
                                                                 <i class="pe-7s-note"></i>
                                                             </a>
                                                         </div>
-                                                        <?php if (($_SESSION['user']->ROLE) == 1) {?>
+                                                        <?php }if ((1 == $_SESSION['user']->ROLE) && (1 != $user->ROLE)) {?>
                                                         <div class="item-col">
                                                             <a data-toggle="modal" data-target="#delUser<?=$user->USERNAME?>" href="" class="btn btn-danger" title="Xoá">
                                                                 <i class="pe-7s-trash"></i>

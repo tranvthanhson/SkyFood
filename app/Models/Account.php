@@ -195,7 +195,9 @@ class Account extends Model
 
             //  Tìm Start
             $start = ($currentPage - 1) * $limit;
+            //
             $sql = "SELECT * from {$this->table} LIMIT {$start},{$limit}";
+            //die($sql);
             $arrPagination = [];
             $arrPagination['all'] = $this->rawQuery($sql);
             $arrPagination['currentPage'] = $currentPage;
