@@ -9,7 +9,7 @@ class Shop extends Model
     protected $table = 'SHOP';
     protected $primaryKey = 'SHOP_ID';
 
-    public function ShopConnectToType()
+    public function shopConnectToType()
     {
         $sql = "SELECT count(SHOP_ID) as total from {$this->table}";
 
@@ -138,7 +138,7 @@ class Shop extends Model
         }
     }
 
-    public function delPost()
+    public function deletePost()
     {
 
         $path = $_SERVER['DOCUMENT_ROOT'];

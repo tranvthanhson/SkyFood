@@ -42,7 +42,7 @@ $router->get('post/add', 'PostController@add');
 $router->post('post/add', 'PostController@addPost');
 $router->get('post/edit', 'PostController@edit');
 $router->post('post/edit', 'PostController@editPost');
-$router->get('post/del', 'PostController@del');
+$router->get('post/del', 'PostController@delete');
 
 // Category
 $router->get('cat', 'CategoryController@index');
