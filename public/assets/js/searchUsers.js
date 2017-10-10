@@ -19,4 +19,7 @@ error: function() {
 }
 });
 }
+function changeDiscount(){
+	 
+}
 

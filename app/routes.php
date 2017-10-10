@@ -46,7 +46,9 @@ $router->post('shop/add', 'ShopController@addPost');
 $router->get('shop/edit', 'ShopController@edit');
 $router->post('shop/edit', 'ShopController@editPost');
 $router->get('shop/del', 'ShopController@delete');
-
+//comment
+$router->get('comment', 'CommentController@index');
+$router->get('comment/del', 'CommentController@delete');
 // Category
 $router->get('cat', 'CategoryController@index');
 $router->get('cat/add', 'CategoryController@add');
