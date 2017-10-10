@@ -34,15 +34,15 @@ $router->get('user/del', 'UserController@deleteUser');
 
 //Search
 $router->post('user/searchUser', 'UserController@searchUser');
-$router->post('post/searchPost', 'PostController@searchPost');
+$router->post('shop/searchPost', 'ShopController@searchShop');
 
-// Post
-$router->get('post', 'PostController@index');
-$router->get('post/add', 'PostController@add');
-$router->post('post/add', 'PostController@addPost');
-$router->get('post/edit', 'PostController@edit');
-$router->post('post/edit', 'PostController@editPost');
-$router->get('post/del', 'PostController@delete');
+// shop
+$router->get('shop', 'ShopController@index');
+$router->get('shop/add', 'ShopController@add');
+$router->post('shop/add', 'ShopController@addPost');
+$router->get('shop/edit', 'ShopController@edit');
+$router->post('shop/edit', 'ShopController@editPost');
+$router->get('shop/del', 'ShopController@delete');
 
 // Category
 $router->get('cat', 'CategoryController@index');

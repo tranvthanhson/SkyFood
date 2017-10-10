@@ -5,8 +5,9 @@ use App\Models\Shop;
 use App\Models\Shop_Type;
 use App\Models\Type;
 
-class PostController
+class ShopController
 {
+    protected $shop, $shopType, $type;
     public function __construct()
     {
         $this->shop = new Shop;
@@ -16,14 +17,14 @@ class PostController
 
     public function index()
     {
-        $post = $this->shop->shopConnectToType();
-        return view('post/index', compact('post'));
+        $shop = $this->shop->shopConnectToType();
+        return view('shop/index', compact('shop'));
     }
 
     public function add()
     {
         $types = $this->type->selectAll();
-        return view('post/create', compact('types'));
+        return view('shop/create', compact('types'));
     }
 
     public function addPost()
@@ -32,35 +33,36 @@ class PostController
         $shop = $this->shop->selectKey();
         $shop = $shop[0]->MAX_ID;
         $type = $_POST['type'];
+        // die($type);
         $this->shopType->add($shop, $type);
-        return redirect('post');
+        return redirect('shop');
     }
 
     public function edit()
     {
         $id = $_GET['id'];
-        $post = $this->shop->selectByKey($id);
-        $post = $post[0];
+        $shop = $this->shop->selectByKey($id);
+        //$shop = $shop[0];
         $types = $this->type->selectAll();
-        //die(var_dump($post));
-        return view('post/edit', compact('post', 'types'));
+        //die(var_dump($shop));
+        return view('shop/edit', compact('shop', 'types'));
     }
 
     public function editPost()
     {
         $this->shop->update();
         $this->shopType->update($_GET['id'], $_GET['type']);
-        return redirect('post');
+        return redirect('shop');
     }
 
     public function delete()
     {
-        $this->shop->deletePost();
+        $this->shop->deleteshop();
         $this->shopType->delete();
-        return redirect('post');
+        return redirect('shop');
     }
 
-    public function searchPost()
+    public function searchshop()
     {
         $this->shop->search();
     }

@@ -54,7 +54,7 @@ class Model
         }
         $sql = trim($sql, ',');
         $sql .= " WHERE $this->primaryKey = '{$id}'";
-        // echo $sql;
+        die($sql);
         return $this->rawQuery($sql);
     }
 
@@ -68,7 +68,7 @@ class Model
     public function findById($id, $fields = ['*'])
     {
         $sql = "SELECT {$fields} FROM {$this->table} WHERE {$this->primaryKey} = '{$id}'";
-
+        die($sql);
         $models = $this->rawQuery($sql);
 
         if (count($models) > 0) {

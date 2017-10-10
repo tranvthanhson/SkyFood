@@ -9,14 +9,16 @@ class Shop_Type extends Model
     protected $table = 'TYPE_SHOP';
     public function add($shop, $type)
     {
-        $sql = "INSERT INTO TYPE_SHOP(SHOP_ID,TYPE_ID) VALUES ({$shop},{$type})";
-        return $this->rawQuery($sql);
+        $shopType['SHOP_ID'] = $shop;
+        $shopType['TYPE_ID'] = $type;
+        return $this->insert($shopType);
     }
 
     public function update($shop, $type)
     {
-        $sql = "UPDATE TYPE_SHOP SET TYPE_ID={$type} WHERE SHOP_ID={$shop}";
-        return $this->rawQuery($sql);
+        $shopType['SHOP_ID'] = $shop;
+        $shopType['TYPE_ID'] = $type;
+        return $this->rawQuery($shopType['SHOP_ID']);
     }
 
     public function delete()

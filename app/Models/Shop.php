@@ -89,21 +89,21 @@ class Shop extends Model
 
     public function selectByKey($key)
     {
-        $sql = "SELECT *,TYPE.TYPE_ID as tid,TYPE_SHOP.TYPE_ID as tsid FROM TYPE_SHOP INNER JOIN SHOP ON SHOP.SHOP_ID =TYPE_SHOP.SHOP_ID INNER JOIN TYPE ON TYPE.TYPE_ID = TYPE_SHOP.TYPE_ID WHERE TYPE_SHOP.SHOP_ID={$key}";
-        return $this->rawQuery($sql);
-        //die($sql);
-        // $a = $this->findById($key);
-        // die(var_dump($a));
+        // die($key);
+        $sql = "SELECT * FROM SHOP WHERE SHOP_ID = {$key}";
+        return $this->findById($key, '*');
     }
 
     public function update()
     {
+        die();
         $id = $_GET['id'];
-        $post = $this->selectByKey($id);
-        $post = $post[0];
+        $shop = $this->findById($id);
+        //$shop = $shop[0];
+        die(var_dump($shop));
         if (isset($_POST['sua'])) {
             $shop = [];
-            $picture = $post->VIEW;
+            $picture = $shop->VIEW;
             //xu ly picture
             $file = $_FILES['file']['name'];
             if ('' != $file) {
@@ -123,7 +123,7 @@ class Shop extends Model
 
             $shop['SHOP_NAME'] = $_POST['shop_name'];
             $shop['STATUS'] = 0;
-            $shop['DATE_CREATED'] = $post->DATE_CREATED;
+            $shop['DATE_CREATED'] = $_shop->DATE_CREATED;
             $shop['DISCOUNT'] = $_POST['discount'];
             $shop['LAT'] = $_POST['lat'];
             $shop['LNG'] = $_POST['lng'];
@@ -133,12 +133,12 @@ class Shop extends Model
             $shop['VIEW'] = $picture;
             $shop['ADDRESS'] = $_POST['address'];
             $shop['DETAIL'] = $_POST['detail'];
-            $sql = "UPDATE SHOP SET SHOP_NAME='{$shop['SHOP_NAME']}',LAT='{$shop['LAT']}',LNG='{$shop['LNG']}',DATE_CREATED='{$shop['DATE_CREATED']}',PHONE='{$shop['PHONE']}',TIME_OPEN='{$shop['TIME_OPEN']}',TIME_CLOSE='{$shop['TIME_CLOSE']}',STATUS='{$shop['STATUS']}',DISCOUNT={$shop['DISCOUNT']},VIEW='{$shop['VIEW']}',ADDRESS='{$shop['ADDRESS']}',DETAIL='{$shop['DETAIL']}' WHERE SHOP_ID={$id}";
-            return $this->rawQuery($sql);
+            die(var_dump($shop));
+            return $this->updateById($id, $shop);
         }
     }
 
-    public function deletePost()
+    public function deleteshop()
     {
 
         $path = $_SERVER['DOCUMENT_ROOT'];
@@ -152,8 +152,8 @@ class Shop extends Model
     public function search()
     {
 
-        $sql = "SELECT * FROM {$this->table} WHERE (SHOP_NAME LIKE '%" . $_POST['ajaxKey'] . "%')";
+        $sql = "SELECT * FROM {$this->table} WHERE (SHOP_NAME LIKE '%" . $_shop['ajaxKey'] . "%')";
         $shop = $this->rawQuery($sql);
-        echo require 'app/views/post/ShopTable.php';
+        echo require 'app/views/shop/ShopTable.php';
     }
 }

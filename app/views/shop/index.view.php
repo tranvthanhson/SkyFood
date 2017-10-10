@@ -1,4 +1,4 @@
-<?php view_include('layouts.head-master', ['title' => 'Post']);?>
+<?php view_include('layouts.head-master', ['title' => 'shop']);?>
 <div class="wrapper">
     <?php view_include('layouts.side-bar');?>
     <div class="main-panel">
@@ -12,7 +12,7 @@
                                 <div class="row">
                                     <div class="col-md-2 col-sm-2 col-xs-4">
                                         <div class="add-btn">
-                                            <a href="/post/add" class="btn bg-button"><i class="fa fa-plus"></i> Thêm</a>
+                                            <a href="/shop/add" class="btn bg-button"><i class="fa fa-plus"></i> Thêm</a>
                                         </div>
                                     </div>
                                     <div class="col-lg-offset-6 col-md-4 col-md-offset-6 col-sm-5 col-sm-offset-5 col-xs-8">
@@ -20,7 +20,7 @@
                                             <div class="input-group-addon"><span>Tìm kiếm</span></div>
                                             <input type="text" class="form-control" id="inputSearch" />
                                             <div class="input-group-btn">
-                                                <button class="btn btn-default" type="button" onclick="search('/post/searchPost')"><i class="pe-7s-search"></i></button>
+                                                <button class="btn btn-default" type="button" onclick="search('/shop/searchpost')"><i class="pe-7s-search"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -41,7 +41,7 @@
                                         <th>Control</th>
                                     </thead>
                                     <tbody class="tableSearch">
-                                        <?php foreach ($post['all'] as $value) {
+                                        <?php foreach ($shop['all'] as $value) {
     ?>
                                         <tr>
                                             <td><?=$value->SHOP_ID?></td>
@@ -83,12 +83,12 @@
                                             <td class="control">
                                                 <div class="form-group">
                                                     <div class="item-col">
-                                                        <a href="/post/edit?id=<?=$value->SHOP_ID?>" class="btn btn-success" title="Sửa">
+                                                        <a href="/shop/edit?id=<?=$value->SHOP_ID?>" class="btn btn-success" title="Sửa">
                                                             <i class="pe-7s-note"></i>
                                                         </a>
                                                     </div>
                                                     <div class="item-col">
-                                                        <a data-toggle="modal" data-target="#delPost<?=$value->SHOP_ID?>"  href="" class="btn btn-danger" title="Xoá">
+                                                        <a data-toggle="modal" data-target="#delpost<?=$value->SHOP_ID?>"  href="" class="btn btn-danger" title="Xoá">
                                                             <i class="pe-7s-trash"></i>
                                                         </a>
                                                     </div>
@@ -96,7 +96,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <?php view_include('partials.modal', ['id_model' => 'delPost' . $value->SHOP_ID, 'title' => 'XÓA BÀI ĐĂNG ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => '/post/del?id=' . $value->SHOP_ID]);
+                                        <?php view_include('partials.modal', ['id_model' => 'delpost' . $value->SHOP_ID, 'title' => 'XÓA BÀI ĐĂNG ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => '/shop/del?id=' . $value->SHOP_ID]);
 }?>
 
                                     </tbody>
@@ -106,22 +106,22 @@
                                 <ul class="pagination">
 
                              <!-- nếu current_page > 1 và totalPage > 1 mới hiển thị nút prev -->
-                                <?php if ($post['currentPage'] > 1 && $post['totalPage'] > 1) {?>
-                                    <li><a href="/post?page=<?=($post['currentPage'] - 1)?>" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                <?php if ($shop['currentPage'] > 1 && $shop['totalPage'] > 1) {?>
+                                    <li><a href="/shop?page=<?=($shop['currentPage'] - 1)?>" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
                                 <?php }?>
                                  <!-- Lặp khoảng giữa -->
-                                <?php for ($i = 1; $i <= $post['totalPage']; $i++) {?>
+                                <?php for ($i = 1; $i <= $shop['totalPage']; $i++) {?>
                                 <!-- // Nếu là trang hiện tại thì hiển thị thẻ span
                                 // ngược lại hiển thị thẻ a -->
-                                    <?php if ($i == $post['currentPage']) {?>
-                                        <li class="active"><a href="/post?page=<?=$i?>"><?=$i?></a></li>
+                                    <?php if ($i == $shop['currentPage']) {?>
+                                        <li class="active"><a href="/shop?page=<?=$i?>"><?=$i?></a></li>
                                      <?php } else {?>
-                                        <li><a href="/post?page=<?=$i?>"><?=$i?></a></li>
+                                        <li><a href="/shop?page=<?=$i?>"><?=$i?></a></li>
                                     <?php }?>
                                  <?php }?>
                                 <!-- // nếu currentPage < $totalPage và totalPage > 1 mới hiển thị nút prev -->
-                                <?php if ($post['currentPage'] < $post['totalPage'] && $post['totalPage'] > 1) {?>
-                                    <li><a href="/post?page=<?=($post['currentPage'] + 1)?>" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                <?php if ($shop['currentPage'] < $shop['totalPage'] && $shop['totalPage'] > 1) {?>
+                                    <li><a href="/shop?page=<?=($shop['currentPage'] + 1)?>" aria-label="Next"><span aria-hidden="true">»</span></a></li>
                                 <?php }?>
                             </ul>
                             </nav>
