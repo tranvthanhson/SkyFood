@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Mailer\Mailer;
 use App\Models\Model;
 
 class Account extends Model
@@ -21,7 +22,7 @@ class Account extends Model
             'IMAGE' => $image,
             'EMAIL' => $email,
             'FULL_NAME' => $lastname . ' ' . $fisrtname,
-            'ROLE' => $role,
+            'ROLE' => ('' == $role) ? 0 : $role,
             'PHONE' => $phone,
         ];
     }
@@ -83,22 +84,26 @@ class Account extends Model
         if (isset($_POST['add'])) {
             if (null == $_FILES['file']['name']) {
                 $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], '', $_POST['email'], $_POST['role'], $_POST['phone']);
-                $checkId = $this->findById($_POST['USERNAME'], 'USERNAME');
 
+                $checkId = $this->findById($_POST['username'], 'USERNAME');
                 if (null != $checkId->USERNAME) {
-                    echo 'Username already!';
+                    //echo 'Username already!';
+                    $_SESSION['notice'] = 'Username already!';
+                    redirect('user');
                 } else {
+                    $this->fillable['USERNAME'] = $_POST['username'];
                     $this->insert($this->fillable);
-                    echo 'Register Successful!';
+                    $this->fillable = [];
+                    $_SESSION['notice'] = 'Register Successful!';
+                    redirect('user');
                 }
             } else {
-
                 // Upload img
                 $image = $_FILES['file']['name'];
                 $splitArray = explode('.', $image);
                 $extention = end($splitArray);
                 $image = 'hinh-' . time() . '.' . $extention;
-                $tmpName = $_FILES['file']['tmpName'];
+                $tmpName = $_FILES['file']['tmp_name'];
                 $pathUpload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $image;
                 move_uploaded_file($tmpName, $pathUpload);
 
@@ -107,10 +112,14 @@ class Account extends Model
                 $checkId = $this->findById($user['USERNAME'], 'USERNAME');
 
                 if (null != $checkId->USERNAME) {
-                    echo 'Username already!';
+                    $_SESSION['notice'] = 'Username already!';
+                    redirect('user');
                 } else {
+                    $this->fillable['USERNAME'] = $_POST['username'];
                     $this->insert($this->fillable);
-                    echo 'Register Successful!';
+                    $this->fillable = [];
+                    $_SESSION['notice'] = 'Register Successful!';
+                    redirect('user');
                 }
             }
         }
@@ -119,6 +128,7 @@ class Account extends Model
     // Delete User
     public function deleteUser()
     {
+        $_SESSION['notice'] = 'Deleted Successful!';
         return $this->deleteById($_GET['username']);
     }
 
@@ -138,12 +148,24 @@ class Account extends Model
             }
 
             $image = $_FILES['file']['name'];
+
             if ($_POST['urlImage'] != $image) {
                 $_POST['urlImage'] = $image;
+
+                $splitArray = explode('.', $image);
+                $extention = end($splitArray);
+                $image = 'hinh-' . time() . '.' . $extention;
+                $tmpName = $_FILES['file']['tmp_name'];
+                $pathUpload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $image;
+                move_uploaded_file($tmpName, $pathUpload);
+            }
+            if (1 != $account[0]->ROLE) {
+                $_POST['role'] = $account[0]->ROLE;
             }
             $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $_POST['urlImage'], $_POST['email'], $_POST['role'], $_POST['phone']);
             $this->updateById($_POST['username'], $this->fillable);
-            echo 'Edit Successful!';
+            $_SESSION['notice'] = 'Edit Successful!';
+            redirect('user');
         }
     }
 
@@ -154,8 +176,8 @@ class Account extends Model
             $sql = "SELECT * FROM {$this->table} WHERE (USERNAME LIKE '%" . $_POST['ajaxKey'] . "%')";
             $users = [];
             $users['all'] = $this->rawQuery($sql);
-            $users['currentPage'] = $currentPage;
-            $users['totalPage'] = $totalPage;
+            // $users['currentPage'] = $currentPage;
+            // $users['totalPage'] = $totalPage;
 
             echo require 'app/views/user/UsersTable.view.php';
         } else {
@@ -181,13 +203,32 @@ class Account extends Model
 
             //  Tìm Start
             $start = ($currentPage - 1) * $limit;
+            //
             $sql = "SELECT * from {$this->table} LIMIT {$start},{$limit}";
+            //die($sql);
             $arrPagination = [];
             $arrPagination['all'] = $this->rawQuery($sql);
             $arrPagination['currentPage'] = $currentPage;
             $arrPagination['totalPage'] = $totalPage;
 
             return $arrPagination;
+        }
+    }
+
+    public function forgotPassword()
+    {
+        if (isset($_POST['send'])) {
+            $users = $this->findById($_POST['username'], '*');
+            $newPassword = rand();
+
+            $this->setValue($newPassword, $users->FIRST_NAME, $users->LAST_NAME, $users->ADDRESS, $users->IMAGE, $users->EMAIL, $users->ROLE, $users->PHONE);
+            $this->updateById($_POST['username'], $this->fillable);
+            $this->mailer = new Mailer;
+            $this->mailer->setEmailTo($users->EMAIL);
+            $content = "Your new <strong>password</strong> is {$newPassword}";
+            $this->mailer->setContent($content);
+            $this->mailer->sendMail();
+            redirect('login');
         }
     }
 }

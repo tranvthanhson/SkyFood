@@ -21,7 +21,8 @@
                                             <div class="input-group-addon"><span>Tìm kiếm</span></div>
                                             <input type="text" id="inputSearch" class="form-control" />
                                             <div class="input-group-btn">
-                                                <button class="btn btn-default" id="search" onclick="search('/user/searchUser')" type="button"><i class="pe-7s-search"></i></button>
+
+                                                <button class="btn btn-default" id="search" onclick="search('user/searchUser')" type="button"><i class="pe-7s-search"></i></button>
                                             </div>
 
                                         </div>
@@ -30,8 +31,13 @@
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
-                            <div class="content content-card table-responsive table-full-width">
-                                <table id="view-post" class="table table-hover table-striped">
+                            <?php if (isset($_SESSION['notice'])) {?>
+                           <div class="alert alert-success">
+
+                              <strong><?=$_SESSION['notice']?></strong>
+                            </div>
+                            <?php }?>
+                            <?php unset($_SESSION['notice']);?>
                             <div class="content content-card table-responsive table-full-width ">
                                 <table id="view-post"  class="table table-hover table-striped ">
                                     <thead>
@@ -49,74 +55,56 @@
                                         <?php $i = 1;?>
                                         <?php foreach ($users['all'] as $user): ?>
 
-                                          <tr>
-                                            <td><?=$i;?></td>
-                                            <td class="username"><a href=""><?=$user->USERNAME;?></a></td>
-                                            <td class="img-post">
-                                                <a href=""><img  src="/public/assets/img/imagesUser/<?=$user->IMAGE;?>" /></a>
-                                            </td>
-                                            <td><?=$user->FULL_NAME;?></td>
-                                            <td><?=$user->EMAIL;?></td>
-                                            <td><?=$user->ADDRESS;?></td>
-                                            <td><?=$user->PHONE;?></td>
-                                            <td><?=$user->ROLE?></td>
-                                            <td class="control">
-                                                <div class="form-group">
-                                                    <div class="item-col">
-                                                        <a href="/user/edit?idUser=<?=$user->USERNAME?>" class="btn btn-success" title="Sửa">
-                                                            <i class="pe-7s-note"></i>
-                                                        </a>
+                                            <tr>
+                                                <td><?=$i;?></td>
+                                                <td class="username"><a href=""><?=$user->USERNAME;?></a></td>
+                                                <td class="img-post">
+                                                    <?php if (null != $user->IMAGE) {$image = $user->IMAGE;} else { $image = 'default-avatar.png';}?>
+                                                    <a href=""><img  src="/public/assets/img/imagesUser/<?=$image;?>" /></a>
+                                                </td>
+                                                <td><?=$user->FULL_NAME;?></td>
+                                                <td><?=$user->EMAIL;?></td>
+                                                <td><?=$user->ADDRESS;?></td>
+                                                <td><?=$user->PHONE;?></td>
+                                                <td><?=$user->ROLE?></td>
+                                                <td class="control">
+                                                    <div class="form-group">
+                                                    <?php if (($_SESSION['user']->USERNAME == $user->USERNAME) || (1 == $_SESSION['user']->ROLE)) {?>
+                                                        <div class="item-col">
+                                                            <a href="/user/edit?idUser=<?=$user->USERNAME?>" class="btn btn-success" title="Sửa">
+                                                                <i class="pe-7s-note"></i>
+                                                            </a>
+                                                        </div>
+                                                        <?php }if ((1 == $_SESSION['user']->ROLE) && (1 != $user->ROLE)) {?>
+                                                        <div class="item-col">
+                                                            <a data-toggle="modal" data-target="#delUser<?=$user->USERNAME?>" href="" class="btn btn-danger" title="Xoá">
+                                                                <i class="pe-7s-trash"></i>
+                                                            </a>
+                                                        </div>
+                                                        <?php }?>
+                                                        <div class="clearfix"></div>
                                                     </div>
-                                                    <div class="item-col">
-                                                        <a data-toggle="modal" data-target="#delUser<?=$user->USERNAME?>" href="" class="btn btn-danger" title="Xoá">
-                                                            <i class="pe-7s-trash"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <?php $i++;?>
-                                        <!-- Modal -->
-                                        <?php view_include('partials.modal', ['id_model' => 'delUser' . $user->USERNAME, 'title' => 'XÓA NGƯỜI DÙNG', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => 'user/del?username=' . $user->USERNAME]);?>
+                                                </td>
+                                            </tr>
+                                            <?php $i++;?>
+                                            <!-- Modal -->
+                                            <?php view_include('partials.modal', ['id_model' => 'delUser' . $user->USERNAME, 'title' => 'XÓA NGƯỜI DÙNG', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => 'user/del?username=' . $user->USERNAME]);?>
 
 
 
-                                    <?php endforeach;?>
+                                        <?php endforeach;?>
 
-                                </tbody>
-                            </table>
-                        </div>
+                                    </tbody>
+                                </table>
+                            </div>
 
-              <nav class="nav-pag">
-                            <ul class="pagination">
-
-                             <!-- nếu current_page > 1 và totalPage > 1 mới hiển thị nút prev -->
-                                <?php if ($users['currentPage'] > 1 && $users['totalPage'] > 1) {?>
-                                    <li><a href="/user?page=<?=($users['currentPage'] - 1)?>" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                <?php }?>
-                                 <!-- Lặp khoảng giữa -->
-                                <?php for ($i = 1; $i <= $users['totalPage']; $i++) {?>
-                                <!-- // Nếu là trang hiện tại thì hiển thị thẻ span
-                                // ngược lại hiển thị thẻ a -->
-                                    <?php if ($i == $users['currentPage']) {?>
-                                        <li class="active"><a href="/user?page=<?=$i?>"><?=$i?></a></li>
-                                     <?php } else {?>
-                                        <li><a href="/user?page=<?=$i?>"><?=$i?></a></li>
-                                    <?php }?>
-                                 <?php }?>
-                                <!-- // nếu currentPage < $totalPage và totalPage > 1 mới hiển thị nút prev -->
-                                <?php if ($users['currentPage'] < $users['totalPage'] && $users['totalPage'] > 1) {?>
-                                    <li><a href="/user?page=<?=($users['currentPage'] + 1)?>" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                                <?php }?>
-                            </ul>
-                        </nav>
-                    </div>
+                      <?php view_include('user.pagination', compact('users'));?>
                 </div>
             </div>
         </div>
     </div>
-    <?php view_include('partials.footer');?>
+</div>
+<?php view_include('partials.footer');?>
 </div>
 </div>
 

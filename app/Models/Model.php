@@ -41,7 +41,6 @@ class Model
         }
         $sql = substr($sql, 0, -2) . ')';
 
-        // die($sql);
         return $this->rawQuery($sql);
     }
 
@@ -50,11 +49,12 @@ class Model
         // UPDATE Customers SET ContactName = 'Alfred Schmidt', City= 'Frankfurt' WHERE CustomerID = 1;
         $sql = "UPDATE {$this->table} SET ";
         foreach ($params as $key => $value) {
-            $sql .= "{$key} = \"{$value}\",";
+            $sql .= "`{$key}` = \"{$value}\",";
         }
         $sql = trim($sql, ',');
         $sql .= " WHERE $this->primaryKey = '{$id}'";
-        die($sql);
+
+        //die($sql);
         return $this->rawQuery($sql);
     }
 
