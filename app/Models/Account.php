@@ -85,15 +85,16 @@ class Account extends Model
                 $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], '', $_POST['email'], $_POST['role'], $_POST['phone']);
 
                 $checkId = $this->findById($_POST['username'], 'USERNAME');
-                //die('cc');
-                //die(var_dump($checkId));
                 if (null != $checkId->USERNAME) {
-                    echo 'Username already!';
+                    //echo 'Username already!';
+                    $_SESSION['notice'] = 'Username already!';
+                    redirect('user');
                 } else {
                     $this->fillable['USERNAME'] = $_POST['username'];
                     $this->insert($this->fillable);
                     $this->fillable = [];
-                    echo 'Register Successful!';
+                    $_SESSION['notice'] = 'Register Successful!';
+                    redirect('user');
                 }
             } else {
 
@@ -111,12 +112,14 @@ class Account extends Model
                 $checkId = $this->findById($user['USERNAME'], 'USERNAME');
 
                 if (null != $checkId->USERNAME) {
-                    echo 'Username already!';
+                    $_SESSION['notice'] = 'Username already!';
+                    redirect('user');
                 } else {
                     $this->fillable['USERNAME'] = $_POST['username'];
                     $this->insert($this->fillable);
                     $this->fillable = [];
-                    echo 'Register Successful!';
+                    $_SESSION['notice'] = 'Register Successful!';
+                    redirect('user');
                 }
             }
         }
@@ -125,6 +128,7 @@ class Account extends Model
     // Delete User
     public function deleteUser()
     {
+        $_SESSION['notice'] = 'Deleted Successful!';
         return $this->deleteById($_GET['username']);
     }
 
@@ -157,7 +161,8 @@ class Account extends Model
             }
             $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $_POST['urlImage'], $_POST['email'], $_POST['role'], $_POST['phone']);
             $this->updateById($_POST['username'], $this->fillable);
-            echo 'Edit Successful!';
+            $_SESSION['notice'] = 'Edit Successful!';
+            redirect('user');
         }
     }
 
