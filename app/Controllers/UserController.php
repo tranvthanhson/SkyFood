@@ -15,6 +15,11 @@ class UserController
 
     public function __construct()
     {
+        $this->verify();
+    }
+
+    public function verify()
+    {
         if (isset($_SESSION['user'])) {
             $this->account = new Account;
         } else {
@@ -25,9 +30,6 @@ class UserController
     public function index()
     {
         $users = $this->account->searchUser();
-        // echo '<pre>';
-        // var_dump($_SESSION['user']->USERNAME);
-        // echo '</pre>';
         return view('user/index', ['users' => $users]);
     }
 
