@@ -223,10 +223,10 @@ class Account extends Model
             $this->updateById($_POST['username'], $this->fillable);
             $this->mailer = new Mailer;
             $this->mailer->setEmailTo($users->EMAIL);
-            $content = "Your new password is {$newPassword}";
+            $content = "Your new <strong>password</strong> is {$newPassword}";
             $this->mailer->setContent($content);
             $this->mailer->sendMail();
-            //redirect('login');
+            redirect('login');
         }
     }
 }
