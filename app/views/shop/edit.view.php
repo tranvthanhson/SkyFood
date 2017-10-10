@@ -20,7 +20,7 @@
                                                 <div class="col-md-5">
                                                     <div class="form-group">
                                                         <label for="place" class="control-label">Place's name (<span>*</span>)</label>
-                                                        <input type="text" class="form-control" id="place" value="<?=$shop->SHOP_NAME?>" name="post_name" required>
+                                                        <input type="text" class="form-control" id="place" value="<?=$shop->SHOP_NAME?>" name="shop_name" required>
                                                     </div>
                                                 </div>
                                                  <div class="col-md-4">

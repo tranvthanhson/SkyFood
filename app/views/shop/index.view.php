@@ -20,7 +20,7 @@
                                             <div class="input-group-addon"><span>Tìm kiếm</span></div>
                                             <input type="text" class="form-control" id="inputSearch" />
                                             <div class="input-group-btn">
-                                                <button class="btn btn-default" type="button" onclick="search('/shop/searchpost')"><i class="pe-7s-search"></i></button>
+                                                <button class="btn btn-default" type="button" onclick="search('/shop/searchShop')"><i class="pe-7s-search"></i></button>
                                             </div>
                                         </div>
                                     </div>

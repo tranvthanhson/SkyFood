@@ -16,9 +16,9 @@ class Shop_Type extends Model
 
     public function update($shop, $type)
     {
-        $shopType['SHOP_ID'] = $shop;
-        $shopType['TYPE_ID'] = $type;
-        return $this->rawQuery($shopType['SHOP_ID']);
+        $sql = "UPDATE {$this->table} SET TYPE_ID={$type} WHERE SHOP_ID={$shop}";
+        //die($sql);
+        return $this->rawQuery($sql);
     }
 
     public function delete()

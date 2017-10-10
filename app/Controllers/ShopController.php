@@ -42,7 +42,8 @@ class ShopController
     {
         $id = $_GET['id'];
         $shop = $this->shop->selectByKey($id);
-        //$shop = $shop[0];
+        // die(var_dump($shop[0]));
+        $shop = $shop[0];
         $types = $this->type->selectAll();
         //die(var_dump($shop));
         return view('shop/edit', compact('shop', 'types'));
@@ -51,7 +52,7 @@ class ShopController
     public function editPost()
     {
         $this->shop->update();
-        $this->shopType->update($_GET['id'], $_GET['type']);
+        $this->shopType->update($_GET['id'], $_POST['type']);
         return redirect('shop');
     }
 

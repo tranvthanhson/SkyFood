@@ -37,7 +37,7 @@ $router->get('forgotpassword', 'LoginController@viewForgotPassword');
 $router->post('forgotpassword', 'LoginController@forgotPassword');
 //Search
 $router->post('user/searchUser', 'UserController@searchUser');
-$router->post('shop/searchPost', 'ShopController@searchShop');
+$router->post('shop/searchShop', 'ShopController@searchShop');
 
 // shop
 $router->get('shop', 'ShopController@index');

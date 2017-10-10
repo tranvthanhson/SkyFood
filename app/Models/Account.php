@@ -64,7 +64,7 @@ class Account extends Model
     {
         if (isset($_POST['register'])) {
             $this->setValue($_POST['password'], $_POST['first_name'], $_POST['last_name'], '', '', $_POST['email'], 3, '');
-            $checkId = $this->findById($_POST['username'], 'USERNAME');
+            $checkId = $this->findById($_POST['username']);
 
             if (null != $checkId->USERNAME) {
                 echo 'Username already!';

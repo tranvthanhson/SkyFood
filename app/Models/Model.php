@@ -65,12 +65,10 @@ class Model
         return $this->rawQuery($sql, $param);
     }
 
-    public function findById($id, $fields = ['*'])
+    public function findById($id, $fields = '*')
     {
         $sql = "SELECT {$fields} FROM {$this->table} WHERE {$this->primaryKey} = '{$id}'";
-        die($sql);
         $models = $this->rawQuery($sql);
-
         if (count($models) > 0) {
             return $models[0];
         }
