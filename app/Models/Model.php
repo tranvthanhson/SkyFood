@@ -48,11 +48,11 @@ class Model
         // UPDATE Customers SET ContactName = 'Alfred Schmidt', City= 'Frankfurt' WHERE CustomerID = 1;
         $sql = "UPDATE {$this->table} SET ";
         foreach ($params as $key => $value) {
-            $sql .= "{$key} = \"{$value}\",";
+            $sql .= "`{$key}` = \"{$value}\",";
         }
         $sql = trim($sql, ',');
         $sql .= " WHERE $this->primaryKey = '{$id}'";
-        // echo $sql;
+        //die($sql);
         return $this->rawQuery($sql);
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Mailer\Mailer;
 use App\Models\Model;
 
 class Account extends Model
@@ -21,7 +22,7 @@ class Account extends Model
             'IMAGE' => $image,
             'EMAIL' => $email,
             'FULL_NAME' => $lastname . ' ' . $fisrtname,
-            'ROLE' => $role,
+            'ROLE' => ('' == $role) ? 0 : $role,
             'PHONE' => $phone,
         ];
     }
@@ -209,6 +210,23 @@ class Account extends Model
             $arrPagination['totalPage'] = $totalPage;
 
             return $arrPagination;
+        }
+    }
+
+    public function forgotPassword()
+    {
+        if (isset($_POST['send'])) {
+            $users = $this->findById($_POST['username'], '*');
+            $newPassword = rand();
+
+            $this->setValue($newPassword, $users->FIRST_NAME, $users->LAST_NAME, $users->ADDRESS, $users->IMAGE, $users->EMAIL, $users->ROLE, $users->PHONE);
+            $this->updateById($_POST['username'], $this->fillable);
+            $this->mailer = new Mailer;
+            $this->mailer->setEmailTo($users->EMAIL);
+            $content = "Your new password is {$newPassword}";
+            $this->mailer->setContent($content);
+            $this->mailer->sendMail();
+            //redirect('login');
         }
     }
 }
