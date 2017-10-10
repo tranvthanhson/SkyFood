@@ -1,9 +1,5 @@
 <?php
 
-/**
- *
- */
-
 namespace App\Controllers;
 
 use app\Models\Account;
