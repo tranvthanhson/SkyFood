@@ -160,6 +160,9 @@ class Account extends Model
                 $pathUpload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $image;
                 move_uploaded_file($tmpName, $pathUpload);
             }
+            if (1 != $account[0]->ROLE) {
+                $_POST['role'] = $account[0]->ROLE;
+            }
             $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $_POST['urlImage'], $_POST['email'], $_POST['role'], $_POST['phone']);
             $this->updateById($_POST['username'], $this->fillable);
             $_SESSION['notice'] = 'Edit Successful!';
