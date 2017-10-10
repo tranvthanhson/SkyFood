@@ -83,8 +83,10 @@ class Account extends Model
         if (isset($_POST['add'])) {
             if (null == $_FILES['file']['name']) {
                 $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], '', $_POST['email'], $_POST['role'], $_POST['phone']);
-                $checkId = $this->findById($_POST['USERNAME'], 'USERNAME');
 
+                $checkId = $this->findById($_POST['username'], 'USERNAME');
+                //die('cc');
+                die(var_dump($checkId));
                 if (null != $checkId->USERNAME) {
                     echo 'Username already!';
                 } else {

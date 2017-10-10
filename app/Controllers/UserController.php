@@ -15,14 +15,18 @@ class UserController
 
     public function __construct()
     {
-        $this->account = new Account;
+        if (isset($_SESSION['user'])) {
+            $this->account = new Account;
+        } else {
+            echo 'Ban khong co quyen truy cap trang nay';
+        }
     }
 
     public function index()
     {
         $users = $this->account->searchUser();
         // echo '<pre>';
-        // var_dump($users);
+        // var_dump($_SESSION['user']->USERNAME);
         // echo '</pre>';
         return view('user/index', ['users' => $users]);
     }
@@ -30,7 +34,11 @@ class UserController
     public function addUser()
     {
 
-        return view('user/add');
+        if (isset($_SESSION['user'])) {
+            return view('user/add');
+        } else {
+            echo 'Ban khong co quyen truy cap trang nay';
+        }
     }
 
     public function storeUser()
