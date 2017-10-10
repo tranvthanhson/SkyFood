@@ -1,9 +1,9 @@
 
-function search(){
+function search(link){
     var key = $('#inputSearch').val();
 //alert(key);
 $.ajax({
-    url: '/user/searchUser',
+    url: link,
     type: 'POST',
     cache: false,
     data: {
