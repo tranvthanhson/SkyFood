@@ -98,7 +98,6 @@ class Account extends Model
                     echo 'Register Successful!';
                 }
             } else {
-
                 // Upload img
                 $image = $_FILES['file']['name'];
                 $splitArray = explode('.', $image);
