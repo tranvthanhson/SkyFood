@@ -12,8 +12,17 @@ class FeedbackController
 
     public function __construct()
     {
-        $this->feedback = new Feedback;
-        $this->mailer = new Mailer;
+        $this->verify();
+    }
+
+    public function verify()
+    {
+        if (isset($_SESSION['user'])) {
+            $this->feedback = new Feedback;
+            $this->mailer = new Mailer;
+        } else {
+            echo 'Ban khong co quyen truy cap trang nay';
+        }
     }
 
     public function index()

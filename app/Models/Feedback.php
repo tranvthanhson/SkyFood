@@ -11,9 +11,13 @@ class Feedback extends Model
 
     public function selectAll()
     {
-        $sql = 'SELECT FEEDBACK_ID, FULL_NAME, EMAIL, PHONE, CONTENT FROM FEEDBACK A, ACCOUNT B
+        if (isset($_POST['login'])) {
+            $sql = 'SELECT FEEDBACK_ID, FULL_NAME, EMAIL, PHONE, CONTENT FROM FEEDBACK A, ACCOUNT B
             WHERE A.USERNAME = B.USERNAME';
-        return $this->rawQuery($sql);
+            return $this->rawQuery($sql);
+        } else {
+            echo 'Ban chua dang nhap';
+        }
     }
 
     public function deleteItem($id)
