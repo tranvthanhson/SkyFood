@@ -97,7 +97,7 @@ class Model
         //  Find Start
         $start = ($currentPage - 1) * $limit;
 
-        $sql = "SELECT * from {$this->table} LIMIT {$start},{$limit}";
+        $sql = "SELECT * from {$this->table}  LIMIT {$start},{$limit}";
 
         // die($sql);
         $arrPagination = [];
