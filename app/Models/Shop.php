@@ -47,7 +47,7 @@ class Shop extends Model
             //xu ly picture
             $file = $_FILES['file']['name'];
             if ('' != $file) {
-                $picture = $this->uploadImages($image);
+                $picture = $this->uploadImages($file, 'img-shop');
             }
             $currentDate = $now['year'] . '-' . $now['mon'] . '-' . $now['mday'] . ' ' . $now['hours'] . ':' . $now['minutes'] . ':' . $now['seconds'];
             // $shop['SHOP_NAME'] = $_POST['shop_name'];
@@ -99,7 +99,7 @@ class Shop extends Model
                     $link = $path . '/public/assets/img/img-shop/' . $picture;
                     unlink($link);
                 }
-                $picture = $this->uploadImages();
+                $picture = $this->uploadImages($file, 'img-shop');
             }
 
             // $shop['SHOP_NAME'] = $_POST['shop_name'];

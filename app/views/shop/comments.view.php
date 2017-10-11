@@ -51,29 +51,8 @@ foreach ($comments['all'] as $value) {
                                         </tbody>
                                     </table>
                                 </div>
-
-                                <nav class="nav-pag">
-                                    <ul class="pagination">
-		                                        <!-- nếu current_page > 1 và totalPage > 1 mới hiển thị nút prev -->
-		                                <?php if ($comments['currentPage'] > 1 && $comments['totalPage'] > 1) {?>
-		                                    <li><a href="/shop/comments?page=<?=($comments['currentPage'] - 1)?>" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-		                                <?php }?>
-		                                 <!-- Lặp khoảng giữa -->
-		                                <?php for ($i = 1; $i <= $comments['totalPage']; $i++) {?>
-		                                <!-- // Nếu là trang hiện tại thì hiển thị thẻ span
-		                                // ngược lại hiển thị thẻ a -->
-		                                    <?php if ($i == $comments['currentPage']) {?>
-		                                        <li class="active"><a href="/shop/comments?page=<?=$i?>"><?=$i?></a></li>
-		                                     <?php } else {?>
-		                                        <li><a href="/shop/comments?page=<?=$i?>"><?=$i?></a></li>
-		                                    <?php }?>
-		                                 <?php }?>
-		                                <!-- // nếu currentPage < $totalPage và totalPage > 1 mới hiển thị nút prev -->
-		                                <?php if ($comments['currentPage'] < $comments['totalPage'] && $comments['totalPage'] > 1) {?>
-		                                    <li><a href="/shop/comments?page=<?=($comments['currentPage'] + 1)?>" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-		                                <?php }?>
-		                                    </ul>
-                                </nav>
+ <?php $pagination = $comments?>
+                        <?php view_include('partials.pagination', compact('pagination'));?>
                             </div>
                         </div>
                     </div>
