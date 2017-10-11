@@ -180,4 +180,13 @@ class Shop extends Model
         $shop = $this->rawQuery($sql);
         echo require 'app/views/shop/ShopTable.php';
     }
+
+    public function updateDiscount()
+    {
+
+        $shop['DISCOUNT'] = $_POST['aValue'];
+        // echo $shop['DISCOUNT'];
+        $a = $this->updateById($_POST['aKey'], $shop);
+        echo $_POST['aValue'];
+    }
 }

@@ -50,14 +50,14 @@
                                                 <a href=""><img  src="/public/assets/img/img-shop/<?=$value->VIEW?>" /></a>
                                             </td>
                                             <td><?=$value->TYPE_NAME?></td>
-                                            <td><?=$value->DISCOUNT?></td>
+                                            <td class="change-discount<?=$value->SHOP_ID?>"><?=$value->DISCOUNT?></td>
                                             <td class="percent-input">
                                                 <div class="form-group">
                                                     <div class="item-col">
-                                                        <input type="text" class="form-control" id="discount" value="<?=$value->DISCOUNT?>">
+                                                        <input type="text" class="form-control" id="discount" value="<?=$value->DISCOUNT?>" >
                                                     </div>
                                                     <div class="item-col">
-                                                        <button type="submit" class="btn btn-success">Nhập</button>
+                                                        <button type="submit" class="btn btn-success" onclick="changeDiscount(<?=$value->SHOP_ID?>)">Nhập</button>
                                                     </div>
                                                     <div class="clearfix"></div>
                                                 </div>

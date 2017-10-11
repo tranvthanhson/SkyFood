@@ -67,4 +67,9 @@ class ShopController
     {
         $this->shop->search();
     }
+
+    public function ajaxDiscount()
+    {
+        $this->shop->updateDiscount();
+    }
 }
