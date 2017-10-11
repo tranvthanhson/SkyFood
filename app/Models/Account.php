@@ -200,4 +200,9 @@ class Account extends Model
             echo '<span style="color:#a94442;">Username đã tồn tại</span>';
         }
     }
+
+    public function loadImages()
+    {
+        die(var_dump($_FILES));
+    }
 }

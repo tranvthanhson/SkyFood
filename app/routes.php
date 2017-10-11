@@ -33,6 +33,9 @@ $router->get('user/edit', 'UserController@editUser');
 $router->post('user/edit', 'UserController@updateUser');
 $router->get('user/del', 'UserController@deleteUser');
 
+//loadImages
+$router->post('user/loadimage', 'UserController@loadImages');
+
 // Forgot Password
 $router->get('forgotpassword', 'LoginController@viewForgotPassword');
 $router->post('forgotpassword', 'LoginController@forgotPassword');
