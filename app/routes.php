@@ -37,15 +37,20 @@ $router->get('forgotpassword', 'LoginController@viewForgotPassword');
 $router->post('forgotpassword', 'LoginController@forgotPassword');
 //Search
 $router->post('user/searchUser', 'UserController@searchUser');
+$router->post('shop/searchShop', 'ShopController@searchShop');
 
-// Post
-$router->get('post', 'PostController@index');
-$router->get('post/add', 'PostController@add');
-$router->post('post/add', 'PostController@addPost');
-$router->get('post/edit', 'PostController@edit');
-$router->post('post/edit', 'PostController@editPost');
-$router->get('post/del', 'PostController@del');
-$router->get('post/comments', 'PostController@commentPost');
+// shop
+$router->get('shop', 'ShopController@index');
+$router->get('shop/add', 'ShopController@add');
+$router->post('shop/add', 'ShopController@addPost');
+$router->get('shop/edit', 'ShopController@edit');
+$router->post('shop/edit', 'ShopController@editPost');
+$router->get('shop/del', 'ShopController@delete');
+//ajax
+$router->post('shop/ajaxDiscount', 'ShopController@ajaxDiscount');
+//comment
+$router->get('comment', 'CommentController@index');
+$router->get('comment/del', 'CommentController@delete');
 
 // Category
 $router->get('cat', 'CategoryController@index');
