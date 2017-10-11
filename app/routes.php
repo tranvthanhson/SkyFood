@@ -47,7 +47,7 @@ $router->get('shop/edit', 'ShopController@edit');
 $router->post('shop/edit', 'ShopController@editPost');
 $router->get('shop/del', 'ShopController@delete');
 //comment
-$router->get('shop/comment', 'ShopController@seenComment');
+$router->get('shop/comment', 'ShopController@loadComments');
 $router->get('shop/comment/del', 'ShopController@deleteComment');
 
 //ajax

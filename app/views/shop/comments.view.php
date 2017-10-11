@@ -9,7 +9,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Xem bình luận cua shop:</h4>
+                                    <h4 class="title">Xem bình luận cua shop:<?=$shop->SHOP_NAME?></h4>
                                 </div>
                                 <div class="header-card ">
                                     <div class="row">
@@ -23,21 +23,22 @@
                                     <table id="view-post" class="table table-hover table-striped">
                                         <thead>
                                             <th>#</th>
-                                            <th>Tên bài viết</th>
                                             <th>Username</th>
                                             <th>Bình luận</th>
                                             <th>Control</th>
                                         </thead>
                                         <tbody>
+                                        	<?php
+foreach ($comments as $value) {
+    ?>
                                             <tr>
-                                                <td>1</td>
-                                                <td><a href="">The Coffee House</a></td>
-                                                <td class="username"><a href="">hieutran</a></td>
-                                                <td class="cmt">The Coffee House có 3 món nước mới là Trà Đen Macchiato (mới), Trà Xanh Macchiato và Đậu Biếc Macchiato. Trà Xanh Macchiato nghe cái tên là đủ biết là sẽ đậm vị Trà Xanh rồi đúng không? Nhưng loại Macchiato này thì lại không, vị Trà lại rất nhẹ và có thêm một chút mùi bạc hà. Phù hợp cho bạn nào thích uống vị Trà Xanh nhẹ và dễ bị mất ngủ khi uống trà vào ban đêm. Loại thứ 2 là Đậu Biếc Macchiato. Loại này khác là dễ uống và dành cho mọi loại lứa tuổi. Mùi vị của loại này sẽ giống như hương vị của trái Blueberry, có một chút mùi ngọt cheese của kem Maccchiato. Thơm, rất là dễ uống cho mọi người.</td>
+                                                <td><?=$value->COMMENT_ID?></td>
+                                               <td class="username"><a href=""><?=$value->USERNAME?></a></td>
+                                                <td class="cmt"><?=$value->CONTENT?></td>
                                                 <td class="control">
                                                     <div class="form-group">
                                                         <div class="item-col">
-                                                            <a data-toggle="modal" data-target="#delComment" href="" class="btn btn-danger" title="Xoá">
+                                                            <a data-toggle="modal" data-target="#delComment<?=$value->COMMENT_ID?>" href="" class="btn btn-danger" title="Xoá">
                                                             <i class="pe-7s-trash"></i>
                                                         </a>
                                                         </div>
@@ -45,7 +46,8 @@
                                                     </div>
                                                 </td>
                                             </tr>
-
+	<?php view_include('partials.modal', ['id_model' => 'delComment' . $value->COMMENT_ID, 'title' => 'XÓA BINH LUAN ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => '/shop/comment/del?id=' . $value->COMMENT_ID . '&idshop=' . $shop->SHOP_ID]);
+}?>
                                         </tbody>
                                     </table>
                                 </div>

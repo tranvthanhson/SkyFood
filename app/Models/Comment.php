@@ -11,7 +11,12 @@ class Comment extends Model
 
     public function selectByShop()
     {
-        return $this->all();
+        $sql = "SELECT * FROM COMMENT WHERE SHOP_ID={$_GET['id']}";
+        return $this->rawQuery($sql);
     }
 
+    public function deleteComment()
+    {
+        return $this->deleteById($_GET['id']);
+    }
 }
