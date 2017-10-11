@@ -58,4 +58,9 @@ class PostController
         $this->Shop->delPost();
         return redirect('post');
     }
+
+    public function commentPost()
+    {
+        return view('post/comments');
+    }
 }

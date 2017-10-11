@@ -45,6 +45,7 @@ $router->post('post/add', 'PostController@addPost');
 $router->get('post/edit', 'PostController@edit');
 $router->post('post/edit', 'PostController@editPost');
 $router->get('post/del', 'PostController@del');
+$router->get('post/comments', 'PostController@commentPost');
 
 // Category
 $router->get('cat', 'CategoryController@index');
