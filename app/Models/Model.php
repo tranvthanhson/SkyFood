@@ -96,6 +96,7 @@ class Model
 
         //  Find Start
         $start = ($currentPage - 1) * $limit;
+
         $sql = "SELECT * from {$this->table} ";
         if (1 == $orderBy) {
             $sql .= "ORDER BY {$this->primaryKey} DESC ";
