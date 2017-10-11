@@ -67,4 +67,9 @@ class UserController
     {
         $this->account->checkUserAlready();
     }
+
+    public function loadImages()
+    {
+        $this->account->loadImages();
+    }
 }
