@@ -4,36 +4,35 @@
             <a href="index.html" class="simple-text">Sky Food</a>
         </div>
         <ul class="nav">
-            <li>
-                <a href="/post">
-                    <i class="pe-7s-note2"></i>
-                    <p>QL bài đăng</p>
-                </a>
-            </li>
-            <li>
-                <a href="/user">
-                    <i class="pe-7s-user"></i>
-                    <p>QL user</p>
-                </a>
-            </li>
-            <li >
-                <a href="/cat">
-                    <i class="pe-7s-news-paper"></i>
-                    <p>QL danh mục</p>
-                </a>
-            </li>
-            <li class="active">
+
+<?php $_SERVER['REQUEST_URI'];
+$arrLink = ['/post' => ['QL bài đăng', 'note2'],
+    '/user' => ['QL user', 'user'],
+    '/cat' => ['QL danh mục', 'news-paper'],
+    '/feedback' => ['QL phản hồi', 'back-2'],
+    '/statistics' => ['QL thống kê', 'graph1'],
+];
+echo '<pre>';
+var_dump($arrLink);
+echo '</pre>';
+?>
+
+            <!-- <li class="active">
                 <a href="/feedback">
                     <i class="pe-7s-back-2"></i>
                     <p>QL phản hồi</p>
                 </a>
-            </li>
+            </li> -->
+            <?php
+foreach ($arrLink as $key => $value) {
+    ?>
             <li>
-                <a href="/statistics">
-                    <i class="pe-7s-graph1"></i>
+                <a href="<?=$key?>">
+                    <i class="pe-7s-<?=$key[0]?>"></i>
                     <p>QL thống kê</p>
                 </a>
             </li>
+            <?php }?>
         </ul>
     </div>
 </div>
