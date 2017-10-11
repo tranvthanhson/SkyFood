@@ -62,4 +62,9 @@ class UserController
     {
         $this->account->searchUser();
     }
+
+    public function checkUser()
+    {
+        $this->account->checkUserAlready();
+    }
 }

@@ -75,7 +75,7 @@ class Model
         return (object) [];
     }
 
-    public function pagination()
+    public function pagination($orderBy = 0)
     {
         $sql = "SELECT count($this->primaryKey) as total from {$this->table}";
 
@@ -97,7 +97,11 @@ class Model
         //  Find Start
         $start = ($currentPage - 1) * $limit;
 
-        $sql = "SELECT * from {$this->table} LIMIT {$start},{$limit}";
+        $sql = "SELECT * from {$this->table} ";
+        if (1 == $orderBy) {
+            $sql .= "ORDER BY {$this->primaryKey} DESC ";
+        }
+        $sql .= " LIMIT {$start},{$limit}";
 
         // die($sql);
         $arrPagination = [];
@@ -108,13 +112,13 @@ class Model
         return $arrPagination;
     }
 
-    public function uploadImages($imageName)
+    public function uploadImages($imageName, $link)
     {
         $splitArray = explode('.', $imageName);
         $extention = end($splitArray);
         $image = 'hinh-' . time() . '.' . $extention;
         $tmpName = $_FILES['file']['tmp_name'];
-        $pathUpload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $image;
+        $pathUpload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/' . $link . '/' . $image;
         move_uploaded_file($tmpName, $pathUpload);
         return $image;
     }

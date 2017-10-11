@@ -64,7 +64,7 @@ class Account extends Model
     {
         if (isset($_POST['register'])) {
             $this->setValue($_POST['password'], $_POST['first_name'], $_POST['last_name'], '', '', $_POST['email'], 3, '');
-            $checkId = $this->findById($_POST['username']);
+            $checkId = $this->findById($_POST['username'], 'USERNAME');
 
             if (null != $checkId->USERNAME) {
                 echo 'Username already!';
@@ -187,6 +187,17 @@ class Account extends Model
             $this->mailer->setContent($content);
             $this->mailer->sendMail();
             redirect('login');
+        }
+    }
+
+    public function checkUserAlready()
+    {
+        $key = $_POST['ajaxKey'];
+        $sql = "SELECT USERNAME FROM {$this->table} WHERE USERNAME='$key'";
+        $checkAlready = $this->rawQuery($sql);
+
+        if ($checkAlready[0]->USERNAME == $key) {
+            echo '<span style="color:#a94442;">Username đã tồn tại</span>';
         }
     }
 }

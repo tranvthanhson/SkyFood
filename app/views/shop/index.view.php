@@ -102,29 +102,8 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <nav class="nav-pag">
-                                <ul class="pagination">
-
-                             <!-- nếu current_page > 1 và totalPage > 1 mới hiển thị nút prev -->
-                                <?php if ($shop['currentPage'] > 1 && $shop['totalPage'] > 1) {?>
-                                    <li><a href="/shop?page=<?=($shop['currentPage'] - 1)?>" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                <?php }?>
-                                 <!-- Lặp khoảng giữa -->
-                                <?php for ($i = 1; $i <= $shop['totalPage']; $i++) {?>
-                                <!-- // Nếu là trang hiện tại thì hiển thị thẻ span
-                                // ngược lại hiển thị thẻ a -->
-                                    <?php if ($i == $shop['currentPage']) {?>
-                                        <li class="active"><a href="/shop?page=<?=$i?>"><?=$i?></a></li>
-                                     <?php } else {?>
-                                        <li><a href="/shop?page=<?=$i?>"><?=$i?></a></li>
-                                    <?php }?>
-                                 <?php }?>
-                                <!-- // nếu currentPage < $totalPage và totalPage > 1 mới hiển thị nút prev -->
-                                <?php if ($shop['currentPage'] < $shop['totalPage'] && $shop['totalPage'] > 1) {?>
-                                    <li><a href="/shop?page=<?=($shop['currentPage'] + 1)?>" aria-label="Next"><span aria-hidden="true">»</span></a></li>
-                                <?php }?>
-                            </ul>
-                            </nav>
+                             <?php $pagination = $shop?>
+                        <?php view_include('partials.pagination', compact('pagination'));?>
                         </div>
                     </div>
                 </div>
