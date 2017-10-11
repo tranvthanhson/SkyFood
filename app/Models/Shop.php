@@ -8,12 +8,54 @@ class Shop extends Model
 {
     protected $table = 'SHOP';
     protected $primaryKey = 'SHOP_ID';
-
-    public function ShopConnectToType()
+    protected $fillable = [];
+    public function setValue($SHOP_NAME, $STATUS, $DATE_CREATED, $DISCOUNT, $LAT, $LNG, $PHONE, $TIME_CLOSE, $TIME_OPEN, $VIEW, $ADDRESS, $DETAIL)
     {
-        $sql = 'SELECT * FROM TYPE_SHOP INNER JOIN SHOP ON SHOP.SHOP_ID =TYPE_SHOP.SHOP_ID
-    	INNER JOIN TYPE ON TYPE.TYPE_ID =TYPE_SHOP.TYPE_ID ORDER BY SHOP.SHOP_ID DESC';
-        return $this->rawQuery($sql);
+        $this->fillable = [
+            'SHOP_NAME' => $SHOP_NAME,
+            'STATUS' => $STATUS,
+            'DATE_CREATED' => $DATE_CREATED,
+            'DISCOUNT' => $DISCOUNT,
+            'LAT' => $LAT,
+            'LNG' => $LNG,
+            'PHONE' => $PHONE,
+            'TIME_CLOSE' => $TIME_CLOSE,
+            'TIME_OPEN' => $TIME_OPEN,
+            'VIEW' => $VIEW,
+            'ADDRESS' => $ADDRESS,
+            'DETAIL' => $DETAIL,
+        ];
+    }
+
+    public function shopConnectToType()
+    {
+        $sql = "SELECT count(SHOP_ID) as total from {$this->table}";
+
+        $total = $this->rawQuery($sql);
+        $totalRecords = $total[0]->total;
+
+        //Find limit and current page
+        $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+        $limit = 5;
+        $totalPage = ceil($totalRecords / $limit);
+        // Giới hạn currentPage trong khoảng 1 đến totalPage
+        if ($currentPage > $totalPage) {
+            $currentPage = $totalPage;
+        } else if ($currentPage < 1) {
+            $currentPage = 1;
+        }
+
+        //  Tìm Start
+        $start = ($currentPage - 1) * $limit;
+
+        $sql = "SELECT * FROM TYPE_SHOP INNER JOIN SHOP ON SHOP.SHOP_ID =TYPE_SHOP.SHOP_ID
+        INNER JOIN TYPE ON TYPE.TYPE_ID =TYPE_SHOP.TYPE_ID ORDER BY SHOP.SHOP_ID DESC LIMIT {$start},{$limit}";
+        $arrPagination = [];
+        $arrPagination['all'] = $this->rawQuery($sql);
+        $arrPagination['currentPage'] = $currentPage;
+        $arrPagination['totalPage'] = $totalPage;
+
+        return $arrPagination;
     }
 
     public function selectAll()
@@ -41,20 +83,21 @@ class Shop extends Model
                 move_uploaded_file($tmp_name, $path_upload);
             }
             $currentDate = $now['year'] . '-' . $now['mon'] . '-' . $now['mday'] . ' ' . $now['hours'] . ':' . $now['minutes'] . ':' . $now['seconds'];
-            $shop['SHOP_NAME'] = $_POST['shop_name'];
-            $shop['STATUS'] = 0;
-            $shop['DATE_CREATED'] = $currentDate;
-            $shop['DISCOUNT'] = $_POST['discount'];
-            $shop['LAT'] = $_POST['lat'];
-            $shop['LNG'] = $_POST['lng'];
-            $shop['PHONE'] = $_POST['phone'];
-            $shop['TIME_CLOSE'] = $_POST['time_close'];
-            $shop['TIME_OPEN'] = $_POST['time_open'];
-            $shop['VIEW'] = $picture;
-            $shop['ADDRESS'] = $_POST['address'];
-            $shop['DETAIL'] = $_POST['detail'];
-            $sql = "INSERT INTO SHOP( SHOP_NAME, LAT, LNG, DATE_CREATED, PHONE, TIME_OPEN, TIME_CLOSE, STATUS, DISCOUNT, VIEW, ADDRESS, DETAIL) VALUES ('{$shop['SHOP_NAME']}','{$shop['LAT']}','{$shop['LNG']}','{$shop['DATE_CREATED']}','{$shop['PHONE']}','{$shop['TIME_OPEN']}','{$shop['TIME_CLOSE']}',{$shop['STATUS']},{$shop['DISCOUNT']},'{$shop['VIEW']}','{$shop['ADDRESS']}','{$shop['DETAIL']}')";
-            return $this->rawQuery($sql);
+            // $shop['SHOP_NAME'] = $_POST['shop_name'];
+            // $shop['STATUS'] = 0;
+            // $shop['DATE_CREATED'] = $currentDate;
+            // $shop['DISCOUNT'] = $_POST['discount'];
+            // $shop['LAT'] = $_POST['lat'];
+            // $shop['LNG'] = $_POST['lng'];
+            // $shop['PHONE'] = $_POST['phone'];
+            // $shop['TIME_CLOSE'] = $_POST['time_close'];
+            // $shop['TIME_OPEN'] = $_POST['time_open'];
+            // $shop['VIEW'] = $picture;
+            // $shop['ADDRESS'] = $_POST['address'];
+            // $shop['DETAIL'] = $_POST['detail'];
+            $this->setValue($_POST['shop_name'], 0, $currentDate, $_POST['discount'], $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'], $picture, $_POST['address'], $_POST['detail']);
+            //die(var_dump($this->fillable));
+            return $this->insert($this->fillable);
         }
     }
 
@@ -66,21 +109,21 @@ class Shop extends Model
 
     public function selectByKey($key)
     {
-        $sql = "SELECT *,TYPE.TYPE_ID as tid,TYPE_SHOP.TYPE_ID as tsid FROM TYPE_SHOP INNER JOIN SHOP ON SHOP.SHOP_ID =TYPE_SHOP.SHOP_ID INNER JOIN TYPE ON TYPE.TYPE_ID = TYPE_SHOP.TYPE_ID WHERE TYPE_SHOP.SHOP_ID={$key}";
+        // die($key);
+        $sql = "SELECT *,TYPE_SHOP.TYPE_ID AS type_id,TYPE_SHOP.SHOP_ID AS shop_id FROM TYPE_SHOP INNER JOIN SHOP ON SHOP.SHOP_ID =TYPE_SHOP.SHOP_ID INNER JOIN TYPE ON TYPE.TYPE_ID =TYPE_SHOP.TYPE_ID  WHERE TYPE_SHOP.SHOP_ID = {$key}";
+        // die($sql);
         return $this->rawQuery($sql);
-        //die($sql);
-        // $a = $this->findById($key);
-        // die(var_dump($a));
     }
 
     public function update()
     {
         $id = $_GET['id'];
-        $post = $this->selectByKey($id);
-        $post = $post[0];
+        $s = $this->findById($id, 'DATE_CREATED,VIEW');
+        //die($date->DATE_CREATED);
+        //$shop = $shop[0];
         if (isset($_POST['sua'])) {
             $shop = [];
-            $picture = $post->VIEW;
+            $picture = $s->VIEW;
             //xu ly picture
             $file = $_FILES['file']['name'];
             if ('' != $file) {
@@ -98,30 +141,52 @@ class Shop extends Model
                 move_uploaded_file($tmp_name, $path_upload);
             }
 
-            $shop['SHOP_NAME'] = $_POST['shop_name'];
-            $shop['STATUS'] = 0;
-            $shop['DATE_CREATED'] = $post->DATE_CREATED;
-            $shop['DISCOUNT'] = $_POST['discount'];
-            $shop['LAT'] = $_POST['lat'];
-            $shop['LNG'] = $_POST['lng'];
-            $shop['PHONE'] = $_POST['phone'];
-            $shop['TIME_CLOSE'] = $_POST['time_close'];
-            $shop['TIME_OPEN'] = $_POST['time_open'];
-            $shop['VIEW'] = $picture;
-            $shop['ADDRESS'] = $_POST['address'];
-            $shop['DETAIL'] = $_POST['detail'];
-            $sql = "UPDATE SHOP SET SHOP_NAME='{$shop['SHOP_NAME']}',LAT='{$shop['LAT']}',LNG='{$shop['LNG']}',DATE_CREATED='{$shop['DATE_CREATED']}',PHONE='{$shop['PHONE']}',TIME_OPEN='{$shop['TIME_OPEN']}',TIME_CLOSE='{$shop['TIME_CLOSE']}',STATUS='{$shop['STATUS']}',DISCOUNT={$shop['DISCOUNT']},VIEW='{$shop['VIEW']}',ADDRESS='{$shop['ADDRESS']}',DETAIL='{$shop['DETAIL']}' WHERE SHOP_ID={$id}";
-            return $this->rawQuery($sql);
+            // $shop['SHOP_NAME'] = $_POST['shop_name'];
+
+            // $shop['STATUS'] = 0;
+            // $shop['DATE_CREATED'] = $s->DATE_CREATED;
+            // $shop['DISCOUNT'] = $_POST['discount'];
+            // $shop['LAT'] = $_POST['lat'];
+            // $shop['LNG'] = $_POST['lng'];
+            // $shop['PHONE'] = $_POST['phone'];
+            // $shop['TIME_CLOSE'] = $_POST['time_close'];
+            // $shop['TIME_OPEN'] = $_POST['time_open'];
+            // $shop['VIEW'] = $picture;
+            // $shop['ADDRESS'] = $_POST['address'];
+            // $shop['DETAIL'] = $_POST['detail'];
+            //die(var_dump($shop));
+            $this->setValue($_POST['shop_name'], 0, $s->DATE_CREATED, $_POST['discount'], $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'], $picture, $_POST['address'], $_POST['detail']);
+            //die(var_dump($this->fillable));
+            return $this->updateById($id, $this->fillable);
         }
     }
 
-    public function delPost()
+    public function deleteshop()
     {
+
         $path = $_SERVER['DOCUMENT_ROOT'];
         if ('default-avatar.png' != $picture) {
             $link = $path . '/public/assets/img/img-shop/' . $picture;
             unlink($link);
-        }
+        } //die($_GET['id']);
         return $this->deleteById($_GET['id']);
+    }
+
+    public function search()
+    {
+
+        $sql = "SELECT * FROM {$this->table} WHERE (SHOP_NAME LIKE '%" . $_POST['ajaxKey'] . "%')";
+        //die($sql);
+        $shop = $this->rawQuery($sql);
+        echo require 'app/views/shop/ShopTable.php';
+    }
+
+    public function updateDiscount()
+    {
+
+        $shop['DISCOUNT'] = $_POST['aValue'];
+        // echo $shop['DISCOUNT'];
+        $a = $this->updateById($_POST['aKey'], $shop);
+        echo $_POST['aValue'];
     }
 }
