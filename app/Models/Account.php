@@ -144,14 +144,7 @@ class Account extends Model
             $image = $_FILES['file']['name'];
 
             if ($_POST['urlImage'] != $image) {
-                $_POST['urlImage'] = $image;
-
-                $splitArray = explode('.', $image);
-                $extention = end($splitArray);
-                $image = 'hinh-' . time() . '.' . $extention;
-                $tmpName = $_FILES['file']['tmp_name'];
-                $pathUpload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $image;
-                move_uploaded_file($tmpName, $pathUpload);
+                $_POST['urlImage'] = $this->uploadImages($image);
             }
             if (1 != $account[0]->ROLE) {
                 $_POST['role'] = $account[0]->ROLE;
