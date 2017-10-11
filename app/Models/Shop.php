@@ -29,33 +29,7 @@ class Shop extends Model
 
     public function shopConnectToType()
     {
-        $sql = "SELECT count(SHOP_ID) as total from {$this->table}";
-
-        $total = $this->rawQuery($sql);
-        $totalRecords = $total[0]->total;
-
-        //Find limit and current page
-        $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
-        $limit = 5;
-        $totalPage = ceil($totalRecords / $limit);
-        // Giới hạn currentPage trong khoảng 1 đến totalPage
-        if ($currentPage > $totalPage) {
-            $currentPage = $totalPage;
-        } else if ($currentPage < 1) {
-            $currentPage = 1;
-        }
-
-        //  Tìm Start
-        $start = ($currentPage - 1) * $limit;
-
-        $sql = "SELECT * FROM TYPE_SHOP INNER JOIN SHOP ON SHOP.SHOP_ID =TYPE_SHOP.SHOP_ID
-        INNER JOIN TYPE ON TYPE.TYPE_ID =TYPE_SHOP.TYPE_ID ORDER BY SHOP.SHOP_ID DESC LIMIT {$start},{$limit}";
-        $arrPagination = [];
-        $arrPagination['all'] = $this->rawQuery($sql);
-        $arrPagination['currentPage'] = $currentPage;
-        $arrPagination['totalPage'] = $totalPage;
-
-        return $arrPagination;
+        return $this->pagination(1);
     }
 
     public function selectAll()
@@ -73,14 +47,7 @@ class Shop extends Model
             //xu ly picture
             $file = $_FILES['file']['name'];
             if ('' != $file) {
-                $tmp = explode('.', $file);
-                $duoiFile = end($tmp);
-                $tenFileMoi = 'avt-' . time() . '.' . $duoiFile;
-                $picture = $tenFileMoi;
-                $tmp_name = $_FILES['file']['tmp_name'];
-                $path = $_SERVER['DOCUMENT_ROOT'];
-                $path_upload = $path . '/public/assets/img/img-shop/' . $tenFileMoi;
-                move_uploaded_file($tmp_name, $path_upload);
+                $picture = $this->uploadImages($image);
             }
             $currentDate = $now['year'] . '-' . $now['mon'] . '-' . $now['mday'] . ' ' . $now['hours'] . ':' . $now['minutes'] . ':' . $now['seconds'];
             // $shop['SHOP_NAME'] = $_POST['shop_name'];
@@ -132,13 +99,7 @@ class Shop extends Model
                     $link = $path . '/public/assets/img/img-shop/' . $picture;
                     unlink($link);
                 }
-                $tmp = explode('.', $file);
-                $duoiFile = end($tmp);
-                $tenFileMoi = 'avt-' . time() . '.' . $duoiFile;
-                $picture = $tenFileMoi;
-                $tmp_name = $_FILES['file']['tmp_name'];
-                $path_upload = $path . '/public/assets/img/img-shop/' . $tenFileMoi;
-                move_uploaded_file($tmp_name, $path_upload);
+                $picture = $this->uploadImages();
             }
 
             // $shop['SHOP_NAME'] = $_POST['shop_name'];
