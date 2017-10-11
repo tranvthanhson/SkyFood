@@ -89,7 +89,7 @@ class Account extends Model
                 if (null != $checkId->USERNAME) {
                     //echo 'Username already!';
                     $_SESSION['notice'] = 'Username already!';
-                    redirect('user');
+                    redirect('user/add');
                 } else {
                     $this->fillable['USERNAME'] = $_POST['username'];
                     $this->insert($this->fillable);
