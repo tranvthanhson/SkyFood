@@ -5,34 +5,28 @@
         </div>
         <ul class="nav">
 
-<?php $_SERVER['REQUEST_URI'];
+            <?php $_SERVER['REQUEST_URI'];
 $arrLink = ['/post' => ['QL bài đăng', 'note2'],
     '/user' => ['QL user', 'user'],
     '/cat' => ['QL danh mục', 'news-paper'],
     '/feedback' => ['QL phản hồi', 'back-2'],
     '/statistics' => ['QL thống kê', 'graph1'],
 ];
-echo '<pre>';
-var_dump($arrLink);
-echo '</pre>';
-?>
 
-            <!-- <li class="active">
-                <a href="/feedback">
-                    <i class="pe-7s-back-2"></i>
-                    <p>QL phản hồi</p>
-                </a>
-            </li> -->
-            <?php
 foreach ($arrLink as $key => $value) {
+    if ($_SERVER['REQUEST_URI'] == $key) {
+        $active = 'active';
+    } else {
+        $active = '';
+    }
     ?>
-            <li>
-                <a href="<?=$key?>">
-                    <i class="pe-7s-<?=$key[0]?>"></i>
-                    <p>QL thống kê</p>
-                </a>
-            </li>
-            <?php }?>
-        </ul>
+                <li class="<?=$active;?>">
+                    <a href="<?=$key?>">
+                        <i class="pe-7s-<?=$value[1]?>"></i>
+                        <p><?=$value[0]?></p>
+                    </a>
+                </li>
+                <?php }?>
+            </ul>
+        </div>
     </div>
-</div>

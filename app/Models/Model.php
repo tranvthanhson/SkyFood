@@ -107,4 +107,15 @@ class Model
 
         return $arrPagination;
     }
+
+    public function uploadImages($imageName)
+    {
+        $splitArray = explode('.', $imageName);
+        $extention = end($splitArray);
+        $image = 'hinh-' . time() . '.' . $extention;
+        $tmpName = $_FILES['file']['tmp_name'];
+        $pathUpload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $image;
+        move_uploaded_file($tmpName, $pathUpload);
+        return $image;
+    }
 }
