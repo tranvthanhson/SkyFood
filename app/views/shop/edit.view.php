@@ -46,7 +46,7 @@
                                                             <?php
 foreach ($types as $value) {
     $sel = '';
-    if ($value->TYPE_ID == $shop->tid) {
+    if ($value->TYPE_ID == $shop->type_id) {
         $sel = 'selected';
     }
     ?>
