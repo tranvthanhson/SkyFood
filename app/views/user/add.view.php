@@ -19,17 +19,35 @@
                                             <div class="col-md-8">
                                                 <div class="form-group">
                                                     <label for="userName" class="control-label">Username (<span>*</span>)</label>
-                                                    <input type="text" name="username" value="test" class="form-control" id="userName" placeholder="Nhập tài khoản đăng nhập" required>
-                                                        <?php if (isset($_SESSION['notice'])) {?>
-
-                                                          <div class="help-block"><?=$_SESSION['notice']?></div>
-
-                                                        <?php }?>
-                                                        <?php unset($_SESSION['notice']);?>
-
+                                                    <input type="text" name="username" value="test" class="form-control" id="userName" onkeyup="checkUsernameAlready()" placeholder="Nhập tài khoản đăng nhập" autocomplete="off" required>
+                                                </div>
+                                                <div class="tableSearch">
+                                                    <p></p>
                                                 </div>
                                             </div>
+                                            <script  type="text/javascript">
 
+                                                function checkUsernameAlready(){
+                                                    var key = $('#userName').val();
+                                                    //alert(key);
+                                                $.ajax({
+                                                    url: '/user/checkUser',
+                                                    type: 'POST',
+                                                    cache: false,
+                                                    data: {
+                                                        ajaxKey: key,
+
+                                                },
+                                                success: function(data) {
+                                                    $('.tableSearch').html(data);
+
+                                                },
+                                                error: function() {
+                                                    alert('Có lỗi xảy ra');
+                                                }
+                                                });
+                                                }
+                                            </script>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="role">Role (<span>*</span>)</label>
