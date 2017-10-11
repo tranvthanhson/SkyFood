@@ -1,7 +1,10 @@
 <?php
 namespace App\Controllers;
 
-class CommentController
+class ShopController
 {
-
+    public function index()
+    {
+        return view('shop/comments.view.php');
+    }
 }
