@@ -185,7 +185,7 @@ class Shop extends Model
     {
 
         $shop['DISCOUNT'] = $_POST['aValue'];
-        // echo $shop['DISCOUNT'];
+        //echo $shop['DISCOUNT'];
         $a = $this->updateById($_POST['aKey'], $shop);
         echo $_POST['aValue'];
     }

@@ -74,7 +74,7 @@
                                             <td>
                                                 <div class="form-group">
                                                     <div class="item-col">
-                                                        <a href="comments.html" class="btn btn-warning" title="Xem">
+                                                        <a href="/shop/comment?id=<?=$value->SHOP_ID?>" class="btn btn-warning" title="Xem">
                                                             <i class="pe-7s-look"></i>
                                                         </a>
                                                     </div>

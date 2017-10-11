@@ -9,21 +9,13 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Xem bình luận</h4>
+                                    <h4 class="title">Xem bình luận cua shop:</h4>
                                 </div>
                                 <div class="header-card ">
                                     <div class="row">
                                         <div class="col-md-2 col-sm-2 col-xs-4">
                                         </div>
-                                        <div class="col-lg-offset-6 col-md-4 col-md-offset-6 col-sm-5 col-sm-offset-5 col-xs-8">
-                                            <div class="input-group search-btn">
-                                                <div class="input-group-addon"><span>Tìm kiếm</span></div>
-                                                <input type="text" class="form-control" />
-                                                <div class="input-group-btn">
-                                                    <button class="btn btn-default" type="button"><i class="pe-7s-search"></i></button>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
@@ -53,38 +45,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td><a href="">The Coffee House</a></td>
-                                                <td class="username"><a href="">hieutran2</a></td>
-                                                <td class="cmt">The Coffee House có 3 món nước mới là Trà Đen Macchiato (mới), Trà Xanh Macchiato và Đậu Biếc Macchiato. Trà Xanh Macchiato nghe cái tên là đủ biết là sẽ đậm vị Trà Xanh rồi đúng không? Nhưng loại Macchiato này thì lại không, vị Trà lại rất nhẹ và có thêm một chút mùi bạc hà. Phù hợp cho bạn nào thích uống vị Trà Xanh nhẹ và dễ bị mất ngủ khi uống trà vào ban đêm. Loại thứ 2 là Đậu Biếc Macchiato.</td>
-                                                <td class="control">
-                                                    <div class="form-group">
-                                                        <div class="item-col">
-                                                            <a data-toggle="modal" data-target="#delComment" href="" class="btn btn-danger" title="Xoá">
-                                                            <i class="pe-7s-trash"></i>
-                                                        </a>
-                                                        </div>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td><a href="">The Coffee House</a></td>
-                                                <td class="username"><a href="">hieutran3</a></td>
-                                                <td class="cmt">Loại thứ 2 là Đậu Biếc Macchiato. Loại này khác là dễ uống và dành cho mọi loại lứa tuổi. Mùi vị của loại này sẽ giống như hương vị của trái Blueberry, có một chút mùi ngọt cheese của kem Maccchiato. Thơm, rất là dễ uống cho mọi người.</td>
-                                                <td class="control">
-                                                    <div class="form-group">
-                                                        <div class="item-col">
-                                                            <a data-toggle="modal" data-target="#delComment" href="" class="btn btn-danger" title="Xoá">
-                                                            <i class="pe-7s-trash"></i>
-                                                        </a>
-                                                        </div>
-                                                        <div class="clearfix"></div>
-                                                    </div>
-                                                </td>
-                                            </tr>
+
                                         </tbody>
                                     </table>
                                 </div>

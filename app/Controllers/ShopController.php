@@ -72,4 +72,9 @@ class ShopController
     {
         $this->shop->updateDiscount();
     }
+
+    public function loadComments()
+    {
+        return view('shop/comments');
+    }
 }

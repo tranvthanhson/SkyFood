@@ -99,13 +99,7 @@ class Account extends Model
                 }
             } else {
                 // Upload img
-                $image = $_FILES['file']['name'];
-                $splitArray = explode('.', $image);
-                $extention = end($splitArray);
-                $image = 'hinh-' . time() . '.' . $extention;
-                $tmpName = $_FILES['file']['tmp_name'];
-                $pathUpload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $image;
-                move_uploaded_file($tmpName, $pathUpload);
+                $image = $this->uploadImages($_FILES['file']['name']);
 
                 // Add user
                 $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $image, $_POST['email'], $_POST['role'], $_POST['phone']);
@@ -150,14 +144,7 @@ class Account extends Model
             $image = $_FILES['file']['name'];
 
             if ($_POST['urlImage'] != $image) {
-                $_POST['urlImage'] = $image;
-
-                $splitArray = explode('.', $image);
-                $extention = end($splitArray);
-                $image = 'hinh-' . time() . '.' . $extention;
-                $tmpName = $_FILES['file']['tmp_name'];
-                $pathUpload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $image;
-                move_uploaded_file($tmpName, $pathUpload);
+                $_POST['urlImage'] = $this->uploadImages($image);
             }
             if (1 != $account[0]->ROLE) {
                 $_POST['role'] = $account[0]->ROLE;
@@ -182,36 +169,7 @@ class Account extends Model
             echo require 'app/views/user/UsersTable.view.php';
         } else {
 
-            //     // Find sum record
-
-            $sql = "SELECT count(USERNAME) as total from {$this->table}";
-
-            $total = $this->rawQuery($sql);
-
-            $totalRecords = $total[0]->total;
-
-            //Find limit and current page
-            $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
-            $limit = 5;
-            $totalPage = ceil($totalRecords / $limit);
-            // Giới hạn currentPage trong khoảng 1 đến totalPage
-            if ($currentPage > $totalPage) {
-                $currentPage = $totalPage;
-            } else if ($currentPage < 1) {
-                $currentPage = 1;
-            }
-
-            //  Tìm Start
-            $start = ($currentPage - 1) * $limit;
-            //
-            $sql = "SELECT * from {$this->table} LIMIT {$start},{$limit}";
-            //die($sql);
-            $arrPagination = [];
-            $arrPagination['all'] = $this->rawQuery($sql);
-            $arrPagination['currentPage'] = $currentPage;
-            $arrPagination['totalPage'] = $totalPage;
-
-            return $arrPagination;
+            return $this->pagination();
         }
     }
 
