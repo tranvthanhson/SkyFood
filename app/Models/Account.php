@@ -99,7 +99,7 @@ class Account extends Model
                 }
             } else {
                 // Upload img
-                $image = $this->uploadImages($_FILES['file']['name']);
+                $image = $this->uploadImages($_FILES['file']['name'], 'imagesUser');
 
                 // Add user
                 $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $image, $_POST['email'], $_POST['role'], $_POST['phone']);
@@ -144,7 +144,7 @@ class Account extends Model
             $image = $_FILES['file']['name'];
 
             if ($_POST['urlImage'] != $image) {
-                $_POST['urlImage'] = $this->uploadImages($image);
+                $_POST['urlImage'] = $this->uploadImages($image, 'imagesUser');
             }
             if (1 != $account[0]->ROLE) {
                 $_POST['role'] = $account[0]->ROLE;
