@@ -189,4 +189,15 @@ class Account extends Model
             redirect('login');
         }
     }
+
+    public function checkUserAlready()
+    {
+        $key = $_POST['ajaxKey'];
+        $sql = "SELECT USERNAME FROM {$this->table} WHERE USERNAME='$key'";
+        $checkAlready = $this->rawQuery($sql);
+
+        if ($checkAlready[0]->USERNAME == $key) {
+            echo '<span style="color:#a94442;">Username đã tồn tại</span>';
+        }
+    }
 }

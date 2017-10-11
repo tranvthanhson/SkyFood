@@ -28,6 +28,7 @@ $router->post('register', 'RegisterController@register');
 $router->get('user', 'UserController@index');
 $router->get('user/add', 'UserController@addUser');
 $router->post('user/add', 'UserController@storeUser');
+$router->post('user/checkUser', 'UserController@checkUser');
 $router->get('user/edit', 'UserController@editUser');
 $router->post('user/edit', 'UserController@updateUser');
 $router->get('user/del', 'UserController@deleteUser');

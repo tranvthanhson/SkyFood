@@ -19,9 +19,10 @@
                                             <div class="col-md-8">
                                                 <div class="form-group">
                                                     <label for="userName" class="control-label">Username (<span>*</span>)</label>
-                                                    <input type="text" name="username" value="<?=$infoUser[0]->USERNAME?>" class="form-control" id="userName" readonly placeholder="Nhập tài khoản đăng nhập" required>
+                                                    <input type="text" name="username" value="<?=$infoUser[0]->USERNAME?>" class="form-control" id="userName"  readonly placeholder="Nhập tài khoản đăng nhập" required>
                                                 </div>
                                             </div>
+
                                             <?php if (1 == $_SESSION['user']->ROLE) {?>
                                             <div class="col-md-4">
                                                 <div class="form-group">
