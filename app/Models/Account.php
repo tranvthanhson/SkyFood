@@ -99,13 +99,7 @@ class Account extends Model
                 }
             } else {
                 // Upload img
-                $image = $_FILES['file']['name'];
-                $splitArray = explode('.', $image);
-                $extention = end($splitArray);
-                $image = 'hinh-' . time() . '.' . $extention;
-                $tmpName = $_FILES['file']['tmp_name'];
-                $pathUpload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $image;
-                move_uploaded_file($tmpName, $pathUpload);
+                $image = $this->uploadImages($_FILES['file']['name']);
 
                 // Add user
                 $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $image, $_POST['email'], $_POST['role'], $_POST['phone']);
