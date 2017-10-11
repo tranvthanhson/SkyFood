@@ -20,8 +20,16 @@
                                                 <div class="form-group">
                                                     <label for="userName" class="control-label">Username (<span>*</span>)</label>
                                                     <input type="text" name="username" value="test" class="form-control" id="userName" placeholder="Nhập tài khoản đăng nhập" required>
+                                                        <?php if (isset($_SESSION['notice'])) {?>
+
+                                                          <div class="help-block"><?=$_SESSION['notice']?></div>
+
+                                                        <?php }?>
+                                                        <?php unset($_SESSION['notice']);?>
+
                                                 </div>
                                             </div>
+
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="role">Role (<span>*</span>)</label>
@@ -55,18 +63,18 @@
                                          <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="confirmPass" class="control-label">Address (<span>*</span>)</label>
-                                                    <input type="text" value="thuong" name="address" class="form-control" id="confirmPass" >
-                                                    <div class="help-block with-errors"></div>
+                                                    <label for="confirmPass" class="control-label">Address </label>
+                                                    <input type="text" value="thuong" name="address" class="form-control" id="address" >
+
                                                 </div>
                                             </div>
                                         </div>
                                          <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="confirmPass" class="control-label">Phone (<span>*</span>)</label>
-                                                    <input type="text" value="thuong" name="phone" class="form-control" id="confirmPass">
-                                                    <div class="help-block with-errors"></div>
+                                                    <label for="confirmPass" class="control-label">Phone </label>
+                                                    <input type="text" value="thuong" name="phone" class="form-control" id="phone">
+
                                                 </div>
                                             </div>
                                         </div>
@@ -74,7 +82,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Email (<span>*</span>)</label>
-                                                    <input type="text" value="thuong" name="email" class="form-control" id="confirmPass">
+                                                    <input type="text" value="thuong" name="email" class="form-control" id="confirmPass" required>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
@@ -82,14 +90,14 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="firstName" class="control-label">First name (<span>*</span>)</label>
-                                                    <input type="text" name="firstName" class="form-control" value="test" placeholder="Họ" value="" id="firstName" required>
+                                                    <label for="firstName" class="control-label">First name </label>
+                                                    <input type="text" name="firstName" class="form-control" value="test" placeholder="Họ" value="" id="firstName" >
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="lastName">Last name (<span>*</span>)</label>
-                                                    <input type="text" name="lastName" class="form-control" value="test" placeholder="Tên" value="" id="lastName" required>
+                                                    <label for="lastName">Last name </label>
+                                                    <input type="text" name="lastName" class="form-control" value="test" placeholder="Tên" value="" id="lastName" >
                                                 </div>
                                             </div>
                                         </div>
