@@ -182,36 +182,7 @@ class Account extends Model
             echo require 'app/views/user/UsersTable.view.php';
         } else {
 
-            //     // Find sum record
-
-            $sql = "SELECT count(USERNAME) as total from {$this->table}";
-
-            $total = $this->rawQuery($sql);
-
-            $totalRecords = $total[0]->total;
-
-            //Find limit and current page
-            $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
-            $limit = 5;
-            $totalPage = ceil($totalRecords / $limit);
-            // Giới hạn currentPage trong khoảng 1 đến totalPage
-            if ($currentPage > $totalPage) {
-                $currentPage = $totalPage;
-            } else if ($currentPage < 1) {
-                $currentPage = 1;
-            }
-
-            //  Tìm Start
-            $start = ($currentPage - 1) * $limit;
-            //
-            $sql = "SELECT * from {$this->table} LIMIT {$start},{$limit}";
-            //die($sql);
-            $arrPagination = [];
-            $arrPagination['all'] = $this->rawQuery($sql);
-            $arrPagination['currentPage'] = $currentPage;
-            $arrPagination['totalPage'] = $totalPage;
-
-            return $arrPagination;
+            return $this->pagination();
         }
     }
 
