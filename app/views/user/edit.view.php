@@ -29,7 +29,7 @@
                                                     <select class="form-control" name="role" id="role">
 
 
-                                                    <option <?php if (($infoUser[0]->ROLE) == 1) {echo 'Selected = "Selected"';}?> value="1">Admin</option>
+
                                                     <option <?php if (($infoUser[0]->ROLE) == 2) {echo 'Selected = "Selected"';}?> value="2">Staff</option>
                                                     <option <?php if (($infoUser[0]->ROLE) == 3) {echo 'Selected = "Selected"';}?> value="3">User</option>
                                                 </select>
