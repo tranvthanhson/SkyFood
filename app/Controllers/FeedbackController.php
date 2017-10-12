@@ -27,7 +27,6 @@ class FeedbackController
 
     public function index()
     {
-        die('a');
         $feedbacks = $this->feedback->selectAll();
         return view('feedback/index', compact('feedbacks'));
     }

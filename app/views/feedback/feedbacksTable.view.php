@@ -22,7 +22,7 @@
                 <div class="modal fade" id="replyContact<?=$feedback->FEEDBACK_ID?>" role="dialog">
                     <div class="modal-dialog">
                         <!-- Modal content-->
-                        <form action="/feedback/reply" method="POST">
+                        <form action="/admin/feedback/reply" method="POST">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
