@@ -1,9 +1,7 @@
 <!-- Require head-->
-<?php view_include('layouts.head-master', ['title' => 'Feedback'])?>
+<?php view_include('layouts.head-master', ['title' => 'Phản hồi'])?>
 
 <!-- Require modal -->
-
-
 
 <div class="wrapper">
     <!-- Require side-bar -->
