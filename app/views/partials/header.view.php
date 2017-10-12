@@ -19,7 +19,7 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="/user/edit?idUser=<?=$_SESSION['user']->USERNAME?>"><i class="fa fa-user"></i>Profile</a></li>
+                        <li><a href="/admin/user/edit?idUser=<?=$_SESSION['user']->USERNAME?>"><i class="fa fa-user"></i>Profile</a></li>
                         <li><a href="/logout"><i class="fa fa-sign-out"></i>Log out</a></li>
                     </ul>
                 </li>

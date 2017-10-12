@@ -1,8 +1,8 @@
-<?php view_include('layouts.head-master', ['title' => 'ADMIN']);?>
+<?php view_include('layouts.head-master', ['title' => 'Admin']);?>
 <div class="wrapper">
     <?php view_include('layouts.side-bar');?>
     <div class="main-panel">
-        <?php view_include('partials.header', ['title' => 'TRANG CHỦ'])?>
+        <?php view_include('partials.header', ['title' => 'Trang chủ'])?>
         <div class="content posts home">
             <div class="container-fluid">
                 <div class="row">
@@ -26,7 +26,7 @@
                                                 </div>
                                             </div>
                                             <div class="panel-footer">
-                                                <a href="">Xem <i class="fa fa-arrow-circle-right"></i></a>
+                                                <a href="/shop">Xem <i class="fa fa-arrow-circle-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -48,7 +48,7 @@
                                                 </div>
                                             </div>
                                             <div class="panel-footer">
-                                                <a href="">Xem <i class="fa fa-arrow-circle-right"></i></a>
+                                                <a href="/user">Xem <i class="fa fa-arrow-circle-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -70,7 +70,7 @@
                                                 </div>
                                             </div>
                                             <div class="panel-footer">
-                                                <a href="">Xem <i class="fa fa-arrow-circle-right"></i></a>
+                                                <a href="/cat">Xem <i class="fa fa-arrow-circle-right"></i></a>
                                             </div>
                                         </div>
                                     </div>

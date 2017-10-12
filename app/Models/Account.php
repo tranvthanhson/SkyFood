@@ -15,7 +15,7 @@ class Account extends Model
     public function setValue($password, $fisrtname, $lastname, $address, $image, $email, $role, $phone)
     {
         $this->fillable = [
-            'PASSWORD' => md5($password),
+            'PASSWORD' => $password,
             'FIRST_NAME' => $fisrtname,
             'LAST_NAME' => $lastname,
             'ADDRESS' => $address,
@@ -45,7 +45,7 @@ class Account extends Model
             if (($user[0]->USERNAME == $username) && ($user[0]->PASSWORD == $password)) {
                 if (3 != $user[0]->ROLE) {
                     $_SESSION['user'] = $user[0];
-                    return redirect('user');
+                    return redirect('admin/user');
                 }
             } else {
                 // return redirect('');
@@ -63,7 +63,7 @@ class Account extends Model
     public function register()
     {
         if (isset($_POST['register'])) {
-            $this->setValue($_POST['password'], $_POST['first_name'], $_POST['last_name'], '', '', $_POST['email'], 3, '');
+            $this->setValue(md5($_POST['password']), $_POST['first_name'], $_POST['last_name'], '', '', $_POST['email'], 3, '');
             $checkId = $this->findById($_POST['username'], 'USERNAME');
 
             if (null != $checkId->USERNAME) {
@@ -83,43 +83,37 @@ class Account extends Model
     {
         if (isset($_POST['add'])) {
             if (null == $_FILES['file']['name']) {
-                $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], '', $_POST['email'], $_POST['role'], $_POST['phone']);
+                $this->setValue(md5($_POST['password']), $_POST['firstName'], $_POST['lastName'], $_POST['address'], '', $_POST['email'], $_POST['role'], $_POST['phone']);
 
                 $checkId = $this->findById($_POST['username'], 'USERNAME');
                 if (null != $checkId->USERNAME) {
                     //echo 'Username already!';
                     $_SESSION['notice'] = 'Username already!';
-                    redirect('user');
+                    redirect('admin/user/add');
                 } else {
                     $this->fillable['USERNAME'] = $_POST['username'];
                     $this->insert($this->fillable);
                     $this->fillable = [];
                     $_SESSION['notice'] = 'Register Successful!';
-                    redirect('user');
+                    redirect('admin/user');
                 }
             } else {
                 // Upload img
-                $image = $_FILES['file']['name'];
-                $splitArray = explode('.', $image);
-                $extention = end($splitArray);
-                $image = 'hinh-' . time() . '.' . $extention;
-                $tmpName = $_FILES['file']['tmp_name'];
-                $pathUpload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $image;
-                move_uploaded_file($tmpName, $pathUpload);
+                $image = $this->uploadImages($_FILES['file']['name'], 'imagesUser');
 
                 // Add user
-                $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $image, $_POST['email'], $_POST['role'], $_POST['phone']);
+                $this->setValue(md5($_POST['password']), $_POST['firstName'], $_POST['lastName'], $_POST['address'], $image, $_POST['email'], $_POST['role'], $_POST['phone']);
                 $checkId = $this->findById($user['USERNAME'], 'USERNAME');
 
                 if (null != $checkId->USERNAME) {
                     $_SESSION['notice'] = 'Username already!';
-                    redirect('user');
+                    redirect('admin/user');
                 } else {
                     $this->fillable['USERNAME'] = $_POST['username'];
                     $this->insert($this->fillable);
                     $this->fillable = [];
                     $_SESSION['notice'] = 'Register Successful!';
-                    redirect('user');
+                    redirect('admin/user');
                 }
             }
         }
@@ -143,33 +137,31 @@ class Account extends Model
     {
         if (isset($_POST['add'])) {
             $account = $this->getUser($_POST['username']);
+
             if ('' == $_POST['password']) {
+                //die('cc');
+
                 $_POST['password'] = $account[0]->PASSWORD;
             }
 
             $image = $_FILES['file']['name'];
 
-            if ($_POST['urlImage'] != $image) {
-                $_POST['urlImage'] = $image;
-
-                $splitArray = explode('.', $image);
-                $extention = end($splitArray);
-                $image = 'hinh-' . time() . '.' . $extention;
-                $tmpName = $_FILES['file']['tmp_name'];
-                $pathUpload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/imagesUser/' . $image;
-                move_uploaded_file($tmpName, $pathUpload);
+            if (null != $image) {
+                $_POST['urlImage'] = $this->uploadImages($image, 'imagesUser');
             }
             if (1 != $account[0]->ROLE) {
                 $_POST['role'] = $account[0]->ROLE;
             }
+
             $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $_POST['urlImage'], $_POST['email'], $_POST['role'], $_POST['phone']);
+
             $this->updateById($_POST['username'], $this->fillable);
             $_SESSION['notice'] = 'Edit Successful!';
-            redirect('user');
+            redirect('admin/user');
         }
     }
 
-    //SearchUser
+    // Search User
     public function searchUser()
     {
         if (isset($_POST['ajaxKey'])) {
@@ -182,36 +174,7 @@ class Account extends Model
             echo require 'app/views/user/UsersTable.view.php';
         } else {
 
-            //     // Find sum record
-
-            $sql = "SELECT count(USERNAME) as total from {$this->table}";
-
-            $total = $this->rawQuery($sql);
-
-            $totalRecords = $total[0]->total;
-
-            //Find limit and current page
-            $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
-            $limit = 5;
-            $totalPage = ceil($totalRecords / $limit);
-            // Giới hạn currentPage trong khoảng 1 đến totalPage
-            if ($currentPage > $totalPage) {
-                $currentPage = $totalPage;
-            } else if ($currentPage < 1) {
-                $currentPage = 1;
-            }
-
-            //  Tìm Start
-            $start = ($currentPage - 1) * $limit;
-            //
-            $sql = "SELECT * from {$this->table} LIMIT {$start},{$limit}";
-            //die($sql);
-            $arrPagination = [];
-            $arrPagination['all'] = $this->rawQuery($sql);
-            $arrPagination['currentPage'] = $currentPage;
-            $arrPagination['totalPage'] = $totalPage;
-
-            return $arrPagination;
+            return $this->pagination();
         }
     }
 
@@ -221,7 +184,7 @@ class Account extends Model
             $users = $this->findById($_POST['username'], '*');
             $newPassword = rand();
 
-            $this->setValue($newPassword, $users->FIRST_NAME, $users->LAST_NAME, $users->ADDRESS, $users->IMAGE, $users->EMAIL, $users->ROLE, $users->PHONE);
+            $this->setValue(md5($newPassword), $users->FIRST_NAME, $users->LAST_NAME, $users->ADDRESS, $users->IMAGE, $users->EMAIL, $users->ROLE, $users->PHONE);
             $this->updateById($_POST['username'], $this->fillable);
             $this->mailer = new Mailer;
             $this->mailer->setEmailTo($users->EMAIL);
@@ -230,5 +193,21 @@ class Account extends Model
             $this->mailer->sendMail();
             redirect('login');
         }
+    }
+
+    public function checkUserAlready()
+    {
+        $key = $_POST['ajaxKey'];
+        $sql = "SELECT USERNAME FROM {$this->table} WHERE USERNAME='$key'";
+        $checkAlready = $this->rawQuery($sql);
+
+        if ($checkAlready[0]->USERNAME == $key) {
+            echo '<span style="color:#a94442;">Username đã tồn tại</span>';
+        }
+    }
+
+    public function loadImages()
+    {
+        die(var_dump($_FILES));
     }
 }

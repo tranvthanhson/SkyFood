@@ -12,16 +12,17 @@
                             <h4 class="title">Sửa thông tin người dùng</h4>
                         </div>
                         <div class="content">
-                            <form data-toggle="validator" role="form" method="POST" action="/user/edit" enctype="multipart/form-data">
+                            <form data-toggle="validator" role="form" method="POST" action="/admin/user/edit" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-md-7">
                                         <div class="row">
                                             <div class="col-md-8">
                                                 <div class="form-group">
                                                     <label for="userName" class="control-label">Username (<span>*</span>)</label>
-                                                    <input type="text" name="username" value="<?=$infoUser[0]->USERNAME?>" class="form-control" id="userName" readonly placeholder="Nhập tài khoản đăng nhập" required>
+                                                    <input type="text" name="username" value="<?=$infoUser[0]->USERNAME?>" class="form-control" id="userName"  readonly placeholder="Nhập tài khoản đăng nhập" required>
                                                 </div>
                                             </div>
+
                                             <?php if (1 == $_SESSION['user']->ROLE) {?>
                                             <div class="col-md-4">
                                                 <div class="form-group">
@@ -29,7 +30,7 @@
                                                     <select class="form-control" name="role" id="role">
 
 
-                                                    <option <?php if (($infoUser[0]->ROLE) == 1) {echo 'Selected = "Selected"';}?> value="1">Admin</option>
+
                                                     <option <?php if (($infoUser[0]->ROLE) == 2) {echo 'Selected = "Selected"';}?> value="2">Staff</option>
                                                     <option <?php if (($infoUser[0]->ROLE) == 3) {echo 'Selected = "Selected"';}?> value="3">User</option>
                                                 </select>
@@ -78,7 +79,7 @@
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Email (<span>*</span>)</label>
                                                     <input type="hidden" name="urlImage" value="<?=$infoUser[0]->IMAGE?>">
-                                                    <input type="text" value="<?=$infoUser[0]->EMAIL?>" name="email" class="form-control" id="confirmPass">
+                                                    <input type="email" value="<?=$infoUser[0]->EMAIL?>" name="email" class="form-control" id="confirmPass">
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>

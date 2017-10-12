@@ -12,16 +12,20 @@
                             <h4 class="title">Thêm thông tin người dùng</h4>
                         </div>
                         <div class="content">
-                            <form data-toggle="validator" role="form" method="POST" action="/user/add" enctype="multipart/form-data">
+                            <form data-toggle="validator" role="form" method="POST" action="/admin/user/add" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-md-7">
                                         <div class="row">
                                             <div class="col-md-8">
                                                 <div class="form-group">
                                                     <label for="userName" class="control-label">Username (<span>*</span>)</label>
-                                                    <input type="text" name="username" value="test" class="form-control" id="userName" placeholder="Nhập tài khoản đăng nhập" required>
+                                                    <input type="text" name="username" value="test" class="form-control" id="userName" onkeyup="checkUsernameAlready()" placeholder="Nhập tài khoản đăng nhập" autocomplete="off" required>
+                                                </div>
+                                                <div class="tableSearch">
+                                                    <p></p>
                                                 </div>
                                             </div>
+
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label for="role">Role (<span>*</span>)</label>
@@ -55,18 +59,18 @@
                                          <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="confirmPass" class="control-label">Address (<span>*</span>)</label>
-                                                    <input type="text" value="thuong" name="address" class="form-control" id="confirmPass" >
-                                                    <div class="help-block with-errors"></div>
+                                                    <label for="confirmPass" class="control-label">Address </label>
+                                                    <input type="text" value="thuong" name="address" class="form-control" id="address" >
+
                                                 </div>
                                             </div>
                                         </div>
                                          <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="confirmPass" class="control-label">Phone (<span>*</span>)</label>
-                                                    <input type="text" value="thuong" name="phone" class="form-control" id="confirmPass">
-                                                    <div class="help-block with-errors"></div>
+                                                    <label for="confirmPass" class="control-label">Phone </label>
+                                                    <input type="text" value="thuong" name="phone" class="form-control" id="phone">
+
                                                 </div>
                                             </div>
                                         </div>
@@ -74,7 +78,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Email (<span>*</span>)</label>
-                                                    <input type="text" value="thuong" name="email" class="form-control" id="confirmPass">
+                                                    <input type="email" value="thuong" name="email" class="form-control" id="confirmPass" required>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
@@ -82,14 +86,14 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="firstName" class="control-label">First name (<span>*</span>)</label>
-                                                    <input type="text" name="firstName" class="form-control" value="test" placeholder="Họ" value="" id="firstName" required>
+                                                    <label for="firstName" class="control-label">First name </label>
+                                                    <input type="text" name="firstName" class="form-control" value="test" placeholder="Họ" value="" id="firstName" >
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="lastName">Last name (<span>*</span>)</label>
-                                                    <input type="text" name="lastName" class="form-control" value="test" placeholder="Tên" value="" id="lastName" required>
+                                                    <label for="lastName">Last name </label>
+                                                    <input type="text" name="lastName" class="form-control" value="test" placeholder="Tên" value="" id="lastName" >
                                                 </div>
                                             </div>
                                         </div>
@@ -99,13 +103,16 @@
                                         <div class="card card-user">
                                          <div class="content">
                                              <div class="author">
-                                                 <div>
+                                                 <div >
                                                      <img class="avatar border-gray" src="/public/assets/img/user1.jpg" alt="..." />
+                                                 </div>
+                                                 <div class="showImages">
+
                                                  </div>
                                                  <div class="edit-avatar ">
                                                      <div class="file bg-button">
                                                          <i class="pe-7s-cloud-upload"></i>Upload
-                                                         <input type="file" name="file" />
+                                                         <input type="file" id="loadImages" name="file" value="" onclick="loadImages()" />
                                                      </div>
                                                  </div>
                                              </div>
@@ -119,6 +126,29 @@
                                          </div>
                                      </div>
                                  </div>
+                                 <script  type="text/javascript" >
+                                     function loadImages(){
+                                            var key = $('#loadImages').val();
+                                        alert(key);
+                                        // $.ajax({
+                                        //     url: '/user/loadimage',
+                                        //     type: 'POST',
+                                        //     cache: false,
+                                        //     data: {
+                                        //         ajaxKey: key,
+
+                                        //     },
+                                        //     success: function(data) {
+                                        //         $('.showImages').html(data);
+
+                                        //     },
+                                        //     error: function() {
+                                        //         alert('Có lỗi xảy ra');
+                                        //     }
+                                        // });
+                                        // }
+
+                                 </script>
                                  <div class="clearfix"></div>
                              </div>
                              <div class="row">
