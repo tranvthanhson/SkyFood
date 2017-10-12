@@ -1,4 +1,4 @@
-$('#search').click();
+// $('#search').click();
 function search(link){
     var key = $('#inputSearch').val();
    // alert(link);
