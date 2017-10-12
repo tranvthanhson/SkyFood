@@ -12,7 +12,7 @@
                                 <div class="row">
                                     <div class="col-md-2 col-sm-2 col-xs-4">
                                         <div class="add-btn">
-                                            <a href="add-category.html" class="btn bg-button"><i class="fa fa-plus"></i> Thêm</a>
+                                            <a href="/cat/add" class="btn bg-button"><i class="fa fa-plus"></i> Thêm</a>
                                         </div>
                                     </div>
                                     <div class="clearfix"></div>
@@ -26,63 +26,28 @@
                                         <th>Control</th>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td class="name"><a href="">Ăn uống</a></td>
-                                            <td class="control">
-                                                <div class="form-group">
-                                                    <div class="item-col">
-                                                        <a href="edit-category.html" class="btn btn-success" title="Sửa">
-                                                            <i class="pe-7s-note"></i>
-                                                        </a>
+                                       
+                                            <?php foreach ($categories as $category) :?>
+                                                <tr>
+                                                    <td><?= $category->TYPE_ID; ?></td>
+                                                    <td><?=  $category->TYPE_NAME; ?></td>
+                                                    <td class="control">
+                                                    <div class="form-group">
+                                                        <div class="item-col">
+                                                            <a href="/cat/edit?TYPE_ID=<?= $category->TYPE_ID?>" class="btn btn-success" title="Sửa">
+                                                                <i class="pe-7s-note"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="item-col">
+                                                            <a data-toggle="modal" data-target="#delCat" href="" class="btn btn-danger" title="Xoá">
+                                                                <i class="pe-7s-trash"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="clearfix"></div>
                                                     </div>
-                                                    <div class="item-col">
-                                                        <a data-toggle="modal" data-target="#delCat" href="" class="btn btn-danger" title="Xoá">
-                                                            <i class="pe-7s-trash"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td class="name"><a href="">Coffee</a></td>
-                                            <td class="control">
-                                                <div class="form-group">
-                                                    <div class="item-col">
-                                                        <a href="edit-category.html" class="btn btn-success" title="Sửa">
-                                                            <i class="pe-7s-note"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="item-col">
-                                                        <a data-toggle="modal" data-target="#delCat" href="" class="btn btn-danger" title="Xoá">
-                                                            <i class="pe-7s-trash"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td class="name"><a href="">Ăn vặt</a></td>
-                                            <td class="control">
-                                                <div class="form-group">
-                                                    <div class="item-col">
-                                                        <a href="edit-category.html" class="btn btn-success" title="Sửa">
-                                                            <i class="pe-7s-note"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="item-col">
-                                                        <a data-toggle="modal" data-target="#delCat" href="" class="btn btn-danger" title="Xoá">
-                                                            <i class="pe-7s-trash"></i>
-                                                        </a>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </td>
-                                        </tr>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach;?>                                        
                                     </tbody>
                                 </table>
                             </div>
