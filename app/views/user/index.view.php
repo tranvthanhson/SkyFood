@@ -23,6 +23,7 @@
                                             <div class="input-group-btn">
 
                                                 <button class="btn btn-default" id="search" onclick="search('/admin/user/searchUser')" type="button"><i class="pe-7s-search"></i></button>
+
                                             </div>
 
                                         </div>

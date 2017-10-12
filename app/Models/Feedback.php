@@ -20,4 +20,14 @@ class Feedback extends Model
     {
         return $this->deleteById($id);
     }
+
+    public function searchFeedback()
+    {
+        if (isset($_POST['ajaxKey'])) {
+            $sql = "SELECT FEEDBACK_ID, FULL_NAME, EMAIL, PHONE, CONTENT
+            FROM FEEDBACK A, ACCOUNT B
+            WHERE A.USERNAME = B.USERNAME AND (CONTENT LIKE '%" . $_POST['ajaxKey'] . "%')";
+            return $this->rawQuery($sql);
+        }
+    }
 }
