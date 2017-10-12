@@ -1,3 +1,16 @@
+<?php
+
+$_SERVER['REQUEST_URI'];
+
+$arrLink = ['/shop' => ['QL Bài đăng', 'note2'],
+    '/admin/user' => ['QL Người dùng', 'user'],
+    '/admin/type' => ['QL Danh mục', 'news-paper'],
+    '/admin/feedback' => ['QL Phản hồi', 'back-2'],
+    '/admin/statistics' => ['QL Thống kê', 'graph1'],
+];
+
+?>
+
 <div class="sidebar" data-color="purple" data-image="/public/assets/img/sidebar-5.jpg">
     <div class="sidebar-wrapper">
         <div class="logo">
@@ -5,16 +18,7 @@
         </div>
         <ul class="nav">
 
-            <?php $_SERVER['REQUEST_URI'];
-
-$arrLink = ['/shop' => ['QL Bài đăng', 'note2'],
-    '/admin/user' => ['QL Người dùng', 'user'],
-    '/admin/cat' => ['QL Danh mục', 'news-paper'],
-    '/admin/feedback' => ['QL Phản hồi', 'back-2'],
-    '/admin/statistics' => ['QL Thống kê', 'graph1'],
-];
-
-foreach ($arrLink as $key => $value) {
+            <?php foreach ($arrLink as $key => $value) {
     if ($_SERVER['REQUEST_URI'] == $key) {
         $active = 'active';
     } else {

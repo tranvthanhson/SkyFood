@@ -142,6 +142,8 @@ class Account extends Model
                 //die('cc');
 
                 $_POST['password'] = $account[0]->PASSWORD;
+            } else {
+                $_POST['password'] = md5($_POST['password']);
             }
 
             $image = $_FILES['file']['name'];
