@@ -1,18 +1,20 @@
 <?php
 namespace App\Controllers;
 
+use App\Models\Comment;
 use App\Models\Shop;
 use App\Models\Shop_Type;
 use App\Models\Type;
 
 class ShopController
 {
-    protected $shop, $shopType, $type;
+    protected $shop, $shopType, $type, $comment;
     public function __construct()
     {
         $this->shop = new Shop;
         $this->shopType = new Shop_Type;
         $this->type = new Type;
+        $this->comment = new Comment;
     }
 
     public function index()
@@ -75,6 +77,17 @@ class ShopController
 
     public function loadComments()
     {
-        return view('shop/comments');
+        $id = $_GET['id'];
+        $comments = $this->comment->selectByShop();
+        $shop = $this->shop->selectByKey($id);
+        $shop = $shop[0];
+        // die(var_dump($shop));
+        return view('shop/comments', compact('comments', 'shop'));
+    }
+
+    public function deleteComment()
+    {
+        $this->comment->deleteComment();
+        return redirect('shop');
     }
 }

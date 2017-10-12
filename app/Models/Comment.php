@@ -11,7 +11,11 @@ class Comment extends Model
 
     public function selectByShop()
     {
-        return $this->all();
+        return $this->pagination(1);
     }
 
+    public function deleteComment()
+    {
+        return $this->deleteById($_GET['id']);
+    }
 }
