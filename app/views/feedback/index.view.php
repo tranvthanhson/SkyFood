@@ -71,7 +71,7 @@
                                                         <div class="modal fade" id="replyContact<?=$feedback->FEEDBACK_ID?>" role="dialog">
                                                             <div class="modal-dialog">
                                                                 <!-- Modal content-->
-                                                                <form action="/feedback/reply" method="POST">
+                                                                <form action="/admin/feedback/reply" method="POST">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
                                                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -99,7 +99,7 @@ $data = [
     'title' => 'XÓA PHẢN HỒI',
     'content' => 'Bạn có chắc chắn muốn xóa không??',
     'bt' => 'Xóa',
-    'link' => '/feedback/delete?id=' . $feedback->FEEDBACK_ID,
+    'link' => '/admin/feedback/delete?id=' . $feedback->FEEDBACK_ID,
 ];
 ?>
                                                             <?php view_include('partials.modal', $data)?>

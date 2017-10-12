@@ -9,9 +9,9 @@ $router->get('contact', 'PageController@contact');
 $router->get('admin', 'IndexController@index');
 
 // Feedback
-$router->get('feedback', 'FeedbackController@index');
-$router->get('feedback/delete', 'FeedbackController@delete');
-$router->post('feedback/reply', 'FeedbackController@reply');
+$router->get('admin/feedback', 'FeedbackController@index');
+$router->get('admin/feedback/delete', 'FeedbackController@delete');
+$router->post('admin/feedback/reply', 'FeedbackController@reply');
 
 // Login
 $router->get('login', 'LoginController@index');

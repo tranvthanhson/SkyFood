@@ -35,7 +35,7 @@ class FeedbackController
     {
         if (isset($_GET['id'])) {
             $this->feedback->deleteItem($_GET['id']);
-            redirect('feedback');
+            redirect('admin/feedback');
         } else {
             echo 'Delete error';
         }
@@ -47,7 +47,7 @@ class FeedbackController
             $this->mailer->setEmailTo($_POST['emailTo']);
             $this->mailer->setContent($_POST['content']);
             $this->mailer->sendMail();
-            redirect('feedback');
+            redirect('admin/feedback');
         }
     }
 }

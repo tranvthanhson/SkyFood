@@ -143,7 +143,7 @@ class Account extends Model
 
             $image = $_FILES['file']['name'];
 
-            if ($_POST['urlImage'] != $image) {
+            if (null != $image) {
                 $_POST['urlImage'] = $this->uploadImages($image, 'imagesUser');
             }
             if (1 != $account[0]->ROLE) {
