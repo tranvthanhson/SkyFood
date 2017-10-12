@@ -247,3 +247,12 @@ body .modal {
         color: #fff !important; }
         .home .card .panel .panel-footer a:hover {
           text-decoration: underline; }
+
+.alert {
+  margin: 0 15px;
+  border-radius: 2px !important;
+}
+.alert-success {
+  background: #dff0d8 !important;
+  color: #3c763d !important;
+}

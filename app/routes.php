@@ -12,6 +12,7 @@ $router->get('admin', 'IndexController@index');
 $router->get('feedback', 'FeedbackController@index');
 $router->get('feedback/delete', 'FeedbackController@delete');
 $router->post('feedback/reply', 'FeedbackController@reply');
+$router->post('feedback/searchFeedback', 'FeedbackController@searchFeedback');
 
 // Login
 $router->get('login', 'LoginController@index');
@@ -33,10 +34,13 @@ $router->get('user/edit', 'UserController@editUser');
 $router->post('user/edit', 'UserController@updateUser');
 $router->get('user/del', 'UserController@deleteUser');
 
+//loadImages
+$router->post('user/loadimage', 'UserController@loadImages');
+
 // Forgot Password
 $router->get('forgotpassword', 'LoginController@viewForgotPassword');
 $router->post('forgotpassword', 'LoginController@forgotPassword');
-//Search
+// Search
 $router->post('user/searchUser', 'UserController@searchUser');
 $router->post('shop/searchShop', 'ShopController@searchShop');
 

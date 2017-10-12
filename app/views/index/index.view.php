@@ -1,8 +1,8 @@
-<?php view_include('layouts.head-master', ['title' => 'ADMIN']);?>
+<?php view_include('layouts.head-master', ['title' => 'Admin']);?>
 <div class="wrapper">
     <?php view_include('layouts.side-bar');?>
     <div class="main-panel">
-        <?php view_include('partials.header', ['title' => 'TRANG CHỦ'])?>
+        <?php view_include('partials.header', ['title' => 'Trang chủ'])?>
         <div class="content posts home">
             <div class="container-fluid">
                 <div class="row">

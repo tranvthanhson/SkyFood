@@ -1,8 +1,8 @@
-<?php view_include('layouts.head-master', ['title' => 'NGƯỜI DÙNG']);?>
+<?php view_include('layouts.head-master', ['title' => 'Người dùng']);?>
 <div class="wrapper">
     <?php view_include('layouts.side-bar');?>
     <div class="main-panel">
-        <?php view_include('partials.header', ['title' => 'NGƯỜI DÙNG'])?>
+        <?php view_include('partials.header', ['title' => 'Người dùng'])?>
         <div class="content posts">
             <div class="container-fluid">
                 <div class="row">
@@ -21,7 +21,6 @@
                                             <div class="input-group-addon"><span>Tìm kiếm</span></div>
                                             <input type="text" id="inputSearch" class="form-control" />
                                             <div class="input-group-btn">
-
                                                 <button class="btn btn-default" id="search" onclick="search('user/searchUser')" type="button"><i class="pe-7s-search"></i></button>
                                             </div>
 

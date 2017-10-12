@@ -6,11 +6,11 @@
         <ul class="nav">
 
             <?php $_SERVER['REQUEST_URI'];
-$arrLink = ['/shop' => ['QL bài đăng', 'note2'],
-    '/user' => ['QL user', 'user'],
-    '/cat' => ['QL danh mục', 'news-paper'],
-    '/feedback' => ['QL phản hồi', 'back-2'],
-    '/statistics' => ['QL thống kê', 'graph1'],
+$arrLink = ['/shop' => ['QL Bài đăng', 'note2'],
+    '/user' => ['QL Người dùng', 'user'],
+    '/cat' => ['QL Danh mục', 'news-paper'],
+    '/feedback' => ['QL Phản hồi', 'back-2'],
+    '/statistics' => ['QL Thống kê', 'graph1'],
 ];
 
 foreach ($arrLink as $key => $value) {
@@ -20,13 +20,13 @@ foreach ($arrLink as $key => $value) {
         $active = '';
     }
     ?>
-                <li class="<?=$active;?>">
-                    <a href="<?=$key?>">
-                        <i class="pe-7s-<?=$value[1]?>"></i>
-                        <p><?=$value[0]?></p>
-                    </a>
-                </li>
-                <?php }?>
-            </ul>
-        </div>
+            <li class="<?=$active;?>">
+                <a href="<?=$key?>">
+                    <i class="pe-7s-<?=$value[1]?>"></i>
+                    <p><?=$value[0]?></p>
+                </a>
+            </li>
+            <?php }?>
+        </ul>
     </div>
+</div>
