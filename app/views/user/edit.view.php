@@ -12,7 +12,7 @@
                             <h4 class="title">Sửa thông tin người dùng</h4>
                         </div>
                         <div class="content">
-                            <form data-toggle="validator" role="form" method="POST" action="/user/edit" enctype="multipart/form-data">
+                            <form data-toggle="validator" role="form" method="POST" action="/admin/user/edit" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-md-7">
                                         <div class="row">
@@ -79,7 +79,7 @@
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Email (<span>*</span>)</label>
                                                     <input type="hidden" name="urlImage" value="<?=$infoUser[0]->IMAGE?>">
-                                                    <input type="text" value="<?=$infoUser[0]->EMAIL?>" name="email" class="form-control" id="confirmPass">
+                                                    <input type="email" value="<?=$infoUser[0]->EMAIL?>" name="email" class="form-control" id="confirmPass">
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>

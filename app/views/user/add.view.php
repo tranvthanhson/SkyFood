@@ -12,7 +12,7 @@
                             <h4 class="title">Thêm thông tin người dùng</h4>
                         </div>
                         <div class="content">
-                            <form data-toggle="validator" role="form" method="POST" action="/user/add" enctype="multipart/form-data">
+                            <form data-toggle="validator" role="form" method="POST" action="/admin/user/add" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-md-7">
                                         <div class="row">
@@ -78,7 +78,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Email (<span>*</span>)</label>
-                                                    <input type="text" value="thuong" name="email" class="form-control" id="confirmPass" required>
+                                                    <input type="email" value="thuong" name="email" class="form-control" id="confirmPass" required>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>

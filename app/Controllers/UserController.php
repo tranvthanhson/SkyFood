@@ -58,7 +58,7 @@ class UserController
     public function deleteUser()
     {
         $this->account->deleteUser();
-        return redirect('user');
+        return redirect('admin/user');
     }
 
     public function searchUser()
