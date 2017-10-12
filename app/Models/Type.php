@@ -11,7 +11,7 @@ class Type extends Model
 
     public function selectAll()
     {
-        $sql = 'SELECT * FROM TYPE';
+        
         return $this->all();
     }
 
