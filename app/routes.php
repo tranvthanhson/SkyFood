@@ -62,4 +62,4 @@ $router->get('admin/type/edit', 'TypeController@edit');
 $router->post('admin/type/edit', 'TypeController@editType');
 
 // Statistics
-$router->get('statistics', 'StatisticsController@index');
+$router->get('admin/statistics', 'StatisticsController@index');
