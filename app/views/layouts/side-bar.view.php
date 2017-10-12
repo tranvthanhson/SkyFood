@@ -6,11 +6,12 @@
         <ul class="nav">
 
             <?php $_SERVER['REQUEST_URI'];
-$arrLink = ['/shop' => ['QL bài đăng', 'note2'],
-    '/admin/user' => ['QL user', 'user'],
-    '/cat' => ['QL danh mục', 'news-paper'],
-    '/admin/feedback' => ['QL phản hồi', 'back-2'],
-    '/statistics' => ['QL thống kê', 'graph1'],
+
+$arrLink = ['/shop' => ['QL Bài đăng', 'note2'],
+    '/user' => ['QL Người dùng', 'user'],
+    '/cat' => ['QL Danh mục', 'news-paper'],
+    '/feedback' => ['QL Phản hồi', 'back-2'],
+    '/statistics' => ['QL Thống kê', 'graph1'],
 ];
 
 foreach ($arrLink as $key => $value) {

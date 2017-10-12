@@ -1,5 +1,5 @@
 <!-- Require head-->
-<?php view_include('layouts.head-master', ['title' => 'Login'])?>
+<?php view_include('layouts.head-master', ['title' => 'Đăng nhập'])?>
 
 <div class="login-form page-form">
     <div class="panel panel-default">
