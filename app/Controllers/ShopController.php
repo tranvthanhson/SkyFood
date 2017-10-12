@@ -9,6 +9,7 @@ use App\Models\Type;
 class ShopController
 {
     protected $shop, $shopType, $type, $comment;
+
     public function __construct()
     {
         $this->shop = new Shop;

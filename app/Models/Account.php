@@ -42,15 +42,16 @@ class Account extends Model
 
             $user = $this->checkUser($this->table, $username, $password);
 
-            if (($user[0]->USERNAME == $username) && ($user[0]->PASSWORD == $password)) {
+            if ($user[0]->USERNAME == $username && $user[0]->PASSWORD == $password) {
                 if (3 != $user[0]->ROLE) {
                     $_SESSION['user'] = $user[0];
-                    return redirect('admin/user');
+                    return 'Admin';
+                } else {
+                    return 'User';
                 }
-            } else {
-                // return redirect('');
             }
         }
+        return 'Fail';
     }
 
     public function logout()
@@ -175,7 +176,6 @@ class Account extends Model
 
             echo require 'app/views/user/UsersTable.view.php';
         } else {
-
             return $this->pagination();
         }
     }

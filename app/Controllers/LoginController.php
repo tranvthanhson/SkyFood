@@ -7,6 +7,13 @@ use Core\App;
 
 class LoginController
 {
+    protected $account;
+
+    public function __construct()
+    {
+        $this->account = new Account;
+    }
+
     public function index()
     {
         return view('login/index');
@@ -14,12 +21,20 @@ class LoginController
 
     public function login()
     {
-        (new Account)->login();
+        $result = $this->account->login();
+        if ('Admin' == $result) {
+            return redirect('admin/user');
+        } else if ('User' == $result) {
+            echo 'Redirect User Page';
+        } else {
+            echo 'Redirect Home';
+        }
     }
 
     public function logout()
     {
-        (new Account)->logout();
+        $this->account->logout();
+        redirect('login');
     }
 
     public function viewForgotPassword()
@@ -29,7 +44,6 @@ class LoginController
 
     public function forgotPassword()
     {
-        $this->account = new Account;
         $this->account->forgotPassword();
     }
 }

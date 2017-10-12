@@ -6,6 +6,12 @@ use App\Models\Account;
 
 class RegisterController
 {
+    protected $account;
+
+    public function __construct()
+    {
+        $account = new Account;
+    }
 
     public function index()
     {
@@ -14,6 +20,6 @@ class RegisterController
 
     public function register()
     {
-        (new Account)->register();
+        $this->account->register();
     }
 }
