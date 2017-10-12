@@ -1,8 +1,8 @@
-<?php view_include('layouts.head-master', ['title' => 'THÊM DANH MỤC']);?>
+<?php view_include('layouts.head-master', ['title' => 'Thêm danh mục']);?>
 <div class="wrapper">
     <?php view_include('layouts.side-bar');?>
     <div class="main-panel">
-        <?php view_include('partials.header', ['title' => 'THÊM DANH MỤC'])?>
+        <?php view_include('partials.header', ['title' => 'Thêm danh mục'])?>
         <div class="content edit-user">
             <div class="container-fluid">
                 <div class="row">

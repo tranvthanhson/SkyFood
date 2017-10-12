@@ -156,7 +156,7 @@ class Account extends Model
         }
     }
 
-    //SearchUser
+    // Search User
     public function searchUser()
     {
         if (isset($_POST['ajaxKey'])) {

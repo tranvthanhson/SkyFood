@@ -1,8 +1,8 @@
-<?php view_include('layouts.head-master', ['title' => 'THỐNG KÊ'])?>
+<?php view_include('layouts.head-master', ['title' => 'Thống kê'])?>
 <div class="wrapper">
     <?php view_include('layouts.side-bar');?>
     <div class="main-panel">
-        <?php view_include('partials.header', ['title' => 'THỐNG KÊ'])?>
+        <?php view_include('partials.header', ['title' => 'Thống kê'])?>
         <div class="content posts home">
             <div class="container-fluid">
                 <div class="row">
