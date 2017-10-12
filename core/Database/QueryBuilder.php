@@ -22,11 +22,7 @@ class QueryBuilder
             if ('' == $param) {
                 $statement->execute();
             } else {
-                $a = $this->pdo->lastInsertId();
                 $statement->execute($param);
-                die(var_dump($a));
-                // $conn->exec($sql);
-                // $last_id = $conn->lastInsertId();
             }
             return $statement->fetchAll(PDO::FETCH_CLASS);
         } catch (Exception $ex) {
