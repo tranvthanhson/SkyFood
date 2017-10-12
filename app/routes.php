@@ -9,9 +9,10 @@ $router->get('contact', 'PageController@contact');
 $router->get('admin', 'IndexController@index');
 
 // Feedback
-$router->get('feedback', 'FeedbackController@index');
-$router->get('feedback/delete', 'FeedbackController@delete');
-$router->post('feedback/reply', 'FeedbackController@reply');
+$router->get('admin/feedback', 'FeedbackController@index');
+$router->get('admin/feedback/delete', 'FeedbackController@delete');
+$router->post('admin/feedback/reply', 'FeedbackController@reply');
+$router->post('admin/feedback/searchFeedback', 'FeedbackController@searchFeedback');
 
 // Login
 $router->get('login', 'LoginController@index');
@@ -25,19 +26,23 @@ $router->get('register', 'RegisterController@index');
 $router->post('register', 'RegisterController@register');
 
 // User
-$router->get('user', 'UserController@index');
-$router->get('user/add', 'UserController@addUser');
-$router->post('user/add', 'UserController@storeUser');
-$router->post('user/checkUser', 'UserController@checkUser');
-$router->get('user/edit', 'UserController@editUser');
-$router->post('user/edit', 'UserController@updateUser');
-$router->get('user/del', 'UserController@deleteUser');
+$router->get('admin/user', 'UserController@index');
+$router->get('admin/user/add', 'UserController@addUser');
+$router->post('admin/user/add', 'UserController@storeUser');
+$router->post('admin/user/checkUser', 'UserController@checkUser');
+$router->get('admin/user/edit', 'UserController@editUser');
+$router->post('admin/user/edit', 'UserController@updateUser');
+$router->get('admin/user/del', 'UserController@deleteUser');
+
+//loadImages
+$router->post('user/loadimage', 'UserController@loadImages');
 
 // Forgot Password
 $router->get('forgotpassword', 'LoginController@viewForgotPassword');
 $router->post('forgotpassword', 'LoginController@forgotPassword');
 //Search
-$router->post('user/searchUser', 'UserController@searchUser');
+$router->post('admin/user/searchUser', 'UserController@searchUser');
+
 $router->post('shop/searchShop', 'ShopController@searchShop');
 
 // shop
@@ -57,7 +62,10 @@ $router->post('shop/ajaxDiscount', 'ShopController@ajaxDiscount');
 // Category
 $router->get('cat', 'CategoryController@index');
 $router->get('cat/add', 'CategoryController@add');
+$router->post('cat/add', 'CategoryController@storeCategory');
+
 $router->get('cat/edit', 'CategoryController@edit');
+$router->post('cat/edit', 'CategoryController@updateCategory');
 
 // Statistics
 $router->get('statistics', 'StatisticsController@index');

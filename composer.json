@@ -4,6 +4,11 @@
 			"./"
 		]
 	},
+	"scripts": {
+		"pre-install-cmd": [
+			"cp config.example config.php"
+		]
+	},
 	"require": {
 		"phpmailer/phpmailer": "^6.0"
 	}

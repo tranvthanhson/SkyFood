@@ -28,14 +28,14 @@ class FeedbackController
     public function index()
     {
         $feedbacks = $this->feedback->selectAll();
-        return view('/feedback/index', compact('feedbacks', 'abc'));
+        return view('feedback/index', compact('feedbacks'));
     }
 
     public function delete()
     {
         if (isset($_GET['id'])) {
             $this->feedback->deleteItem($_GET['id']);
-            redirect('feedback');
+            redirect('admin/feedback');
         } else {
             echo 'Delete error';
         }
@@ -47,7 +47,13 @@ class FeedbackController
             $this->mailer->setEmailTo($_POST['emailTo']);
             $this->mailer->setContent($_POST['content']);
             $this->mailer->sendMail();
-            redirect('feedback');
+            redirect('admin/feedback');
         }
+    }
+
+    public function searchFeedback()
+    {
+        $feedbacks = $this->feedback->searchFeedback();
+        return view('feedback/feedbacksTable', compact('feedbacks'));
     }
 }
