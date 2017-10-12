@@ -12,10 +12,19 @@ class ShopController
 
     public function __construct()
     {
-        $this->shop = new Shop;
-        $this->shopType = new Shop_Type;
-        $this->type = new Type;
-        $this->comment = new Comment;
+        $this->verify();
+    }
+
+    public function verify()
+    {
+        if (isset($_SESSION['user'])) {
+            $this->shop = new Shop;
+            $this->shopType = new Shop_Type;
+            $this->type = new Type;
+            $this->comment = new Comment;
+        } else {
+            echo 'Ban khong co quyen truy cap trang nay';
+        }
     }
 
     public function index()
@@ -38,7 +47,7 @@ class ShopController
         $type = $_POST['type'];
         // die($type);
         $this->shopType->add($shop, $type);
-        return redirect('shop');
+        return redirect('admin/shop');
     }
 
     public function edit()
@@ -56,14 +65,14 @@ class ShopController
     {
         $this->shop->update();
         $this->shopType->update($_GET['id'], $_POST['type']);
-        return redirect('shop');
+        return redirect('admin/shop');
     }
 
     public function delete()
     {
         $this->shop->deleteshop();
         $this->shopType->delete();
-        return redirect('shop');
+        return redirect('admin/shop');
     }
 
     public function searchshop()
@@ -89,6 +98,6 @@ class ShopController
     public function deleteComment()
     {
         $this->comment->deleteComment();
-        return redirect('shop');
+        return redirect('admin/shop');
     }
 }
