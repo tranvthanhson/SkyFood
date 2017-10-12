@@ -3,7 +3,7 @@
     <?php view_include('layouts.side-bar');?>
     <div class="main-panel">
         <?php view_include('partials.header', ['title' => 'Chỉnh sửa danh mục'])?>
-        <div class="content edit-user">
+         <div class="content edit-user">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
@@ -12,13 +12,13 @@
                                 <h4 class="title">Sửa danh mục</h4>
                             </div>
                             <div class="content">
-                                <form data-toggle="validator" role="form" method="POST" action="/cat/edit">
+                                <form data-toggle="validator" role="form" method="POST" action="/admin/type/edit">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Tên danh mục (<span>*</span>)</label>
-                                                <input type="text" class="form-control" name="type_name" placeholder="Nhập tên danh mục" value="<?=$typeName[0]->TYPE_NAME;?>" required>
-                                                <input type="hidden" name="type_id" value="<?=$typeName[0]->TYPE_ID;?>">
+                                                <input type="text" class="form-control" name="type_name" placeholder="Nhập tên danh mục" value="<?=$type->TYPE_NAME;?>" required>
+                                                <input type="hidden" name="type_id" value="<?=$type->TYPE_ID;?>">
                                             </div>
                                         </div>
                                     </div>

@@ -60,12 +60,11 @@ $router->get('shop/comment/del', 'ShopController@deleteComment');
 $router->post('shop/ajaxDiscount', 'ShopController@ajaxDiscount');
 
 // Category
-$router->get('cat', 'CategoryController@index');
-$router->get('cat/add', 'CategoryController@add');
-$router->post('cat/add', 'CategoryController@storeCategory');
-
-$router->get('cat/edit', 'CategoryController@edit');
-$router->post('cat/edit', 'CategoryController@updateCategory');
+$router->get('admin/type', 'TypeController@index');
+$router->get('admin/type/add', 'TypeController@add');
+$router->post('admin/type/add', 'TypeController@addType');
+$router->get('admin/type/edit', 'TypeController@edit');
+$router->post('admin/type/edit', 'TypeController@editType');
 
 // Statistics
 $router->get('statistics', 'StatisticsController@index');

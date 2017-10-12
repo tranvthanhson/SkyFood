@@ -3,7 +3,7 @@
     <?php view_include('layouts.side-bar');?>
     <div class="main-panel">
         <?php view_include('partials.header', ['title' => 'Thêm danh mục'])?>
-        <div class="content edit-user">
+       <div class="content edit-user">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
@@ -12,7 +12,7 @@
                                 <h4 class="title">Thêm danh mục</h4>
                             </div>
                             <div class="content">
-                                <form  data-toggle="validator" role="form" method="POST" action="/cat/add">
+                                <form  data-toggle="validator" role="form" method="POST" action="/admin/type/add">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
