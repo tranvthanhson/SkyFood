@@ -45,7 +45,7 @@ class Account extends Model
             if (($user[0]->USERNAME == $username) && ($user[0]->PASSWORD == $password)) {
                 if (3 != $user[0]->ROLE) {
                     $_SESSION['user'] = $user[0];
-                    return redirect('user');
+                    return redirect('admin/user');
                 }
             } else {
                 // return redirect('');
@@ -89,13 +89,13 @@ class Account extends Model
                 if (null != $checkId->USERNAME) {
                     //echo 'Username already!';
                     $_SESSION['notice'] = 'Username already!';
-                    redirect('user/add');
+                    redirect('admin/user/add');
                 } else {
                     $this->fillable['USERNAME'] = $_POST['username'];
                     $this->insert($this->fillable);
                     $this->fillable = [];
                     $_SESSION['notice'] = 'Register Successful!';
-                    redirect('user');
+                    redirect('admin/user');
                 }
             } else {
                 // Upload img
@@ -107,13 +107,13 @@ class Account extends Model
 
                 if (null != $checkId->USERNAME) {
                     $_SESSION['notice'] = 'Username already!';
-                    redirect('user');
+                    redirect('admin/user');
                 } else {
                     $this->fillable['USERNAME'] = $_POST['username'];
                     $this->insert($this->fillable);
                     $this->fillable = [];
                     $_SESSION['notice'] = 'Register Successful!';
-                    redirect('user');
+                    redirect('admin/user');
                 }
             }
         }
@@ -152,7 +152,7 @@ class Account extends Model
             $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $_POST['urlImage'], $_POST['email'], $_POST['role'], $_POST['phone']);
             $this->updateById($_POST['username'], $this->fillable);
             $_SESSION['notice'] = 'Edit Successful!';
-            redirect('user');
+            redirect('admin/user');
         }
     }
 

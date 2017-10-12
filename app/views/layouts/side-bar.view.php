@@ -7,9 +7,9 @@
 
             <?php $_SERVER['REQUEST_URI'];
 $arrLink = ['/shop' => ['QL bài đăng', 'note2'],
-    '/user' => ['QL user', 'user'],
+    '/admin/user' => ['QL user', 'user'],
     '/cat' => ['QL danh mục', 'news-paper'],
-    '/feedback' => ['QL phản hồi', 'back-2'],
+    '/admin/feedback' => ['QL phản hồi', 'back-2'],
     '/statistics' => ['QL thống kê', 'graph1'],
 ];
 

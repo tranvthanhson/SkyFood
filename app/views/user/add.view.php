@@ -12,7 +12,7 @@
                             <h4 class="title">Thêm thông tin người dùng</h4>
                         </div>
                         <div class="content">
-                            <form data-toggle="validator" role="form" method="POST" action="/user/add" enctype="multipart/form-data">
+                            <form data-toggle="validator" role="form" method="POST" action="/admin/user/add" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-md-7">
                                         <div class="row">

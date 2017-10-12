@@ -4,7 +4,7 @@ function checkUsernameAlready(){
     var key = $('#userName').val();
 //alert(key);
 $.ajax({
-    url: '/user/checkUser',
+    url: '/admin/user/checkUser',
     type: 'POST',
     cache: false,
     data: {
