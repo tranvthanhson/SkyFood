@@ -54,7 +54,7 @@
                                             <td class="percent-input">
                                                 <div class="form-group">
                                                     <div class="item-col">
-                                                        <input type="text" class="form-control" id="discount" value="<?=$value->DISCOUNT?>" >
+                                                        <input type="text" class="form-control" id="discount<?=$value->SHOP_ID?>" value="<?=$value->DISCOUNT?>" >
                                                     </div>
                                                     <div class="item-col">
                                                         <button type="submit" class="btn btn-success" onclick="changeDiscount(<?=$value->SHOP_ID?>)">Nhập</button>
