@@ -3,9 +3,8 @@ namespace App\Controllers;
 
 use Core\App;
 
-class IndexController
+class AdminController
 {
-
     public function index()
     {
         return view('index/index');

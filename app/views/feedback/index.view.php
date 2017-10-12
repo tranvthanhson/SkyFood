@@ -10,7 +10,7 @@
     <div class="main-panel">
 
         <!-- Require header -->
-        <?php view_include('partials.header')?>
+        <?php view_include('partials.header', ['title' => 'Phản hồi'])?>
 
         <!-- Main contain -->
         <div class="content posts">
