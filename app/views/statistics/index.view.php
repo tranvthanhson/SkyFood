@@ -9,7 +9,7 @@
                     <div class="col-md-12">
                         <div class="card row">
                             <div class="content content-card table-responsive table-full-width">
-
+                                This function is not available now
                             </div>
                         </div>
                     </div>

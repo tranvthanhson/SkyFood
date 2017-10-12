@@ -1,10 +1,5 @@
 <?php
 
-// Example
-$router->get('', 'PageController@home');
-$router->get('about', 'PageController@about');
-$router->get('contact', 'PageController@contact');
-
 // Index
 $router->get('admin', 'IndexController@index');
 
@@ -65,6 +60,7 @@ $router->get('admin/type/add', 'TypeController@add');
 $router->post('admin/type/add', 'TypeController@addType');
 $router->get('admin/type/edit', 'TypeController@edit');
 $router->post('admin/type/edit', 'TypeController@editType');
+$router->get('admin/type/delete', 'TypeController@deleteType');
 
 // Statistics
-$router->get('statistics', 'StatisticsController@index');
+$router->get('admin/statistics', 'StatisticsController@index');

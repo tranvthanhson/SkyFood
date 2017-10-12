@@ -60,5 +60,5 @@
     </div>
 </div>
 <!-- Modal -->
-<?php view_include('partials.modal', ['id_model' => 'delCat', 'title' => 'XÓA DANH MỤC ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa']);?>
+<?php view_include('partials.modal', ['id_model' => 'delCat', 'title' => 'XÓA DANH MỤC ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => '/admin/type/delete?id=' . $type->TYPE_ID]);?>
 <?php view_include('layouts.foot-master');?>

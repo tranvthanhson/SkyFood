@@ -9,17 +9,17 @@
         <td class="control">
             <div class="form-group">
                 <div class="item-col">
-                    <a data-toggle="modal" data-target="#replyContact<?=$feedback->FEEDBACK_ID?>" href="" class="btn btn-primary" title="Trả lời">
+                    <a data-toggle="modal" data-target="#replyFeedback<?=$feedback->FEEDBACK_ID?>" href="" class="btn btn-primary" title="Trả lời">
                         <i class="pe-7s-back"></i>
                     </a>
                 </div>
                 <div class="item-col">
-                    <a data-toggle="modal" data-target="#delContact<?=$feedback->FEEDBACK_ID?>" href="" class="btn btn-danger" title="Xoá">
+                    <a data-toggle="modal" data-target="#deleteFeedback<?=$feedback->FEEDBACK_ID?>" href="" class="btn btn-danger" title="Xoá">
                         <i class="pe-7s-trash"></i>
                     </a>
                 </div>
-
-                <div class="modal fade" id="replyContact<?=$feedback->FEEDBACK_ID?>" role="dialog">
+                <!-- Model Reply Feedback -->
+                <div class="modal fade" id="replyFeedback<?=$feedback->FEEDBACK_ID?>" role="dialog">
                     <div class="modal-dialog">
                         <!-- Modal content-->
                         <form action="/admin/feedback/reply" method="POST">
@@ -46,11 +46,11 @@
                     </div>
                     <?php
 $data = [
-    'id_model' => 'delContact' . $feedback->FEEDBACK_ID,
+    'id_model' => 'deleteFeedback' . $feedback->FEEDBACK_ID,
     'title' => 'XÓA PHẢN HỒI',
     'content' => 'Bạn có chắc chắn muốn xóa không??',
     'bt' => 'Xóa',
-    'link' => '/feedback/delete?id=' . $feedback->FEEDBACK_ID,
+    'link' => '/admin/feedback/delete?id=' . $feedback->FEEDBACK_ID,
 ];
 ?>
                     <?php view_include('partials.modal', $data)?>

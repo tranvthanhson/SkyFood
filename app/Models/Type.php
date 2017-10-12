@@ -42,4 +42,9 @@ class Type extends Model
             redirect('admin/type');
         }
     }
+
+    public function deleteType($id)
+    {
+        $this->deleteById($id);
+    }
 }

@@ -19,7 +19,8 @@ class UserController
         if (isset($_SESSION['user'])) {
             $this->account = new Account;
         } else {
-            echo 'Ban khong co quyen truy cap trang nay';
+            $link = '/login';
+            return view('not-access', compact('link'));
         }
     }
 

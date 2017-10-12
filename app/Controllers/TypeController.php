@@ -19,7 +19,8 @@ class TypeController
         if (isset($_SESSION['user'])) {
             $this->type = new Type;
         } else {
-            echo 'Ban khong co quyen truy cap trang nay';
+            $link = '/login';
+            return view('not-access', compact('link'));
         }
     }
 
@@ -48,5 +49,11 @@ class TypeController
     public function editType()
     {
         $this->type->editType();
+    }
+
+    public function deleteType()
+    {
+        $this->type->deleteType($_GET['id']);
+        redirect('admin/type');
     }
 }
