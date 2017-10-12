@@ -8,10 +8,10 @@
             <?php $_SERVER['REQUEST_URI'];
 
 $arrLink = ['/shop' => ['QL Bài đăng', 'note2'],
-    '/user' => ['QL Người dùng', 'user'],
-    '/cat' => ['QL Danh mục', 'news-paper'],
-    '/feedback' => ['QL Phản hồi', 'back-2'],
-    '/statistics' => ['QL Thống kê', 'graph1'],
+    '/admin/user' => ['QL Người dùng', 'user'],
+    '/admin/cat' => ['QL Danh mục', 'news-paper'],
+    '/admin/feedback' => ['QL Phản hồi', 'back-2'],
+    '/admin/statistics' => ['QL Thống kê', 'graph1'],
 ];
 
 foreach ($arrLink as $key => $value) {
