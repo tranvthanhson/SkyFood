@@ -28,7 +28,7 @@ class FeedbackController
     public function index()
     {
         $feedbacks = $this->feedback->selectAll();
-        return view('/feedback/index', compact('feedbacks'));
+        return view('feedback/index', compact('feedbacks'));
     }
 
     public function delete()
@@ -49,5 +49,11 @@ class FeedbackController
             $this->mailer->sendMail();
             redirect('feedback');
         }
+    }
+
+    public function searchFeedback()
+    {
+        $feedbacks = $this->feedback->searchFeedback();
+        return view('feedback/feedbacksTable', compact('feedbacks'));
     }
 }
