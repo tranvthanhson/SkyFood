@@ -40,7 +40,7 @@ class Model
             $sql .= "'$value', ";
         }
         $sql = substr($sql, 0, -2) . ')';
-        //die($sql);
+
         return $this->rawQuery($sql);
     }
 
@@ -75,7 +75,7 @@ class Model
         return (object) [];
     }
 
-    public function pagination($orderBy = 0)
+    public function pagination($orderBy = 0, $link)
     {
         $sql = "SELECT count($this->primaryKey) as total from {$this->table}";
 

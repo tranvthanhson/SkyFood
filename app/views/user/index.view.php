@@ -12,7 +12,7 @@
                                 <div class="row">
                                     <div class="col-md-2 col-sm-2 col-xs-4">
                                         <div class="add-btn">
-                                            <a href="/user/add" class="btn bg-button"><i class="fa fa-plus"></i> Thêm </a>
+                                            <a href="/admin/user/add" class="btn bg-button"><i class="fa fa-plus"></i> Thêm </a>
                                         </div>
                                     </div>
 
@@ -21,7 +21,9 @@
                                             <div class="input-group-addon"><span>Tìm kiếm</span></div>
                                             <input type="text" id="inputSearch" class="form-control" />
                                             <div class="input-group-btn">
-                                                <button class="btn btn-default" id="search" onclick="search('user/searchUser')" type="button"><i class="pe-7s-search"></i></button>
+
+                                                <button class="btn btn-default" id="search" onclick="search('/admin/user/searchUser')" type="button"><i class="pe-7s-search"></i></button>
+
                                             </div>
 
                                         </div>
@@ -70,7 +72,7 @@
                                                 <div class="form-group">
                                                     <?php if (($_SESSION['user']->USERNAME == $user->USERNAME) || (1 == $_SESSION['user']->ROLE)) {?>
                                                     <div class="item-col">
-                                                        <a href="/user/edit?idUser=<?=$user->USERNAME?>" class="btn btn-success" title="Sửa">
+                                                        <a href="/admin/user/edit?idUser=<?=$user->USERNAME?>" class="btn btn-success" title="Sửa">
                                                             <i class="pe-7s-note"></i>
                                                         </a>
                                                     </div>
@@ -87,7 +89,7 @@
                                         </tr>
                                         <?php $i++;?>
                                         <!-- Modal -->
-                                        <?php view_include('partials.modal', ['id_model' => 'delUser' . $user->USERNAME, 'title' => 'XÓA NGƯỜI DÙNG', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => 'user/del?username=' . $user->USERNAME]);?>
+                                        <?php view_include('partials.modal', ['id_model' => 'delUser' . $user->USERNAME, 'title' => 'XÓA NGƯỜI DÙNG', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => '/admin/user/del?username=' . $user->USERNAME]);?>
 
 
 
