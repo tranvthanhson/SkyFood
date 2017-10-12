@@ -12,18 +12,19 @@
                                 <h4 class="title">Sửa danh mục</h4>
                             </div>
                             <div class="content">
-                                <form data-toggle="validator" role="form">
+                                <form data-toggle="validator" role="form" method="POST" action="/cat/edit">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Tên danh mục (<span>*</span>)</label>
-                                                <input type="text" class="form-control" placeholder="Nhập tên danh mục" value="Ăn uống" required>
+                                                <input type="text" class="form-control" name="type_name" placeholder="Nhập tên danh mục" value="<?=$typeName[0]->TYPE_NAME;?>" required>
+                                                <input type="hidden" name="type_id" value="<?=$typeName[0]->TYPE_ID;?>">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <button type="submit" class="btn bg-button btn-fill pull-right">Hoàn thành</button>
+                                            <button type="submit" name="update" class="btn bg-button btn-fill pull-right">Hoàn thành</button>
                                         </div>
                                     </div>
                                     <div class="clearfix"></div>

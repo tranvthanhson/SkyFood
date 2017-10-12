@@ -34,10 +34,19 @@ class CategoryController
     {
         $this->category->addCategory();
     }
-    
+
     public function edit()
-    {
-        return view('category/edit');
+    { 
+        $typeName=$this->category->getCategory($_GET['TYPE_ID']);
+        return view('category/edit', ['typeName'=>$typeName]);
     }
+
+    public function updateCategory()
+    {
+        $this->category->updateCategory();   
+    }
+
+
+
 
 }

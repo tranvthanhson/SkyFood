@@ -28,4 +28,18 @@ class Type extends Model
     		redirect('cat');
     	} 
     }
+     public function getCategory($type_id)
+    {	
+        $sql = "SELECT * FROM {$this->table} WHERE TYPE_ID={$type_id}";
+        //die($sql);
+        return $this->rawQuery($sql);
+    }
+
+    public function updateCategory()
+    {	if (isset($_POST['update'])){
+    		$this->setValue($_POST['type_name']);
+    		$this->updateById($_POST['type_id'], $this->fillable);
+    		redirect('cat');
+    	}
+    }
 }

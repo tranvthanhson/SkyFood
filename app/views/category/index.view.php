@@ -34,7 +34,7 @@
                                                     <td class="control">
                                                     <div class="form-group">
                                                         <div class="item-col">
-                                                            <a href="/cat/edit" class="btn btn-success" title="Sửa">
+                                                            <a href="/cat/edit?TYPE_ID=<?= $category->TYPE_ID?>" class="btn btn-success" title="Sửa">
                                                                 <i class="pe-7s-note"></i>
                                                             </a>
                                                         </div>
