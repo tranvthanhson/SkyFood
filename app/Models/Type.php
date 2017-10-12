@@ -13,4 +13,5 @@ class Type extends Model
     {
         return $this->all();
     }
+
 }

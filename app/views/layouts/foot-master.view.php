@@ -16,6 +16,7 @@
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
 <script src="/public/assets/js/demo.js"></script>
 <!-- Search User -->
-<script src="/public/assets/js/searchUsers.js"></script>
-
+<script src="/public/assets/js/user/searchUsers.js"></script>
+<!-- Check User Already -->
+<script src="/public/assets/js/user/checkUserAlready.js"></script>
 </html>

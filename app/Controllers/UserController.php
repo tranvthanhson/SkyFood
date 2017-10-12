@@ -31,8 +31,11 @@ class UserController
 
     public function addUser()
     {
-
-        return view('user/add');
+        if (isset($_SESSION['user'])) {
+            return view('user/add');
+        } else {
+            echo 'Ban khong co quyen truy cap trang nay';
+        }
     }
 
     public function storeUser()
@@ -61,5 +64,15 @@ class UserController
     public function searchUser()
     {
         $this->account->searchUser();
+    }
+
+    public function checkUser()
+    {
+        $this->account->checkUserAlready();
+    }
+
+    public function loadImages()
+    {
+        $this->account->loadImages();
     }
 }

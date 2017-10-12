@@ -26,7 +26,7 @@
                                                 </div>
                                             </div>
                                             <div class="panel-footer">
-                                                <a href="">Xem <i class="fa fa-arrow-circle-right"></i></a>
+                                                <a href="/shop">Xem <i class="fa fa-arrow-circle-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -48,7 +48,7 @@
                                                 </div>
                                             </div>
                                             <div class="panel-footer">
-                                                <a href="">Xem <i class="fa fa-arrow-circle-right"></i></a>
+                                                <a href="/user">Xem <i class="fa fa-arrow-circle-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -70,7 +70,7 @@
                                                 </div>
                                             </div>
                                             <div class="panel-footer">
-                                                <a href="">Xem <i class="fa fa-arrow-circle-right"></i></a>
+                                                <a href="/cat">Xem <i class="fa fa-arrow-circle-right"></i></a>
                                             </div>
                                         </div>
                                     </div>

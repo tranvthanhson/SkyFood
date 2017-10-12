@@ -28,23 +28,34 @@ $router->post('register', 'RegisterController@register');
 $router->get('user', 'UserController@index');
 $router->get('user/add', 'UserController@addUser');
 $router->post('user/add', 'UserController@storeUser');
+$router->post('user/checkUser', 'UserController@checkUser');
 $router->get('user/edit', 'UserController@editUser');
 $router->post('user/edit', 'UserController@updateUser');
 $router->get('user/del', 'UserController@deleteUser');
+
+//loadImages
+$router->post('user/loadimage', 'UserController@loadImages');
 
 // Forgot Password
 $router->get('forgotpassword', 'LoginController@viewForgotPassword');
 $router->post('forgotpassword', 'LoginController@forgotPassword');
 //Search
 $router->post('user/searchUser', 'UserController@searchUser');
+$router->post('shop/searchShop', 'ShopController@searchShop');
 
-// Post
-$router->get('post', 'PostController@index');
-$router->get('post/add', 'PostController@add');
-$router->post('post/add', 'PostController@addPost');
-$router->get('post/edit', 'PostController@edit');
-$router->post('post/edit', 'PostController@editPost');
-$router->get('post/del', 'PostController@del');
+// shop
+$router->get('shop', 'ShopController@index');
+$router->get('shop/add', 'ShopController@add');
+$router->post('shop/add', 'ShopController@addPost');
+$router->get('shop/edit', 'ShopController@edit');
+$router->post('shop/edit', 'ShopController@editPost');
+$router->get('shop/del', 'ShopController@delete');
+//comment
+$router->get('shop/comment', 'ShopController@loadComments');
+$router->get('shop/comment/del', 'ShopController@deleteComment');
+
+//ajax
+$router->post('shop/ajaxDiscount', 'ShopController@ajaxDiscount');
 
 // Category
 $router->get('cat', 'CategoryController@index');
