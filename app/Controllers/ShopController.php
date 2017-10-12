@@ -46,7 +46,7 @@ class ShopController
         $type = $_POST['type'];
         // die($type);
         $this->shopType->add($shop, $type);
-        return redirect('shop');
+        return redirect('admin/shop');
     }
 
     public function edit()
@@ -64,14 +64,14 @@ class ShopController
     {
         $this->shop->update();
         $this->shopType->update($_GET['id'], $_POST['type']);
-        return redirect('shop');
+        return redirect('admin/shop');
     }
 
     public function delete()
     {
         $this->shop->deleteshop();
         $this->shopType->delete();
-        return redirect('shop');
+        return redirect('admin/shop');
     }
 
     public function searchshop()
@@ -97,6 +97,6 @@ class ShopController
     public function deleteComment()
     {
         $this->comment->deleteComment();
-        return redirect('shop');
+        return redirect('admin/shop');
     }
 }

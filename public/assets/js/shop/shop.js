@@ -2,7 +2,7 @@ function changeDiscount(key){
 	 var val = $('#discount'+key).val();
     //alert(val);
 $.ajax({
-    url: '/shop/ajaxDiscount',
+    url: '/admin/shop/ajaxDiscount',
     type: 'POST',
     cache: false,
     data: {

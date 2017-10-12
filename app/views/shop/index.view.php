@@ -12,7 +12,7 @@
                                 <div class="row">
                                     <div class="col-md-2 col-sm-2 col-xs-4">
                                         <div class="add-btn">
-                                            <a href="/shop/add" class="btn bg-button"><i class="fa fa-plus"></i> Thêm</a>
+                                            <a href="adminadmin/shop/add" class="btn bg-button"><i class="fa fa-plus"></i> Thêm</a>
                                         </div>
                                     </div>
                                     <div class="col-lg-offset-6 col-md-4 col-md-offset-6 col-sm-5 col-sm-offset-5 col-xs-8">
@@ -20,7 +20,7 @@
                                             <div class="input-group-addon"><span>Tìm kiếm</span></div>
                                             <input type="text" class="form-control" id="inputSearch" />
                                             <div class="input-group-btn">
-                                                <button class="btn btn-default" type="button" onclick="search('/shop/searchShop')"><i class="pe-7s-search"></i></button>
+                                                <button class="btn btn-default" type="button" onclick="search('/admin/shop/searchShop')"><i class="pe-7s-search"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -74,7 +74,7 @@
                                             <td>
                                                 <div class="form-group">
                                                     <div class="item-col">
-                                                        <a href="/shop/comment?id=<?=$value->SHOP_ID?>" class="btn btn-warning" title="Xem">
+                                                        <a href="adminadmin/shop/comment?id=<?=$value->SHOP_ID?>" class="btn btn-warning" title="Xem">
                                                             <i class="pe-7s-look"></i>
                                                         </a>
                                                     </div>
@@ -83,7 +83,7 @@
                                             <td class="control">
                                                 <div class="form-group">
                                                     <div class="item-col">
-                                                        <a href="/shop/edit?id=<?=$value->SHOP_ID?>" class="btn btn-success" title="Sửa">
+                                                        <a href="admin/shop/edit?id=<?=$value->SHOP_ID?>" class="btn btn-success" title="Sửa">
                                                             <i class="pe-7s-note"></i>
                                                         </a>
                                                     </div>
@@ -96,7 +96,7 @@
                                                 </div>
                                             </td>
                                         </tr>
-                                        <?php view_include('partials.modal', ['id_model' => 'delpost' . $value->SHOP_ID, 'title' => 'XÓA BÀI ĐĂNG ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => '/shop/del?id=' . $value->SHOP_ID]);
+                                        <?php view_include('partials.modal', ['id_model' => 'delpost' . $value->SHOP_ID, 'title' => 'XÓA BÀI ĐĂNG ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => 'admin/shop/del?id=' . $value->SHOP_ID]);
 }?>
 
                                     </tbody>

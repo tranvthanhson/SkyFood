@@ -43,21 +43,21 @@ $router->post('forgotpassword', 'LoginController@forgotPassword');
 //Search
 $router->post('admin/user/searchUser', 'UserController@searchUser');
 
-$router->post('shop/searchShop', 'ShopController@searchShop');
+$router->post('admin/shop/searchShop', 'ShopController@searchShop');
 
 // shop
-$router->get('shop', 'ShopController@index');
-$router->get('shop/add', 'ShopController@add');
-$router->post('shop/add', 'ShopController@addPost');
-$router->get('shop/edit', 'ShopController@edit');
-$router->post('shop/edit', 'ShopController@editPost');
-$router->get('shop/del', 'ShopController@delete');
+$router->get('admin/shop', 'ShopController@index');
+$router->get('admin/shop/add', 'ShopController@add');
+$router->post('admin/shop/add', 'ShopController@addPost');
+$router->get('admin/shop/edit', 'ShopController@edit');
+$router->post('admin/shop/edit', 'ShopController@editPost');
+$router->get('admin/shop/del', 'ShopController@delete');
 //comment
-$router->get('shop/comment', 'ShopController@loadComments');
-$router->get('shop/comment/del', 'ShopController@deleteComment');
+$router->get('admin/shop/comment', 'ShopController@loadComments');
+$router->get('admin/shop/comment/del', 'ShopController@deleteComment');
 
 //ajax
-$router->post('shop/ajaxDiscount', 'ShopController@ajaxDiscount');
+$router->post('admin/shop/ajaxDiscount', 'ShopController@ajaxDiscount');
 
 // Category
 $router->get('admin/type', 'TypeController@index');
