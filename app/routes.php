@@ -60,6 +60,8 @@ $router->post('shop/ajaxDiscount', 'ShopController@ajaxDiscount');
 // Category
 $router->get('cat', 'CategoryController@index');
 $router->get('cat/add', 'CategoryController@add');
+$router->post('cat/add', 'CategoryController@storeCategory');
+
 $router->get('cat/edit', 'CategoryController@edit');
 
 // Statistics

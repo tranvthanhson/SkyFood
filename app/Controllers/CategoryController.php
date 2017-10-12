@@ -30,7 +30,11 @@ class CategoryController
     {
         return view('category/add');
     }
-
+    public function storeCategory()
+    {
+        $this->category->addCategory();
+    }
+    
     public function edit()
     {
         return view('category/edit');
