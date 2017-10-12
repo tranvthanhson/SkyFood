@@ -50,4 +50,10 @@ class TypeController
     {
         $this->type->editType();
     }
+
+    public function deleteType()
+    {
+        $this->type->deleteType($_GET['id']);
+        redirect('admin/type');
+    }
 }
