@@ -16,6 +16,7 @@ class Type extends Model
 
     public function selectAll()
     {
+
         return $this->all();
     }
 

@@ -12,14 +12,24 @@ class ShopController
 
     public function __construct()
     {
-        $this->shop = new Shop;
-        $this->shopType = new Shop_Type;
-        $this->type = new Type;
-        $this->comment = new Comment;
+        $this->verify();
+    }
+
+    public function verify()
+    {
+        if (isset($_SESSION['user'])) {
+            $this->shop = new Shop;
+            $this->shopType = new Shop_Type;
+            $this->type = new Type;
+            $this->comment = new Comment;
+        } else {
+            echo 'Ban khong co quyen truy cap trang nay';
+        }
     }
 
     public function index()
     {
+        //die(var_dump($_SESSION['user']));
         $shop = $this->shop->shopConnectToType();
         return view('shop/index', compact('shop'));
     }
