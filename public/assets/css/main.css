@@ -303,4 +303,12 @@ width: 22%;
 margin-top: 5%; } }
 @media (max-width: 480px) {
 .error-page .wrp-error .btn {
-width: 35%; } }                                                                                                                                                                                                                               
+width: 35%; } }   
+.alert {
+  margin: 0 15px;
+  border-radius: 2px !important;
+}
+.alert-success {
+  background: #dff0d8 !important;
+  color: #3c763d !important;
+}                                                                                                                                                                                                                            

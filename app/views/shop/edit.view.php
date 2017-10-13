@@ -140,8 +140,14 @@ foreach ($types as $value) {
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <input type="submit" value="sua" name="sua" class="btn bg-button btn-fill pull-left">
-                                                 </div>
+                                                    <div class="col-md-1 col-xs-1">
+                                                        <input type="submit" value="Sua" name="sua" class="btn bg-button">
+                                                     </div>
+                                                     <div class="col-md-1 col-xs-1">
+                                                        <input type="submit" value="Duyet" name="sua" class="btn bg-button">
+                                                     </div>
+                                                     <div class="clearfix"></div>
+                                                </div>
                                             </div>
                                         </form>
                                 </div>
