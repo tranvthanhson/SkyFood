@@ -41,6 +41,7 @@ class ShopController
 
     public function addPost()
     {
+
         $this->shop->insertShop();
         $shop = $this->shop->selectKey();
         $shop = $shop[0]->MAX_ID;

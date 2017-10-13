@@ -14,7 +14,7 @@
                                     <h4 class="title">Sua bài đăng</h4>
                                 </div>
                                 <div class="content">
-                                    <form data-toggle="validator" role="form" action="admin/shop/edit?id=<?=$shop->SHOP_ID?>" method="POST" enctype="multipart/form-data">
+                                    <form data-toggle="validator" role="form" action="/admin/shop/edit?id=<?=$shop->SHOP_ID?>" method="POST" enctype="multipart/form-data">
                                         <div class="col-md-7">
                                              <div class="row">
                                                 <div class="col-md-5">
