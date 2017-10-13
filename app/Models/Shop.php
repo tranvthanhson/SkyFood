@@ -9,7 +9,7 @@ class Shop extends Model
     protected $table = 'SHOP';
     protected $primaryKey = 'SHOP_ID';
     protected $fillable = [];
-    public function setValue($SHOP_NAME, $STATUS, $DATE_CREATED, $DISCOUNT, $LAT, $LNG, $PHONE, $TIME_CLOSE, $TIME_OPEN, $VIEW, $ADDRESS, $DETAIL)
+    public function setValue($SHOP_NAME, $STATUS, $DATE_CREATED, $DISCOUNT, $LAT, $LNG, $PHONE, $TIME_CLOSE, $TIME_OPEN, $VIEW, $ADDRESS, $DETAIL, $USERNAME)
     {
         $this->fillable = [
             'SHOP_NAME' => $SHOP_NAME,
@@ -24,6 +24,7 @@ class Shop extends Model
             'VIEW' => $VIEW,
             'ADDRESS' => $ADDRESS,
             'DETAIL' => $DETAIL,
+            'USERNAME' => $_SESSION['user']->USERNAME,
         ];
     }
 
@@ -65,12 +66,13 @@ class Shop extends Model
             $this->setValue($_POST['shop_name'], 0, $currentDate, $_POST['discount'], $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'], $picture, $_POST['address'], $_POST['detail']);
             //die(var_dump($this->fillable));
             return $this->insert($this->fillable);
-        }
+        } //die('a');
     }
 
     public function selectKey()
     {
         $sql = 'SELECT MAX(SHOP_ID) AS MAX_ID FROM SHOP';
+        //die($sql);
         return $this->rawQuery($sql);
     }
 

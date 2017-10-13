@@ -11,6 +11,7 @@ class Shop_Type extends Model
     {
         $shopType['SHOP_ID'] = $shop;
         $shopType['TYPE_ID'] = $type;
+        //die(var_dump($shopType));
         return $this->insert($shopType);
     }
 
