@@ -74,7 +74,7 @@ class Model
         return (object) [];
     }
 
-    public function pagination($orderBy = 0, $link)
+    public function pagination($orderBy = 0)
     {
         $sql = "SELECT count($this->primaryKey) as total from {$this->table}";
 

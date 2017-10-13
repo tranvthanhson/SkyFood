@@ -10,24 +10,27 @@
                         <div class="card">
                             <div class="header-card ">
                                 <div class="row">
+
                                     <div class="col-md-2 col-sm-2 col-xs-4">
                                         <div class="add-btn">
                                             <a href="/admin/user/add" class="btn bg-button"><i class="fa fa-plus"></i> Thêm </a>
                                         </div>
                                     </div>
 
-                                    <div class="col-lg-offset-6 col-md-4 col-md-offset-6 col-sm-5 col-sm-offset-5 col-xs-8">
-                                        <div class="input-group search-btn">
-                                            <div class="input-group-addon"><span>Tìm kiếm</span></div>
-                                            <input type="text" id="inputSearch" class="form-control" />
-                                            <div class="input-group-btn">
+                                    <!-- <form action="/" method="" accept-charset="utf-8"> -->
+                                        <div class="col-lg-offset-6 col-md-4 col-md-offset-6 col-sm-5 col-sm-offset-5 col-xs-8">
+                                            <div class="input-group search-btn">
+                                                <div class="input-group-addon"><span>Tìm kiếm</span></div>
+                                                <input type="text" id="inputSearch" class="form-control" />
+                                                <div class="input-group-btn">
 
-                                                <button class="btn btn-default" id="search" onclick="search('/admin/user/searchUser')" type="button"><i class="pe-7s-search"></i></button>
+                                                    <button id="search" class="btn btn-default"  onclick="search('/admin/user/searchUser')" type="submit"><i class="pe-7s-search"></i></button>
+
+                                                </div>
 
                                             </div>
-
                                         </div>
-                                    </div>
+                                    <!-- </form> -->
 
                                     <div class="clearfix"></div>
                                 </div>
@@ -43,14 +46,14 @@
                             <table id="view-post"  class="table table-hover table-striped ">
                                 <thead>
                                     <th>#</th>
-                                    <th>User name</th>
-                                    <th>Avatar</th>
-                                    <th>Name</th>
+                                    <th>Username</th>
+                                    <th>Hình ảnh</th>
+                                    <th>Tên</th>
                                     <th>Email</th>
-                                    <th>Address</th>
-                                    <th>Phone</th>
-                                    <th>Role</th>
-                                    <th>Control</th>
+                                    <th>Địa chỉ</th>
+                                    <th>Điện thoại</th>
+                                    <th>Quyền</th>
+                                    <th>Chức năng</th>
                                 </thead>
                                 <tbody class="tableSearch">
                                     <?php $i = 1;?>
