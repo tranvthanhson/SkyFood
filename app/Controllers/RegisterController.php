@@ -10,7 +10,7 @@ class RegisterController
 
     public function __construct()
     {
-        $account = new Account;
+        $this->account = new Account;
     }
 
     public function index()
