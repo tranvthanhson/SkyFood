@@ -25,6 +25,7 @@ class Feedback extends Model
     {
         if (isset($_POST['ajaxKey'])) {
             $sql = "SELECT FEEDBACK_ID, FULL_NAME, EMAIL, PHONE, CONTENT FROM FEEDBACK A, ACCOUNT B WHERE A.USERNAME = B.USERNAME AND (CONTENT LIKE '%" . $_POST['ajaxKey'] . "%')";
+            // die(var_dump($this->rawQuery($sql)));
             return $this->rawQuery($sql);
         }
     }

@@ -176,7 +176,13 @@ class Account extends Model
 
             echo require 'app/views/user/UsersTable.view.php';
         } else {
-            return $this->pagination();
+            $link = 'admin/user';
+            $sql = "SELECT * from {$this->table} ";
+            $selectAll = $this->rawQuery($sql);
+            // die(var_dump($selectAll));
+            $countUser = count($selectAll);
+
+            return $this->pagination($sql, $countUser, $link);
         }
     }
 
