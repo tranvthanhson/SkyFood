@@ -10,13 +10,13 @@
                         <div class="card">
                             <div class="header-card ">
                                 <div class="row">
-                                <?php // if (1 == $_SESSION['user']->ROLE) {?>
+
                                     <div class="col-md-2 col-sm-2 col-xs-4">
                                         <div class="add-btn">
                                             <a href="/admin/user/add" class="btn bg-button"><i class="fa fa-plus"></i> Thêm </a>
                                         </div>
                                     </div>
-                                    <?php //}?>
+
                                     <!-- <form action="/" method="" accept-charset="utf-8"> -->
                                         <div class="col-lg-offset-6 col-md-4 col-md-offset-6 col-sm-5 col-sm-offset-5 col-xs-8">
                                             <div class="input-group search-btn">
