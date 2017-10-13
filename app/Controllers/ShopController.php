@@ -23,7 +23,9 @@ class ShopController
             $this->type = new Type;
             $this->comment = new Comment;
         } else {
-            echo 'Ban khong co quyen truy cap trang nay';
+
+            $link = '/admin/shop';
+            return view('not-access', compact('link'));
         }
     }
 
