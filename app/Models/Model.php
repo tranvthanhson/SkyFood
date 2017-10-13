@@ -74,35 +74,37 @@ class Model
         return (object) [];
     }
 
-    public function pagination($link, $orderBy = 0)
+    public function pagination($query, $countUser, $link, $orderBy = 0)
     {
-        $sql = "SELECT count($this->primaryKey) as total from {$this->table}";
 
-        $total = $this->rawQuery($sql);
-
-        $totalRecords = $total[0]->total;
-
+        $total = $countUser;
         //Find limit and current page
         $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+        // echo $_GET['page'];
         $limit = 5;
-        $totalPage = ceil($totalRecords / $limit);
+        // echo $limit;
+        $totalPage = ceil($total / $limit);
+
         // Limit currentPage from 1 to totalPage
         if ($currentPage > $totalPage) {
             $currentPage = $totalPage;
-        } else if ($currentPage < 1) {
+        }
+        if ($currentPage < 1) {
             $currentPage = 1;
         }
 
         //  Find Start
         $start = ($currentPage - 1) * $limit;
 
-        $sql = "SELECT * from {$this->table} ";
+        //echo $start;
+        $sql = $query;
+
         if (1 == $orderBy) {
             $sql .= "ORDER BY {$this->primaryKey} DESC ";
         }
         $sql .= " LIMIT {$start},{$limit}";
-
-        // die($sql);
+        // echo $sql;
+        // die();
         $arrPagination = [];
         $arrPagination['all'] = $this->rawQuery($sql);
         $arrPagination['currentPage'] = $currentPage;
