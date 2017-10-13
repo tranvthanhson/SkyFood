@@ -90,6 +90,7 @@ class Shop extends Model
         $s = $this->findById($id, 'DATE_CREATED,VIEW');
         //die($date->DATE_CREATED);
         //$shop = $shop[0];
+
         if (isset($_POST['sua'])) {
             $shop = [];
             $picture = $s->VIEW;
@@ -103,22 +104,23 @@ class Shop extends Model
                 }
                 $picture = $this->uploadImages($file, 'img-shop');
             }
-
-            // $shop['SHOP_NAME'] = $_POST['shop_name'];
-
-            // $shop['STATUS'] = 0;
-            // $shop['DATE_CREATED'] = $s->DATE_CREATED;
-            // $shop['DISCOUNT'] = $_POST['discount'];
-            // $shop['LAT'] = $_POST['lat'];
-            // $shop['LNG'] = $_POST['lng'];
-            // $shop['PHONE'] = $_POST['phone'];
-            // $shop['TIME_CLOSE'] = $_POST['time_close'];
-            // $shop['TIME_OPEN'] = $_POST['time_open'];
-            // $shop['VIEW'] = $picture;
-            // $shop['ADDRESS'] = $_POST['address'];
-            // $shop['DETAIL'] = $_POST['detail'];
-            //die(var_dump($shop));
             $this->setValue($_POST['shop_name'], 0, $s->DATE_CREATED, $_POST['discount'], $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'], $picture, $_POST['address'], $_POST['detail']);
+            //die(var_dump($this->fillable));
+            return $this->updateById($id, $this->fillable);
+        } else if (isset($_POST['duyet'])) {
+            $shop = [];
+            $picture = $s->VIEW;
+            //xu ly picture
+            $file = $_FILES['file']['name'];
+            if ('' != $file) {
+                $path = $_SERVER['DOCUMENT_ROOT'];
+                if ('default-avatar.png' != $picture) {
+                    $link = $path . '/public/assets/img/img-shop/' . $picture;
+                    unlink($link);
+                }
+                $picture = $this->uploadImages($file, 'img-shop');
+            }
+            $this->setValue($_POST['shop_name'], 1, $s->DATE_CREATED, $_POST['discount'], $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'], $picture, $_POST['address'], $_POST['detail']);
             //die(var_dump($this->fillable));
             return $this->updateById($id, $this->fillable);
         }

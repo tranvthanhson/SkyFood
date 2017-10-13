@@ -41,7 +41,6 @@ class ShopController
 
     public function addPost()
     {
-
         $this->shop->insertShop();
         $shop = $this->shop->selectKey();
         $shop = $shop[0]->MAX_ID;
@@ -64,6 +63,7 @@ class ShopController
 
     public function editPost()
     {
+
         $this->shop->update();
         $this->shopType->update($_GET['id'], $_POST['type']);
         return redirect('admin/shop');

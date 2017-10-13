@@ -20,20 +20,20 @@
                                              <div class="row">
                                                 <div class="col-md-5">
                                                     <div class="form-group">
-                                                        <label for="place" class="control-label">địa điểm (<span>*</span>)</label>
+                                                        <label for="place" class="control-label">Địa điểm (<span>*</span>)</label>
                                                         <input type="text" class="form-control" id="place" placeholder="Tên địa điểm" name="shop_name" required>
                                                     </div>
                                                 </div>
                                                  <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label for="phone" class="control-label">số điện thoại (<span>*</span>)</label>
+                                                        <label for="phone" class="control-label">Số điện thoại (<span>*</span>)</label>
                                                         <input type="number" class="form-control" id="phone" placeholder="Số điện thoại" required data-error="Vui lòng nhập số vào" name="phone">
                                                         <div class="help-block with-errors"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="form-group">
-                                                        <label for="discount" class="control-label">giảm giá (<span>*</span>)</label>
+                                                        <label for="discount" class="control-label">Giảm giá (<span>*</span>)</label>
                                                         <input type="text" class="form-control" id="discount" placeholder="Khuyến mãi" name="discount" required>
                                                     </div>
                                                 </div>
@@ -41,7 +41,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="type">danh mục (<span>*</span>)</label>
+                                                        <label for="type">Danh mục (<span>*</span>)</label>
                                                         <select class="form-control" id="type" name="type">
                                                             <option>[Chọn]</option>
                                                             <?php
@@ -55,7 +55,7 @@ foreach ($types as $value) {
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="city" class="control-label">thành phố (<span>*</span>)</label>
+                                                        <label for="city" class="control-label">Thành phố (<span>*</span>)</label>
                                                         <input type="text" class="form-control" id="city" placeholder="Thành phố" value="Đà Nẵng" disabled>
                                                     </div>
                                                 </div>
@@ -85,13 +85,13 @@ foreach ($types as $value) {
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label for="openTime" class="control-label">thời gian mở cửa (<span>*</span>)</label>
+                                                        <label for="openTime" class="control-label">Thời gian mở cửa (<span>*</span>)</label>
                                                         <input type="text" class="form-control" placeholder="Giờ mở cửa" value="" id="openTime" name="time_open" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label for="closeTime" class="control-label">thời gian đóng cửa (<span>*</span>)</label>
+                                                        <label for="closeTime" class="control-label">Thời gian đóng cửa (<span>*</span>)</label>
                                                         <input type="text" class="form-control" placeholder="Giờ đóng cửa" value="" id="closeTime" name="time_close" required>
                                                     </div>
                                                 </div>
@@ -100,7 +100,7 @@ foreach ($types as $value) {
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label>chi tiết</label>
+                                                        <label>Chi tiết</label>
                                                         <textarea rows="5" class="form-control" placeholder="Chi tiết địa điểm" value="" name="detail"></textarea required>
                                                     </div>
                                                 </div>
@@ -115,7 +115,7 @@ foreach ($types as $value) {
                                                         </div>
                                                         <div class="edit-avatar ">
                                                             <div class="wrp file bg-button">
-                                                                 <i class="pe-7s-cloud-upload"></i>tải lên
+                                                                 <i class="pe-7s-cloud-upload"></i>Tải lên
                                                                  <input type="file" name="file" />
                                                             </div>
                                                         </div>
@@ -139,7 +139,7 @@ foreach ($types as $value) {
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <input type="submit" value="thêm" name="them" class="btn bg-button btn-fill pull-left">
+                                                    <input type="submit" value="Thêm" name="them" class="btn bg-button btn-fill pull-left">
                                                  </div>
                                             </div>
                                         </form>
