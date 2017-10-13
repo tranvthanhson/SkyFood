@@ -28,7 +28,7 @@
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="role">Role (<span>*</span>)</label>
+                                                    <label for="role">Phân quyền (<span>*</span>)</label>
                                                     <select class="form-control" name="role" id="role">
 
                                                         <option value="1">Admin</option>
@@ -41,7 +41,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="pass" class="control-label">Password (<span>*</span>)</label>
+                                                    <label for="pass" class="control-label">Mật khẩu (<span>*</span>)</label>
                                                     <input type="password" value="testth" data-minlength="6" class="form-control" name="password" id="pass" placeholder="Password" required>
                                                     <div class="help-block">(Mật khẩu ít nhất 6 kí tự)</div>
                                                 </div>
@@ -50,7 +50,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="confirmPass" class="control-label">Confirm Password (<span>*</span>)</label>
+                                                    <label for="confirmPass" class="control-label">Xác nhận mật khẩu (<span>*</span>)</label>
                                                     <input type="password" value="testth" class="form-control" id="confirmPass" name="confirmPass" data-match="#pass" data-match-error="Mật khẩu không trùng khớp" placeholder="Confirm" required>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
@@ -59,7 +59,7 @@
                                          <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="confirmPass" class="control-label">Address </label>
+                                                    <label for="confirmPass" class="control-label">Địa chỉ </label>
                                                     <input type="text" value="thuong" name="address" class="form-control" id="address" >
 
                                                 </div>
@@ -68,7 +68,7 @@
                                          <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="confirmPass" class="control-label">Phone </label>
+                                                    <label for="confirmPass" class="control-label">Điện thoại </label>
                                                     <input type="text" value="thuong" name="phone" class="form-control" id="phone">
 
                                                 </div>
@@ -86,13 +86,13 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="firstName" class="control-label">First name </label>
+                                                    <label for="firstName" class="control-label">Họ </label>
                                                     <input type="text" name="firstName" class="form-control" value="test" placeholder="Họ" value="" id="firstName" >
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="lastName">Last name </label>
+                                                    <label for="lastName">Tên </label>
                                                     <input type="text" name="lastName" class="form-control" value="test" placeholder="Tên" value="" id="lastName" >
                                                 </div>
                                             </div>
@@ -111,49 +111,24 @@
                                                  </div>
                                                  <div class="edit-avatar ">
                                                      <div class="file bg-button">
-                                                         <i class="pe-7s-cloud-upload"></i>Upload
+                                                         <i class="pe-7s-cloud-upload"></i>Chọn ảnh
                                                          <input type="file" id="loadImages" name="file" value="" onclick="loadImages()" />
                                                      </div>
                                                  </div>
                                              </div>
                                              <div class="infor text-center">
-                                                 <h4 class="title">Trần Thị Như Hiếu</h4>
-                                                 <smaller>@hieutran</smaller>
-                                                 <p>01282143365</p>
-                                                 <p>hieutran@gmail.com</p>
-                                                 <p>242 Nguyễn Hoàng</p>
+                                                 <h4 class="title">Ảnh đại diện</h4>
+
                                              </div>
                                          </div>
                                      </div>
                                  </div>
-                                 <script  type="text/javascript" >
-                                     function loadImages(){
-                                            var key = $('#loadImages').val();
-                                        alert(key);
-                                        // $.ajax({
-                                        //     url: '/user/loadimage',
-                                        //     type: 'POST',
-                                        //     cache: false,
-                                        //     data: {
-                                        //         ajaxKey: key,
 
-                                        //     },
-                                        //     success: function(data) {
-                                        //         $('.showImages').html(data);
-
-                                        //     },
-                                        //     error: function() {
-                                        //         alert('Có lỗi xảy ra');
-                                        //     }
-                                        // });
-                                        // }
-
-                                 </script>
                                  <div class="clearfix"></div>
                              </div>
                              <div class="row">
                                 <div class="col-md-12">
-                                    <input type="submit" name="add" class="btn bg-button btn-fill pull-left" value="Add" />
+                                    <input type="submit" name="add" class="btn bg-button btn-fill pull-left" value="Thêm" />
                                 </div>
                             </div>
                         </form>

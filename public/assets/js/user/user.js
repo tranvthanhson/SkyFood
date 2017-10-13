@@ -1,7 +1,7 @@
 $('input[type=text]').on('keydown',function (e) {
     if(e.which==13){
         // alert('cc');
-        $('#search').click();
+        $('#btnSearch').click();
     }
 });
 

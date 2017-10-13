@@ -26,7 +26,7 @@
                                             <?php if (1 == $_SESSION['user']->ROLE) {?>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label for="role">Role (<span>*</span>)</label>
+                                                    <label for="role">Phân quyền (<span>*</span>)</label>
                                                     <select class="form-control" name="role" id="role">
 
 
@@ -41,7 +41,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="pass" class="control-label">Password (<span>*</span>)</label>
+                                                    <label for="pass" class="control-label">Mật khẩu (<span>*</span>)</label>
                                                     <input type="password" value="" data-minlength="6" class="form-control" name="password" id="pass" placeholder="Password" >
                                                     <div class="help-block">(Mật khẩu ít nhất 6 kí tự)</div>
                                                 </div>
@@ -50,7 +50,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="confirmPass" class="control-label">Confirm Password (<span>*</span>)</label>
+                                                    <label for="confirmPass" class="control-label">Xác nhận mật khẩu(<span>*</span>)</label>
                                                     <input type="password" value="" class="form-control" id="confirmPass" name="confirmPass" data-match="#pass" data-match-error="Mật khẩu không trùng khớp" placeholder="Confirm" >
                                                     <div class="help-block with-errors"></div>
                                                 </div>
@@ -59,7 +59,7 @@
                                          <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="confirmPass" class="control-label">Address (<span>*</span>)</label>
+                                                    <label for="confirmPass" class="control-label">Địa chỉ (<span>*</span>)</label>
                                                     <input type="text" value="<?=$infoUser[0]->ADDRESS?>" name="address" class="form-control" id="confirmPass" >
                                                     <div class="help-block with-errors"></div>
                                                 </div>
@@ -68,7 +68,7 @@
                                          <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <label for="confirmPass" class="control-label">Phone (<span>*</span>)</label>
+                                                    <label for="confirmPass" class="control-label">Điện thoại (<span>*</span>)</label>
                                                     <input type="text" value="<?=$infoUser[0]->PHONE?>" name="phone" class="form-control" id="confirmPass">
                                                     <div class="help-block with-errors"></div>
                                                 </div>
@@ -87,13 +87,13 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="firstName" class="control-label">First name (<span>*</span>)</label>
+                                                    <label for="firstName" class="control-label">Họ (<span>*</span>)</label>
                                                     <input type="text" name="firstName" class="form-control" value="<?=$infoUser[0]->FIRST_NAME?>" placeholder="Họ" value="" id="firstName" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="lastName">Last name (<span>*</span>)</label>
+                                                    <label for="lastName">Tên (<span>*</span>)</label>
                                                     <input type="text" name="lastName" class="form-control" value="<?=$infoUser[0]->LAST_NAME?>" placeholder="Tên" value="" id="lastName" required>
                                                 </div>
                                             </div>
@@ -109,17 +109,14 @@
                                                  </div>
                                                  <div class="edit-avatar ">
                                                      <div class="file bg-button">
-                                                         <i class="pe-7s-cloud-upload"></i>Upload
+                                                         <i class="pe-7s-cloud-upload"></i>Chọn ảnh
                                                          <input type="file" name="file" />
                                                      </div>
                                                  </div>
                                              </div>
                                              <div class="infor text-center">
-                                                 <h4 class="title">Trần Thị Như Hiếu</h4>
-                                                 <smaller>@hieutran</smaller>
-                                                 <p>01282143365</p>
-                                                 <p>hieutran@gmail.com</p>
-                                                 <p>242 Nguyễn Hoàng</p>
+                                                 <h4 class="title">Ảnh đại diện</h4>
+
                                              </div>
                                          </div>
                                      </div>
@@ -128,7 +125,7 @@
                              </div>
                              <div class="row">
                                 <div class="col-md-12">
-                                    <input type="submit" name="add" class="btn bg-button btn-fill pull-left" value="Add" />
+                                    <input type="submit" name="add" class="btn bg-button btn-fill pull-left" value="Sửa" />
                                 </div>
                             </div>
                         </form>
