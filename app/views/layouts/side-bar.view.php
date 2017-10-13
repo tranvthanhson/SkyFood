@@ -2,8 +2,8 @@
 
 $_SERVER['REQUEST_URI'];
 
-$arrLink = [
-    '/admin/shop' => ['QL Bài đăng', 'note2'],
+$arrLink = ['/admin/shop' => ['QL Bài đăng', 'note2'],
+
     '/admin/user' => ['QL Người dùng', 'user'],
     '/admin/type' => ['QL Danh mục', 'news-paper'],
     '/admin/feedback' => ['QL Phản hồi', 'back-2'],
