@@ -1,7 +1,7 @@
 <?php
 
 // Index
-$router->get('admin', 'IndexController@index');
+$router->get('admin', 'AdminController@index');
 
 // Feedback
 $router->get('admin/feedback', 'FeedbackController@index');

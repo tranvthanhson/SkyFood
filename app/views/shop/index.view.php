@@ -1,8 +1,8 @@
-<?php view_include('layouts.head-master', ['title' => 'shop']);?>
+<?php view_include('layouts.head-master', ['title' => 'Địa điểm']);?>
 <div class="wrapper">
     <?php view_include('layouts.side-bar');?>
     <div class="main-panel">
-        <?php view_include('partials.header', ['title' => 'QUẢN LÝ ĐỊA ĐIỂM'])?>
+        <?php view_include('partials.header', ['title' => 'Địa điểm'])?>
         <div class="content posts">
             <div class="container-fluid">
                 <div class="row">
