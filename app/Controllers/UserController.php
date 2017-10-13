@@ -27,15 +27,17 @@ class UserController
     public function index()
     {
         $users = $this->account->searchUser();
-        return view('user/index', ['users' => $users]);
+
+        return view('user/index', compact('users'));
     }
 
     public function addUser()
     {
-        if (isset($_SESSION['user'])) {
+        if (1 == $_SESSION['user']->ROLE) {
             return view('user/add');
         } else {
-            echo 'Ban khong co quyen truy cap trang nay';
+            $_SESSION['notice'] = 'Bạn không có quyền truy cập trang này';
+            redirect('admin/user');
         }
     }
 
