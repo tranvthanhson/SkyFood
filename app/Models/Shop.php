@@ -9,7 +9,7 @@ class Shop extends Model
     protected $table = 'SHOP';
     protected $primaryKey = 'SHOP_ID';
     protected $fillable = [];
-    public function setValue($SHOP_NAME, $STATUS, $DATE_CREATED, $DISCOUNT, $LAT, $LNG, $PHONE, $TIME_CLOSE, $TIME_OPEN, $VIEW, $ADDRESS, $DETAIL)
+    public function setValue($SHOP_NAME, $STATUS, $DATE_CREATED, $DISCOUNT, $LAT, $LNG, $PHONE, $TIME_CLOSE, $TIME_OPEN, $VIEW, $ADDRESS, $DETAIL, $USERNAME)
     {
         $this->fillable = [
             'SHOP_NAME' => $SHOP_NAME,
@@ -24,6 +24,7 @@ class Shop extends Model
             'VIEW' => $VIEW,
             'ADDRESS' => $ADDRESS,
             'DETAIL' => $DETAIL,
+            'USERNAME' => $_SESSION['user']->USERNAME,
         ];
     }
 
