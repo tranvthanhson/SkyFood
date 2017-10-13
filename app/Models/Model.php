@@ -75,7 +75,7 @@ class Model
         return (object) [];
     }
 
-    public function pagination($orderBy = 0)
+    public function pagination($link, $orderBy = 0)
     {
         $sql = "SELECT count($this->primaryKey) as total from {$this->table}";
 
@@ -108,6 +108,7 @@ class Model
         $arrPagination['all'] = $this->rawQuery($sql);
         $arrPagination['currentPage'] = $currentPage;
         $arrPagination['totalPage'] = $totalPage;
+        $arrPagination['link'] = $link;
 
         return $arrPagination;
     }

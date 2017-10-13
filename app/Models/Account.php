@@ -176,7 +176,9 @@ class Account extends Model
 
             echo require 'app/views/user/UsersTable.view.php';
         } else {
-            return $this->pagination();
+            $user = 'admin/user';
+            //die(var_dump($this->pagination($user)));
+            return $this->pagination($user);
         }
     }
 
