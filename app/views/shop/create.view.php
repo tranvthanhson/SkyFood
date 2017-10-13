@@ -1,4 +1,4 @@
-<?php view_include('layouts.head-master', ['title' => 'thêm địa điểm']);?>
+<?php view_include('layouts.head-master', ['title' => 'Thêm địa điểm']);?>
 
 <body>
     <div class="wrapper">
@@ -119,7 +119,7 @@ foreach ($types as $value) {
                                                                  <input type="file" name="file" />
                                                             </div>
                                                         </div>
-                                                        <h4 class="title">ảnh địa điểm<br />
+                                                        <h4 class="title">Ảnh địa điểm<br />
 
                                                          </h4>
                                                     </div>
@@ -139,7 +139,7 @@ foreach ($types as $value) {
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <input type="submit" value="Thêm" name="them" class="btn bg-button btn-fill pull-left">
+                                                    <input type="submit" value="Thêm" name="add" class="btn bg-button btn-fill pull-left">
                                                  </div>
                                             </div>
                                         </form>

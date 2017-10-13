@@ -41,7 +41,7 @@ class Shop extends Model
     public function insertShop()
     {
 
-        if (isset($_POST['them'])) {
+        if (isset($_POST['add'])) {
             $shop = [];
             $now = getdate();
             $picture = 'default-avatar.png';
@@ -91,7 +91,7 @@ class Shop extends Model
         //die($date->DATE_CREATED);
         //$shop = $shop[0];
 
-        if (isset($_POST['sua'])) {
+        if (isset($_POST['edit'])) {
             $shop = [];
             $picture = $s->VIEW;
             //xu ly picture
@@ -107,7 +107,7 @@ class Shop extends Model
             $this->setValue($_POST['shop_name'], 0, $s->DATE_CREATED, $_POST['discount'], $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'], $picture, $_POST['address'], $_POST['detail']);
             //die(var_dump($this->fillable));
             return $this->updateById($id, $this->fillable);
-        } else if (isset($_POST['duyet'])) {
+        } else if (isset($_POST['browsing'])) {
             $shop = [];
             $picture = $s->VIEW;
             //xu ly picture
