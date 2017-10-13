@@ -9,7 +9,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Xem bình luận cua shop:<?=$shop->SHOP_NAME?></h4>
+                                    <h4 class="title">Xem bình luận của địa điểm:<b><?=$shop->SHOP_NAME?></b></h4>
                                 </div>
                                 <div class="header-card ">
                                     <div class="row">
@@ -69,7 +69,7 @@ foreach ($comments['all'] as $value) {
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">XOÁ COMMENT</h4>
+                    <h4 class="modal-title">XOÁ BÌNH LUẬN</h4>
                 </div>
                 <div class="modal-body">
                     <p>Bạn có muốn xoá bình luận này?.</p>
