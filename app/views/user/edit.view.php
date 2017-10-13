@@ -87,13 +87,13 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="firstName" class="control-label">Họ (<span>*</span>)</label>
+                                                    <label for="firstName" class="control-label">Tên (<span>*</span>)</label>
                                                     <input type="text" name="firstName" class="form-control" value="<?=$infoUser[0]->FIRST_NAME?>" placeholder="Họ" value="" id="firstName" required>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="lastName">Tên (<span>*</span>)</label>
+                                                    <label for="lastName">Họ (<span>*</span>)</label>
                                                     <input type="text" name="lastName" class="form-control" value="<?=$infoUser[0]->LAST_NAME?>" placeholder="Tên" value="" id="lastName" required>
                                                 </div>
                                             </div>

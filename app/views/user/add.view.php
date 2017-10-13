@@ -86,13 +86,13 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="firstName" class="control-label">Họ </label>
+                                                    <label for="firstName" class="control-label">Tên </label>
                                                     <input type="text" name="firstName" class="form-control" value="test" placeholder="Họ" value="" id="firstName" >
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label for="lastName">Tên </label>
+                                                    <label for="lastName">Họ </label>
                                                     <input type="text" name="lastName" class="form-control" value="test" placeholder="Tên" value="" id="lastName" >
                                                 </div>
                                             </div>
