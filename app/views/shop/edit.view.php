@@ -143,9 +143,18 @@ foreach ($types as $value) {
                                                     <div class="col-md-1 col-xs-1">
                                                         <input type="submit" value="Sửa" name="edit" class="btn bg-button">
                                                      </div>
+                                                     <?php
+if (1 == $_SESSION['user']->ROLE) {
+    if (0 == $shop->STATUS) {
+        ?>
                                                      <div class="col-md-1 col-xs-1">
                                                         <input type="submit" value="Duyệt" name="browsing" class="btn bg-button">
                                                      </div>
+                                                     <?php } else {?>
+                                                     <div class="col-md-1 col-xs-1">
+                                                        <input type="submit" value="hide" name="edit" class="btn bg-button">
+                                                     </div>
+                                                     <?php }}?>
                                                      <div class="clearfix"></div>
                                                 </div>
                                             </div>
