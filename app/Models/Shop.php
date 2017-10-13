@@ -65,12 +65,13 @@ class Shop extends Model
             $this->setValue($_POST['shop_name'], 0, $currentDate, $_POST['discount'], $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'], $picture, $_POST['address'], $_POST['detail']);
             //die(var_dump($this->fillable));
             return $this->insert($this->fillable);
-        }
+        } //die('a');
     }
 
     public function selectKey()
     {
         $sql = 'SELECT MAX(SHOP_ID) AS MAX_ID FROM SHOP';
+        //die($sql);
         return $this->rawQuery($sql);
     }
 

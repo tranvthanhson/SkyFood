@@ -15,7 +15,7 @@
                                 </div>
                                 <div class="content">
 
-                                    <form data-toggle="validator" role="form" action="admin/shop/add" method="POST" enctype="multipart/form-data">
+                                    <form data-toggle="validator" role="form" action="/admin/shop/add" method="POST" enctype="multipart/form-data">
                                         <div class="col-md-7">
                                              <div class="row">
                                                 <div class="col-md-5">
