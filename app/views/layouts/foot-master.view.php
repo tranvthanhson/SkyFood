@@ -18,6 +18,6 @@
 <!-- Search User -->
 <script src="/public/assets/js/searchUsers.js"></script>
 <!-- Check User Already -->
-<script src="/public/assets/js/user/checkUserAlready.js"></script>
+<script src="/public/assets/js/user/user.js"></script>
 <script src="/public/assets/js/shop/shop.js"></script>
 </html>
