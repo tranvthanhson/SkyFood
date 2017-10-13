@@ -53,8 +53,7 @@ class Model
         }
         $sql = trim($sql, ',');
         $sql .= " WHERE $this->primaryKey = '{$id}'";
-
-        //echo $sql;
+        die($sql);
         return $this->rawQuery($sql);
     }
 

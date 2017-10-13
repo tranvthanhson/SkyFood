@@ -89,7 +89,7 @@ class ShopController
     public function loadComments()
     {
         $id = $_GET['id'];
-        $comments = $this->comment->selectByShop();
+        $comments = $this->comment->pagination();
         $shop = $this->shop->selectByKey($id);
         $shop = $shop[0];
         // die(var_dump($shop));
