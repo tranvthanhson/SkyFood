@@ -27,6 +27,9 @@
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
+                            <div class="alert alert-success">
+                              <strong>Success!</strong> Indicates a successful or positive action.
+                            </div>
                             <div class="content content-card table-responsive table-full-width">
                                 <table id="view-post" class="table table-hover table-striped">
                                     <thead>
@@ -52,15 +55,18 @@
                                             <td><?=$value->TYPE_NAME?></td>
                                             <td class="change-discount<?=$value->SHOP_ID?>"><?=$value->DISCOUNT?></td>
                                             <td class="percent-input">
-                                                <div class="form-group">
-                                                    <div class="item-col">
-                                                        <input type="text" class="form-control" id="discount<?=$value->SHOP_ID?>" value="<?=$value->DISCOUNT?>" >
-                                                    </div>
-                                                    <div class="item-col">
-                                                        <button type="submit" class="btn btn-success" onclick="changeDiscount(<?=$value->SHOP_ID?>)">Nhập</button>
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </div>
+                                               <form action="">
+                                                    <div class="form-group">
+                                                       <div class="item-col">
+                                                           <input type="text" class="form-control" id="discount<?=$value->SHOP_ID?>" value="<?=$value->DISCOUNT?>" >
+                                                          <!--  <div class="help-block with-errors"></div> -->
+                                                       </div>
+                                                       <div class="item-col">
+                                                           <button type="submit" class="btn btn-success" onclick="changeDiscount(<?=$value->SHOP_ID?>)">Nhập</button>
+                                                       </div>
+                                                       <div class="clearfix"></div>
+                                                   </div>
+                                               </form>
                                             </td>
                                             <td>
                                                 <label class="checkbox">
