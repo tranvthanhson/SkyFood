@@ -76,7 +76,6 @@ class Model
 
     public function pagination($query, $countUser, $link, $orderBy = 0)
     {
-
         $total = $countUser;
         //Find limit and current page
         $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
