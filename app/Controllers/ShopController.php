@@ -23,7 +23,9 @@ class ShopController
             $this->type = new Type;
             $this->comment = new Comment;
         } else {
-            echo 'Ban khong co quyen truy cap trang nay';
+
+            $link = '/admin/shop';
+            return view('not-access', compact('link'));
         }
     }
 
@@ -47,6 +49,7 @@ class ShopController
         $type = $_POST['type'];
         // die($type);
         $this->shopType->add($shop, $type);
+        $_SESSION['notice'] = 'create Successful!';
         return redirect('admin/shop');
     }
 
@@ -66,6 +69,7 @@ class ShopController
 
         $this->shop->update();
         $this->shopType->update($_GET['id'], $_POST['type']);
+        $_SESSION['notice'] = 'edit Successful!';
         return redirect('admin/shop');
     }
 
@@ -73,6 +77,7 @@ class ShopController
     {
         $this->shop->deleteshop();
         $this->shopType->delete();
+        $_SESSION['notice'] = 'delete Successful!';
         return redirect('admin/shop');
     }
 
@@ -89,7 +94,7 @@ class ShopController
     public function loadComments()
     {
         $id = $_GET['id'];
-        $comments = $this->comment->pagination();
+        $comments = $this->comment->load();
         $shop = $this->shop->selectByKey($id);
         $shop = $shop[0];
         // die(var_dump($shop));
@@ -99,6 +104,7 @@ class ShopController
     public function deleteComment()
     {
         $this->comment->deleteComment();
+        $_SESSION['notice'] = 'delete Successful!';
         return redirect('admin/shop');
     }
 }

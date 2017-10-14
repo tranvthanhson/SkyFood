@@ -9,7 +9,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Xem bình luận của địa điểm:<b><?=$shop->SHOP_NAME?></b></h4>
+                                    <h4 class="title">Xem bình luận của địa điểm:<b> <?=$shop->SHOP_NAME?></b></h4>
                                 </div>
                                 <div class="header-card ">
                                     <div class="row">
