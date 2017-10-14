@@ -89,13 +89,13 @@ class Account extends Model
                 $checkId = $this->findById($_POST['username'], 'USERNAME');
                 if (null != $checkId->USERNAME) {
                     //echo 'Username already!';
-                    $_SESSION['notice'] = 'Username already!';
+                    $_SESSION['notice'] = 'Username đã tồn tại!';
                     redirect('admin/user/add');
                 } else {
                     $this->fillable['USERNAME'] = $_POST['username'];
                     $this->insert($this->fillable);
                     $this->fillable = [];
-                    $_SESSION['notice'] = 'Register Successful!';
+                    $_SESSION['notice'] = 'Thêm Username thành công!';
                     redirect('admin/user');
                 }
             } else {
@@ -107,13 +107,13 @@ class Account extends Model
                 $checkId = $this->findById($user['USERNAME'], 'USERNAME');
 
                 if (null != $checkId->USERNAME) {
-                    $_SESSION['notice'] = 'Username already!';
+                    $_SESSION['notice'] = 'Username đã tồn tại!';
                     redirect('admin/user');
                 } else {
                     $this->fillable['USERNAME'] = $_POST['username'];
                     $this->insert($this->fillable);
                     $this->fillable = [];
-                    $_SESSION['notice'] = 'Register Successful!';
+                    $_SESSION['notice'] = 'Thêm Username thành công!';
                     redirect('admin/user');
                 }
             }
@@ -159,7 +159,7 @@ class Account extends Model
             $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $_POST['urlImage'], $_POST['email'], $_POST['role'], $_POST['phone']);
 
             $this->updateById($_POST['username'], $this->fillable);
-            $_SESSION['notice'] = 'Edit Successful!';
+            $_SESSION['notice'] = 'Sửa Username thành công!';
             redirect('admin/user');
         }
     }
