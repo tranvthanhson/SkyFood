@@ -44,10 +44,13 @@
                                         <th>Control</th>
                                     </thead>
                                     <tbody class="tableSearch">
-                                        <?php foreach ($shop['all'] as $value) {
+                                        <?php
+$index = 0;
+foreach ($shop['all'] as $value) {
+    $index++;
     ?>
                                         <tr>
-                                            <td><?=$value->SHOP_ID?></td>
+                                            <td><?=$index?></td>
                                             <td class="name-place"><a href=""><?=$value->SHOP_NAME?></a></td>
                                             <td class="img-post">
                                                 <a href=""><img  src="/public/assets/img/img-shop/<?=$value->VIEW?>" /></a>
@@ -55,7 +58,7 @@
                                             <td><?=$value->TYPE_NAME?></td>
                                             <td class="change-discount<?=$value->SHOP_ID?>"><?=$value->DISCOUNT?></td>
                                             <td class="percent-input">
-                                               <form action="">
+                                               <form action="javascript:void(0)">
                                                     <div class="form-group">
                                                        <div class="item-col">
                                                            <input type="text" class="form-control" id="discount<?=$value->SHOP_ID?>" value="<?=$value->DISCOUNT?>" >

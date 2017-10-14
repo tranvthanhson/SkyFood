@@ -152,7 +152,7 @@ if (1 == $_SESSION['user']->ROLE) {
                                                      </div>
                                                      <?php } else {?>
                                                      <div class="col-md-1 col-xs-1">
-                                                        <input type="submit" value="Ẩn" name="edit" class="btn bg-button">
+                                                        <input type="submit" value="Không duyệt" name="edit" class="btn bg-button">
                                                      </div>
                                                      <?php }}?>
                                                      <div class="clearfix"></div>

@@ -9,38 +9,17 @@ class Comment extends Model
     protected $table = 'COMMENT';
     protected $primaryKey = 'COMMENT_ID';
 
-    public function pagination()
+    public function load()
     {
-        $sql = "SELECT count($this->primaryKey) as total  FROM COMMENT  WHERE SHOP_ID = {$_GET['id']} ORDER BY {$this->primaryKey} DESC";
+
+        $link = 'admin/shop';
+        $sql = "SELECT * FROM {$this->table} WHERE SHOP_ID={$_GET['id']}";
         //die($sql);
-        $total = $this->rawQuery($sql);
+        $selectAll = $this->rawQuery($sql);
+        //die(var_dump($selectAll));
+        $countUser = count($selectAll);
 
-        $totalRecords = $total[0]->total;
-
-        //Find limit and current page
-        $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
-        $limit = 5;
-        $totalPage = ceil($totalRecords / $limit);
-        // Limit currentPage from 1 to totalPage
-        if ($currentPage > $totalPage) {
-            $currentPage = $totalPage;
-        } else if ($currentPage < 1) {
-            $currentPage = 1;
-        }
-
-        //  Find Start
-        $start = ($currentPage - 1) * $limit;
-
-        $sql = "SELECT * from {$this->table} ";
-        $sql .= " LIMIT {$start},{$limit}";
-
-        //die($sql);
-        $arrPagination = [];
-        $arrPagination['all'] = $this->rawQuery($sql);
-        $arrPagination['currentPage'] = $currentPage;
-        $arrPagination['totalPage'] = $totalPage;
-
-        return $arrPagination;
+        return $this->pagination($sql, $countUser, $link, 1);
     }
 
     public function deleteComment()
