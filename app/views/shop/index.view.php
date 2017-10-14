@@ -20,16 +20,20 @@
                                             <div class="input-group-addon"><span>Tìm kiếm</span></div>
                                             <input type="text" class="form-control" id="inputSearch" />
                                             <div class="input-group-btn">
-                                                <button class="btn btn-default" type="button" onclick="search('/admin/shop/searchShop')"><i class="pe-7s-search"></i></button>
+                                                <button class="btn btn-default" type="submit"  id="btnSearch" onclick="search('/admin/shop/searchShop')"><i class="pe-7s-search"></i></button>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
+                           <?php if (isset($_SESSION['notice'])) {?>
                             <div class="alert alert-success">
-                              <strong>Success!</strong> Indicates a successful or positive action.
+
+                                <strong><?=$_SESSION['notice']?></strong>
                             </div>
+                            <?php }?>
+                            <?php unset($_SESSION['notice']);?>
                             <div class="content content-card table-responsive table-full-width">
                                 <table id="view-post" class="table table-hover table-striped">
                                     <thead>

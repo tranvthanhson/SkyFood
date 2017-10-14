@@ -49,6 +49,7 @@ class ShopController
         $type = $_POST['type'];
         // die($type);
         $this->shopType->add($shop, $type);
+        $_SESSION['notice'] = 'create Successful!';
         return redirect('admin/shop');
     }
 
@@ -68,6 +69,7 @@ class ShopController
 
         $this->shop->update();
         $this->shopType->update($_GET['id'], $_POST['type']);
+        $_SESSION['notice'] = 'edit Successful!';
         return redirect('admin/shop');
     }
 
@@ -75,6 +77,7 @@ class ShopController
     {
         $this->shop->deleteshop();
         $this->shopType->delete();
+        $_SESSION['notice'] = 'delete Successful!';
         return redirect('admin/shop');
     }
 
@@ -101,6 +104,7 @@ class ShopController
     public function deleteComment()
     {
         $this->comment->deleteComment();
+        $_SESSION['notice'] = 'delete Successful!';
         return redirect('admin/shop');
     }
 }
