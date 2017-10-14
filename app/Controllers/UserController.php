@@ -26,6 +26,7 @@ class UserController
 
     public function index()
     {
+
         $users = $this->account->searchUser();
 
         return view('user/index', compact('users'));
