@@ -94,7 +94,11 @@ class ShopController
     public function loadComments()
     {
         $id = $_GET['id'];
-        $comments = $this->comment->load();
+        if (isset($_SESSION['idshop'])) {
+            $id = $_SESSION['idshop'];
+            unset($_SESSION['idshop']);
+        }
+        $comments = $this->comment->load($id);
         $shop = $this->shop->selectByKey($id);
         $shop = $shop[0];
         // die(var_dump($shop));

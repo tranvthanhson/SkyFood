@@ -9,11 +9,11 @@ class Comment extends Model
     protected $table = 'COMMENT';
     protected $primaryKey = 'COMMENT_ID';
 
-    public function load()
+    public function load($id)
     {
 
         $link = 'admin/shop';
-        $sql = "SELECT * FROM {$this->table} WHERE SHOP_ID={$_GET['id']}";
+        $sql = "SELECT * FROM {$this->table} WHERE SHOP_ID={$id}";
         //die($sql);
         $selectAll = $this->rawQuery($sql);
         //die(var_dump($selectAll));
@@ -24,6 +24,7 @@ class Comment extends Model
 
     public function deleteComment()
     {
+        $_SESSION['idshop'] = $_GET['id'];
         return $this->deleteById($_GET['idcomment']);
     }
 }

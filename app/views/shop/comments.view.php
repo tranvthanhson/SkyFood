@@ -19,6 +19,13 @@
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
+                                 <?php if (isset($_SESSION['notice'])) {?>
+                            <div class="alert alert-success">
+
+                                <strong><?=$_SESSION['notice']?></strong>
+                            </div>
+                            <?php }?>
+                            <?php unset($_SESSION['notice']);?>
                                 <div class="content content-card table-responsive table-full-width">
                                     <table id="view-post" class="table table-hover table-striped">
                                         <thead>
