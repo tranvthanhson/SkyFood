@@ -47,7 +47,7 @@ foreach ($comments['all'] as $value) {
                                                 </td>
                                             </tr>
 
-	<?php view_include('partials.modal', ['id_model' => 'delComment' . $value->COMMENT_ID, 'title' => 'XÓA BINH LUAN ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => '/admin/shop/comment/del?id=' . $value->COMMENT_ID]);
+	<?php view_include('partials.modal', ['id_model' => 'delComment' . $value->COMMENT_ID, 'title' => 'XÓA BINH LUAN ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => '/admin/shop/comment/del?idcomment=' . $value->COMMENT_ID . '&id=' . $shop->SHOP_ID]);
 }?>
                                         </tbody>
                                     </table>

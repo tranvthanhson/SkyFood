@@ -49,7 +49,7 @@ class ShopController
         $type = $_POST['type'];
         // die($type);
         $this->shopType->add($shop, $type);
-        $_SESSION['notice'] = 'create Successful!';
+        $_SESSION['notice'] = 'Thêm thành công!';
         return redirect('admin/shop');
     }
 
@@ -69,7 +69,7 @@ class ShopController
 
         $this->shop->update();
         $this->shopType->update($_GET['id'], $_POST['type']);
-        $_SESSION['notice'] = 'edit Successful!';
+        $_SESSION['notice'] = 'Sửa thành công!';
         return redirect('admin/shop');
     }
 
@@ -77,7 +77,7 @@ class ShopController
     {
         $this->shop->deleteshop();
         $this->shopType->delete();
-        $_SESSION['notice'] = 'delete Successful!';
+        $_SESSION['notice'] = 'Xóa thành công!';
         return redirect('admin/shop');
     }
 
@@ -104,7 +104,7 @@ class ShopController
     public function deleteComment()
     {
         $this->comment->deleteComment();
-        $_SESSION['notice'] = 'delete Successful!';
-        return redirect('admin/shop');
+        $_SESSION['notice'] = 'Xóa thành công!';
+        return redirect('admin/shop/comment');
     }
 }

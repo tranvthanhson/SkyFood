@@ -24,6 +24,6 @@ class Comment extends Model
 
     public function deleteComment()
     {
-        return $this->deleteById($_GET['id']);
+        return $this->deleteById($_GET['idcomment']);
     }
 }
