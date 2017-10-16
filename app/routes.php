@@ -69,3 +69,7 @@ $router->get('admin/statistics', 'Admin\StatisticsController@index');
 // PUBLIC
 // Home
 $router->get('', 'Publics\HomeController@index');
+
+// Contact
+$router->get('contact', 'Publics\ContactController@index');
+$router->post('contact/create', 'Publics\ContactController@create');
