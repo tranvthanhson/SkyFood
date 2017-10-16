@@ -7,6 +7,10 @@ class AdminController
 {
     public function index()
     {
-        return view('index/index');
+        if (isset($_SESSION['user'])) {
+            return view('index/index');
+        } else {
+            return view('not-access');
+        }
     }
 }
