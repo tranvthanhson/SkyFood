@@ -3,7 +3,7 @@
     <div class="wrapper">
         <?php view_include('public.partials.header')?>
         <div id="content">
-            <div class="home">
+            <div id="home" class="home">
                 <div class="slide-ad">
                     <div class="container-fluid">
                         <div class="row">
@@ -11,7 +11,7 @@
                                 <div class="wrp-item">
                                     <img src="/public/public/assets/img/slide_banner/hd1.jpg">
                                     <div class="bg">
-                                        <div class="slide-text ">
+                                        <div class="slide-text">
                                             <h2>Sky Food</h2>
                                         </div>
                                     </div>
