@@ -30,7 +30,17 @@ class Shop extends Model
 
     public function shopConnectToType()
     {
-        return $this->pagination(1);
+        $link = 'admin/shop';
+        if (1 == $_SESSION['user']->ROLE) {
+            $sql = 'SELECT *,TYPE_SHOP.TYPE_ID AS type_id,TYPE_SHOP.SHOP_ID AS shop_id, SHOP.SHOP_ID AS sid FROM TYPE_SHOP INNER JOIN SHOP ON SHOP.SHOP_ID =TYPE_SHOP.SHOP_ID INNER JOIN TYPE ON TYPE.TYPE_ID =TYPE_SHOP.TYPE_ID';
+        } else {
+            $sql = "SELECT *,TYPE_SHOP.TYPE_ID AS type_id,TYPE_SHOP.SHOP_ID AS shop_id, SHOP.SHOP_ID AS sid FROM TYPE_SHOP INNER JOIN SHOP ON SHOP.SHOP_ID =TYPE_SHOP.SHOP_ID INNER JOIN TYPE ON TYPE.TYPE_ID =TYPE_SHOP.TYPE_ID WHERE USERNAME={$_SESSION['user']->USERNAME}";
+        }
+        $selectAll = $this->rawQuery($sql);
+        //die(var_dump($selectAll));
+        $countUser = count($selectAll);
+
+        return $this->pagination($sql, $countUser, $link, 1, 'sid');
     }
 
     public function selectAll()
@@ -148,10 +158,14 @@ class Shop extends Model
 
     public function updateDiscount()
     {
-
-        $shop['DISCOUNT'] = $_POST['aValue'];
-        //echo $shop['DISCOUNT'];
-        $a = $this->updateById($_POST['aKey'], $shop);
-        echo $_POST['aValue'];
+        $val = $_POST['aValue'];
+        if ($val >= 100) {
+            echo "<b style='color:red'>không hợp lệ</b>";
+        } else {
+            $shop['DISCOUNT'] = $val;
+            //echo $shop['DISCOUNT'];
+            $a = $this->updateById($_POST['aKey'], $shop);
+            echo $val;
+        }
     }
 }

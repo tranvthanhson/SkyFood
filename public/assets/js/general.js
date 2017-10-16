@@ -19,25 +19,5 @@ function search(link){
         }
     });
 }
-function changeDiscount(key){
-	 var val = $('#discount').val();
-    //alert(key);
-$.ajax({
-    url: '/shop/ajaxDiscount',
-    type: 'POST',
-    cache: false,
-    data: {
-        aValue: val,
-        aKey: key,
-// aactive: active
-},
-success: function(data) {
-    $('.change-discount'+key).html(data);
-//alert($data);
-},
-error: function() {
-    alert('Có lỗi xảy ra');
-}
-});
-}
+
 

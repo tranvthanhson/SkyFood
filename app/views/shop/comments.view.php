@@ -9,7 +9,7 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="header">
-                                    <h4 class="title">Xem bình luận của địa điểm:<b><?=$shop->SHOP_NAME?></b></h4>
+                                    <h4 class="title">Xem bình luận của địa điểm:<b> <?=$shop->SHOP_NAME?></b></h4>
                                 </div>
                                 <div class="header-card ">
                                     <div class="row">
@@ -19,6 +19,13 @@
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
+                                 <?php if (isset($_SESSION['notice'])) {?>
+                            <div class="alert alert-success">
+
+                                <strong><?=$_SESSION['notice']?></strong>
+                            </div>
+                            <?php }?>
+                            <?php unset($_SESSION['notice']);?>
                                 <div class="content content-card table-responsive table-full-width">
                                     <table id="view-post" class="table table-hover table-striped">
                                         <thead>
@@ -47,7 +54,7 @@ foreach ($comments['all'] as $value) {
                                                 </td>
                                             </tr>
 
-	<?php view_include('partials.modal', ['id_model' => 'delComment' . $value->COMMENT_ID, 'title' => 'XÓA BINH LUAN ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => '/admin/shop/comment/del?id=' . $value->COMMENT_ID]);
+	<?php view_include('partials.modal', ['id_model' => 'delComment' . $value->COMMENT_ID, 'title' => 'XÓA BINH LUAN ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => '/admin/shop/comment/del?idcomment=' . $value->COMMENT_ID . '&id=' . $shop->SHOP_ID]);
 }?>
                                         </tbody>
                                     </table>

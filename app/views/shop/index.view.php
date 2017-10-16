@@ -20,16 +20,20 @@
                                             <div class="input-group-addon"><span>Tìm kiếm</span></div>
                                             <input type="text" class="form-control" id="inputSearch" />
                                             <div class="input-group-btn">
-                                                <button class="btn btn-default" type="button" onclick="search('/admin/shop/searchShop')"><i class="pe-7s-search"></i></button>
+                                                <button class="btn btn-default" type="submit"  id="btnSearch" onclick="search('/admin/shop/searchShop')"><i class="pe-7s-search"></i></button>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
                             </div>
+                           <?php if (isset($_SESSION['notice'])) {?>
                             <div class="alert alert-success">
-                              <strong>Success!</strong> Indicates a successful or positive action.
+
+                                <strong><?=$_SESSION['notice']?></strong>
                             </div>
+                            <?php }?>
+                            <?php unset($_SESSION['notice']);?>
                             <div class="content content-card table-responsive table-full-width">
                                 <table id="view-post" class="table table-hover table-striped">
                                     <thead>
@@ -44,10 +48,13 @@
                                         <th>Control</th>
                                     </thead>
                                     <tbody class="tableSearch">
-                                        <?php foreach ($shop['all'] as $value) {
+                                        <?php
+$index = 0;
+foreach ($shop['all'] as $value) {
+    $index++;
     ?>
                                         <tr>
-                                            <td><?=$value->SHOP_ID?></td>
+                                            <td><?=$index?></td>
                                             <td class="name-place"><a href=""><?=$value->SHOP_NAME?></a></td>
                                             <td class="img-post">
                                                 <a href=""><img  src="/public/assets/img/img-shop/<?=$value->VIEW?>" /></a>
@@ -55,7 +62,7 @@
                                             <td><?=$value->TYPE_NAME?></td>
                                             <td class="change-discount<?=$value->SHOP_ID?>"><?=$value->DISCOUNT?></td>
                                             <td class="percent-input">
-                                               <form action="">
+                                               <form action="javascript:void(0)">
                                                     <div class="form-group">
                                                        <div class="item-col">
                                                            <input type="text" class="form-control" id="discount<?=$value->SHOP_ID?>" value="<?=$value->DISCOUNT?>" >
