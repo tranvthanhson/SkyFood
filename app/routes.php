@@ -18,7 +18,7 @@ $router->post('login', 'Admin\LoginController@login');
 $router->get('logout', 'Admin\LoginController@logout');
 
 // Register
-$router->get('register', 'Admin\RegisterController@index');
+
 $router->post('register', 'Admin\RegisterController@register');
 
 // User
@@ -68,4 +68,8 @@ $router->get('admin/statistics', 'Admin\StatisticsController@index');
 
 // PUBLIC
 // Home
-$router->get('home', 'Publics\HomeController@index');
+$router->get('', 'Publics\HomeController@index');
+
+// Profile
+
+$router->get('profile', 'Publics\UserController@index');

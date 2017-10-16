@@ -25,7 +25,7 @@ class LoginController
         if ('Admin' == $result) {
             return redirect('admin');
         } else if ('User' == $result) {
-            echo 'Redirect User Page';
+            return redirect('');
         } else {
             echo 'Redirect Home';
         }
@@ -34,7 +34,7 @@ class LoginController
     public function logout()
     {
         $this->account->logout();
-        redirect('login');
+        redirect('');
     }
 
     public function viewForgotPassword()
