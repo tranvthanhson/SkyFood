@@ -71,5 +71,8 @@ $router->get('admin/statistics', 'Admin\StatisticsController@index');
 $router->get('', 'Publics\HomeController@index');
 
 // Profile
-
 $router->get('profile', 'Publics\UserController@index');
+
+// Contact
+$router->get('contact', 'Publics\ContactController@index');
+$router->post('contact/create', 'Publics\ContactController@create');

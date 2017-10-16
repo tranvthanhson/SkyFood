@@ -21,16 +21,14 @@ class Model
         return $this->db->execute($sql, $param);
     }
 
-    public function all($fields = ['*'])
+    public function all($fields = '*')
     {
-        $fields = implode(',', $fields);
         $sql = "SELECT {$fields} FROM {$this->table}";
         return $this->rawQuery($sql);
     }
 
     public function insert($params)
     {
-
         $sql = "INSERT INTO {$this->table} (";
         foreach ($params as $key => $value) {
             $sql .= "$key, ";
@@ -74,44 +72,6 @@ class Model
         return (object) [];
     }
 
-    // public function pagination($query, $countUser, $link, $orderBy = 0)
-    // {
-    //     $total = $countUser;
-    //     //Find limit and current page
-    //     $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
-    //     // echo $_GET['page'];
-    //     $limit = 5;
-    //     // echo $limit;
-    //     $totalPage = ceil($total / $limit);
-
-    //     // Limit currentPage from 1 to totalPage
-    //     if ($currentPage > $totalPage) {
-    //         $currentPage = $totalPage;
-    //     }
-    //     if ($currentPage < 1) {
-    //         $currentPage = 1;
-    //     }
-
-    //     //  Find Start
-    //     $start = ($currentPage - 1) * $limit;
-
-    //     //echo $start;
-    //     $sql = $query;
-
-    //     if (1 == $orderBy) {
-    //         $sql .= " ORDER BY {$this->primaryKey} DESC ";
-    //     }
-    //     $sql .= " LIMIT {$start},{$limit}";
-    //     // echo $sql;
-    //     //die($sql);
-    //     $arrPagination = [];
-    //     $arrPagination['all'] = $this->rawQuery($sql);
-    //     $arrPagination['currentPage'] = $currentPage;
-    //     $arrPagination['totalPage'] = $totalPage;
-    //     $arrPagination['link'] = $link;
-
-    //     return $arrPagination;
-    //
     public function pagination($query, $countUser, $link, $orderBy = 0, $key = '')
     {
 
