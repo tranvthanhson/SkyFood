@@ -68,4 +68,4 @@ $router->get('admin/statistics', 'Admin\StatisticsController@index');
 
 // PUBLIC
 // Home
-$router->get('home', 'Publics\HomeController@index');
+$router->get('', 'Publics\HomeController@index');
