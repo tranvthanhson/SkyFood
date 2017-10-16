@@ -1,5 +1,6 @@
 <?php
 
+//ADMIN
 // Index
 $router->get('admin', 'AdminController@index');
 
@@ -64,3 +65,7 @@ $router->get('admin/type/delete', 'TypeController@deleteType');
 
 // Statistics
 $router->get('admin/statistics', 'StatisticsController@index');
+
+// PUBLIC
+// Home
+$router->get('home', 'Publics\HomeController@index');
