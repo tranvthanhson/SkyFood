@@ -16,7 +16,7 @@
 
                 <div class="col-md-12">
                     <div class="form-group login-btn">
-                        <input type="submit" class=" btn bg-button" name="send" value="Đăng nhập" />
+                        <input type="submit" class=" btn bg-button" name="send" value="Gửi" />
                     </div>
                 </div>
                 <div class="clearfix"></div>
