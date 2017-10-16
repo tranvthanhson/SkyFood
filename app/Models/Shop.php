@@ -94,6 +94,13 @@ class Shop extends Model
         return $this->rawQuery($sql);
     }
 
+    public function selectByKeyPublic()
+    {
+        $sql = "SELECT *,AVG(SCORE) AS AVG FROM SHOP LEFT JOIN RATE ON SHOP.SHOP_ID =RATE.SHOP_ID WHERE SHOP.SHOP_ID={$_GET['id']}";
+        //die($sql);
+        return $this->rawQuery($sql);
+    }
+
     public function update()
     {
         $id = $_GET['id'];
