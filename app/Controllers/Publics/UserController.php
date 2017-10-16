@@ -22,8 +22,18 @@ class UserController
         $this->account->updateUserInfo();
     }
 
+    public function viewEditPassword()
+    {
+        return view('public/user/changePassword');
+    }
+
     public function editUserPassword()
     {
         $this->account->editUserPassword();
+    }
+
+    public function editUserImage()
+    {
+        $this->account->editUserImage();
     }
 }
