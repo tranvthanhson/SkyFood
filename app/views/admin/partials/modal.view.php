@@ -12,9 +12,14 @@
                 <p><?=$content?></p>
             </div>
             <div class="modal-footer">
-                <a href="<?=$link?>"  class="btn btn-danger" ><?=$bt?></a>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ</button>
+                <?php if ('' == $link) {?>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+                    <?php } else {?>
+                        <a href="<?=$link?>"  class="btn btn-danger" ><?=$bt?></a>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ</button>
+                        <?php }?>
+
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>

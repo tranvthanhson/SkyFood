@@ -2,7 +2,7 @@
 <?php foreach ($feedbacks as $feedback): ?>
     <tr>
         <td><?=++$index;?></td>
-        <td><?=$feedback->FULL_NAME;?></td>
+        <td><?=$feedback->PHONE;?></td>
         <td><?=$feedback->EMAIL;?></td>
         <td><?=$feedback->PHONE;?></td>
         <td><?=$feedback->CONTENT;?></td>
@@ -44,6 +44,7 @@
                             </div>
                         </div>
                     </div>
+
                     <?php
 $data = [
     'id_model' => 'deleteFeedback' . $feedback->FEEDBACK_ID,

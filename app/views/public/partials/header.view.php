@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="logo col-md-3 col-xs-3">
                     <div class="wrp-img">
-                        <a href="index.html"><img src="/public/public/assets/img/logo/logo2.png" alt=""></a>
+                        <a href="/"><img src="/public/public/assets/img/logo/logo2.png" alt=""></a>
                     </div>
                 </div>
                 <div class="top-right col-md-9 col-xs-9">
@@ -45,11 +45,11 @@
             <div class="row">
                 <div class="collapse navbar-collapse header-navbar">
                     <ul class="nav navbar-nav ">
-                        <li><a class="active-menu" href="index.html">home</a></li>
+                        <li><a href="/">home</a></li>
                         <li><a href="#interested">interested</a></li>
                         <li><a href="#news">news</a></li>
                         <li><a href="#aboutUs">about us</a></li>
-                        <li><a href="contact.html">contact</a></li>
+                        <li><a href="contact">contact</a></li>
                         <li><a href="advanced-search.html">search</a></li>
                     </ul>
                 </div>
