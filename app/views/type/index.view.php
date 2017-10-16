@@ -26,15 +26,15 @@
                                         <th>Control</th>
                                     </thead>
                                     <tbody>
-
+                                        <?php $index = 0;?>
                                         <?php foreach ($types as $type): ?>
                                             <tr>
-                                                <td><?=$type->TYPE_ID;?></td>
+                                                <td> <?=++$index?></td>
                                                 <td><?=$type->TYPE_NAME;?></td>
                                                 <td class="control">
                                                     <div class="form-group">
                                                         <div class="item-col">
-                                                        <a href="/admin/type/edit?TYPE_ID=<?=$type->TYPE_ID?>" class="btn btn-success" title="Sửa">
+                                                            <a href="/admin/type/edit?TYPE_ID=<?=$type->TYPE_ID?>" class="btn btn-success" title="Sửa">
                                                                 <i class="pe-7s-note"></i>
                                                             </a>
                                                         </div>

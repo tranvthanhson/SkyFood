@@ -43,9 +43,9 @@
                                         <th>Danh mục</th>
                                         <th>%</th>
                                         <th>Khuyến mãi</th>
-                                        <th>Action</th>
+                                        <th>Trạng thái</th>
                                         <th>Bình luận</th>
-                                        <th>Control</th>
+                                        <th>Chức năng</th>
                                     </thead>
                                     <tbody class="tableSearch">
                                         <?php
@@ -78,9 +78,9 @@ foreach ($shop['all'] as $value) {
                                             <td>
                                                 <label class="checkbox">
                                                     <?php if (1 == $value->STATUS) {?>
-                                                    <input type="checkbox" value="" data-toggle="checkbox" checked="">
+                                                    <input type="checkbox" value="" data-toggle="checkbox" checked="" disabled="disabled">
                                                     <?php } else {?>
-                                                    <input type="checkbox" value="" data-toggle="checkbox" >
+                                                    <input type="checkbox" value="" data-toggle="checkbox" disabled="disabled">
                                                     <?php }?>
                                                 </label>
                                             </td>
