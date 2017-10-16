@@ -135,7 +135,7 @@ class Shop extends Model
         $sql = "SELECT * FROM {$this->table} WHERE (SHOP_NAME LIKE '%" . $_POST['ajaxKey'] . "%')";
         //die($sql);
         $shop = $this->rawQuery($sql);
-        echo require 'app/views/shop/ShopTable.php';
+        echo require 'app/views/admin/shop/ShopTable.php';
     }
 
     public function updateDiscount()
