@@ -73,6 +73,8 @@ $router->get('', 'Publics\HomeController@index');
 // Profile
 
 $router->get('profile', 'Publics\UserController@index');
+$router->post('editUserInfo', 'Publics\UserController@editUser');
+$router->post('editUserPassword', 'Publics\UserController@editUserPassword');
 
 // Contact
 $router->get('contact', 'Publics\ContactController@index');

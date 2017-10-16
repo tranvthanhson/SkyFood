@@ -1,5 +1,7 @@
 new WOW().init();
-
+$(window).load(function() {
+    $(".se-pre-con").fadeOut("slow");;
+});
 $(document).on('ready', function() {
     $(".slider-ad").slick({
         dots: true,
@@ -58,9 +60,12 @@ $(document).ready(function() {
                 window.location.hash = hash;
             });
         }
-        $(".section-scroll").css("padding-top","60px");
-
+        $(".section-scroll").css("padding-top", "60px");
     });
+    // $('.item-menu').click(function() {
+    //     $('.item-menu').removeClass("active");
+    //     $(this).addClass("active");
+    // });
 });
 
 

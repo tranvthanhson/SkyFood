@@ -219,4 +219,27 @@ class Account extends Model
     {
         die(var_dump($_FILES));
     }
+
+    // Public
+    public function updateUserInfo()
+    {
+        if (isset($_POST['edit'])) {
+            $account = $this->getUser($_POST['username']);
+            $this->setValue($account[0]->PASSWORD, $_POST['firstName'], $_POST['lastName'], $_POST['address'], $account[0]->IMAGE, $_POST['email'], 3, $_POST['phone']);
+            $this->updateById($_POST['username'], $this->fillable);
+            $_SESSION['notice'] = 'Sửa Username thành công!';
+            redirect('profile');
+        }
+    }
+
+    public function editUserPassword()
+    {
+        if (isset($_POST['edit'])) {
+            $account = $this->getUser($_POST['username']);
+            $this->setValue(md5($_POST['password']), $account[0]->FIRST_NAME, $account[0]->LAST_NAME, $account[0]->ADDRESS, $account[0]->IMAGE, $account[0]->EMAIL, 3, $account[0]->PHONE);
+            $this->updateById($_POST['username'], $this->fillable);
+            $_SESSION['notice'] = 'Sửa Username thành công!';
+            redirect('profile');
+        }
+    }
 }
