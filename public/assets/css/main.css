@@ -303,7 +303,7 @@ width: 22%;
 margin-top: 5%; } }
 @media (max-width: 480px) {
 .error-page .wrp-error .btn {
-width: 35%; } }   
+width: 35%; } }
 .alert {
   margin: 0 15px;
   border-radius: 2px !important;
@@ -311,4 +311,7 @@ width: 35%; } }
 .alert-success {
   background: #dff0d8 !important;
   color: #3c763d !important;
-}                                                                                                                                                                                                                            
+}
+.checkbox.disabled.checked .second-icon, .radio.disabled.checked .second-icon {
+    color: #1DC7EA !important;
+}
