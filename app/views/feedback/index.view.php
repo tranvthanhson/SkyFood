@@ -5,7 +5,7 @@
 
 <div class="wrapper">
     <!-- Require side-bar -->
-    <?php view_include('layouts/side-bar')?>
+    <?php view_include('partials.side-bar')?>
 
     <div class="main-panel">
 
