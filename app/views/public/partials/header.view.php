@@ -18,19 +18,22 @@
                         </div>
                     </div>
                     <div class="user-features col-md-6 col-sm-6 item">
+                        <?php if (isset($_SESSION['user'])) {?>
                         <div class="user dropdown item-feature">
                             <a href="" class="btn-user  dropdown-toggle" data-toggle="dropdown">
                                 <i class="fa fa-user"></i>
-                                Hieu Tran
+                                <?=$_SESSION['user']->USERNAME;?>
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="user-profile.html">Profile</a></li>
-                                <li><a href="#">Logout</a></li>
+                                <li><a href="/logout">Logout</a></li>
                             </ul>
                         </div>
+                        <?php } else {?>
                         <div class="signIn item-feature"><a href="" class="btn-signIn" data-toggle="modal" data-target="#modal-signIn"><i class="fa fa-sign-in"></i>Login</a></div>
                         <div class="signUp item-feature"><a href="" class="btn-signUp" data-toggle="modal" data-target="#modal-signUp"><i class="fa fa-user"></i>Register</a></div>
+                        <?php }?>
                     </div>
                     <div class="btn-modal-search item">
                         <a href="" data-toggle="modal" data-target="#modal-search" class="btn-search"><i class="fa fa-search"></i></a>
@@ -68,11 +71,11 @@
                     <h4 class="modal-title">Sign In</h4>
                 </div>
                 <div class="modal-body">
-                    <form data-toggle="validator" role="form" name="form" id="form-signIn" class="form-horizontal" enctype="multipart/form-data" method="POST">
+                    <form data-toggle="validator" action="/login" role="form" name="form" id="form-signIn" class="form-horizontal" enctype="multipart/form-data" method="POST">
                         <div class="col-md-12 username">
                             <div class="form-group item">
                                 <label for="input-uerName">Username</label>
-                                <input type="text" id="input-uername" class="form-control" required />
+                                <input type="text" id="input-uername" name="username" value="Admin" class="form-control" required />
                                 <div class="underline"></div>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -80,14 +83,14 @@
                         <div class="col-md-12 password">
                             <div class="form-group item">
                                 <label for="input-uerName">Password</label>
-                                <input type="password" id="input-pass" class="form-control" data-minlength="6" required data-error="Mật khẩu ít nhất 6 kí tự" />
+                                <input type="password" name="password" value="admin" id="input-pass" class="form-control" data-minlength="6" required data-error="Mật khẩu ít nhất 6 kí tự" />
                                 <div class="underline"></div>
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group button-action">
-                                <input type="submit" class=" btn btn-bg" value="Sign in" required />
+                                <input type="submit" class=" btn btn-bg" name="login" value="Sign in" required />
                             </div>
                         </div>
                         <div class="col-md-12 forgotPass">
@@ -119,11 +122,11 @@
                     <h4 class="modal-title">sign up</h4>
                 </div>
                 <div class="modal-body">
-                    <form data-toggle="validator" role="form" name="form" id="form-signUp" class="form-horizontal" enctype="multipart/form-data" method="POST">
+                    <form data-toggle="validator" role="form" name="form" id="form-signUp" class="form-horizontal" enctype="multipart/form-data" method="POST" action="/register">
                         <div class="col-md-12 username">
                             <div class="form-group item">
                                 <label>Username</label>
-                                <input type="text" class="form-control input-userName" required>
+                                <input type="text" name="username" value="Admin" class="form-control input-userName" required>
                                 <div class="underline"></div>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -131,7 +134,7 @@
                         <div class="col-md-12 password">
                             <div class="form-group item">
                                 <label>Password</label>
-                                <input type="password" class="form-control input-pass" id="pass" data-minlength="6" required data-error="Mật khẩu phải ít nhất 6 kí tự">
+                                <input type="password" name="password" value="Admin" class="form-control input-pass" id="pass" data-minlength="6" required data-error="Mật khẩu phải ít nhất 6 kí tự">
                                 <div class="underline"></div>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -147,7 +150,7 @@
                         <div class="col-md-12 firstName">
                             <div class="form-group item">
                                 <label>First Name</label>
-                                <input type="text" class="form-control input-firstName" required>
+                                <input type="text" class="form-control input-firstName" name="first_name" value="Admin" required>
                                 <div class="underline"></div>
                                 <div class="help-block with-errors"></div>
                             </div>
@@ -155,14 +158,14 @@
                         <div class="col-md-12 lastName">
                             <div class="form-group item">
                                 <label>Last Name</label>
-                                <input type="text" class="form-control input-lastName" required>
+                                <input type="text" class="form-control input-lastName" name="last_name" value="Admin" required>
                                 <div class="underline"></div>
                                 <div class="help-block with-errors"></div>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group button-action">
-                                <input type="submit" class=" btn btn-bg" value="Sign up" />
+                                <input type="submit" name="add" class=" btn btn-bg" value="Sign up" />
                             </div>
                         </div>
                         <div class="clearfix"></div>
