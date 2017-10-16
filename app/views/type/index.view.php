@@ -1,6 +1,6 @@
 <?php view_include('layouts.head-master', ['title' => 'Danh mục']);?>
 <div class="wrapper">
-    <?php view_include('layouts.side-bar');?>
+    <?php view_include('partials.side-bar');?>
     <div class="main-panel">
         <?php view_include('partials.header', ['title' => 'Danh mục'])?>
         <div class="content posts">
