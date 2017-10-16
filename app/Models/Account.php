@@ -174,7 +174,7 @@ class Account extends Model
             // $users['currentPage'] = $currentPage;
             // $users['totalPage'] = $totalPage;
 
-            echo require 'app/views/user/UsersTable.view.php';
+            echo require 'app/views/admin/user/UsersTable.view.php';
         } else {
             $link = 'admin/user';
             $sql = "SELECT * from {$this->table} ";

@@ -162,7 +162,7 @@ class Model
         $extention = end($splitArray);
         $image = 'hinh-' . time() . '.' . $extention;
         $tmpName = $_FILES['file']['tmp_name'];
-        $pathUpload = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/img/' . $link . '/' . $image;
+        $pathUpload = $_SERVER['DOCUMENT_ROOT'] . '/public/admin/assets/img/' . $link . '/' . $image;
         move_uploaded_file($tmpName, $pathUpload);
         return $image;
     }

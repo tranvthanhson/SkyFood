@@ -2,69 +2,69 @@
 
 //ADMIN
 // Index
-$router->get('admin', 'AdminController@index');
+$router->get('admin', 'Admin\AdminController@index');
 
 // Feedback
-$router->get('admin/feedback', 'FeedbackController@index');
-$router->get('admin/feedback/delete', 'FeedbackController@delete');
-$router->post('admin/feedback/reply', 'FeedbackController@reply');
-$router->post('admin/feedback/searchFeedback', 'FeedbackController@searchFeedback');
+$router->get('admin/feedback', 'Admin\FeedbackController@index');
+$router->get('admin/feedback/delete', 'Admin\FeedbackController@delete');
+$router->post('admin/feedback/reply', 'Admin\FeedbackController@reply');
+$router->post('admin/feedback/searchFeedback', 'Admin\FeedbackController@searchFeedback');
 
 // Login
-$router->get('login', 'LoginController@index');
-$router->post('login', 'LoginController@login');
+$router->get('login', 'Admin\LoginController@index');
+$router->post('login', 'Admin\LoginController@login');
 
 // Logout
-$router->get('logout', 'LoginController@logout');
+$router->get('logout', 'Admin\LoginController@logout');
 
 // Register
-$router->get('register', 'RegisterController@index');
-$router->post('register', 'RegisterController@register');
+$router->get('register', 'Admin\RegisterController@index');
+$router->post('register', 'Admin\RegisterController@register');
 
 // User
-$router->get('admin/user', 'UserController@index');
-$router->get('admin/user/add', 'UserController@addUser');
-$router->post('admin/user/add', 'UserController@storeUser');
-$router->post('admin/user/checkUser', 'UserController@checkUser');
-$router->get('admin/user/edit', 'UserController@editUser');
-$router->post('admin/user/edit', 'UserController@updateUser');
-$router->get('admin/user/del', 'UserController@deleteUser');
+$router->get('admin/user', 'Admin\UserController@index');
+$router->get('admin/user/add', 'Admin\UserController@addUser');
+$router->post('admin/user/add', 'Admin\UserController@storeUser');
+$router->post('admin/user/checkUser', 'Admin\UserController@checkUser');
+$router->get('admin/user/edit', 'Admin\UserController@editUser');
+$router->post('admin/user/edit', 'Admin\UserController@updateUser');
+$router->get('admin/user/del', 'Admin\UserController@deleteUser');
 
 //loadImages
 $router->post('user/loadimage', 'UserController@loadImages');
 
 // Forgot Password
-$router->get('forgotpassword', 'LoginController@viewForgotPassword');
-$router->post('forgotpassword', 'LoginController@forgotPassword');
+$router->get('forgotpassword', 'Admin\LoginController@viewForgotPassword');
+$router->post('forgotpassword', 'Admin\LoginController@forgotPassword');
 //Search
-$router->post('admin/user/searchUser', 'UserController@searchUser');
+$router->post('admin/user/searchUser', 'Admin\UserController@searchUser');
 
-$router->post('admin/shop/searchShop', 'ShopController@searchShop');
+$router->post('admin/shop/searchShop', 'Admin\ShopController@searchShop');
 
 // shop
-$router->get('admin/shop', 'ShopController@index');
-$router->get('admin/shop/add', 'ShopController@add');
-$router->post('admin/shop/add', 'ShopController@addPost');
-$router->get('admin/shop/edit', 'ShopController@edit');
-$router->post('admin/shop/edit', 'ShopController@editPost');
-$router->get('admin/shop/del', 'ShopController@delete');
+$router->get('admin/shop', 'Admin\ShopController@index');
+$router->get('admin/shop/add', 'Admin\ShopController@add');
+$router->post('admin/shop/add', 'Admin\ShopController@addPost');
+$router->get('admin/shop/edit', 'Admin\ShopController@edit');
+$router->post('admin/shop/edit', 'Admin\ShopController@editPost');
+$router->get('admin/shop/del', 'Admin\ShopController@delete');
 //comment
-$router->get('admin/shop/comment', 'ShopController@loadComments');
-$router->get('admin/shop/comment/del', 'ShopController@deleteComment');
+$router->get('admin/shop/comment', 'Admin\ShopController@loadComments');
+$router->get('admin/shop/comment/del', 'Admin\ShopController@deleteComment');
 
 //ajax
-$router->post('admin/shop/ajaxDiscount', 'ShopController@ajaxDiscount');
+$router->post('admin/shop/ajaxDiscount', 'Admin\ShopController@ajaxDiscount');
 
 // Category
-$router->get('admin/type', 'TypeController@index');
-$router->get('admin/type/add', 'TypeController@add');
-$router->post('admin/type/add', 'TypeController@addType');
-$router->get('admin/type/edit', 'TypeController@edit');
-$router->post('admin/type/edit', 'TypeController@editType');
-$router->get('admin/type/delete', 'TypeController@deleteType');
+$router->get('admin/type', 'Admin\TypeController@index');
+$router->get('admin/type/add', 'Admin\TypeController@add');
+$router->post('admin/type/add', 'Admin\TypeController@addType');
+$router->get('admin/type/edit', 'Admin\TypeController@edit');
+$router->post('admin/type/edit', 'Admin\TypeController@editType');
+$router->get('admin/type/delete', 'Admin\TypeController@deleteType');
 
 // Statistics
-$router->get('admin/statistics', 'StatisticsController@index');
+$router->get('admin/statistics', 'Admin\StatisticsController@index');
 
 // PUBLIC
 // Home
