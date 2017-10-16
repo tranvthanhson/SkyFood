@@ -10,7 +10,8 @@ class AdminController
         if (isset($_SESSION['user'])) {
             return view('index/index');
         } else {
-            return view('not-access');
+            $link = '/login';
+            return view('not-access', compact('link'));
         }
     }
 }

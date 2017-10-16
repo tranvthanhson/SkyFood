@@ -23,8 +23,7 @@ class ShopController
             $this->type = new Type;
             $this->comment = new Comment;
         } else {
-
-            $link = '/admin/shop';
+            $link = '/login';
             return view('not-access', compact('link'));
         }
     }
