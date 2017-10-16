@@ -97,43 +97,25 @@ class Shop extends Model
     public function update()
     {
         $id = $_GET['id'];
-        $s = $this->findById($id, 'DATE_CREATED,VIEW');
-        //die($date->DATE_CREATED);
-        //$shop = $shop[0];
-
-        if (isset($_POST['edit'])) {
-            $shop = [];
-            $picture = $s->VIEW;
-            //xu ly picture
-            $file = $_FILES['file']['name'];
-            if ('' != $file) {
-                $path = $_SERVER['DOCUMENT_ROOT'];
-                if ('default-avatar.png' != $picture) {
-                    $link = $path . '/public/assets/img/img-shop/' . $picture;
-                    unlink($link);
-                }
-                $picture = $this->uploadImages($file, 'img-shop');
+        $result = $this->findById($id, 'DATE_CREATED,VIEW');
+        $shop = [];
+        $picture = $result->VIEW;
+        $file = $_FILES['file']['name'];
+        if ('' != $file) {
+            $path = $_SERVER['DOCUMENT_ROOT'];
+            if ('default-avatar.png' != $picture) {
+                $link = $path . '/public/assets/img/img-shop/' . $picture;
+                unlink($link);
             }
-            $this->setValue($_POST['shop_name'], 0, $s->DATE_CREATED, $_POST['discount'], $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'], $picture, $_POST['address'], $_POST['detail']);
-            //die(var_dump($this->fillable));
-            return $this->updateById($id, $this->fillable);
-        } else if (isset($_POST['browsing'])) {
-            $shop = [];
-            $picture = $s->VIEW;
-            //xu ly picture
-            $file = $_FILES['file']['name'];
-            if ('' != $file) {
-                $path = $_SERVER['DOCUMENT_ROOT'];
-                if ('default-avatar.png' != $picture) {
-                    $link = $path . '/public/assets/img/img-shop/' . $picture;
-                    unlink($link);
-                }
-                $picture = $this->uploadImages($file, 'img-shop');
-            }
-            $this->setValue($_POST['shop_name'], 1, $s->DATE_CREATED, $_POST['discount'], $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'], $picture, $_POST['address'], $_POST['detail']);
-            //die(var_dump($this->fillable));
-            return $this->updateById($id, $this->fillable);
+            $picture = $this->uploadImages($file, 'img-shop');
         }
+        if (isset($_POST['edit'])) {
+            $choose = 0;
+        } else if (isset($_POST['browsing'])) {
+            $choose = 1;
+        }
+        $this->setValue($_POST['shop_name'], $choose, $result->DATE_CREATED, $_POST['discount'], $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'], $picture, $_POST['address'], $_POST['detail']);
+        return $this->updateById($id, $this->fillable);
     }
 
     public function deleteshop()
@@ -158,14 +140,14 @@ class Shop extends Model
 
     public function updateDiscount()
     {
-        $val = $_POST['aValue'];
+        $value = $_POST['aValue'];
         if ($val >= 100) {
             echo "<b style='color:red'>không hợp lệ</b>";
         } else {
-            $shop['DISCOUNT'] = $val;
+            $shop['DISCOUNT'] = $value;
             //echo $shop['DISCOUNT'];
-            $a = $this->updateById($_POST['aKey'], $shop);
-            echo $val;
+            $this->updateById($_POST['aKey'], $shop);
+            echo $value;
         }
     }
 }
