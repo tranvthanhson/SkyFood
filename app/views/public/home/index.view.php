@@ -1,4 +1,7 @@
- <?php view_include('public.layouts.head-master');?>
+<?php view_include('public.layouts.head-master', ['title' => 'Home'])?>
+<body>
+    <div class="wrapper">
+        <?php view_include('public.partials.header')?>
         <div id="content">
             <div class="home">
                 <div class="slide-ad">
@@ -645,4 +648,8 @@
                 </div>
             </div>
         </div>
-<?php view_include('public.layouts.foot-master');?>
+        <?php view_include('public.partials.footer')?>
+    </div>
+</body>
+
+<?php view_include('public.layouts.foot-master')?>
