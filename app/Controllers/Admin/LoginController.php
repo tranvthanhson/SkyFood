@@ -39,7 +39,7 @@ class LoginController
 
     public function viewForgotPassword()
     {
-        return view('admin/forgotpassword/index');
+        return view('admin/forgot/index');
     }
 
     public function forgotPassword()

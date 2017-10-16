@@ -1,4 +1,7 @@
- <?php view_include('public.layouts.head-master');?>
+<?php view_include('public.layouts.head-master', ['title' => 'Home'])?>
+<body>
+    <div class="wrapper">
+        <?php view_include('public.partials.header')?>
         <div id="content">
             <div class="home">
                 <div class="slide-ad">
@@ -9,7 +12,7 @@
                                     <img src="/public/public/assets/img/slide_banner/hd1.jpg">
                                     <div class="bg">
                                         <div class="slide-text ">
-                                            <h2>Food 2</h2>
+                                            <h2>Sky Food</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -17,7 +20,7 @@
                                     <img src="/public/public/assets/img/food/food10.jpg">
                                     <div class="bg">
                                         <div class="slide-text ">
-                                            <h2>Food 2</h2>
+                                            <h2>Sky Food</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -25,7 +28,7 @@
                                     <img src="/public/public/assets/img/restaurant/res6.jpg">
                                     <div class="bg">
                                         <div class="slide-text ">
-                                            <h2>Food 2</h2>
+                                            <h2>Sky Food</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -33,7 +36,7 @@
                                     <img src="/public/public/assets/img/restaurant/res10.jpg">
                                     <div class="bg">
                                         <div class="slide-text ">
-                                            <h2>Food 2</h2>
+                                            <h2>Sky Food</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -645,4 +648,8 @@
                 </div>
             </div>
         </div>
-<?php view_include('public.layouts.foot-master');?>
+        <?php view_include('public.partials.footer')?>
+    </div>
+</body>
+
+<?php view_include('public.layouts.foot-master')?>

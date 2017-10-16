@@ -1,6 +1,7 @@
 <?php view_include('admin.layouts.head-master', ['title' => 'Thống kê'])?>
 <div class="wrapper">
     <?php view_include('admin.layouts.side-bar');?>
+
     <div class="main-panel">
         <?php view_include('admin.partials.header', ['title' => 'Thống kê'])?>
         <div class="content posts home">

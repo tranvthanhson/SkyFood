@@ -7,7 +7,7 @@
             <div class="panel-title text-center">FORGOT PASSWORD</div>
         </div>
         <div class="panel-body">
-            <form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" action="/forgotpassword" method="POST">
+            <form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" action="/forgot" method="POST">
                 <div class="col-md-12">
                     <div class="form-group">
                         <input type="text" class="form-control" name="username" placeholder="Tên đăng nhập">

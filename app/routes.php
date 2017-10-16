@@ -34,8 +34,8 @@ $router->get('admin/user/del', 'Admin\UserController@deleteUser');
 $router->post('user/loadimage', 'UserController@loadImages');
 
 // Forgot Password
-$router->get('forgotpassword', 'Admin\LoginController@viewForgotPassword');
-$router->post('forgotpassword', 'Admin\LoginController@forgotPassword');
+$router->get('forgot', 'Admin\LoginController@viewForgotPassword');
+$router->post('forgot', 'Admin\LoginController@forgotPassword');
 //Search
 $router->post('admin/user/searchUser', 'Admin\UserController@searchUser');
 

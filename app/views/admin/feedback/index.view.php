@@ -7,6 +7,7 @@
     <!-- Require side-bar -->
     <?php view_include('admin.layouts.side-bar')?>
 
+
     <div class="main-panel">
 
         <!-- Require header -->
@@ -50,8 +51,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <?php $pagination = $feedbacks?>
-                            <?php view_include('admin.partials.pagination', compact('pagination'));?>
+
                         </div>
                     </div>
                 </div>
