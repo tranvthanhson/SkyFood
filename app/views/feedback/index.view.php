@@ -50,8 +50,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <?php $pagination = $feedbacks?>
-                            <?php view_include('partials.pagination', compact('pagination'));?>
+                          
                         </div>
                     </div>
                 </div>
