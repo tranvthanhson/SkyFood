@@ -69,6 +69,7 @@ class ShopController
         $this->shop->update();
         $this->shopType->update($_GET['id'], $_POST['type']);
         $_SESSION['notice'] = 'Sửa thành công!';
+        die('sua thanh cong');
         return redirect('admin/shop');
     }
 

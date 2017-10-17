@@ -98,7 +98,6 @@ class Shop extends Model
             }
             $picture = $this->uploadImages($file, 'img-shop');
         }
-        $choose = 0;
         if (isset($_POST['edit'])) {
             $choose = 0;
         } else if (isset($_POST['browsing'])) {
