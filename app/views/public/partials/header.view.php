@@ -124,18 +124,18 @@
                             <h4 class="modal-title">Forgot Password</h4>
                         </div>
                         <div class="modal-body">
-                            <form data-toggle="validator" role="form" name="form" id="form-signIn" class="form-horizontal" enctype="multipart/form-data" method="POST">
+                            <form data-toggle="validator" action="/forgot" role="form" name="form" id="form-signIn" class="form-horizontal" enctype="multipart/form-data" method="POST">
                                 <div class="col-md-12 username">
                                     <div class="form-group item">
                                         <label for="input-uerName">Username</label>
-                                        <input type="text" id="input-uername" class="form-control" required />
+                                        <input type="text" id="input-uername" name="username" class="form-control" required />
                                         <div class="underline"></div>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group button-action">
-                                        <input type="submit" class=" btn btn-bg" value="Send" />
+                                        <input type="submit" class=" btn btn-bg" name="send" value="Send" />
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>
