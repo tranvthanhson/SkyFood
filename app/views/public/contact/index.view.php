@@ -91,16 +91,16 @@
     </button>
 
 
-    <?php if (isset($_SESSION['notice'])) {
+    <?php if (isset($_SESSION['notice_contact'])) {
     $data = [
         'id_model' => 'idModal',
         'title' => 'THÔNG BÁO',
-        'content' => $_SESSION['notice'],
+        'content' => $_SESSION['notice_contact'],
         'bt' => 'OK',
         'link' => '',
     ];
     view_include('admin.partials.modal', $data);
-    unset($_SESSION['notice']);
+    unset($_SESSION['notice_contact']);
 }
 ?>
 
