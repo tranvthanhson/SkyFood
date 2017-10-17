@@ -76,7 +76,7 @@
                                 <div class="col-md-12 username">
                                     <div class="form-group item">
                                         <label for="input-uerName">Username</label>
-                                        <input type="text" id="input-uername" name="username" value="Admin" class="form-control" required />
+                                        <input type="text" id="input-uername" name="username" class="form-control" autocomplete="off" required />
                                         <div class="underline"></div>
                                         <div class="help-block with-errors"></div>
                                     </div>
@@ -84,7 +84,7 @@
                                 <div class="col-md-12 password">
                                     <div class="form-group item">
                                         <label for="input-uerName">Password</label>
-                                        <input type="password" name="password" value="admin" id="input-pass" class="form-control" data-minlength="6" required data-error="Mật khẩu ít nhất 6 kí tự" />
+                                        <input type="password" name="password" id="input-pass" class="form-control" autocomplete="off" data-minlength="6" required data-error="Mật khẩu ít nhất 6 kí tự" />
                                         <div class="underline"></div>
                                         <div class="help-block with-errors"></div>
                                     </div>

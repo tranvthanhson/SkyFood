@@ -286,7 +286,7 @@ if (0 == $check) {
                                             <img src="public/public/assets/img/slide_banner/hd1.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -294,7 +294,7 @@ if (0 == $check) {
                                             <img src="public/public/assets/img/restaurant/res1.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -302,7 +302,7 @@ if (0 == $check) {
                                             <img src="public/public/assets/img/food/food1.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -310,7 +310,7 @@ if (0 == $check) {
                                             <img src="public/public/assets/img/food/food2.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -318,7 +318,7 @@ if (0 == $check) {
                                             <img src="public/public/assets/img/restaurant/res3.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -326,7 +326,7 @@ if (0 == $check) {
                                             <img src="public/public/assets/img/restaurant/res4.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -334,7 +334,7 @@ if (0 == $check) {
                                             <img src="public/public/assets/img/food/food3.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -342,7 +342,7 @@ if (0 == $check) {
                                             <img src="public/public/assets/img/food/food5.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>

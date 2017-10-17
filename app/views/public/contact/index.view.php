@@ -50,13 +50,13 @@
                                             </div>
                                             <div class="col-md-4 col-xs-4 item-ctn-mess">
                                                 <div class="form-group">
-                                                    <input type="email" class="form-control" id="email" name="email" value="@gmail.com" placeholder="Email" required>
+                                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4 col-xs-4 item-ctn-mess">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Phone">
+                                                    <input type="number" class="form-control no-spinners" id="phone" name="phone" placeholder="Phone">
                                                 </div>
                                             </div>
                                             <div class="clearfix"></div>
