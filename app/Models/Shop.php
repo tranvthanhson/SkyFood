@@ -96,7 +96,7 @@ class Shop extends Model
 
     public function selectByKeyPublic()
     {
-        $sql = "SELECT *,AVG(SCORE) AS AVG FROM SHOP LEFT JOIN RATE ON SHOP.SHOP_ID =RATE.SHOP_ID WHERE SHOP.SHOP_ID={$_GET['id']}";
+        $sql = "SELECT *,AVG(SCORE) AS AVG, SHOP.SHOP_ID AS sid FROM SHOP LEFT JOIN RATE ON SHOP.SHOP_ID =RATE.SHOP_ID WHERE SHOP.SHOP_ID={$_GET['id']}";
         //die($sql);
         return $this->rawQuery($sql);
     }

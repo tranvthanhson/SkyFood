@@ -56,10 +56,11 @@ if (1 == $check) {
                                        <p class="item phone "><i class="fa fa-phone"></i><?=$shop[0]->PHONE?></p>
                                         <p class="item time "><i class="fa fa-clock-o"></i><?=$shop[0]->TIME_OPEN?> - <?=$shop[0]->TIME_CLOSE?></p>
                                         <div class="item features">
-                                            <form>
+                                            <div id='notification'></div>
+                                            <form action="javascript:void(0)" method="POST">
                                                 <div class="item-feature save">
                                                     <div class="form-group">
-                                                        <input type="submit" class=" btn btn-bg" value="Save" onclick="save('/shop/ajaxSave')" />
+                                                        <input type="submit" class=" btn btn-bg" value="Save" onclick="save('/shop/ajaxSave',<?=$shop[0]->sid?>)" />
                                                     </div>
                                                 </div>
                                                 <div class="item-feature rate">

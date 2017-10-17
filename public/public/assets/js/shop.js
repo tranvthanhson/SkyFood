@@ -1,15 +1,15 @@
  
-function search(link){
-	alert('a');
+function save(link,id){
+	//alert(id);
    $.ajax({
         url: link,
         type: 'POST',
         cache: false,
         data: {
-           
+           aid:id
         },
         success: function(data) {
-            $('.form-group').html(data);
+            $('#notification').html(data);
             //alert($data);
         },
         error: function(err) {

@@ -35,9 +35,16 @@ class ShopController
     public function verify()
     {
         if (!isset($_SESSION['user'])) {
-            return redirect('login');
+            return 0;
         }
     }
 
-    public function save() {}
+    public function ajaxSave()
+    {
+        if ($this->verify() == 0) {
+            echo "<b style='color:red'>bạn chưa đăng nhập</b>";
+        } else {
+            $this->save->addSave();
+        }
+    }
 }
