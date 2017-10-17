@@ -193,7 +193,6 @@ class Account extends Model
         if (isset($_POST['send'])) {
             $users = $this->findById($_POST['username'], '*');
             $newPassword = rand();
-
             $this->setValue(md5($newPassword), $users->FIRST_NAME, $users->LAST_NAME, $users->ADDRESS, $users->IMAGE, $users->EMAIL, $users->ROLE, $users->PHONE);
             $this->updateById($_POST['username'], $this->fillable);
             $this->mailer = new Mailer;

@@ -30,9 +30,7 @@
                                                 <span>Sale</span> <?=$shop[0]->DISCOUNT?>%
                                             </p>
                                         </div>
-                                        <?php
-if (1 == $check) {
-    ?>
+                                        <?php if (1 == $check) {?>
                                         <div class="ribbon bookmark">
                                             <p>
                                                 <span>Saved</span>
@@ -45,7 +43,7 @@ if (1 == $check) {
                                     <div class="wrp">
                                         <div class="item name">
                                             <div class="score">
-                                                <p><?=$shop[0]->AVG?></p>
+                                                <p><?=$shop[0]->AVG+''?></p>
                                             </div>
                                             <div class="name-address">
                                                 <h3> <?=$shop[0]->SHOP_NAME?> </h3>
