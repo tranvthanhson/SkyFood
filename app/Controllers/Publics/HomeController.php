@@ -11,7 +11,8 @@ class HomeController
     {
         $this->home = new Home();
         $interestedShop = $this->home->interestedShop();
+        $latest = $this->home->latestShop();
         // die(var_dump($interestedShop));
-        return view('public/home/index', compact('interestedShop'));
+        return view('public/home/index', compact('interestedShop', 'latest'));
     }
 }
