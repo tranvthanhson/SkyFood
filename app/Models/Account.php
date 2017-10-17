@@ -255,7 +255,7 @@ class Account extends Model
         if (isset($_POST['edit'])) {
             $account = $this->getUser($_SESSION['user']->USERNAME);
             $image = $this->uploadImages($_FILES['file']['name'], 'imagesUser');
-
+            $_SESSION['user']->IMAGE = $image;
             $this->setValue($account[0]->PASSWORD, $account[0]->FIRST_NAME, $account[0]->LAST_NAME, $account[0]->ADDRESS, $image, $account[0]->EMAIL, 3, $account[0]->PHONE);
 
             $this->updateById($_SESSION['user']->USERNAME, $this->fillable);
