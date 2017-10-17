@@ -10,12 +10,12 @@
             <form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" action="/login" method="POST">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="username" value="Admin" placeholder="Tên đăng nhập">
+                        <input type="text" class="form-control" name="username" value="" placeholder="Tên đăng nhập">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <input type="password" class="form-control" name="password" value="admin" placeholder="Mật khẩu">
+                        <input type="password" class="form-control" name="password" value="" placeholder="Mật khẩu">
                     </div>
                 </div>
                 <div class="col-md-12">

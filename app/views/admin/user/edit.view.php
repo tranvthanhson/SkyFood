@@ -67,7 +67,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Điện thoại (<span>*</span>)</label>
-                                                    <input type="text" value="<?=$infoUser[0]->PHONE?>" name="phone" class="form-control" id="confirmPass">
+                                                    <input type="number" value="<?=$infoUser[0]->PHONE?>" name="phone" class="form-control no-spinners" id="confirmPass">
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
