@@ -13,7 +13,7 @@
                                     <img src="/public/public/assets/img/slide_banner/hd1.jpg">
                                     <div class="bg">
                                         <div class="slide-text">
-                                            <h2>Sky Food</h2>
+                                            <h2>Delicious</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -21,7 +21,7 @@
                                     <img src="/public/public/assets/img/food/food10.jpg">
                                     <div class="bg">
                                         <div class="slide-text ">
-                                            <h2>Sky Food</h2>
+                                            <h2>Quality</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -29,7 +29,7 @@
                                     <img src="/public/public/assets/img/restaurant/res6.jpg">
                                     <div class="bg">
                                         <div class="slide-text ">
-                                            <h2>Sky Food</h2>
+                                            <h2>Convenient</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -37,7 +37,7 @@
                                     <img src="/public/public/assets/img/restaurant/res10.jpg">
                                     <div class="bg">
                                         <div class="slide-text ">
-                                            <h2>Sky Food</h2>
+                                            <h2>Cozy</h2>
                                         </div>
                                     </div>
                                 </div>

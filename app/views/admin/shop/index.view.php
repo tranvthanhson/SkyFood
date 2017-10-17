@@ -30,7 +30,6 @@
                             </div>
                            <?php if (isset($_SESSION['notice'])) {?>
                             <div class="alert alert-success">
-
                                 <strong><?=$_SESSION['notice']?></strong>
                             </div>
                             <?php }?>
