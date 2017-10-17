@@ -19,7 +19,13 @@ class ShopController
 
     public function index()
     {
-        $shop = $this->shop->selectByKeyPublic();
+        $id = $_GET['id'];
+        if (isset($_SESSION['rate'])) {
+            $id = $_SESSION['rate'];
+            unset($_SESSION['rate']);
+        }
+
+        $shop = $this->shop->selectByKeyPublic($id);
         // die(var_dump($shop));
         $check = 0;
         $checkRate = '';
@@ -63,17 +69,21 @@ class ShopController
         $this->save->deleteSave();
     }
 
-    public function ajaxRate()
+    public function rate()
     {
+        $_SESSION['rate'] = $_GET['id'];
         if ($this->verify() == 0) {
-            echo "<b style='color:red'>you don't login</b>";
+            return "<b style='color:red'>you don't<a href='/login'> login</a></b>";
         } else {
             $this->rate->addRate();
+            return redirect('shop');
         }
     }
 
-    public function ajaxUpdateRate()
+    public function updateRate()
     {
+        $_SESSION['rate'] = $_GET['id'];
         $this->rate->updateRate();
+        return redirect('shop');
     }
 }

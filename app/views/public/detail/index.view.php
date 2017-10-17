@@ -63,9 +63,9 @@ if (1 == $check) {
                                                         <?php
 $link = '';
 if ('' == $checkRate) {
-    $link = '/shop/ajaxRate';
+    $link = '/shop/ajaxRate?id=' . $shop[0]->sid;
 } else {
-    $link = '/shop/ajaxUpdateRate';
+    $link = '/shop/ajaxUpdateRate?id=' . $shop[0]->sid;
 }
 
 if (0 == $check) {
@@ -92,11 +92,11 @@ if (0 == $check) {
                                                                     <h4 class="modal-title">Rating</h4>
                                                                 </div>
                                                                 <div class="modal-body">
-                                                                    <form role="form" name="form-rate" id="form-rate" class="form-horizontal" enctype="multipart/form-data" method="POST">
+                                                                    <form action="<?=$link?>" role="form" name="form-rate" id="form-rate" class="form-horizontal" enctype="multipart/form-data" method="POST">
                                                                         <div class="col-md-12">
                                                                             <div class="form-group item">
                                                                                 <div class="rating"></div>
-                                                                                <input id="input-rate" type="text">
+                                                                                <input id="input-rate" type="text" name='rate'>
                                                                             </div>
                                                                         </div>
                                                                         <div class="col-md-12">

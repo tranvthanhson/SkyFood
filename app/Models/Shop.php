@@ -94,9 +94,9 @@ class Shop extends Model
         return $this->rawQuery($sql);
     }
 
-    public function selectByKeyPublic()
+    public function selectByKeyPublic($id)
     {
-        $sql = "SELECT *,AVG(SCORE) AS AVG, SHOP.SHOP_ID AS sid FROM SHOP LEFT JOIN RATE ON SHOP.SHOP_ID =RATE.SHOP_ID WHERE SHOP.SHOP_ID={$_GET['id']}";
+        $sql = "SELECT *,AVG(SCORE) AS AVG, SHOP.SHOP_ID AS sid FROM SHOP LEFT JOIN RATE ON SHOP.SHOP_ID =RATE.SHOP_ID WHERE SHOP.SHOP_ID={$id}";
         //die($sql);
         return $this->rawQuery($sql);
     }
@@ -104,7 +104,7 @@ class Shop extends Model
     public function update()
     {
         $id = $_GET['id'];
-        $result = $this->findById($id, 'DATE_CREATED,VIEW');
+        $result = $this->findById($id, 'DATE_CREATED,VIEW,STATUS');
         $shop = [];
         $picture = $result->VIEW;
         $choose = $result->STATUS;

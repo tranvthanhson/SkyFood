@@ -17,16 +17,16 @@ class Rate extends Model
     public function addRate()
     {
         $rate['USERNAME'] = $_SESSION['user']->USERNAME;
-        $rate['SHOP_ID'] = $_POST['aid'];
-        $rate['SCORE'] = $_POST['arate'];
-        $this->insert($rate);
-        echo "<b style='color:red'>rated</b>";
+        $rate['SHOP_ID'] = $_POST['id'];
+        $rate['SCORE'] = $_POST['rate'];
+        return $this->insert($rate);
+
     }
 
     public function updateRate()
     {
-        $sql = "UPDATE RATE SET SCORE={$_POST['arate']}";
-        $this->rawQuery($sql);
-        echo "<b style='color:red'>rated</b>";
+        $sql = "UPDATE RATE SET SCORE={$_POST['rate']}";
+        return $this->rawQuery($sql);
+
     }
 }

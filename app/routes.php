@@ -56,8 +56,7 @@ $router->get('admin/shop/comment/del', 'Admin\ShopController@deleteComment');
 $router->post('admin/shop/ajaxDiscount', 'Admin\ShopController@ajaxDiscount');
 $router->post('shop/ajaxSave', 'Publics\ShopController@ajaxSave');
 $router->post('shop/ajaxUnsave', 'Publics\ShopController@ajaxUnsave');
-$router->post('shop/ajaxRate', 'Publics\ShopController@ajaxRate');
-$router->post('shop/ajaxUpdateRate', 'Publics\ShopController@ajaxUpdateRate');
+
 // Category
 $router->get('admin/type', 'Admin\TypeController@index');
 $router->get('admin/type/add', 'Admin\TypeController@add');
@@ -74,6 +73,8 @@ $router->get('admin/statistics', 'Admin\StatisticsController@index');
 
 //shop
 $router->get('shop', 'Publics\ShopController@index');
+$router->post('shop/Rate', 'Publics\ShopController@rate');
+$router->post('shop/UpdateRate', 'Publics\ShopController@updateRate');
 
 $router->get('', 'Publics\HomeController@index');
 
