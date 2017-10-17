@@ -38,7 +38,7 @@ class Model
             $sql .= "'$value', ";
         }
         $sql = substr($sql, 0, -2) . ')';
-        //die($sql);
+        //echo ($sql);
         return $this->rawQuery($sql);
     }
 

@@ -83,12 +83,20 @@ class Shop extends Model
         return $this->rawQuery($sql);
     }
 
+    public function selectByKeyPublic($id)
+    {
+        $sql = "SELECT *,AVG(SCORE) AS AVG, SHOP.SHOP_ID AS sid FROM SHOP LEFT JOIN RATE ON SHOP.SHOP_ID =RATE.SHOP_ID WHERE SHOP.SHOP_ID={$id}";
+        //die($sql);
+        return $this->rawQuery($sql);
+    }
+
     public function update()
     {
         $id = $_GET['id'];
-        $result = $this->findById($id, 'DATE_CREATED,VIEW');
+        $result = $this->findById($id, 'DATE_CREATED,VIEW,STATUS');
         $shop = [];
         $picture = $result->VIEW;
+        $choose = $result->STATUS;
         $file = $_FILES['file']['name'];
         if ('' != $file) {
             $path = $_SERVER['DOCUMENT_ROOT'];
@@ -98,7 +106,7 @@ class Shop extends Model
             }
             $picture = $this->uploadImages($file, 'img-shop');
         }
-        if (isset($_POST['edit'])) {
+        if (isset($_POST['updo'])) {
             $choose = 0;
         } else if (isset($_POST['browsing'])) {
             $choose = 1;

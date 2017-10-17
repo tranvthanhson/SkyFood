@@ -27,4 +27,30 @@ class Comment extends Model
         $_SESSION['idshop'] = $_GET['id'];
         return $this->deleteById($_GET['idcomment']);
     }
+
+    public function selectByShop($id)
+    {
+        $sql = "SELECT COMMENT.*,ACCOUNT.IMAGE FROM COMMENT INNER JOIN ACCOUNT ON COMMENT.USERNAME=ACCOUNT.USERNAME WHERE SHOP_ID={$id}";
+        return $this->rawQuery($sql);
+    }
+
+    public function ajaxComment()
+    {
+        $now = getdate();
+        $currentDate = $now['year'] . '-' . $now['mon'] . '-' . $now['mday'] . ' ' . $now['hours'] . ':' . $now['minutes'] . ':' . $now['seconds'];
+        $comment['USERNAME'] = $_SESSION['user']->USERNAME;
+        $comment['SHOP_ID'] = $_POST['aid'];
+        $comment['CONTENT'] = $_POST['avalue'];
+        $comment['DATE_CREATED'] = $currentDate;
+        $this->insert($comment);
+        echo ' <div class="media">
+                                    <div class="media-left">
+                                        <img src="public/public/assets/img/user/' . $_SESSION['user']->IMAGE . '" class="media-object">
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading">' . $_SESSION['user']->USERNAME . ' <small><i>' . $currentDate . '</i></small></h4>
+                                        <p>' . $_POST['avalue'] . '</p>
+                                    </div>
+                                </div>';
+    }
 }
