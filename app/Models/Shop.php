@@ -103,8 +103,8 @@ class Shop extends Model
         } else if (isset($_POST['browsing'])) {
             $choose = 1;
         }
-        die('tao van chay dc nha ahihi');
         $this->setValue($_POST['shop_name'], $choose, $result->DATE_CREATED, $_POST['discount'], $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'], $picture, $_POST['address'], $_POST['detail']);
+        die('tao van chay dc nha ahihi dcm');
         return $this->updateById($id, $this->fillable);
     }
 
