@@ -201,7 +201,7 @@ class Account extends Model
             $content = "Your new <strong>password</strong> is {$newPassword}";
             $this->mailer->setContent($content);
             $this->mailer->sendMail();
-            redirect('login');
+            redirect('');
         }
     }
 

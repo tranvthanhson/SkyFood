@@ -12,16 +12,16 @@
                         <a data-toggle="collapse" data-target=".header-navbar" class="btn-toggle"><i class="fa fa-bars"></i></a>
                     </div>
                     <div class="search col-md-6 col-sm-6 item">
-                        <div class="input-group ">
+                        <div  class="input-group">
                             <input type="text" class="form-control" id="inputSearch" placeholder="">
-                            <div class="input-group-addon"><a href=""><i class="fa fa-search" aria-hidden="true"></i></a></div>
+                            <div class="input-group-addon"><a id="linkToSearch" onclick="searchShopName()" href="/search"><i class="fa fa-search" aria-hidden="true"></i></a></div>
                         </div>
                     </div>
                     <div class="user-features col-md-6 col-sm-6 item">
                         <?php if (isset($_SESSION['user'])) {?>
                             <div class="user dropdown item-feature">
                                 <img src="public/admin/assets/img/imagesUser/<?=$_SESSION['user']->IMAGE;?>" alt="">
-                                <a href="" class="btn-user  dropdown-toggle" data-toggle="dropdown">
+                                <a href="" class="f-user  dropdown-toggle" data-toggle="dropdown">
                                     <?=$_SESSION['user']->USERNAME;?>
                                     <span class="caret"></span>
                                 </a>
@@ -124,18 +124,18 @@
                             <h4 class="modal-title">Forgot Password</h4>
                         </div>
                         <div class="modal-body">
-                            <form data-toggle="validator" role="form" name="form" id="form-signIn" class="form-horizontal" enctype="multipart/form-data" method="POST">
+                            <form data-toggle="validator" action="/forgot" role="form" name="form" id="form-signIn" class="form-horizontal" enctype="multipart/form-data" method="POST">
                                 <div class="col-md-12 username">
                                     <div class="form-group item">
                                         <label for="input-uerName">Username</label>
-                                        <input type="text" id="input-uername" class="form-control" required />
+                                        <input type="text" id="input-uername" name="username" class="form-control" required />
                                         <div class="underline"></div>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group button-action">
-                                        <input type="submit" class=" btn btn-bg" value="Send" />
+                                        <input type="submit" class=" btn btn-bg" name="send" value="Send" />
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>

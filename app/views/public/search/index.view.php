@@ -1,5 +1,4 @@
 <?php view_include('public.layouts.head-master', ['title' => 'Search'])?>
-
 <body data-spy="scroll" data-target=".navbar" data-offset="60">
     <div class="wrapper">
         <?php view_include('public.partials.header')?>
@@ -22,7 +21,7 @@
                                                         <li class="input-address item">
                                                             <div class="form-group">
                                                                 <div>
-                                                                    <input type="text" class="form-control" id="input" placeholder="Tên nhà hàng">
+                                                                    <input type="text" class="form-control" id="input" placeholder="Tên nhà hàng" value="<?=$_GET['name']?>">
                                                                     <div class="help-block with-errors"></div>
                                                                 </div>
                                                             </div>
