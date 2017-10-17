@@ -140,13 +140,20 @@ class Shop extends Model
 
     public function searchNameShop($name, $type, $sortBy)
     {
-        $sql = "SELECT * FROM SHOP A, TYPE_SHOP B WHERE A.SHOP_ID = B.SHOP_ID AND SHOP_NAME LIKE '%{$name}%' AND STATUS = 1";
+        $sql = "SELECT SHOP_NAME, VIEW, S.SHOP_ID,COUNT(C.COMMENT_ID) AS SUM_COMMENT,AVG(R.SCORE) AS AVG_RATE FROM
+        RATE AS R RIGHT JOIN SHOP AS S ON S.SHOP_ID = R.SHOP_ID LEFT JOIN
+        COMMENT AS C ON C.SHOP_ID = S.SHOP_ID
+        LEFT JOIN TYPE_SHOP AS TS ON S.SHOP_ID=TS.SHOP_ID
+        WHERE S.STATUS = 1 AND SHOP_NAME LIKE '%{$name}%'";
+
         if (0 != $type) {
-            $sql .= " AND TYPE_ID = {$type}";
+            $sql .= " AND TS.TYPE_ID = {$type}";
         }
-        $sql .= ' ORDER BY A.SHOP_ID DESC';
+        $sql .= ' GROUP BY S.SHOP_ID ORDER BY S.SHOP_ID DESC';
+
         // $sortBy = 0 -> NEWEST
         // $sortBy = 1 -> MOST RATE
+
         return $this->rawQuery($sql);
     }
 }
