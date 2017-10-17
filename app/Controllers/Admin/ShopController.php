@@ -66,7 +66,6 @@ class ShopController
     public function editPost()
     {
         $this->shop->update();
-        die('abcd');
         $this->shopType->update($_GET['id'], $_POST['type']);
         $_SESSION['notice'] = 'Sửa thành công!';
         return redirect('admin/shop');

@@ -90,6 +90,7 @@ class Shop extends Model
         $shop = [];
         $picture = $result->VIEW;
         $file = $_FILES['file']['name'];
+        die('tao o day');
         if ('' != $file) {
             // $path = $_SERVER['DOCUMENT_ROOT'];
             if ('default-avatar.png' != $picture) {
