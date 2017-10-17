@@ -8,7 +8,7 @@
                 <img class="img" src="/public/admin/assets/img/img-shop/<?=$shops[$i]->VIEW?>" alt="">
                 <div class="hover-view">
                     <div class="view">
-                        <a class="btn-view" href=""><i class="fa fa-eye"></i></a>
+                        <a class="btn-view" href="/shop?id=<?=$item->SHOP_ID?>"><i class="fa fa-eye"></i></a>
                     </div>
                 </div>
             </div>

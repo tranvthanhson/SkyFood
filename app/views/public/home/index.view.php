@@ -61,7 +61,7 @@
                                             <img class="img" src="/public/admin/assets/img/img-shop/<?=$item->VIEW?>" alt="">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="/shop?id=<?=$item->SHOP_ID?>"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -114,7 +114,7 @@
                                             <img class="img" src="/public/admin/assets/img/img-shop/<?=$item->VIEW?>" alt="">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="/shop?id=<?=$item->SHOP_ID?>"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
