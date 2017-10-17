@@ -90,14 +90,18 @@
                     }
                 }
                 .user {
+                    img {
+                        width: 25px;
+                        height: 25px;
+                        vertical-align: -moz-middle-with-baseline;
+                        vertical-align: -webkit-baseline-middle;
+                        border-radius: 50%;
+                        border: 1px solid transparent;
+                        margin-right: 5px;
+                    }
                     .btn-user {
                         @include breakpoint (small-tablet) {
                             font-size: 0;
-                            i {
-                                font-size: 15px !important;
-                                vertical-align: -moz-middle-with-baseline;
-                                vertical-align: -webkit-baseline-middle;
-                            }
                         }
                     }
                     .dropdown-menu {

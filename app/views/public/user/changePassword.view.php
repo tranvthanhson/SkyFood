@@ -1,4 +1,4 @@
-<?php view_include('public.layouts.head-master', ['title' => 'Contact'])?>
+<?php view_include('public.layouts.head-master', ['title' => $_SESSION['user']->USERNAME])?>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="60">
     <div class="wrapper">
@@ -14,56 +14,16 @@
                         </div>
                         <div class="ctn-user ctn-main">
                             <div class="row ">
-                                <div class="avatar-features item-ctn col-md-3">
-                                    <div class="wrp">
-                                        <form action="" class="form-avatar">
-                                            <div class="avatar">
-                                                <div class="img">
-                                                    <img src="assets/img/user/h5.jpg" alt="..." />
-                                                    <div class="edit-avatar">
-                                                        <div class="file">
-                                                            <i class="fa fa-camera"></i>
-                                                            <input type="file" name="file" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="upload">
-                                                    <div class="btn">
-                                                        <i class="fa fa-cloud-upload"></i>
-                                                        <input type="submit" name="" value="Upload" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                        <div class="features">
-                                            <nav>
-                                                <ul class="nav">
-                                                    <li><a href="user-profile.html"><i class="fa fa-pencil-square-o"></i>Edit</a></li>
-                                                    <li class="active-menu"><a href="edit-pass.html"><i class="fa fa-user"></i>Password</a></li>
-                                                    <li><a href="user-saved.html"><i class="fa fa-bookmark"></i>Saved</a></li>
-                                                </ul>
-                                            </nav>
-                                        </div>
-                                        <div class="wrp-blur"></div>
-                                    </div>
-                                </div>
+                                <?php view_include('public.user.partials.side-bar', ['imageUser' => $detailUser[0]->IMAGE]);?>
                                 <div class="user-infor edit-pass item-ctn col-md-9">
                                     <div class="wrp">
-                                        <form data-toggle="validator" role="form" action="" class="form-edit-pass form-infor form-border-color">
-                                            <div class="row">
-                                                <div class="form-group pass">
-                                                    <label class="control-label col-sm-3" for="pwd">Password:</label>
-                                                    <div class="col-sm-9 input-pass">
-                                                        <input type="password" class="form-control" id="pwd" placeholder="" disabled value="123">
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </div>
+                                        <form data-toggle="validator" role="form" action="/editUserPassword" class="form-edit-pass form-infor form-border-color" method="POST">
+
                                             <div class="row">
                                                 <div class="form-group new-pass">
                                                     <label class="control-label col-sm-3" for="inputNewPass">New Password:</label>
                                                     <div class="col-sm-9">
-                                                        <input type="password" class="form-control" id="inputNewPass" placeholder="New Password" required>
+                                                        <input type="password" name="password" class="form-control" id="inputNewPass" placeholder="New Password" required>
                                                         <div class="help-block with-errors"></div>
                                                     </div>
                                                     <div class="clearfix"></div>
@@ -82,7 +42,7 @@
                                             <div class="row">
                                                 <div class="form-group edit">
                                                     <div class="col-md-12">
-                                                        <button type="submit" class="btn btn-bg pull-right">Edit</button>
+                                                        <input type="submit" name="edit" class="btn btn-bg pull-right" value="Edit">
                                                     </div>
                                                     <div class="clearfix"></div>
                                                 </div>

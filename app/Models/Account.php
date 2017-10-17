@@ -219,4 +219,48 @@ class Account extends Model
     {
         die(var_dump($_FILES));
     }
+
+    // Public
+    public function detailUser()
+    {
+        return $this->getUser($_SESSION['user']->USERNAME);
+    }
+
+    public function updateUserInfo()
+    {
+        if (isset($_POST['edit'])) {
+            $account = $this->getUser($_SESSION['user']->USERNAME);
+            $this->setValue($account[0]->PASSWORD, $_POST['firstName'], $_POST['lastName'], $_POST['address'], $account[0]->IMAGE, $_POST['email'], 3, $_POST['phone']);
+            $this->updateById($_SESSION['user']->USERNAME, $this->fillable);
+            $_SESSION['notice'] = 'Sửa Username thành công!';
+            redirect('profile');
+        }
+    }
+
+    public function editUserPassword()
+    {
+        if (isset($_POST['edit'])) {
+            // die($_SESSION['user']->USERNAME);
+            $account = $this->getUser($_SESSION['user']->USERNAME);
+            $this->setValue(md5($_POST['password']), $account[0]->FIRST_NAME, $account[0]->LAST_NAME, $account[0]->ADDRESS, $account[0]->IMAGE, $account[0]->EMAIL, 3, $account[0]->PHONE);
+            $this->updateById($_SESSION['user']->USERNAME, $this->fillable);
+            $_SESSION['notice'] = 'Sửa Username thành công!';
+            redirect('editUserPassword');
+        }
+    }
+
+    public function editUserImage()
+    {
+        // Upload img
+        if (isset($_POST['edit'])) {
+            $account = $this->getUser($_SESSION['user']->USERNAME);
+            $image = $this->uploadImages($_FILES['file']['name'], 'imagesUser');
+
+            $this->setValue($account[0]->PASSWORD, $account[0]->FIRST_NAME, $account[0]->LAST_NAME, $account[0]->ADDRESS, $image, $account[0]->EMAIL, 3, $account[0]->PHONE);
+
+            $this->updateById($_SESSION['user']->USERNAME, $this->fillable);
+            $_SESSION['notice'] = 'Sửa Username thành công!';
+            redirect('profile');
+        }
+    }
 }

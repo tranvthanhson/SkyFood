@@ -20,13 +20,13 @@
                     <div class="user-features col-md-6 col-sm-6 item">
                         <?php if (isset($_SESSION['user'])) {?>
                         <div class="user dropdown item-feature">
+                        <img src="public/admin/assets/img/imagesUser/<?=$_SESSION['user']->IMAGE;?>" alt="">
                             <a href="" class="btn-user  dropdown-toggle" data-toggle="dropdown">
-                                <i class="fa fa-user"></i>
                                 <?=$_SESSION['user']->USERNAME;?>
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="user-profile.html">Profile</a></li>
+                                <li><a href="/profile">Profile</a></li>
                                 <li><a href="/logout">Logout</a></li>
                             </ul>
                         </div>
