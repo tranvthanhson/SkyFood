@@ -94,9 +94,9 @@ class Shop extends Model
             // $path = $_SERVER['DOCUMENT_ROOT'];
             if ('default-avatar.png' != $picture) {
                 $link = 'public/admin/assets/img/img-shop/' . $picture;
-                die($link);
                 unlink($link);
             }
+            die('tao van chay dc nha');
             $picture = $this->uploadImages($file, 'img-shop');
         }
         if (isset($_POST['edit'])) {
