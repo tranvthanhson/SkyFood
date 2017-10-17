@@ -10,7 +10,8 @@ class Save extends Model
 
     public function check()
     {
-        $sql = "SELECT count({$this->primaryKey}) AS test FROM SAVE WHERE USERNAME={$_SESSION['user']->USERNAME}";
+        $sql = "SELECT count(USERNAME) AS test FROM SAVE WHERE USERNAME='{$_SESSION['user']->USERNAME}'";
+        //die($sql);
         return $this->rawQuery($sql);
     }
 
@@ -19,6 +20,13 @@ class Save extends Model
         $save['USERNAME'] = $_SESSION['user']->USERNAME;
         $save['SHOP_ID'] = $_POST['aid'];
         $this->insert($save);
-        echo "<b style='color:red'>đã lưu</b>";
+        echo "<b style='color:red'>saved</b>";
+    }
+
+    public function deletedSave()
+    {
+        $sql = "DELETE FROM SAVE WHERE USERNAME='{$_SESSION['user']->USERNAME}' AND SHOP_ID='{$_POST['aid']}'";
+        $this->rawQuery($sql);
+        echo 'unsaved';
     }
 }

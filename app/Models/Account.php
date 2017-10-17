@@ -43,8 +43,8 @@ class Account extends Model
             $user = $this->checkUser($this->table, $username, $password);
 
             if ($user[0]->USERNAME == $username && $user[0]->PASSWORD == $password) {
+                $_SESSION['user'] = $user[0];
                 if (3 != $user[0]->ROLE) {
-                    $_SESSION['user'] = $user[0];
                     return 'Admin';
                 } else {
                     return 'User';
@@ -63,8 +63,9 @@ class Account extends Model
 
     public function register()
     {
-        if (isset($_POST['register'])) {
-            $this->setValue(md5($_POST['password']), $_POST['first_name'], $_POST['last_name'], '', '', $_POST['email'], 3, '');
+        if (isset($_POST['add'])) {
+            //die($_POST['first_name']);
+            $this->setValue(md5($_POST['password']), $_POST['first_name'], $_POST['last_name'], '', '', '', 3, '');
             $checkId = $this->findById($_POST['username'], 'USERNAME');
 
             if (null != $checkId->USERNAME) {
@@ -74,8 +75,8 @@ class Account extends Model
                 $this->insert($this->fillable);
                 $this->fillable = [];
 
-                echo 'Register Successful!';
-                // return redirect('');
+                // echo 'Register Successful!';
+                return redirect('');
             }
         }
     }

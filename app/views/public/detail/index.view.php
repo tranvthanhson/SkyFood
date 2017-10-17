@@ -60,14 +60,28 @@ if (1 == $check) {
                                             <form action="javascript:void(0)" method="POST">
                                                 <div class="item-feature save">
                                                     <div class="form-group">
+                                                        <?php
+$link = '';
+if ('' == $checkRate) {
+    $link = '/shop/ajaxRate';
+} else {
+    $link = '/shop/ajaxUpdateRate';
+}
+
+if (0 == $check) {
+    ?>
                                                         <input type="submit" class=" btn btn-bg" value="Save" onclick="save('/shop/ajaxSave',<?=$shop[0]->sid?>)" />
+                                                        <?php } else {?>
+                                                        <input type="submit" class=" btn btn-bg" value="Unsave" onclick="save('/shop/ajaxUnsave',<?=$shop[0]->sid?>)" />
+                                                        <?php }?>
                                                     </div>
                                                 </div>
                                                 <div class="item-feature rate">
                                                     <div class="form-group">
-                                                        <a href="" class="btn btn-bg" data-toggle="modal" data-target="#modal-rating">Rate</a>
+                                                        <a href="javascript:void(0)" class="btn btn-bg" data-toggle="modal" data-target="#modal-rating" onclick="rate(<?=$link?>,<?=$shop[0]->SHOP_ID?>)">Rate</a>
                                                     </div>
                                                 </div>
+
                                                 <div id="modal-rating" class="modal fade" role="dialog">
                                                     <div class="modal-dialog">
                                                         <!-- Modal content-->

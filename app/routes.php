@@ -18,7 +18,7 @@ $router->post('login', 'Admin\LoginController@login');
 $router->get('logout', 'Admin\LoginController@logout');
 
 // Register
-$router->get('register', 'Admin\RegisterController@index');
+
 $router->post('register', 'Admin\RegisterController@register');
 
 // User
@@ -55,6 +55,9 @@ $router->get('admin/shop/comment/del', 'Admin\ShopController@deleteComment');
 //ajax
 $router->post('admin/shop/ajaxDiscount', 'Admin\ShopController@ajaxDiscount');
 $router->post('shop/ajaxSave', 'Publics\ShopController@ajaxSave');
+$router->post('shop/ajaxUnsave', 'Publics\ShopController@ajaxUnsave');
+$router->post('shop/ajaxRate', 'Publics\ShopController@ajaxRate');
+$router->post('shop/ajaxUpdateRate', 'Publics\ShopController@ajaxUpdateRate');
 // Category
 $router->get('admin/type', 'Admin\TypeController@index');
 $router->get('admin/type/add', 'Admin\TypeController@add');
@@ -68,6 +71,16 @@ $router->get('admin/statistics', 'Admin\StatisticsController@index');
 
 // PUBLIC
 // Home
-$router->get('home', 'Publics\HomeController@index');
+
 //shop
 $router->get('shop', 'Publics\ShopController@index');
+
+$router->get('', 'Publics\HomeController@index');
+
+// Profile
+
+$router->get('profile', 'Publics\UserController@index');
+
+// Contact
+$router->get('contact', 'Publics\ContactController@index');
+$router->post('contact/create', 'Publics\ContactController@create');
