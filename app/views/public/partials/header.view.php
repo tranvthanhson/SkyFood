@@ -60,6 +60,7 @@
                 </div>
             </nav>
         </header>
+
         <!-- Modal Login-->
         <div id="modal-signIn" class="modal fade" role="dialog">
             <div class="modal-dialog">
@@ -95,7 +96,7 @@
                                 </div>
                                 <div class="col-md-12 forgotPass">
                                     <div class="form-group ">
-                                        <a href="">Forgot password?</a>
+                                        <a data-toggle="modal" data-target="#modal-forgot-pass" data-dismiss="modal" href="">Forgot password?</a>
                                     </div>
                                 </div>
                                 <div class="col-md-12 creatAccount">
@@ -103,6 +104,38 @@
                                         <p>
                                             Don't have an account?<a data-toggle="modal" data-target="#modal-signUp" data-dismiss="modal" href="">Creat an account</a>
                                         </p>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal forgotPass -->
+        <div id="modal-forgot-pass" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content content">
+                    <div class="wrp-ctn">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Forgot Password</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form data-toggle="validator" role="form" name="form" id="form-signIn" class="form-horizontal" enctype="multipart/form-data" method="POST">
+                                <div class="col-md-12 username">
+                                    <div class="form-group item">
+                                        <label for="input-uerName">Username</label>
+                                        <input type="text" id="input-uername" class="form-control" required />
+                                        <div class="underline"></div>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group button-action">
+                                        <input type="submit" class=" btn btn-bg" value="Send" />
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>
