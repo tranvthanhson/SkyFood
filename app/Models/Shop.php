@@ -107,6 +107,7 @@ class Shop extends Model
         $result = $this->findById($id, 'DATE_CREATED,VIEW');
         $shop = [];
         $picture = $result->VIEW;
+        $choose = $result->STATUS;
         $file = $_FILES['file']['name'];
         if ('' != $file) {
             $path = $_SERVER['DOCUMENT_ROOT'];
@@ -116,7 +117,7 @@ class Shop extends Model
             }
             $picture = $this->uploadImages($file, 'img-shop');
         }
-        if (isset($_POST['edit'])) {
+        if (isset($_POST['updo'])) {
             $choose = 0;
         } else if (isset($_POST['browsing'])) {
             $choose = 1;
