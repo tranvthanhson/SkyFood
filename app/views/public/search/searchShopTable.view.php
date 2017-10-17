@@ -38,7 +38,7 @@
     </div>
 
     <?php }?>
-<!--     <div class="view-more col-md-12 col-xs-12">
+<!--      <div class="view-more col-md-12 col-xs-12">
         <button class="btn btn-bg" type="submit" onclick="viewMore()">View more</button>
     </div>
--->
+ -->
