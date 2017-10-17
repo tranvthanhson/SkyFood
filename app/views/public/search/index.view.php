@@ -27,14 +27,7 @@
                                                                 </div>
                                                             </div>
                                                         </li>
-                                                        <li class="city item-three item">
-                                                            <div class="form-group wrp-item">
-                                                                <select class="form-control" id="">
-                                                                    <!-- <option>City</option> -->
-                                                                    <option selected="selected" disabled>Đà Nẵng</option>
-                                                                </select>
-                                                            </div>
-                                                        </li>
+
                                                         <li class="type item-three item">
                                                             <div class="form-group wrp-item">
                                                                 <select name="type" class="form-control" id="type">
@@ -51,8 +44,8 @@
                                                         <li class="type item-three item">
                                                             <div class="form-group wrp-item">
                                                                 <select id="sortBy" class="form-control">
-                                                                        <option value="0" selected>Mới nhất</option>
-                                                                        <option value="1">Đánh giá tốt nhất</option>
+                                                                    <option value="0" selected>Mới nhất</option>
+                                                                    <option value="1">Đánh giá tốt nhất</option>
                                                                 </select>
                                                             </div>
                                                         </li>

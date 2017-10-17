@@ -1,3 +1,6 @@
+<?php if (count($shops) == 0) {?>
+<h1 class="noItem">Không có kết quả nào</h1>
+<?php }?>
 <?php for ($i = 0; $i < count($shops); $i++) {?>
     <div class="item-product col-md-4 col-xs-4">
         <div class="wrp-item">
@@ -30,7 +33,7 @@
             <?php if (0 != $shops[$i]->DISCOUNT) {?>
             <div class="ribbon">
                 <p>
-                    <span>Sale</span> 50%
+                    <span>Sale</span> <?=$shops[$i]->DISCOUNT?>%
                 </p>
             </div>
             <?php }?>
