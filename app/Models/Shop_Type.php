@@ -25,7 +25,8 @@ class Shop_Type extends Model
     public function delete()
     {
         $sql = "DELETE  FROM {$this->table} WHERE SHOP_ID={$_GET['id']}";
-        //die($sql);
-        return $this->rawQuery($sql);
+        $this->rawQuery($sql);
+        $sql = "DELETE  FROM SHOP_TYPE WHERE SHOP_ID={$_GET['id']}";
+        $this->rawQuery($sql);
     }
 }

@@ -61,18 +61,7 @@ class Shop extends Model
                 $picture = $this->uploadImages($file, 'img-shop');
             }
             $currentDate = $now['year'] . '-' . $now['mon'] . '-' . $now['mday'] . ' ' . $now['hours'] . ':' . $now['minutes'] . ':' . $now['seconds'];
-            // $shop['SHOP_NAME'] = $_POST['shop_name'];
-            // $shop['STATUS'] = 0;
-            // $shop['DATE_CREATED'] = $currentDate;
-            // $shop['DISCOUNT'] = $_POST['discount'];
-            // $shop['LAT'] = $_POST['lat'];
-            // $shop['LNG'] = $_POST['lng'];
-            // $shop['PHONE'] = $_POST['phone'];
-            // $shop['TIME_CLOSE'] = $_POST['time_close'];
-            // $shop['TIME_OPEN'] = $_POST['time_open'];
-            // $shop['VIEW'] = $picture;
-            // $shop['ADDRESS'] = $_POST['address'];
-            // $shop['DETAIL'] = $_POST['detail'];
+
             $this->setValue($_POST['shop_name'], 0, $currentDate, $_POST['discount'], $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'], $picture, $_POST['address'], $_POST['detail']);
             //die(var_dump($this->fillable));
             return $this->insert($this->fillable);
@@ -120,7 +109,6 @@ class Shop extends Model
 
     public function deleteshop()
     {
-
         $path = $_SERVER['DOCUMENT_ROOT'];
         if ('default-avatar.png' != $picture) {
             $link = $path . '/public/assets/img/img-shop/' . $picture;
@@ -131,7 +119,6 @@ class Shop extends Model
 
     public function search()
     {
-
         $sql = "SELECT * FROM {$this->table} WHERE (SHOP_NAME LIKE '%" . $_POST['ajaxKey'] . "%')";
         //die($sql);
         $shop = $this->rawQuery($sql);
@@ -149,5 +136,17 @@ class Shop extends Model
             $this->updateById($_POST['aKey'], $shop);
             echo $value;
         }
+    }
+
+    public function searchNameShop($name, $type, $sortBy)
+    {
+        $sql = "SELECT * FROM SHOP A, TYPE_SHOP B WHERE A.SHOP_ID = B.SHOP_ID AND SHOP_NAME LIKE '%{$name}%' AND STATUS = 1";
+        if (0 != $type) {
+            $sql .= " AND TYPE_ID = {$type}";
+        }
+        $sql .= ' ORDER BY A.SHOP_ID DESC';
+        // $sortBy = 0 -> NEWEST
+        // $sortBy = 1 -> MOST RATE
+        return $this->rawQuery($sql);
     }
 }

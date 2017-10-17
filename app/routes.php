@@ -81,3 +81,7 @@ $router->post('editUserImage', 'Publics\UserController@editUserImage');
 // Contact
 $router->get('contact', 'Publics\ContactController@index');
 $router->post('contact/create', 'Publics\ContactController@create');
+
+// Search
+$router->get('search', 'Publics\SearchController@index');
+$router->get('search/shop', 'Publics\SearchController@search');

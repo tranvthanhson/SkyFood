@@ -53,7 +53,7 @@
                         <li><a href="#news">news</a></li>
                         <li><a href="#aboutUs">about us</a></li>
                         <li><a href="contact">contact</a></li>
-                        <li><a href="advanced-search.html">search</a></li>
+                        <li><a href="search">search</a></li>
                     </ul>
                 </div>
             </div>
