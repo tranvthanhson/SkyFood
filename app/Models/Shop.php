@@ -106,9 +106,7 @@ class Shop extends Model
         }
         $this->setValue($_POST['shop_name'], $choose, $result->DATE_CREATED, $_POST['discount'],
             $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'],
-            $picture, $_POST['address'], $_POST['detail']);
-
-        die();
+            $picture, $_POST['address'], $_POST['detail'], '');
         return $this->updateById($id, $this->fillable);
     }
 
