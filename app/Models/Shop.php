@@ -10,7 +10,7 @@ class Shop extends Model
     protected $primaryKey = 'SHOP_ID';
     protected $fillable = [];
 
-    public function setValue($SHOP_NAME, $STATUS, $DATE_CREATED, $DISCOUNT, $LAT, $LNG, $PHONE, $TIME_CLOSE, $TIME_OPEN, $VIEW, $ADDRESS, $DETAIL)
+    public function setValue($SHOP_NAME, $STATUS, $DATE_CREATED, $DISCOUNT, $LAT, $LNG, $PHONE, $TIME_CLOSE, $TIME_OPEN, $VIEW, $ADDRESS, $DETAIL, $USERNAME)
     {
         $this->fillable = [
             'SHOP_NAME' => $SHOP_NAME,
@@ -24,8 +24,8 @@ class Shop extends Model
             'TIME_OPEN' => $TIME_OPEN,
             'VIEW' => $VIEW,
             'ADDRESS' => $ADDRESS,
-            'DETAIL' => $DETAIL;,
-            // 'USERNAME' => $_SESSION['user']->USERNAME,
+            'DETAIL' => $DETAIL;
+            'USERNAME' => $_SESSION['user']->USERNAME,
         ];
     }
 
@@ -63,7 +63,7 @@ class Shop extends Model
             }
             $currentDate = $now['year'] . '-' . $now['mon'] . '-' . $now['mday'] . ' ' . $now['hours'] . ':' . $now['minutes'] . ':' . $now['seconds'];
 
-            $this->setValue($_POST['shop_name'], 0, $currentDate, $_POST['discount'], $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'], $picture, $_POST['address'], $_POST['detail']);
+            $this->setValue($_POST['shop_name'], 0, $currentDate, $_POST['discount'], $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'], $picture, $_POST['address'], $_POST['detail'], '');
             //die(var_dump($this->fillable));
             return $this->insert($this->fillable);
         } //die('a');
@@ -108,6 +108,7 @@ class Shop extends Model
             $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'],
             $picture, $_POST['address'], $_POST['detail']);
 
+        die();
         return $this->updateById($id, $this->fillable);
     }
 
