@@ -1,8 +1,4 @@
-.active-menu {
-    // border-top-color: $color-hover !important;
-    // @include breakpoint(small-tablet) {
-    //     background: $color-hover !important;
-    // }
+.active {
     background: $color-hover;
     a {
         color: $color-white;

@@ -1,7 +1,6 @@
 .advanced-search {
     .features {
         margin: 0 !important;
-        .item {}
         .item-three {
             @include breakpoint (tablet) {
                 width: 33.33333% !important;

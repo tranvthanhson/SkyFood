@@ -5,6 +5,13 @@ body {
     a {
         color: $color-gray3;
     }
+    a,
+    button,
+    input {
+        &:focus {
+            outline: none !important;
+        }
+    }
     .wrapper {
         input,
         select,

@@ -26,7 +26,7 @@ class ContactController
         $email = $_POST['email'];
 
         $this->feedback->createFeedback($name, $phone, $email, $content);
-        $_SESSION['notice'] = 'Bạn đã gửi phản hồi thành công';
+        $_SESSION['notice_contact'] = 'Bạn đã gửi phản hồi thành công';
         redirect('contact');
     }
 }

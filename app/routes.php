@@ -81,7 +81,15 @@ $router->get('', 'Publics\HomeController@index');
 // Profile
 
 $router->get('profile', 'Publics\UserController@index');
+$router->post('editUserInfo', 'Publics\UserController@editUser');
+$router->get('editUserPassword', 'Publics\UserController@viewEditPassword');
+$router->post('editUserPassword', 'Publics\UserController@editUserPassword');
+$router->post('editUserImage', 'Publics\UserController@editUserImage');
 
 // Contact
 $router->get('contact', 'Publics\ContactController@index');
 $router->post('contact/create', 'Publics\ContactController@create');
+
+// Search
+$router->get('search', 'Publics\SearchController@index');
+$router->get('search/shop', 'Publics\SearchController@search');

@@ -61,18 +61,7 @@ class Shop extends Model
                 $picture = $this->uploadImages($file, 'img-shop');
             }
             $currentDate = $now['year'] . '-' . $now['mon'] . '-' . $now['mday'] . ' ' . $now['hours'] . ':' . $now['minutes'] . ':' . $now['seconds'];
-            // $shop['SHOP_NAME'] = $_POST['shop_name'];
-            // $shop['STATUS'] = 0;
-            // $shop['DATE_CREATED'] = $currentDate;
-            // $shop['DISCOUNT'] = $_POST['discount'];
-            // $shop['LAT'] = $_POST['lat'];
-            // $shop['LNG'] = $_POST['lng'];
-            // $shop['PHONE'] = $_POST['phone'];
-            // $shop['TIME_CLOSE'] = $_POST['time_close'];
-            // $shop['TIME_OPEN'] = $_POST['time_open'];
-            // $shop['VIEW'] = $picture;
-            // $shop['ADDRESS'] = $_POST['address'];
-            // $shop['DETAIL'] = $_POST['detail'];
+
             $this->setValue($_POST['shop_name'], 0, $currentDate, $_POST['discount'], $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'], $picture, $_POST['address'], $_POST['detail']);
             //die(var_dump($this->fillable));
             return $this->insert($this->fillable);
@@ -112,7 +101,7 @@ class Shop extends Model
         if ('' != $file) {
             $path = $_SERVER['DOCUMENT_ROOT'];
             if ('default-avatar.png' != $picture) {
-                $link = $path . '/public/assets/img/img-shop/' . $picture;
+                $link = $path . '/public/admin/assets/img/img-shop/' . $picture;
                 unlink($link);
             }
             $picture = $this->uploadImages($file, 'img-shop');
@@ -122,16 +111,15 @@ class Shop extends Model
         } else if (isset($_POST['browsing'])) {
             $choose = 1;
         }
-        $this->setValue($_POST['shop_name'], $choose, $result->DATE_CREATED, $_POST['discount'], $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'], $picture, $_POST['address'], $_POST['detail']);
+        $this->setValue($_POST['shop_name'], $choose, $result->DATE_CREATED, $_POST['discount'], $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'], $picture, $_POST['address'], $_POST['detail'], '');
         return $this->updateById($id, $this->fillable);
     }
 
     public function deleteshop()
     {
-
         $path = $_SERVER['DOCUMENT_ROOT'];
         if ('default-avatar.png' != $picture) {
-            $link = $path . '/public/assets/img/img-shop/' . $picture;
+            $link = $path . '/public/admin/assets/img/img-shop/' . $picture;
             unlink($link);
         } //die($_GET['id']);
         return $this->deleteById($_GET['id']);
@@ -139,7 +127,6 @@ class Shop extends Model
 
     public function search()
     {
-
         $sql = "SELECT * FROM {$this->table} WHERE (SHOP_NAME LIKE '%" . $_POST['ajaxKey'] . "%')";
         //die($sql);
         $shop = $this->rawQuery($sql);
@@ -157,5 +144,28 @@ class Shop extends Model
             $this->updateById($_POST['aKey'], $shop);
             echo $value;
         }
+    }
+
+    public function searchNameShop($name, $type, $sortBy)
+    {
+        $sql = "SELECT SHOP_NAME, VIEW, DISCOUNT, S.SHOP_ID,COUNT(C.COMMENT_ID) AS SUM_COMMENT,AVG(R.SCORE) AS AVG_RATE FROM
+        RATE AS R RIGHT JOIN SHOP AS S ON S.SHOP_ID = R.SHOP_ID LEFT JOIN
+        COMMENT AS C ON C.SHOP_ID = S.SHOP_ID
+        LEFT JOIN TYPE_SHOP AS TS ON S.SHOP_ID=TS.SHOP_ID
+        WHERE S.STATUS = 1 AND SHOP_NAME LIKE '%{$name}%'";
+
+        if (0 != $type) {
+            $sql .= " AND TS.TYPE_ID = {$type}";
+        }
+        if (0 == $sortBy) {
+            $sql .= ' GROUP BY S.SHOP_ID ORDER BY S.SHOP_ID DESC';
+        } else {
+            $sql .= ' GROUP BY S.SHOP_ID ORDER BY AVG_RATE DESC';
+        }
+
+        // $sortBy = 0 -> NEWEST
+        // $sortBy = 1 -> MOST RATE
+
+        return $this->rawQuery($sql);
     }
 }
