@@ -7,9 +7,15 @@ use Core\App;
 
 class HomeController
 {
-    public function index()
+    protected $home;
+
+    public function __construct()
     {
         $this->home = new Home();
+    }
+
+    public function index()
+    {
         $interestedShop = $this->home->interestedShop();
         $latest = $this->home->latestShop();
         // die(var_dump($interestedShop));

@@ -16,13 +16,13 @@
                 </div>
                 <div class="parameter">
                     <div class="col-md-4 col-xs-4">
-                        <p href=""><i class="fa fa-star"></i> 20</p>
+                        <p href=""><i class="fa fa-star"></i><?=$shops[$i]->AVG_RATE+''?></p>
                     </div>
                     <div class="col-md-4 col-xs-4">
-                        <p href=""><i class="fa fa-comment"></i> 100</p>
+                        <p href=""><i class="fa fa-comment"></i><?=$shops[$i]->SUM_COMMENT?></p>
                     </div>
                     <div class="col-md-4 col-xs-4">
-                        <p href=""><i class="fa fa-bookmark"></i> 50</p>
+                        <p href=""><i class="fa fa-bookmark"></i>50</p>
                     </div>
                     <div class="clearfix"></div>
                 </div>
