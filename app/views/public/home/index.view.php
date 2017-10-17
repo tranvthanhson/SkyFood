@@ -63,7 +63,7 @@
                                 <div class="item-product col-md-3 col-xs-4">
                                     <div class="wrp-item">
                                         <div class="img-product">
-                                            <img class="img" src="/public/admin/assets/img/imagesUser/<?=$item->VIEW?>" alt="">
+                                            <img class="img" src="/public/admin/assets/img/img-shop/<?=$item->VIEW?>" alt="">
                                             <div class="hover-view">
                                                 <div class="view">
                                                     <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
