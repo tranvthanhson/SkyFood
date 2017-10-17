@@ -15,6 +15,7 @@ class ShopController
         $this->shop = new Shop;
         $this->save = new Save;
         $this->rate = new Rate;
+        $this->comment = new Comment;
     }
 
     public function index()
@@ -24,7 +25,7 @@ class ShopController
             $id = $_SESSION['rate'];
             unset($_SESSION['rate']);
         }
-
+        $comments = $this->comment->selectByShop($id);
         $shop = $this->shop->selectByKeyPublic($id);
         // die(var_dump($shop));
         $check = 0;
@@ -45,7 +46,7 @@ class ShopController
             }
         }
 
-        return view('public/detail/index', compact('shop', 'check', 'checkRate'));
+        return view('public/detail/index', compact('shop', 'check', 'checkRate', 'comments'));
     }
 
     public function verify()

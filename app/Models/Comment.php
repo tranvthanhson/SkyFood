@@ -27,4 +27,10 @@ class Comment extends Model
         $_SESSION['idshop'] = $_GET['id'];
         return $this->deleteById($_GET['idcomment']);
     }
+
+    public function selectByShop($id)
+    {
+        $sql = "SELECT COMMENT.*,ACCOUNT.IMAGE FROM COMMENT INNER JOIN ACCOUNT ON COMMENT.USERNAME=ACCOUNT.USERNAME WHERE SHOP_ID={$id}";
+        return $this->rawQuery($sql);
+    }
 }

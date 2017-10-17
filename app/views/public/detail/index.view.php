@@ -367,8 +367,8 @@ if (0 == $check) {
                                         <img src="public/public/assets/img/user/h5.jpg" class="media-object">
                                     </div>
                                     <div class="media-body">
-                                        <h4 class="media-heading">Hieu Tran <small><i>Posted on February 19, 2016</i></small></h4>
-                                        <form action="" class="form-border-color">
+                                        <h4 class="media-heading"><?=$_SESSION['user']->USERNAME?> </h4>
+                                        <form action="javascript:void(0)" class="form-border-color">
                                             <div class="form-group">
                                                 <textarea class="form-control" rows="3" id="cmt"></textarea>
                                             </div>
@@ -378,24 +378,19 @@ if (0 == $check) {
                                         </form>
                                     </div>
                                 </div>
+                                <?php
+foreach ($comments as $value) {
+    ?>
                                 <div class="media">
                                     <div class="media-left">
-                                        <img src="public/public/assets/img/user/h5.jpg" class="media-object">
+                                        <img src="public/public/assets/img/user/<?=$value->IMAGE?>" class="media-object">
                                     </div>
                                     <div class="media-body">
-                                        <h4 class="media-heading">Hieu Tran <small><i>Posted on February 19, 2016</i></small></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        <h4 class="media-heading"><?=$value->USERNAME?> <small><i><?=$value->DATE_CREATE?></i></small></h4>
+                                        <p><?=$value->CONTENT?></p>
                                     </div>
                                 </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <img src="public/public/assets/img/user/h5.jpg" class="media-object">
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="media-heading">Hieu Tran <small><i>Posted on February 19, 2016</i></small></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    </div>
-                                </div>
+                                <?php }?>
                             </div>
                         </div>
                     </div>
