@@ -149,7 +149,11 @@ class Shop extends Model
         if (0 != $type) {
             $sql .= " AND TS.TYPE_ID = {$type}";
         }
-        $sql .= ' GROUP BY S.SHOP_ID ORDER BY S.SHOP_ID DESC';
+        if (0 == $sortBy) {
+            $sql .= ' GROUP BY S.SHOP_ID ORDER BY S.SHOP_ID DESC';
+        } else {
+            $sql .= ' GROUP BY S.SHOP_ID ORDER BY AVG_RATE DESC';
+        }
 
         // $sortBy = 0 -> NEWEST
         // $sortBy = 1 -> MOST RATE
