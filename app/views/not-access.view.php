@@ -7,9 +7,9 @@
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     <!-- Bootstrap core CSS     -->
-    <link href="/public/assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href='/public/assets/css/font-awesome.css' rel='stylesheet' type='text/css'>
-    <link href="/public/assets/css/main.css" rel="stylesheet" />
+    <link href="/public/admin/assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link href='/public/admin/assets/css/font-awesome.css' rel='stylesheet' type='text/css'>
+    <link href="/public/admin/assets/css/main.css" rel="stylesheet" />
 </head>
 <body>
 	<div class="wrapper">
@@ -22,8 +22,8 @@
 			</div>
 		</div>
 	</div>
-    <script src="/public/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
-    <script src="/public/assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/public/admin/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
+    <script src="/public/admin/assets/js/bootstrap.min.js" type="text/javascript"></script>
 </body>
 
 </html>
