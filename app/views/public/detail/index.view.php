@@ -355,8 +355,15 @@ if (0 == $check) {
                     </div>
                 </div>
                 <div class="comments wrapper-content">
+                    <?php
+if (0 == $check) {
+    ?>
                     <div class="container">
-                        <div class="row">
+                       <h3><a href="login">Login to comment</a></h3>
+                    </div>
+                    <?php } else {
+    ?><div class="container">
+                     <div class="row">
                             <div class="title">
                                 <h2>Comments</h2>
                                 <p class="underline"></p>
@@ -373,27 +380,29 @@ if (0 == $check) {
                                                 <textarea class="form-control" rows="3" id="cmt"></textarea>
                                             </div>
                                             <div class="pull-right form-group">
-                                                <input type="submit" class="btn btn-bg" value="Send">
+                                                <input type="submit" class="btn btn-bg" value="Send" onclick="loadMyComments(<?=$shop[0]->sid?>)">
                                             </div>
                                         </form>
                                     </div>
                                 </div>
                                 <?php
 foreach ($comments as $value) {
-    ?>
+        ?>
                                 <div class="media">
                                     <div class="media-left">
                                         <img src="public/public/assets/img/user/<?=$value->IMAGE?>" class="media-object">
                                     </div>
                                     <div class="media-body">
-                                        <h4 class="media-heading"><?=$value->USERNAME?> <small><i><?=$value->DATE_CREATE?></i></small></h4>
+                                        <h4 class="media-heading"><?=$value->USERNAME?> <small><i><?=$value->DATE_CREATED?></i></small></h4>
                                         <p><?=$value->CONTENT?></p>
                                     </div>
                                 </div>
                                 <?php }?>
+                                <div id="ajaxComment">
+
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        </div><?php }?>
                 </div>
             </div>
         </div>

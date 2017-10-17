@@ -17,6 +17,25 @@ function save(link,id){
         }
     });
 }
+function loadMyComments(id){
+     var value = $('#cmt').val();
+      $.ajax({
+        url: '/shop/ajaxComment',
+        type: 'POST',
+        cache: false,
+        data: {
+           aid:id,
+           avalue:value
+        },
+        success: function(data) {
+            $('#ajaxComment').append(data);
+            //alert($data);
+        },
+        error: function(err) {
+            alert('Có lỗi xảy ra' + err);
+        }
+    });
+}
 
 
 

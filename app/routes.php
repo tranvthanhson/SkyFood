@@ -56,7 +56,7 @@ $router->get('admin/shop/comment/del', 'Admin\ShopController@deleteComment');
 $router->post('admin/shop/ajaxDiscount', 'Admin\ShopController@ajaxDiscount');
 $router->post('shop/ajaxSave', 'Publics\ShopController@ajaxSave');
 $router->post('shop/ajaxUnsave', 'Publics\ShopController@ajaxUnsave');
-
+$router->post('shop/ajaxComment', 'Publics\ShopController@ajaxComment');
 // Category
 $router->get('admin/type', 'Admin\TypeController@index');
 $router->get('admin/type/add', 'Admin\TypeController@add');

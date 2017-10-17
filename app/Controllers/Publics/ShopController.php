@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Publics;
 
+use App\Models\Comment;
 use App\Models\Rate;
 use App\Models\Save;
 use App\Models\Shop;
@@ -86,5 +87,10 @@ class ShopController
         $_SESSION['rate'] = $_GET['id'];
         $this->rate->updateRate();
         return redirect('shop');
+    }
+
+    public function ajaxComment()
+    {
+        $this->comment->ajaxComment();
     }
 }
