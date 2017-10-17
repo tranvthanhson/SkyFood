@@ -24,7 +24,7 @@ class Shop extends Model
             'TIME_OPEN' => $TIME_OPEN,
             'VIEW' => $VIEW,
             'ADDRESS' => $ADDRESS,
-            'DETAIL' => $DETAIL;
+            'DETAIL' => $DETAIL,
             'USERNAME' => $_SESSION['user']->USERNAME,
         ];
     }
