@@ -98,12 +98,12 @@ class Shop extends Model
             }
             $picture = $this->uploadImages($file, 'img-shop');
         }
-        die('tao van chay dc nhaQQQ');
         if (isset($_POST['edit'])) {
             $choose = 0;
         } else if (isset($_POST['browsing'])) {
             $choose = 1;
         }
+        die('tao van chay dc nha ahihi');
         $this->setValue($_POST['shop_name'], $choose, $result->DATE_CREATED, $_POST['discount'], $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'], $picture, $_POST['address'], $_POST['detail']);
         return $this->updateById($id, $this->fillable);
     }
