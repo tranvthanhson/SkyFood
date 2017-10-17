@@ -2,7 +2,7 @@
     <div class="item-product col-md-4 col-xs-4">
         <div class="wrp-item">
             <div class="img-product">
-                <img class="img" src="/public/public/assets/img/food/food1.jpg" alt="">
+                <img class="img" src="/public/admin/assets/img/img-shop/<?=$shops[$i]->VIEW?>" alt="">
                 <div class="hover-view">
                     <div class="view">
                         <a class="btn-view" href=""><i class="fa fa-eye"></i></a>
@@ -27,6 +27,13 @@
                     <div class="clearfix"></div>
                 </div>
             </div>
+            <?php if (0 != $shops[$i]->DISCOUNT) {?>
+            <div class="ribbon">
+                <p>
+                    <span>Sale</span> 50%
+                </p>
+            </div>
+            <?php }?>
         </div>
     </div>
 
@@ -34,4 +41,4 @@
 <!--     <div class="view-more col-md-12 col-xs-12">
         <button class="btn btn-bg" type="submit" onclick="viewMore()">View more</button>
     </div>
- -->
+-->
