@@ -73,3 +73,7 @@ $router->get('', 'Publics\HomeController@index');
 // Contact
 $router->get('contact', 'Publics\ContactController@index');
 $router->post('contact/create', 'Publics\ContactController@create');
+
+// Search
+$router->get('search', 'Publics\SearchController@index');
+$router->get('search/shop', 'Publics\SearchController@search');
