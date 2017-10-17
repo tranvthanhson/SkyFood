@@ -14,19 +14,11 @@
                         </div>
                         <div class="ctn-user ctn-main">
                             <div class="row ">
-                                <?php view_include('public.user.partials.side-bar');?>
+                                <?php view_include('public.user.partials.side-bar', ['imageUser' => $detailUser[0]->IMAGE]);?>
                                 <div class="user-infor edit-pass item-ctn col-md-9">
                                     <div class="wrp">
                                         <form data-toggle="validator" role="form" action="/editUserPassword" class="form-edit-pass form-infor form-border-color" method="POST">
-                                            <div class="row">
-                                                <div class="form-group pass">
-                                                    <label class="control-label col-sm-3" for="pwd">Password:</label>
-                                                    <div class="col-sm-9 input-pass">
-                                                        <input type="password"  class="form-control" id="pwd" placeholder="" disabled value="123">
-                                                    </div>
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </div>
+
                                             <div class="row">
                                                 <div class="form-group new-pass">
                                                     <label class="control-label col-sm-3" for="inputNewPass">New Password:</label>

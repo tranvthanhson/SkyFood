@@ -3,7 +3,7 @@
                                         <form action="/editUserImage" method="POST" enctype="multipart/form-data" class="form-avatar">
                                             <div class="avatar">
                                                 <div class="img">
-                                                    <img src="public/admin/assets/img/imagesUser/<?=$_SESSION['user']->IMAGE?>" alt="..." />
+                                                    <img src="public/admin/assets/img/imagesUser/<?=$imageUser;?>" alt="..." />
                                                     <div class="edit-avatar">
                                                         <div class="file">
                                                             <i class="fa fa-camera"></i>
@@ -22,7 +22,7 @@
                                         <div class="features">
                                             <nav>
                                                 <ul class="nav">
-                                                    <li class="active-menu"><a href="user-profile.html"><i class="fa fa-pencil-square-o"></i>Edit</a></li>
+                                                    <li class="active-menu"><a href="/profile"><i class="fa fa-pencil-square-o"></i>Edit</a></li>
                                                     <li><a href="/editUserPassword"><i class="fa fa-user"></i>Password</a></li>
                                                     <li><a href="user-saved.html"><i class="fa fa-bookmark"></i>Saved</a></li>
                                                 </ul>

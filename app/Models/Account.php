@@ -221,12 +221,17 @@ class Account extends Model
     }
 
     // Public
+    public function detailUser()
+    {
+        return $this->getUser($_SESSION['user']->USERNAME);
+    }
+
     public function updateUserInfo()
     {
         if (isset($_POST['edit'])) {
-            $account = $this->getUser($_POST['username']);
+            $account = $this->getUser($_SESSION['user']->USERNAME);
             $this->setValue($account[0]->PASSWORD, $_POST['firstName'], $_POST['lastName'], $_POST['address'], $account[0]->IMAGE, $_POST['email'], 3, $_POST['phone']);
-            $this->updateById($_POST['username'], $this->fillable);
+            $this->updateById($_SESSION['user']->USERNAME, $this->fillable);
             $_SESSION['notice'] = 'Sửa Username thành công!';
             redirect('profile');
         }

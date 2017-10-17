@@ -13,7 +13,7 @@
                         </div>
                         <div class="ctn-user ctn-main">
                             <div class="row ">
-                               <?php view_include('public.user.partials.side-bar');?>
+                               <?php view_include('public.user.partials.side-bar', ['imageUser' => $detailUser[0]->IMAGE]);?>
                                 <div class="user-infor item-ctn col-md-9">
                                     <div class="wrp">
                                         <form data-toggle="validator" role="form" action="/editUserInfo" class="form-infor form-border-color" method="POST">
@@ -30,9 +30,9 @@
                                                 <div class="form-group username">
                                                     <label class="control-label col-sm-3">Username:</label>
                                                     <div class="col-sm-9 show-username">
-                                                        <p><?=$_SESSION['user']->USERNAME;?></p>
+                                                        <p><?=$detailUser[0]->USERNAME;?></p>
                                                     </div>
-                                                    <input type="hidden" name="username" value="<?=$_SESSION['user']->USERNAME;?>">
+
                                                     <div class="clearfix"></div>
                                                 </div>
                                             </div>
@@ -40,7 +40,7 @@
                                                 <div class="form-group first-name">
                                                     <label class="control-label col-sm-3" for="inputFirstName">First Name:</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" name="firstName" class="form-control" id="inputFirstName" placeholder="First name" value="<?=$_SESSION['user']->FIRST_NAME;?>" required>
+                                                        <input type="text" name="firstName" class="form-control" id="inputFirstName" placeholder="First name" value="<?=$detailUser[0]->FIRST_NAME;?>" required>
                                                         <div class="help-block with-errors"></div>
                                                     </div>
                                                     <div class="clearfix"></div>
@@ -50,7 +50,7 @@
                                                 <div class="form-group last-name">
                                                     <label class="control-label col-sm-3" for="inputLastName">Last Name:</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" name="lastName" class="form-control" id="inputLastName" placeholder="Last name" value="<?=$_SESSION['user']->LAST_NAME;?>" required>
+                                                        <input type="text" name="lastName" class="form-control" id="inputLastName" placeholder="Last name" value="<?=$detailUser[0]->LAST_NAME;?>" required>
                                                         <div class="help-block with-errors"></div>
                                                     </div>
                                                     <div class="clearfix"></div>
@@ -60,7 +60,7 @@
                                                 <div class="form-group email">
                                                     <label class="control-label col-sm-3" for="inputEmail">Email:</label>
                                                     <div class="col-sm-9">
-                                                        <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email" value="<?=$_SESSION['user']->EMAIL;?>" required>
+                                                        <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email" value="<?=$detailUser[0]->EMAIL;?>" required>
                                                         <div class="help-block with-errors"></div>
                                                     </div>
                                                     <div class="clearfix"></div>
@@ -70,7 +70,7 @@
                                                 <div class="form-group email">
                                                     <label class="control-label col-sm-3" for="inputEmail">Phone:</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" name="phone" class="form-control" id="inputPhone" placeholder="Phone" value="<?=$_SESSION['user']->PHONE;?>" required>
+                                                        <input type="text" name="phone" class="form-control" id="inputPhone" placeholder="Phone" value="<?=$detailUser[0]->PHONE;?>" required>
                                                         <div class="help-block with-errors"></div>
                                                     </div>
                                                     <div class="clearfix"></div>
@@ -80,7 +80,7 @@
                                                 <div class="form-group email">
                                                     <label class="control-label col-sm-3" for="inputEmail">Address:</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" name="address" class="form-control" id="inputAddress" placeholder="Address" value="<?=$_SESSION['user']->ADDRESS;?>" required>
+                                                        <input type="text" name="address" class="form-control" id="inputAddress" placeholder="Address" value="<?=$detailUser[0]->ADDRESS;?>" required>
                                                         <div class="help-block with-errors"></div>
                                                     </div>
                                                     <div class="clearfix"></div>
@@ -95,7 +95,6 @@
                                                 </div>
                                             </div>
                                         </form>
-                                        <?php var_dump($_SESSION['user'])?>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>

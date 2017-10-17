@@ -14,7 +14,8 @@ class UserController
 
     public function index()
     {
-        return view('public/user/index');
+        $detailUser = $this->account->detailUser();
+        return view('public/user/index', compact('detailUser'));
     }
 
     public function editUser()
@@ -24,7 +25,8 @@ class UserController
 
     public function viewEditPassword()
     {
-        return view('public/user/changePassword');
+        $detailUser = $this->account->detailUser();
+        return view('public/user/changePassword', compact('detailUser'));
     }
 
     public function editUserPassword()
