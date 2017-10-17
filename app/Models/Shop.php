@@ -93,7 +93,7 @@ class Shop extends Model
         if ('' != $file) {
             $path = $_SERVER['DOCUMENT_ROOT'];
             if ('default-avatar.png' != $picture) {
-                $link = $path . '/public/admin/assets/img/img-shop/' . $picture;
+                $link = $path . 'public/admin/assets/img/img-shop/' . $picture;
                 unlink($link);
             }
             $picture = $this->uploadImages($file, 'img-shop');
@@ -111,7 +111,7 @@ class Shop extends Model
     {
         $path = $_SERVER['DOCUMENT_ROOT'];
         if ('default-avatar.png' != $picture) {
-            $link = $path . '/public/admin/assets/img/img-shop/' . $picture;
+            $link = $path . 'public/admin/assets/img/img-shop/' . $picture;
             unlink($link);
         } //die($_GET['id']);
         return $this->deleteById($_GET['id']);
