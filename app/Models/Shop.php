@@ -9,7 +9,8 @@ class Shop extends Model
     protected $table = 'SHOP';
     protected $primaryKey = 'SHOP_ID';
     protected $fillable = [];
-    public function setValue($SHOP_NAME, $STATUS, $DATE_CREATED, $DISCOUNT, $LAT, $LNG, $PHONE, $TIME_CLOSE, $TIME_OPEN, $VIEW, $ADDRESS, $DETAIL, $USERNAME)
+
+    public function setValue($SHOP_NAME, $STATUS, $DATE_CREATED, $DISCOUNT, $LAT, $LNG, $PHONE, $TIME_CLOSE, $TIME_OPEN, $VIEW, $ADDRESS, $DETAIL)
     {
         $this->fillable = [
             'SHOP_NAME' => $SHOP_NAME,
@@ -23,8 +24,8 @@ class Shop extends Model
             'TIME_OPEN' => $TIME_OPEN,
             'VIEW' => $VIEW,
             'ADDRESS' => $ADDRESS,
-            'DETAIL' => $DETAIL,
-            'USERNAME' => $_SESSION['user']->USERNAME,
+            'DETAIL' => $DETAIL;,
+            // 'USERNAME' => $_SESSION['user']->USERNAME,
         ];
     }
 
@@ -103,22 +104,10 @@ class Shop extends Model
         } else if (isset($_POST['browsing'])) {
             $choose = 1;
         }
-        // $this->setValue($_POST['shop_name'], $choose, $result->DATE_CREATED, $_POST['discount'],
-        //     $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'],
-        //     $picture, $_POST['address'], $_POST['detail']);
-        echo $_POST['shop_name'] . ' ';
-        echo $choose . ' ';
-        echo $result->DATE_CREATED . ' ';
-        echo $_POST['discount'] . ' ';
-        echo $_POST['lat'] . ' ';
-        echo $_POST['lng'] . ' ';
-        echo $_POST['phone'] . ' ';
-        echo $_POST['time_close'] . ' ';
-        echo $_POST['time_open'] . ' ';
-        echo $picture . ' ';
-        echo $_POST['address'] . ' ';
-        echo $_POST['detail'] . ' ';
-        die();
+        $this->setValue($_POST['shop_name'], $choose, $result->DATE_CREATED, $_POST['discount'],
+            $_POST['lat'], $_POST['lng'], $_POST['phone'], $_POST['time_close'], $_POST['time_open'],
+            $picture, $_POST['address'], $_POST['detail']);
+
         return $this->updateById($id, $this->fillable);
     }
 
