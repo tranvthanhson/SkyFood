@@ -124,6 +124,8 @@ class Account extends Model
     // Delete User
     public function deleteUser()
     {
+        $account = $this->getUser($_GET['username']);
+        unlink('public/admin/assets/img/imagesUser/' . $account[0]->IMAGE);
         $_SESSION['notice'] = 'Deleted Successful!';
         return $this->deleteById($_GET['username']);
     }
@@ -141,8 +143,6 @@ class Account extends Model
             $account = $this->getUser($_POST['username']);
 
             if ('' == $_POST['password']) {
-                //die('cc');
-
                 $_POST['password'] = $account[0]->PASSWORD;
             } else {
                 $_POST['password'] = md5($_POST['password']);
@@ -151,6 +151,7 @@ class Account extends Model
             $image = $_FILES['file']['name'];
 
             if (null != $image) {
+                unlink('public/admin/assets/img/imagesUser/' . $account[0]->IMAGE);
                 $_POST['urlImage'] = $this->uploadImages($image, 'imagesUser');
             }
             if (1 != $account[0]->ROLE) {
@@ -254,6 +255,7 @@ class Account extends Model
         // Upload img
         if (isset($_POST['edit'])) {
             $account = $this->getUser($_SESSION['user']->USERNAME);
+            unlink('public/admin/assets/img/imagesUser/' . $account[0]->IMAGE);
             $image = $this->uploadImages($_FILES['file']['name'], 'imagesUser');
             $_SESSION['user']->IMAGE = $image;
             $this->setValue($account[0]->PASSWORD, $account[0]->FIRST_NAME, $account[0]->LAST_NAME, $account[0]->ADDRESS, $image, $account[0]->EMAIL, 3, $account[0]->PHONE);
