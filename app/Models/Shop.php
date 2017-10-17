@@ -91,9 +91,9 @@ class Shop extends Model
         $picture = $result->VIEW;
         $file = $_FILES['file']['name'];
         if ('' != $file) {
-            $path = $_SERVER['DOCUMENT_ROOT'];
+            // $path = $_SERVER['DOCUMENT_ROOT'];
             if ('default-avatar.png' != $picture) {
-                $link = $path . 'public/admin/assets/img/img-shop/' . $picture;
+                $link = 'public/admin/assets/img/img-shop/' . $picture;
                 unlink($link);
             }
             $picture = $this->uploadImages($file, 'img-shop');
@@ -109,9 +109,9 @@ class Shop extends Model
 
     public function deleteshop()
     {
-        $path = $_SERVER['DOCUMENT_ROOT'];
+        // $path = $_SERVER['DOCUMENT_ROOT'];
         if ('default-avatar.png' != $picture) {
-            $link = $path . 'public/admin/assets/img/img-shop/' . $picture;
+            $link = 'public/admin/assets/img/img-shop/' . $picture;
             unlink($link);
         } //die($_GET['id']);
         return $this->deleteById($_GET['id']);
