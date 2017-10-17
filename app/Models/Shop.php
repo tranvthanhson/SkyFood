@@ -96,9 +96,9 @@ class Shop extends Model
                 $link = 'public/admin/assets/img/img-shop/' . $picture;
                 unlink($link);
             }
-            die('tao van chay dc nha');
             $picture = $this->uploadImages($file, 'img-shop');
         }
+        die('tao van chay dc nhaQQQ');
         if (isset($_POST['edit'])) {
             $choose = 0;
         } else if (isset($_POST['browsing'])) {
