@@ -81,7 +81,6 @@ $(document).ready(function() {
 
     $('#image').click(function() {
         var imageData = $('.image-editor').cropit('export');
-        // $('#encryptImage').val(imageData);
         $.ajax({
         url: '/profile',
         type: 'POST',

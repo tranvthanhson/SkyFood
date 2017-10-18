@@ -3,7 +3,7 @@
         <form action="/editUserImage" method="POST" enctype="multipart/form-data" class="form-avatar">
          <div class="avatar">
             <div class="img">
-                <img src="assets/img/user/h5.jpg" alt="..." />
+                <img src="/public/admin/assets/img/imagesUser/<?=$_SESSION['user']->IMAGE;?>" alt="..." />
                 <div class="edit-avatar" data-toggle="modal" data-target="#modal-crop-img">
                     <i class="fa fa-camera"></i>
                 </div>
@@ -37,11 +37,10 @@
                                         <div class="col-md-4 col-xs-4 item-feature-crop">
                                             <div class="upload">
                                                 <i class="fa fa-cloud-upload"></i>
-                                                <input id="image" class="export btn btn-bg" value="Upload" />
+                                                <input id="image" type="button" class="export btn btn-bg" value="Upload" />
                                             </div>
                                         </div>
                                         <div class="clearfix"></div>
-                                        <input id="encryptImage">
                                     </div>
                                 </div>
                             </form>
