@@ -8,9 +8,9 @@ class Save extends Model
 {
     protected $table = 'SAVE', $primaryKey = 'SAVE_ID';
 
-    public function check()
+    public function check($id)
     {
-        $sql = "SELECT count(USERNAME) AS test FROM SAVE WHERE USERNAME='{$_SESSION['user']->USERNAME}'";
+        $sql = "SELECT count(USERNAME) AS test FROM SAVE WHERE USERNAME='{$_SESSION['user']->USERNAME}' AND SHOP_ID={$id}";
         //die($sql);
         return $this->rawQuery($sql);
     }
@@ -23,8 +23,9 @@ class Save extends Model
         echo "<b style='color:red'>saved</b>";
     }
 
-    public function deletedSave()
+    public function deleteSave()
     {
+        //echo $sql;
         $sql = "DELETE FROM SAVE WHERE USERNAME='{$_SESSION['user']->USERNAME}' AND SHOP_ID='{$_POST['aid']}'";
         $this->rawQuery($sql);
         echo 'unsaved';

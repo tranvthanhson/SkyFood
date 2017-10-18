@@ -1649,3 +1649,6 @@ body {
   -webkit-appearance: none;
   margin: 0;
 }
+.ggmap {
+  display: none;
+}

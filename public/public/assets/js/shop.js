@@ -17,6 +17,7 @@ function save(link,id){
         }
     });
 }
+
 function loadMyComments(id){
      var value = $('#cmt').val();
       $.ajax({

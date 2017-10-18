@@ -66,12 +66,17 @@ $(document).ready(function() {
     //     $('.item-menu').removeClass("active");
     //     $(this).addClass("active");
     // });
+    
+    
 });
 
+function loadMap(latValue,lngValue){
+     $(".ggmap").css("display","block");initMap(latValue,lngValue);
+   
+}
 
-
-function initMap() {
-    var myLatLng = { lat: 16.0586339, lng: 108.21326840000006 };
+function initMap(latValue,lngValue) {
+    var myLatLng = { lat: latValue, lng: lngValue };
 
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,

@@ -55,28 +55,34 @@
                                         <p class="item time "><i class="fa fa-clock-o"></i><?=$shop[0]->TIME_OPEN?> - <?=$shop[0]->TIME_CLOSE?></p>
                                         <div class="item features">
                                             <div id='notification'></div>
-                                            <form action="javascript:void(0)" method="POST">
+
                                                 <div class="item-feature save">
                                                     <div class="form-group">
                                                         <?php
 $link = '';
 if ('' == $checkRate) {
-    $link = '/shop/ajaxRate?id=' . $shop[0]->sid;
+    $link = '/shop/rate?id=' . $shop[0]->sid;
 } else {
-    $link = '/shop/ajaxUpdateRate?id=' . $shop[0]->sid;
+    $link = '/shop/updateRate?id=' . $shop[0]->sid;
 }
-
+//die($link);
 if (0 == $check) {
     ?>
                                                         <input type="submit" class=" btn btn-bg" value="Save" onclick="save('/shop/ajaxSave',<?=$shop[0]->sid?>)" />
                                                         <?php } else {?>
                                                         <input type="submit" class=" btn btn-bg" value="Unsave" onclick="save('/shop/ajaxUnsave',<?=$shop[0]->sid?>)" />
                                                         <?php }?>
+
                                                     </div>
                                                 </div>
                                                 <div class="item-feature rate">
                                                     <div class="form-group">
                                                         <a href="javascript:void(0)" class="btn btn-bg" data-toggle="modal" data-target="#modal-rating" onclick="rate(<?=$link?>,<?=$shop[0]->SHOP_ID?>)">Rate</a>
+                                                    </div>
+                                                </div>
+                                                <div class="item-feature">
+                                                    <div class="form-group">
+                                                        <a href="javascript:void(0)" class="btn btn-bg" onclick="loadMap(<?=$shop[0]->LAT?>,<?=$shop[0]->LNG?>)">Map</a>
                                                     </div>
                                                 </div>
 
@@ -110,7 +116,7 @@ if (0 == $check) {
                                                     </div>
                                                 </div>
                                                 <div class="clearfix"></div>
-                                            </form>
+
                                         </div>
                                     </div>
                                 </div>
@@ -119,6 +125,7 @@ if (0 == $check) {
                             <div class="ggmap">
                                 <div id="map"></div>
                             </div>
+
                             <div class="features"></div>
                         </div>
                     </div>
@@ -409,3 +416,4 @@ foreach ($comments as $value) {
 </body>
 
 <?php view_include('public.layouts.foot-master')?>
+
