@@ -27,9 +27,9 @@ class SearchController
         $name = $_GET['ajaxKey'];
         $type = $_GET['type'];
         $sortBy = $_GET['sortBy'];
-        if ('' == $name) {
-            return;
-        }
+        // if ('' == $name) {
+        //     return;
+        // }
 
         $shops = $this->shop->searchNameShop($name, $type, $sortBy);
         return view('public/search/searchShopTable', compact('shops'));

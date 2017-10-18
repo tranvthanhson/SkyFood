@@ -12,13 +12,13 @@ class Comment extends Model
     public function load($id)
     {
 
-        $link = 'admin/shop';
+        $link = 'admin/shop/comment';
         $sql = "SELECT * FROM {$this->table} WHERE SHOP_ID={$id}";
         //die($sql);
         $selectAll = $this->rawQuery($sql);
         //die(var_dump($selectAll));
         $countUser = count($selectAll);
-
+        //die('a' . $countUser);
         return $this->pagination($sql, $countUser, $link, 1);
     }
 
@@ -44,13 +44,13 @@ class Comment extends Model
         $comment['DATE_CREATED'] = $currentDate;
         $this->insert($comment);
         echo ' <div class="media">
-                                    <div class="media-left">
-                                        <img src="public/public/assets/img/user/' . $_SESSION['user']->IMAGE . '" class="media-object">
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="media-heading">' . $_SESSION['user']->USERNAME . ' <small><i>' . $currentDate . '</i></small></h4>
-                                        <p>' . $_POST['avalue'] . '</p>
-                                    </div>
-                                </div>';
+        <div class="media-left">
+        <img src="public/public/assets/img/user/' . $_SESSION['user']->IMAGE . '" class="media-object">
+        </div>
+        <div class="media-body">
+        <h4 class="media-heading">' . $_SESSION['user']->USERNAME . ' <small><i>' . $currentDate . '</i></small></h4>
+        <p>' . $_POST['avalue'] . '</p>
+        </div>
+        </div>';
     }
 }
