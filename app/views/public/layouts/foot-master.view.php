@@ -5,6 +5,7 @@
 <script src="/public/public/assets/js/wow.min.js"></script>
 <script src="/public/public/assets/js/slick.js"></script>
 <script src="/public/public/assets/js/rater.js"></script>
+<script src="/public/public/assets/js/jquery/jquery.cropit.js"></script>
 <script src="/public/public/assets/js/script.js"></script>
 
 <script src="/public/public/assets/js/shop.js"></script>
