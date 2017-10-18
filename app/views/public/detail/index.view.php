@@ -24,7 +24,7 @@
                             <div class="infor-main">
                                 <div class="col-md-5 col-xs-5 image">
                                     <div class="wrp">
-                                        <img src="public/admin//public/public/assets/img/img-shop/<?=$shop[0]->VIEW?>" alt="">
+                                        <img src="/public/public/assets/img/img-shop/<?=$shop[0]->VIEW?>" alt="">
                                         <div class="ribbon">
                                             <p>
                                                 <span>Sale</span> <?=$shop[0]->DISCOUNT?>%
@@ -179,7 +179,7 @@ if (0 == $check) {
                                 <div class="item-product col-md-3 col-xs-4">
                                     <div class="wrp-item">
                                         <div class="img-product">
-                                            <img class="img" src="public/public//public/public/assets/img/food/food1.jpg" alt="">
+                                            <img class="img" src="/public/public/assets/img/food/food1.jpg" alt="">
                                             <div class="hover-view">
                                                 <div class="view">
                                                     <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
@@ -196,7 +196,7 @@ if (0 == $check) {
                                                             <div class="modal-body">
                                                                 <div class="wrp-item">
                                                                     <div class="img-product">
-                                                                        <img class="img" src="public/public//public/public/assets/img/restaurant/res5.jpg" alt="">
+                                                                        <img class="img" src="/public/public/assets/img/restaurant/res5.jpg" alt="">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -210,7 +210,7 @@ if (0 == $check) {
                                 <div class="item-product col-md-3 col-xs-4">
                                     <div class="wrp-item">
                                         <div class="img-product">
-                                            <img class="img" src="public/public//public/public/assets/img/restaurant/res2.jpg" alt="">
+                                            <img class="img" src="/public/public/assets/img/restaurant/res2.jpg" alt="">
                                             <div class="hover-view">
                                                 <div class="view">
                                                     <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
@@ -222,7 +222,7 @@ if (0 == $check) {
                                 <div class="item-product col-md-3 col-xs-4">
                                     <div class="wrp-item">
                                         <div class="img-product">
-                                            <img class="img" src="public/public//public/public/assets/img/food/food3.jpg" alt="">
+                                            <img class="img" src="/public/public/assets/img/food/food3.jpg" alt="">
                                             <div class="hover-view">
                                                 <div class="view">
                                                     <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
@@ -234,7 +234,7 @@ if (0 == $check) {
                                 <div class="item-product col-md-3 col-xs-4">
                                     <div class="wrp-item">
                                         <div class="img-product">
-                                            <img class="img" src="public/public//public/public/assets/img/restaurant/res4.jpg" alt="">
+                                            <img class="img" src="/public/public/assets/img/restaurant/res4.jpg" alt="">
                                             <div class="hover-view">
                                                 <div class="view">
                                                     <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
@@ -246,7 +246,7 @@ if (0 == $check) {
                                 <div class="item-product col-md-3 col-xs-4">
                                     <div class="wrp-item">
                                         <div class="img-product">
-                                            <img class="img" src="public/public//public/public/assets/img/restaurant/res6.jpg" alt="">
+                                            <img class="img" src="/public/public/assets/img/restaurant/res6.jpg" alt="">
                                             <div class="hover-view">
                                                 <div class="view">
                                                     <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
@@ -258,7 +258,7 @@ if (0 == $check) {
                                 <div class="item-product col-md-3 col-xs-4">
                                     <div class="wrp-item">
                                         <div class="img-product">
-                                            <img class="img" src="public/public//public/public/assets/img/food/food5.jpg" alt="">
+                                            <img class="img" src="/public/public/assets/img/food/food5.jpg" alt="">
                                             <div class="hover-view">
                                                 <div class="view">
                                                     <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
@@ -270,7 +270,7 @@ if (0 == $check) {
                                 <div class="item-product col-md-3 col-xs-4">
                                     <div class="wrp-item">
                                         <div class="img-product">
-                                            <img class="img" src="public/public//public/public/assets/img/food/food7.jpg" alt="">
+                                            <img class="img" src="/public/public/assets/img/food/food7.jpg" alt="">
                                             <div class="hover-view">
                                                 <div class="view">
                                                     <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
@@ -282,7 +282,7 @@ if (0 == $check) {
                                 <div class="item-product col-md-3 col-xs-4">
                                     <div class="wrp-item">
                                         <div class="img-product">
-                                            <img class="img" src="public/public//public/public/assets/img/restaurant/res5.jpg" alt="">
+                                            <img class="img" src="/public/public/assets/img/restaurant/res5.jpg" alt="">
                                             <div class="hover-view">
                                                 <div class="view">
                                                     <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
@@ -310,7 +310,7 @@ if (0 == $check) {
                                 <div class="ctn-slide ctn-main">
                                     <div class="slider-other slider">
                                         <div class="wrp-item">
-                                            <img src="public/public//public/public/assets/img/slide_banner/hd1.jpg">
+                                            <img src="/public/public/assets/img/slide_banner/hd1.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
                                                     <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
@@ -318,7 +318,7 @@ if (0 == $check) {
                                             </div>
                                         </div>
                                         <div class="wrp-item">
-                                            <img src="public/public//public/public/assets/img/restaurant/res1.jpg">
+                                            <img src="/public/public/assets/img/restaurant/res1.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
                                                     <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
@@ -326,7 +326,7 @@ if (0 == $check) {
                                             </div>
                                         </div>
                                         <div class="wrp-item">
-                                            <img src="public/public//public/public/assets/img/food/food1.jpg">
+                                            <img src="/public/public/assets/img/food/food1.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
                                                     <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
@@ -334,7 +334,7 @@ if (0 == $check) {
                                             </div>
                                         </div>
                                         <div class="wrp-item">
-                                            <img src="public/public//public/public/assets/img/food/food2.jpg">
+                                            <img src="/public/public/assets/img/food/food2.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
                                                     <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
@@ -342,7 +342,7 @@ if (0 == $check) {
                                             </div>
                                         </div>
                                         <div class="wrp-item">
-                                            <img src="public/public//public/public/assets/img/restaurant/res3.jpg">
+                                            <img src="/public/public/assets/img/restaurant/res3.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
                                                     <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
@@ -350,7 +350,7 @@ if (0 == $check) {
                                             </div>
                                         </div>
                                         <div class="wrp-item">
-                                            <img src="public/public//public/public/assets/img/restaurant/res4.jpg">
+                                            <img src="/public/public/assets/img/restaurant/res4.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
                                                     <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
@@ -358,7 +358,7 @@ if (0 == $check) {
                                             </div>
                                         </div>
                                         <div class="wrp-item">
-                                            <img src="public/public//public/public/assets/img/food/food3.jpg">
+                                            <img src="/public/public/assets/img/food/food3.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
                                                     <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
@@ -366,7 +366,7 @@ if (0 == $check) {
                                             </div>
                                         </div>
                                         <div class="wrp-item">
-                                            <img src="public/public//public/public/assets/img/food/food5.jpg">
+                                            <img src="/public/public/assets/img/food/food5.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
                                                     <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
@@ -387,40 +387,50 @@ if (0 == $check) {
                                 <p class="underline"></p>
                             </div>
                             <div class="ctn-comments ctn-main">
+                                 <?php
+if (0 == $checkLogin) {
+    ?>
+
+                                    <div class="alert alert-danger">
+                                      <strong><a href="login">Please login to comment!</a></strong>
+                                    </div>
+                                    <?php
+} else {
+    ?>
                                 <div class="media input-cmt">
                                     <div class="media-left">
-                                        <img src="/public/public/assets/img/user/h5.jpg" class="media-object">
+                                        <img src="/public/public/assets/img/user/<?=$_SESSION['user']->IMAGE?>" class="media-object">
                                     </div>
+
                                     <div class="media-body">
-                                        <h4 class="media-heading">Hieu Tran <small><i>Posted on February 19, 2016</i></small></h4>
-                                        <form action="" class="form-border-color">
+                                        <h4 class="media-heading"><?=$_SESSION['user']->USERNAME?></h4>
+                                        <form action="javascript:void(0)" class="form-border-color">
                                             <div class="form-group">
                                                 <textarea class="form-control" rows="3" id="cmt"></textarea>
                                             </div>
                                             <div class="pull-right form-group">
-                                                <input type="submit" class="btn btn-bg" value="Send">
+                                                <input type="submit" class="btn btn-bg" value="Send" onclick="loadMyComments(<?=$shop[0]->sid?>)">
                                             </div>
                                         </form>
                                     </div>
-                                </div>
+
+                                </div><?php }?>
+                                <?php
+foreach ($comments as $value) {
+    ?>
                                 <div class="media">
                                     <div class="media-left">
-                                        <img src="/public/public/assets/img/user/h5.jpg" class="media-object">
+                                        <img src="/public/public/assets/img/user/<?=$value->IMAGE?>" class="media-object">
                                     </div>
                                     <div class="media-body">
-                                        <h4 class="media-heading">Hieu Tran <small><i>Posted on February 19, 2016</i></small></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                        <h4 class="media-heading"><?=$value->USERNAME?> <small><i><?=$value->DATE_CREATED?></i></small></h4>
+                                        <p><?=$value->CONTENT?></p>
                                     </div>
                                 </div>
-                                <div class="media">
-                                    <div class="media-left">
-                                        <img src="/public/public/assets/img/user/h5.jpg" class="media-object">
+                                <?php }?>
+                                <div id="ajaxComment">
+
                                     </div>
-                                    <div class="media-body">
-                                        <h4 class="media-heading">Hieu Tran <small><i>Posted on February 19, 2016</i></small></h4>
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>

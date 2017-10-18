@@ -1667,4 +1667,8 @@ body {
 .ggmap {
   display: none;
 }
+.alert-danger a{
+  color: #a94442 !important;
+  font-weight: bold;
+}
 
