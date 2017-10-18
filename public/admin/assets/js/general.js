@@ -1,13 +1,13 @@
  $('#search').click();
-function search(link){
+ function search(link){
     var key = $('#inputSearch').val();
    // alert(link);
-    $.ajax({
-        url: link,
-        type: 'POST',
-        cache: false,
-        data: {
-            ajaxKey: key,
+   $.ajax({
+    url: link,
+    type: 'POST',
+    cache: false,
+    data: {
+        ajaxKey: key,
             // aactive: active
         },
         success: function(data) {
@@ -20,4 +20,11 @@ function search(link){
     });
 }
 
+function isNumberKey(evt)
+{
+    var charCode = (evt.which) ? evt.which : event.keyCode
+    if (charCode != 45  && charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
 
+    return true;
+}
