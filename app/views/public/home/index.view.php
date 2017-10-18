@@ -13,7 +13,7 @@
                                     <img src="/public/public/assets/img/slide_banner/hd1.jpg">
                                     <div class="bg">
                                         <div class="slide-text">
-                                            <h2>Sky Food</h2>
+                                            <h2>Delicious</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -21,7 +21,7 @@
                                     <img src="/public/public/assets/img/food/food10.jpg">
                                     <div class="bg">
                                         <div class="slide-text ">
-                                            <h2>Sky Food</h2>
+                                            <h2>Quality</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -29,7 +29,7 @@
                                     <img src="/public/public/assets/img/restaurant/res6.jpg">
                                     <div class="bg">
                                         <div class="slide-text ">
-                                            <h2>Sky Food</h2>
+                                            <h2>Convenient</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -37,7 +37,7 @@
                                     <img src="/public/public/assets/img/restaurant/res10.jpg">
                                     <div class="bg">
                                         <div class="slide-text ">
-                                            <h2>Sky Food</h2>
+                                            <h2>Cozy</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -61,7 +61,7 @@
                                             <img class="img" src="/public/admin/assets/img/img-shop/<?=$item->VIEW?>" alt="">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="/shop?id=<?=$item->SHOP_ID?>"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -114,7 +114,7 @@
                                             <img class="img" src="/public/admin/assets/img/img-shop/<?=$item->VIEW?>" alt="">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="/shop?id=<?=$item->SHOP_ID?>"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -147,9 +147,9 @@
                                 </div>
                                 <?php }?>
 
-                                <div class="view-more col-md-12 col-xs-12">
+                           <!--      <div class="view-more col-md-12 col-xs-12">
                                     <button class="btn btn-bg" type="submit">View more</button>
-                                </div>
+                                </div> -->
                                 <div class="clearfix"></div>
                             </div>
                         </div>

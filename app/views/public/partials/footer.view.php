@@ -14,8 +14,8 @@
                     <div class="ctn_item">
                         <p>Địa chỉ: 193 Nguyễn Lương Bằng, Đà Nẵng</p>
                         <p>SĐT: 0905594382</p>
-                        <p>Email: <a href="">pinksky@gmail.com</a></p>
-                        <p>Website: <a href="">http://pinksky.com</a></p>
+                        <p>Email: <a href="">skypinkresponse@gmail.com</a></p>
+                        <p>Website: <a href="">https://skyfood.herokuapp.com/</a></p>
                     </div>
                     <div class="social">
                         <div class="item col-md-3 col-xs-3"><a href=""><i class="fa fa-facebook"></i></a></div>

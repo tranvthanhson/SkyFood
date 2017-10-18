@@ -27,7 +27,7 @@ class LoginController
         } else if ('User' == $result) {
             return redirect('');
         } else {
-            echo 'Redirect Home';
+            redirect('');
         }
     }
 

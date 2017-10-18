@@ -28,9 +28,7 @@
                                                 <div class="form-group">
                                                     <label for="role">Phân quyền (<span>*</span>)</label>
                                                     <select class="form-control" name="role" id="role">
-
-
-
+                                                    <option <?php if (($infoUser[0]->ROLE) == 1) {echo 'Selected = "Selected"';}?> value="1">Admin</option>
                                                     <option <?php if (($infoUser[0]->ROLE) == 2) {echo 'Selected = "Selected"';}?> value="2">Staff</option>
                                                     <option <?php if (($infoUser[0]->ROLE) == 3) {echo 'Selected = "Selected"';}?> value="3">User</option>
                                                 </select>
@@ -69,7 +67,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Điện thoại (<span>*</span>)</label>
-                                                    <input type="text" value="<?=$infoUser[0]->PHONE?>" name="phone" class="form-control" id="confirmPass">
+                                                    <input type="number" value="<?=$infoUser[0]->PHONE?>" name="phone" class="form-control no-spinners" id="confirmPass">
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>

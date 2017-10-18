@@ -49,7 +49,7 @@
                                                 </div>
                                             </div>
                                             <div class="panel-footer">
-                                                <a href="/user">Xem <i class="fa fa-arrow-circle-right"></i></a>
+                                                <a href="/admin/user">Xem <i class="fa fa-arrow-circle-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -71,29 +71,7 @@
                                                 </div>
                                             </div>
                                             <div class="panel-footer">
-                                                <a href="/cat">Xem <i class="fa fa-arrow-circle-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="">
-                                        <div class="panel panel-violet">
-                                            <div class="panel-body">
-                                                <div class="text col-md-6">
-                                                    <div class="row">
-                                                        <p class="num">1500</p>
-                                                        <p class="name">Bình luận</p>
-                                                    </div>
-                                                </div>
-                                                <div class="icon col-md-4">
-                                                    <div class="row">
-                                                        <i class="fa fa-comment"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="panel-footer">
-                                                <a href="">Xem <i class="fa fa-arrow-circle-right"></i></a>
+                                                <a href="/admin/type">Xem <i class="fa fa-arrow-circle-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -115,7 +93,7 @@
                                                 </div>
                                             </div>
                                             <div class="panel-footer">
-                                                <a href="">Xem <i class="fa fa-arrow-circle-right"></i></a>
+                                                <a href="/admin/feedback">Xem <i class="fa fa-arrow-circle-right"></i></a>
                                             </div>
                                         </div>
                                     </div>

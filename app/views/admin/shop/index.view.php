@@ -30,7 +30,6 @@
                             </div>
                            <?php if (isset($_SESSION['notice'])) {?>
                             <div class="alert alert-success">
-
                                 <strong><?=$_SESSION['notice']?></strong>
                             </div>
                             <?php }?>
@@ -66,7 +65,7 @@ foreach ($shop['all'] as $value) {
                                                <form action="javascript:void(0)">
                                                     <div class="form-group">
                                                        <div class="item-col">
-                                                           <input type="text" class="form-control" id="discount<?=$value->SHOP_ID?>" value="<?=$value->DISCOUNT?>" >
+                                                           <input type="number" class="form-control no-spinners" id="discount<?=$value->SHOP_ID?>" value="<?=$value->DISCOUNT?>" >
                                                           <!--  <div class="help-block with-errors"></div> -->
                                                        </div>
                                                        <div class="item-col">

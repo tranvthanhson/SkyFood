@@ -16,7 +16,7 @@
                                     <div class="wrp">
                                         <div class="features">
                                             <nav>
-                                                <form action="" class="form-avatar">
+                                                <div class="form-avatar">
                                                     <ul class="nav">
                                                         <li class="input-address item">
                                                             <div class="form-group">
@@ -57,7 +57,7 @@
                                                         </li>
                                                     </ul>
                                                     <div class="clearfix"></div>
-                                                </form>
+                                                </div>
                                             </nav>
                                         </div>
                                         <div class="wrp-blur"></div>

@@ -30,9 +30,7 @@
                                                 <span>Sale</span> <?=$shop[0]->DISCOUNT?>%
                                             </p>
                                         </div>
-                                        <?php
-if (1 == $check) {
-    ?>
+                                        <?php if (1 == $check) {?>
                                         <div class="ribbon bookmark">
                                             <p>
                                                 <span>Saved</span>
@@ -45,7 +43,7 @@ if (1 == $check) {
                                     <div class="wrp">
                                         <div class="item name">
                                             <div class="score">
-                                                <p><?=$shop[0]->AVG?></p>
+                                                <p><?=$shop[0]->AVG+''?></p>
                                             </div>
                                             <div class="name-address">
                                                 <h3> <?=$shop[0]->SHOP_NAME?> </h3>
@@ -288,7 +286,7 @@ if (0 == $check) {
                                             <img src="public/public/assets/img/slide_banner/hd1.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -296,7 +294,7 @@ if (0 == $check) {
                                             <img src="public/public/assets/img/restaurant/res1.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -304,7 +302,7 @@ if (0 == $check) {
                                             <img src="public/public/assets/img/food/food1.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -312,7 +310,7 @@ if (0 == $check) {
                                             <img src="public/public/assets/img/food/food2.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -320,7 +318,7 @@ if (0 == $check) {
                                             <img src="public/public/assets/img/restaurant/res3.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -328,7 +326,7 @@ if (0 == $check) {
                                             <img src="public/public/assets/img/restaurant/res4.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -336,7 +334,7 @@ if (0 == $check) {
                                             <img src="public/public/assets/img/food/food3.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -344,7 +342,7 @@ if (0 == $check) {
                                             <img src="public/public/assets/img/food/food5.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="detail.html"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
