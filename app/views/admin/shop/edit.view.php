@@ -26,14 +26,14 @@
                                                  <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="phone" class="control-label">Số điện thoại (<span>*</span>)</label>
-                                                        <input type="number" class="form-control no-spinners" id="phone" value="<?=$shop->PHONE?>" required data-error="Vui lòng nhập số vào" name="phone">
+                                                        <input type="text" onkeypress="return isNumberKey(event)" maxlength="11" class="form-control" id="phone" value="<?=$shop->PHONE?>" required data-error="Vui lòng nhập số vào" name="phone">
                                                         <div class="help-block with-errors"></div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label for="discount" class="control-label">Giảm giá (<span>*</span>)</label>
-                                                        <input type="number" class="form-control no-spinners" id="discount" placeholder="Khuyến mãi" value="<?=$shop->DISCOUNT?>" name="discount" required>
+                                                        <input type="text" onkeypress="return isNumberKey(event)" maxlength="3" class="form-control" id="discount" placeholder="Khuyến mãi" value="<?=$shop->DISCOUNT?>" name="discount" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -79,10 +79,8 @@ foreach ($types as $value) {
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-
                                                         <label for="lung" class="control-label">Lungtide</label>
                                                         <input type="text" class="form-control" id="lung" value="<?=$shop->LNG?>" name="lng" disabled>
-
                                                     </div>
                                                 </div>
                                             </div>

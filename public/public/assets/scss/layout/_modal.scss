@@ -153,7 +153,7 @@
                     top: 50%;
                     left: 50%;
                     -webkit-transform: translate(-50%, -50%);
-                            transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
                     transition: .3s ease-in-out;
                 }
             }
@@ -203,4 +203,89 @@
             width: 50%;
         }
     }
+}
+
+#modal-crop-img {
+    .cropit-preview {
+        background-color: #f8f8f8;
+        background-size: cover;
+        margin: 0 auto;
+        width: 250px;
+        height: 250px;
+    }
+
+    .cropit-preview-image-container {
+        cursor: move;
+    }
+
+    .cropit-preview-background {
+        opacity: .15;
+        cursor: auto;
+    }
+
+    input,
+    .export {
+        /* Use relative position to prevent from being covered by image background */
+        // position: relative;
+        // z-index: 10;
+        // display: block;
+    }
+    .feature-crop {
+        margin-top: 5%;
+        .item-feature-crop {
+            @include breakpoint (phone) {
+                width: 100%;
+                margin-bottom: 3%;
+            }
+        }
+    }
+    .file {
+        position: relative;
+        overflow: hidden;
+        padding: 3px 10px;
+        i {
+            padding-right: 2%;
+        }
+        input {
+            position: absolute;
+            font-size: 50px;
+            opacity: 0;
+            right: 0;
+            top: 0;
+        }
+    }
+    i {
+        display: none;
+        margin-right: 5px;
+    }
+    .btn-bg {
+        text-align: center;
+        padding: 10px;
+        cursor: pointer;
+        line-height: 1;
+         width: 100%;
+    }
+    .upload {
+
+        // input {
+        //     background: transparent;
+        //     border: 0;
+        // }
+    } // .button-upload {
+    //     color: $color-hover;
+    //     border: 1px solid $color-hover;
+    //     &:hover {
+    //         -webkit-transition: .3s ease;
+    //         transition: .3s ease;
+    //         color: $color-white;
+    //         background: $color-hover;
+    //     }
+    //     @include breakpoint (small-tablet) {
+    //         font-size: 13px;
+    //     }
+    //     input {
+    //         background: transparent;
+    //         border: 0;
+    //     }
+    // }
 }
