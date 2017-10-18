@@ -8,7 +8,6 @@
                 <div class="slide-ad">
                     <div class="container-fluid">
                         <div class="row">
-<<<<<<< HEAD
                               <div class="slider-ad slider">
                                 <div class="wrp-item">
                                     <img src="public/public/assets/img/slide_banner/banner1.jpg">
@@ -40,38 +39,7 @@
                                         <div class="slide-text ">
                                             <h2>Fresh Vegetables </h2>
                                         </div>
-=======
-                           <div class="slider-ad slider">
-                            <div class="wrp-item">
-                                <img src="public/public/assets/img/slide_banner/banner1.jpg">
-                                <div class="bg">
-                                    <div class="slide-text ">
-                                        <h2>Nutrition Breakfast </h2>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="wrp-item">
-                                <img src="public/public/assets/img/food/food10.jpg">
-                                <div class="bg">
-                                    <div class="slide-text ">
-                                        <h2>Fresh Fruit</h2>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="wrp-item">
-                                <img src="public/public/assets/img/slide_banner/banner5.jpg">
-                                <div class="bg">
-                                    <div class="slide-text ">
-                                        <h2>Green Tea</h2>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="wrp-item">
-                                <img src="public/public/assets/img/slide_banner/banner2.jpg">
-                                <div class="bg">
-                                    <div class="slide-text ">
-                                        <h2>Fresh Vegetables </h2>
->>>>>>> dev
+
                                     </div>
                                 </div>
                             </div>
