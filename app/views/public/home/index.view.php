@@ -67,7 +67,7 @@
                                         </div>
                                         <div class="ctn-product">
                                             <div class="info">
-                                                <h3><a href="detail.html"><?=$item->SHOP_NAME?></a></h3>
+                                                <h3><a href="/shop?id=<?=$item->SHOP_ID?>"><?=$item->SHOP_NAME?></a></h3>
                                                 <p class="address"><?=$item->ADDRESS?></p>
                                             </div>
                                             <div class="parameter">
@@ -120,7 +120,7 @@
                                             </div>
                                             <div class="ctn-product">
                                                 <div class="info">
-                                                    <h3><a href="detail.html"><?=$item->SHOP_NAME?></a></h3>
+                                                    <h3><a href="/shop?id=<?=$item->SHOP_ID?>"><?=$item->SHOP_NAME?></a></h3>
                                                     <p class="address"><?=$item->ADDRESS?></p>
                                                 </div>
                                                 <div class="parameter">
