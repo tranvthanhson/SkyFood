@@ -60,7 +60,7 @@ foreach ($comments['all'] as $value) {
                                     </table>
                                 </div>
  <?php $pagination = $comments?>
-                        <?php view_include('admin.partials.pagination', compact('pagination'));?>
+                        <?php view_include('admin.partials.paginationComment', compact('pagination', 'shop'));?>
                             </div>
                         </div>
                     </div>
