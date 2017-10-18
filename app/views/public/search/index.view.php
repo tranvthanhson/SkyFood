@@ -51,7 +51,7 @@
                                                         <li class="button-search item-three item">
                                                             <div class="wrp-item">
                                                                 <div>
-                                                                    <input class="form-control btn btn-bg" id="searchId" onclick="search('search/shop')" value="Search" type="button">
+                                                                    <input class="form-control btn btn-bg" id="searchId" onclick="searchShopName('search/shop')" value="Search" type="button">
                                                                 </div>
                                                             </div>
                                                         </li>

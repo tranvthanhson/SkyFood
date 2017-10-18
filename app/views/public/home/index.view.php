@@ -10,34 +10,34 @@
                         <div class="row">
                             <div class="slider-ad slider">
                                 <div class="wrp-item">
-                                    <img src="/public/public/assets/img/slide_banner/hd1.jpg">
+                                    <img src="public/public/assets/img/slide_banner/banner1.jpg">
                                     <div class="bg">
-                                        <div class="slide-text">
-                                            <h2>Delicious</h2>
+                                        <div class="slide-text ">
+                                            <h2>Nutrition Breakfast </h2>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="wrp-item">
-                                    <img src="/public/public/assets/img/food/food10.jpg">
+                                    <img src="public/public/assets/img/food/food10.jpg">
                                     <div class="bg">
                                         <div class="slide-text ">
-                                            <h2>Quality</h2>
+                                            <h2>Fresh Fruit</h2>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="wrp-item">
-                                    <img src="/public/public/assets/img/restaurant/res6.jpg">
+                                    <img src="public/public/assets/img/slide_banner/banner5.jpg">
                                     <div class="bg">
                                         <div class="slide-text ">
-                                            <h2>Convenient</h2>
+                                            <h2>Green Tea</h2>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="wrp-item">
-                                    <img src="/public/public/assets/img/restaurant/res10.jpg">
+                                    <img src="public/public/assets/img/slide_banner/banner2.jpg">
                                     <div class="bg">
                                         <div class="slide-text ">
-                                            <h2>Cozy</h2>
+                                            <h2>Fresh Vegetables </h2>
                                         </div>
                                     </div>
                                 </div>
