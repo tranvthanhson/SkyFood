@@ -44,13 +44,13 @@ class Comment extends Model
         $comment['DATE_CREATED'] = $currentDate;
         $this->insert($comment);
         echo ' <div class="media">
-                                    <div class="media-left">
-                                        <img src="public/public/assets/img/user/' . $_SESSION['user']->IMAGE . '" class="media-object">
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="media-heading">' . $_SESSION['user']->USERNAME . ' <small><i>' . $currentDate . '</i></small></h4>
-                                        <p>' . $_POST['avalue'] . '</p>
-                                    </div>
-                                </div>';
+        <div class="media-left">
+        <img src="public/public/assets/img/user/' . $_SESSION['user']->IMAGE . '" class="media-object">
+        </div>
+        <div class="media-body">
+        <h4 class="media-heading">' . $_SESSION['user']->USERNAME . ' <small><i>' . $currentDate . '</i></small></h4>
+        <p>' . $_POST['avalue'] . '</p>
+        </div>
+        </div>';
     }
 }
