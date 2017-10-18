@@ -74,13 +74,15 @@ foreach ($types as $value) {
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="lat" class="control-label">Latitude</label>
-                                                        <input type="text" class="form-control" id="lat" name="lat" value="<?=$shop->LAT?>">
+                                                        <input type="text" class="form-control" id="lat" name="lat" value="<?=$shop->LAT?>" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label for="lung" class="control-label">Longitude</label>
-                                                        <input type="text" class="form-control" id="lung" value="<?=$shop->LNG?>" name="lng" >
+
+                                                        <label for="lung" class="control-label">Lungtide</label>
+                                                        <input type="text" class="form-control" id="lung" value="<?=$shop->LNG?>" name="lng" disabled>
+
                                                     </div>
                                                 </div>
                                             </div>

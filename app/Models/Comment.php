@@ -12,13 +12,13 @@ class Comment extends Model
     public function load($id)
     {
 
-        $link = 'admin/shop';
+        $link = 'admin/shop/comment';
         $sql = "SELECT * FROM {$this->table} WHERE SHOP_ID={$id}";
         //die($sql);
         $selectAll = $this->rawQuery($sql);
         //die(var_dump($selectAll));
         $countUser = count($selectAll);
-
+        //die('a' . $countUser);
         return $this->pagination($sql, $countUser, $link, 1);
     }
 
