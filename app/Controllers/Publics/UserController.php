@@ -14,6 +14,7 @@ class UserController
 
     public function index()
     {
+
         $detailUser = $this->account->detailUser();
         return view('public/user/index', compact('detailUser'));
     }

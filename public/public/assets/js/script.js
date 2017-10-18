@@ -66,6 +66,40 @@ $(document).ready(function() {
     //     $('.item-menu').removeClass("active");
     //     $(this).addClass("active");
     // });
+    $('.image-editor').cropit({
+        exportZoom: 1.25,
+        imageBackground: true,
+        imageBackgroundBorderWidth: 20
+    });
+
+    $('.rotate-cw').click(function() {
+        $('.image-editor').cropit('rotateCW');
+    });
+    $('.rotate-ccw').click(function() {
+        $('.image-editor').cropit('rotateCCW');
+    });
+
+    $('#image').click(function() {
+        var imageData = $('.image-editor').cropit('export');
+        $.ajax({
+        url: '/profile',
+        type: 'POST',
+        cache: false,
+        data: {
+            ajaxImages: imageData,
+            // aactive: active
+        },
+        success: function(data) {
+            // alert(data);
+            $('.img').html(data);
+            // alert($data);
+        },
+        error: function(err) {
+            alert('Có lỗi xảy ra' + err);
+        }
+    });
+    });
+
 });
 
 
