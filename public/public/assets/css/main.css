@@ -17,7 +17,7 @@
   z-index: 9999;
   background: url(../img/loader/food-loader4.gif) center no-repeat #fff; }
 
-/* http://meyerweb.com/eric/tools/css/reset/
+/* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain) 22
 */
@@ -687,6 +687,55 @@ body {
   text-align: center; }
   #modal-rating .button-action .btn {
     width: 50%; }
+
+#modal-crop-img .cropit-preview {
+  background-color: #f8f8f8;
+  background-size: cover;
+  margin: 0 auto;
+  width: 250px;
+  height: 250px; }
+
+#modal-crop-img .cropit-preview-image-container {
+  cursor: move; }
+
+#modal-crop-img .cropit-preview-background {
+  opacity: .15;
+  cursor: auto; }
+
+#modal-crop-img input,
+#modal-crop-img .export {
+  /* Use relative position to prevent from being covered by image background */ }
+
+#modal-crop-img .feature-crop {
+  margin-top: 5%; }
+  @media (max-width: 599px) {
+    #modal-crop-img .feature-crop .item-feature-crop {
+      width: 100%;
+      margin-bottom: 3%; } }
+
+#modal-crop-img .file {
+  position: relative;
+  overflow: hidden;
+  padding: 3px 10px; }
+  #modal-crop-img .file i {
+    padding-right: 2%; }
+  #modal-crop-img .file input {
+    position: absolute;
+    font-size: 50px;
+    opacity: 0;
+    right: 0;
+    top: 0; }
+
+#modal-crop-img i {
+  display: none;
+  margin-right: 5px; }
+
+#modal-crop-img .btn-bg {
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  line-height: 1;
+  width: 100%; }
 
 #header {
   background: #3b3535; }
@@ -1380,23 +1429,6 @@ body {
     color: #f9a7a5; }
   .user-profile .ctn-user .edit {
     margin: 0; }
-  .user-profile .ctn-user .upload {
-    text-align: center;
-    margin-top: 15px; }
-    .user-profile .ctn-user .upload .btn {
-      color: #f6b121;
-      border: 1px solid #f6b121; }
-      .user-profile .ctn-user .upload .btn:hover {
-        -webkit-transition: .3s ease;
-        transition: .3s ease;
-        color: #fff;
-        background: #f6b121; }
-      @media (max-width: 767px) {
-        .user-profile .ctn-user .upload .btn {
-          font-size: 13px; } }
-      .user-profile .ctn-user .upload .btn input {
-        background: transparent;
-        border: 0; }
   @media (max-width: 991px) {
     .user-profile .ctn-user .avatar-features {
       margin-bottom: 5%; } }
@@ -1406,7 +1438,7 @@ body {
   @media (max-width: 991px) {
     .user-profile .ctn-user .avatar-features .wrp {
       background: transparent; } }
-  .user-profile .ctn-user .avatar-features .form-avatar .avatar .img {
+  .user-profile .ctn-user .avatar-features .avatar .img {
     cursor: pointer;
     position: relative;
     border-radius: 50%;
@@ -1415,18 +1447,18 @@ body {
     margin: 0 auto;
     border: 4px solid #c2c2c2;
     width: 124px; }
-    .user-profile .ctn-user .avatar-features .form-avatar .avatar .img:hover .edit-avatar {
+    .user-profile .ctn-user .avatar-features .avatar .img:hover .edit-avatar {
       -webkit-transition: .3s ease;
       transition: .3s ease;
       opacity: 1; }
-    .user-profile .ctn-user .avatar-features .form-avatar .avatar .img img {
+    .user-profile .ctn-user .avatar-features .avatar .img img {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       -webkit-transform: scale(1, 1);
       transform: scale(1, 1); }
-    .user-profile .ctn-user .avatar-features .form-avatar .avatar .img .edit-avatar {
+    .user-profile .ctn-user .avatar-features .avatar .img .edit-avatar {
       opacity: 0;
       position: absolute;
       top: 0;
@@ -1434,31 +1466,13 @@ body {
       right: 0;
       bottom: 0;
       background: rgba(0, 0, 0, 0.7); }
-      .user-profile .ctn-user .avatar-features .form-avatar .avatar .img .edit-avatar .file {
+      .user-profile .ctn-user .avatar-features .avatar .img .edit-avatar i {
         color: #fff;
         position: absolute;
-        overflow: hidden;
-        font-size: 14px;
-        width: 100%;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
-        cursor: pointer; }
-        .user-profile .ctn-user .avatar-features .form-avatar .avatar .img .edit-avatar .file i {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%); }
-        .user-profile .ctn-user .avatar-features .form-avatar .avatar .img .edit-avatar .file input {
-          position: absolute;
-          font-size: 50px;
-          opacity: 0;
-          right: 0;
-          top: 0;
-          bottom: 0;
-          left: 0; }
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%); }
   .user-profile .ctn-user .avatar-features .features {
     margin-top: 25px; }
     @media (max-width: 991px) {
@@ -1635,17 +1649,3 @@ body {
 
 .all-products .features .item select {
   border-color: transparent; }
-.noItem {
-    color: #bdc3c7;
-    font-size: 18px;
-}
-
-.no-spinners {
-  -moz-appearance:textfield;
-}
-
-.no-spinners::-webkit-outer-spin-button,
-.no-spinners::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}

@@ -252,16 +252,17 @@ class Account extends Model
     public function editUserImage()
     {
         // Upload img
-        if (isset($_POST['edit'])) {
+        if (isset($_POST['ajaxImages'])) {
             $account = $this->getUser($_SESSION['user']->USERNAME);
-            unlink('public/admin/assets/img/imagesUser/' . $account[0]->IMAGE);
-            $image = $this->uploadImages($_FILES['file']['name'], 'imagesUser');
-            $_SESSION['user']->IMAGE = $image;
+            //unlink('public/admin/assets/img/imagesUser/' . $account[0]->IMAGE);
+            $image = $_POST['ajaxImages'];
             $this->setValue($account[0]->PASSWORD, $account[0]->FIRST_NAME, $account[0]->LAST_NAME, $account[0]->ADDRESS, $image, $account[0]->EMAIL, 3, $account[0]->PHONE);
 
             $this->updateById($_SESSION['user']->USERNAME, $this->fillable);
-            $_SESSION['notice'] = 'Sửa Username thành công!';
-            redirect('profile');
+            // $_SESSION['notice'] = 'Sửa Username thành công!';
+            echo '<img src=' . $_POST['ajaxImages'] . ' alt="..." />';
+
+            // redirect('profile');
         }
     }
 }

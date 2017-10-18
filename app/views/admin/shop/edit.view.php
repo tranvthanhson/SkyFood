@@ -26,7 +26,7 @@
                                                  <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label for="phone" class="control-label">Số điện thoại (<span>*</span>)</label>
-                                                        <input type="number" class="form-control no-spinners" id="phone" value="<?=$shop->PHONE?>" required data-error="Vui lòng nhập số vào" name="phone">
+                                                        <input type="number"  class="form-control no-spinners" id="phone" value="<?=$shop->PHONE?>" required data-error="Vui lòng nhập số vào" name="phone" >
                                                         <div class="help-block with-errors"></div>
                                                     </div>
                                                 </div>
@@ -75,6 +75,7 @@ foreach ($types as $value) {
                                                     <div class="form-group">
                                                         <label for="lat" class="control-label">Latitude</label>
                                                         <input type="text" class="form-control" id="lat" name="lat" value="<?=$shop->LAT?>">
+
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6">
