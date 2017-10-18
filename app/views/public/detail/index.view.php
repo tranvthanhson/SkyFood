@@ -50,33 +50,56 @@
                                                 </div>
                                                 <div class="clearfix"> </div>
                                             </div>
-                                            <p class="item address "><i class="fa fa-location-arrow"></i><?=$shop[0]->ADDRESS?></p>
-                                            <p class="item phone "><i class="fa fa-phone"></i><?=$shop[0]->PHONE?></p>
-                                            <p class="item time "><i class="fa fa-clock-o"></i><?=$shop[0]->TIME_OPEN?> - <?=$shop[0]->TIME_CLOSE?></p>
-                                            <div class="item features">
-                                                <div id='notification'></div>
-                                                <form action="javascript:void(0)" method="POST">
-                                                    <div class="item-feature save">
-                                                        <div class="form-group">
-                                                            <?php
+
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                        <p class="item address "><i class="fa fa-location-arrow"></i><?=$shop[0]->ADDRESS?></p>
+                                       <p class="item phone "><i class="fa fa-phone"></i><?=$shop[0]->PHONE?></p>
+                                        <p class="item time "><i class="fa fa-clock-o"></i><?=$shop[0]->TIME_OPEN?> - <?=$shop[0]->TIME_CLOSE?></p>
+                                        <div class="item features">
+                                            <div id='notification'></div>
+
+                                                <div class="item-feature save">
+                                                    <div class="form-group">
+                                                        <?php
+
 $link = '';
 if ('' == $checkRate) {
-    $link = '/shop/ajaxRate?id=' . $shop[0]->sid;
+    $link = '/shop/rate?id=' . $shop[0]->sid;
 } else {
-    $link = '/shop/ajaxUpdateRate?id=' . $shop[0]->sid;
+    $link = '/shop/updateRate?id=' . $shop[0]->sid;
 }
-
+//die($link);
 if (0 == $check) {
     ?>
-                                                                <input type="submit" class=" btn btn-bg" value="Save" onclick="save('/shop/ajaxSave',<?=$shop[0]->sid?>)" />
-                                                                <?php } else {?>
-                                                                    <input type="submit" class=" btn btn-bg" value="Unsave" onclick="save('/shop/ajaxUnsave',<?=$shop[0]->sid?>)" />
-                                                                    <?php }?>
-                                                                </div>
-                                                            </div>
-                                                            <div class="item-feature rate">
-                                                                <div class="form-group">
-                                                                    <a href="javascript:void(0)" class="btn btn-bg" data-toggle="modal" data-target="#modal-rating" onclick="rate(<?=$link?>,<?=$shop[0]->SHOP_ID?>)">Rate</a>
+
+                                                        <input type="submit" class=" btn btn-bg" value="Save" onclick="save('/shop/ajaxSave',<?=$shop[0]->sid?>)" />
+                                                        <?php } else {?>
+                                                        <input type="submit" class=" btn btn-bg" value="Unsave" onclick="save('/shop/ajaxUnsave',<?=$shop[0]->sid?>)" />
+                                                        <?php }?>
+
+                                                    </div>
+                                                </div>
+                                                <div class="item-feature rate">
+                                                    <div class="form-group">
+                                                        <a href="javascript:void(0)" class="btn btn-bg" data-toggle="modal" data-target="#modal-rating" onclick="rate(<?=$link?>,<?=$shop[0]->SHOP_ID?>)">Rate</a>
+                                                    </div>
+                                                </div>
+                                                <div class="item-feature">
+                                                    <div class="form-group">
+                                                        <a href="javascript:void(0)" class="btn btn-bg" onclick="loadMap(<?=$shop[0]->LAT?>,<?=$shop[0]->LNG?>)">Map</a>
+                                                    </div>
+                                                </div>
+
+                                                <div id="modal-rating" class="modal fade" role="dialog">
+                                                    <div class="modal-dialog">
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content content">
+                                                            <div class="wrp-ctn">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                    <h4 class="modal-title">Rating</h4>
+
                                                                 </div>
                                                             </div>
 
@@ -113,31 +136,36 @@ if (0 == $check) {
                                                         </form>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="ggmap">
-                                            <div id="map"></div>
+
+                                                <div class="clearfix"></div>
+
+
                                         </div>
                                         <div class="features"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="description">
-                                <div class="wrp-blur wrapper-content">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="title">
-                                                <h2>Description</h2>
-                                                <p class="underline"></p>
-                                            </div>
-                                            <div class="ctn-description ctn-main">
-                                                <div class="col-md-8 col-md-push-2">
-                                                    <p><?=$shop[0]->DETAIL?></p>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </div>
+
+                            <div class="ggmap">
+                                <div id="map"></div>
+                            </div>
+
+                            <div class="features"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="description">
+                    <div class="wrp-blur wrapper-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="title">
+                                    <h2>Description</h2>
+                                    <p class="underline"></p>
+                                </div>
+                                <div class="ctn-description ctn-main">
+                                    <div class="col-md-8 col-md-push-2">
+                                        <p><?=$shop[0]->DETAIL?></p>
+
                                     </div>
                                 </div>
                             </div>
@@ -407,4 +435,6 @@ if (0 == $check) {
                         </div>
                     </body>
 
-                    <?php view_include('public.layouts.foot-master')?>
+
+<?php view_include('public.layouts.foot-master')?>
+

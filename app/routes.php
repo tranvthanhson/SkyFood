@@ -73,8 +73,8 @@ $router->get('admin/statistics', 'Admin\StatisticsController@index');
 
 //shop
 $router->get('shop', 'Publics\ShopController@index');
-$router->post('shop/Rate', 'Publics\ShopController@rate');
-$router->post('shop/UpdateRate', 'Publics\ShopController@updateRate');
+$router->get('shop/rate', 'Publics\ShopController@rate');
+$router->get('shop/updateRate', 'Publics\ShopController@updateRate');
 
 $router->get('', 'Publics\HomeController@index');
 
