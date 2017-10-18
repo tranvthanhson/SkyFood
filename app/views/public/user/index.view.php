@@ -70,7 +70,7 @@
                                                 <div class="form-group email">
                                                     <label class="control-label col-sm-3" for="inputEmail">Phone:</label>
                                                     <div class="col-sm-9">
-                                                        <input type="number" name="phone" class="form-control no-spinners" id="inputPhone" placeholder="Phone" value="<?=$detailUser[0]->PHONE;?>" required>
+                                                        <input type="text" onkeypress="return isNumberKey(event)" maxlength="11" name="phone" class="form-control" id="inputPhone" placeholder="Phone" value="<?=$detailUser[0]->PHONE;?>" required>
                                                         <div class="help-block with-errors"></div>
                                                     </div>
                                                     <div class="clearfix"></div>

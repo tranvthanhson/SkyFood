@@ -30,7 +30,7 @@ class Comment extends Model
 
     public function selectByShop($id)
     {
-        $sql = "SELECT COMMENT.*,ACCOUNT.IMAGE FROM COMMENT INNER JOIN ACCOUNT ON COMMENT.USERNAME=ACCOUNT.USERNAME WHERE SHOP_ID={$id}";
+        $sql = "SELECT COMMENT.*,ACCOUNT.IMAGE AS img FROM COMMENT INNER JOIN ACCOUNT ON COMMENT.USERNAME=ACCOUNT.USERNAME WHERE SHOP_ID={$id}";
         return $this->rawQuery($sql);
     }
 
@@ -44,13 +44,13 @@ class Comment extends Model
         $comment['DATE_CREATED'] = $currentDate;
         $this->insert($comment);
         echo ' <div class="media">
-                                    <div class="media-left">
-                                        <img src="public/public/assets/img/user/' . $_SESSION['user']->IMAGE . '" class="media-object">
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="media-heading">' . $_SESSION['user']->USERNAME . ' <small><i>' . $currentDate . '</i></small></h4>
-                                        <p>' . $_POST['avalue'] . '</p>
-                                    </div>
-                                </div>';
+        <div class="media-left">
+        <img src="public/public/assets/img/user/' . $_SESSION['user']->IMAGE . '" class="media-object">
+        </div>
+        <div class="media-body">
+        <h4 class="media-heading">' . $_SESSION['user']->USERNAME . ' <small><i>' . $currentDate . '</i></small></h4>
+        <p>' . $_POST['avalue'] . '</p>
+        </div>
+        </div>';
     }
 }

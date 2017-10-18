@@ -230,7 +230,7 @@ class Account extends Model
     {
         if (isset($_POST['edit'])) {
             $account = $this->getUser($_SESSION['user']->USERNAME);
-            $this->setValue($account[0]->PASSWORD, $_POST['firstName'], $_POST['lastName'], $_POST['address'], $account[0]->IMAGE, $_POST['email'], 3, $_POST['phone']);
+            $this->setValue($account[0]->PASSWORD, $_POST['firstName'], $_POST['lastName'], $_POST['address'], $account[0]->IMAGE, $_POST['email'], $account[0]->ROLE, $_POST['phone']);
             $this->updateById($_SESSION['user']->USERNAME, $this->fillable);
             $_SESSION['notice'] = 'Sửa Username thành công!';
             redirect('profile');
@@ -242,7 +242,7 @@ class Account extends Model
         if (isset($_POST['edit'])) {
             // die($_SESSION['user']->USERNAME);
             $account = $this->getUser($_SESSION['user']->USERNAME);
-            $this->setValue(md5($_POST['password']), $account[0]->FIRST_NAME, $account[0]->LAST_NAME, $account[0]->ADDRESS, $account[0]->IMAGE, $account[0]->EMAIL, 3, $account[0]->PHONE);
+            $this->setValue(md5($_POST['password']), $account[0]->FIRST_NAME, $account[0]->LAST_NAME, $account[0]->ADDRESS, $account[0]->IMAGE, $account[0]->EMAIL, $account[0]->ROLE, $account[0]->PHONE);
             $this->updateById($_SESSION['user']->USERNAME, $this->fillable);
             $_SESSION['notice'] = 'Sửa Username thành công!';
             redirect('editUserPassword');
@@ -252,16 +252,25 @@ class Account extends Model
     public function editUserImage()
     {
         // Upload img
-        if (isset($_POST['edit'])) {
+        if (isset($_POST['ajaxImages'])) {
             $account = $this->getUser($_SESSION['user']->USERNAME);
-            unlink('public/admin/assets/img/imagesUser/' . $account[0]->IMAGE);
-            $image = $this->uploadImages($_FILES['file']['name'], 'imagesUser');
-            $_SESSION['user']->IMAGE = $image;
+
+            $link = 'public/admin/assets/img/imagesUser/';
+            unlink($link . $account[0]->IMAGE);
+            $img = $_POST['ajaxImages']; // Your data 'data:image/png;base64,AAAFBfj42Pj4';
+            $img = str_replace('data:image/png;base64,', '', $img);
+            $img = str_replace(' ', '+', $img);
+            $data = base64_decode($img);
+            $image = 'image-' . time() . '.png';
+            file_put_contents($link . $image, $data);
+
+            //die($image);
             $this->setValue($account[0]->PASSWORD, $account[0]->FIRST_NAME, $account[0]->LAST_NAME, $account[0]->ADDRESS, $image, $account[0]->EMAIL, 3, $account[0]->PHONE);
+            // die($_SESSION['user']->USERNAME);
+            $_SESSION['user']->IMAGE = $image;
 
             $this->updateById($_SESSION['user']->USERNAME, $this->fillable);
-            $_SESSION['notice'] = 'Sửa Username thành công!';
-            redirect('profile');
+            echo '<img src=' . $_POST['ajaxImages'] . ' alt="..." />';
         }
     }
 }

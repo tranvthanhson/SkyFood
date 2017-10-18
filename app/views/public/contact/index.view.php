@@ -56,7 +56,7 @@
                                             </div>
                                             <div class="col-md-4 col-xs-4 item-ctn-mess">
                                                 <div class="form-group">
-                                                    <input type="number" class="form-control no-spinners" id="phone" name="phone" placeholder="Phone">
+                                                    <input type="text" onkeypress="return isNumberKey(event)" maxlength="11" class="form-control" id="phone" name="phone" placeholder="Phone">
                                                 </div>
                                             </div>
                                             <div class="clearfix"></div>

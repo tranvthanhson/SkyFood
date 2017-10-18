@@ -29,6 +29,7 @@ class ShopController
         $comments = $this->comment->selectByShop($id);
         $shop = $this->shop->selectByKeyPublic($id);
         // die(var_dump($shop));
+        $checkLogin = $this->verify();
         $check = 0;
         $checkRate = '';
         if (isset($_SESSION['user'])) {
@@ -47,7 +48,7 @@ class ShopController
             }
         }
 
-        return view('public/detail/index', compact('shop', 'check', 'checkRate', 'comments'));
+        return view('public/detail/index', compact('shop', 'check', 'checkRate', 'comments', 'checkLogin'));
     }
 
     public function verify()
