@@ -17,8 +17,8 @@ class Rate extends Model
     public function addRate()
     {
         $rate['USERNAME'] = $_SESSION['user']->USERNAME;
-        $rate['SHOP_ID'] = $_GET['id'];
-        $rate['SCORE'] = $_POST['rate'];
+        $rate['SHOP_ID'] = $_POST['aid'];
+        $rate['SCORE'] = $_POST['avalue'];
         return $this->insert($rate);
 
     }

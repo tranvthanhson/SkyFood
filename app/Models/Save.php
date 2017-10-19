@@ -20,7 +20,7 @@ class Save extends Model
         $save['USERNAME'] = $_SESSION['user']->USERNAME;
         $save['SHOP_ID'] = $_POST['aid'];
         $this->insert($save);
-        echo "<b style='color:red'>saved</b>";
+        echo 'unsave';
     }
 
     public function deleteSave()
@@ -28,6 +28,6 @@ class Save extends Model
         //echo $sql;
         $sql = "DELETE FROM SAVE WHERE USERNAME='{$_SESSION['user']->USERNAME}' AND SHOP_ID='{$_POST['aid']}'";
         $this->rawQuery($sql);
-        echo 'unsaved';
+        echo 'save';
     }
 }
