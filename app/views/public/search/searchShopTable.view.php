@@ -14,7 +14,7 @@
             </div>
             <div class="ctn-product">
                 <div class="info">
-                    <h3><a href=""><?=$shops[$i]->SHOP_NAME?></a></h3>
+                    <h3><a href="/shop?id=<?=$shops[$i]->SHOP_ID?>"><?=$shops[$i]->SHOP_NAME?></a></h3>
                     <p class="address"><?=$shops[$i]->ADDRESS?></p>
                 </div>
                 <div class="parameter">
