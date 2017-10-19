@@ -1,7 +1,4 @@
 <?php view_include('public.layouts.head-master', ['title' => 'Detail'])?>
-
-
-<body>
     <div class="wrapper">
         <?php view_include('public.partials.header')?>
 
@@ -439,8 +436,6 @@ foreach ($comments as $value) {
                 <?php view_include('public.partials.footer')?>
         </div>
     </div>
-</body>
-
 
 <?php view_include('public.layouts.foot-master')?>
 
