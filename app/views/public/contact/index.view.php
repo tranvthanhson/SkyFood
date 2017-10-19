@@ -31,15 +31,12 @@
                                 <p>tthieu040495@gmail.com</p>
                             </div>
                         </div>
-                        <div class="clearfix"></div>
-                    </div>
-                    <form action="/contact/create" method="POST">
                         <div class="message">
                             <div class="title-mess">
                                 <h3>SEND A MESSAGE</h3>
                             </div>
                             <div class="ctn-mess">
-                                <form class="form-border-color" action="" data-toggle="validator" role="form">
+                                <form class="form-border-color" data-toggle="validator" role="form" action="/contact/create" method="POST">
                                     <div class="row">
                                         <div class="col-md-4 col-xs-4 item-ctn-mess">
                                             <div class="form-group">
@@ -77,8 +74,7 @@
                                 </form>
                             </div>
                         </div>
-                    </form>
-
+                    </div>
                 </div>
             </div>
         </div>
