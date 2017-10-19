@@ -11,4 +11,5 @@
 <script src="/public/public/assets/js/searchShop/searchShop.js"></script>
 <script src="/public/public/assets/js/search.js"></script>
 <script src="/public/public/assets/js/general.js"></script>
+</body>
 </html>

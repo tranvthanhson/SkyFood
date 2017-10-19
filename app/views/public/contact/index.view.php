@@ -1,6 +1,4 @@
 <?php view_include('public.layouts.head-master', ['title' => 'Contact'])?>
-
-<body data-spy="scroll" data-target=".navbar" data-offset="60">
     <div class="wrapper">
        <?php view_include('public.partials.header')?>
        <div id="content">
@@ -103,7 +101,6 @@
 
     <?php view_include('public.partials.footer')?>
 </div>
-</body>
 
 <?php view_include('public.layouts.foot-master')?>
 

@@ -15,3 +15,5 @@
     <link rel="stylesheet" type="text/css" href="/public/public/assets/css/animate.min.css">
     <link rel="stylesheet" type="text/css" href="/public/public/assets/css/main.css">
 </head>
+<body data-spy="scroll" data-target=".navbar" data-offset="60">
+    <div class="se-pre-con"></div>
