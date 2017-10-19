@@ -441,6 +441,7 @@ foreach ($comments as $value) {
     </div>
 </body>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbJTv1mpf9Tm1fWBip0XKIuE1tBcv9GMc&callback=initMap" async defer></script>
 
 <?php view_include('public.layouts.foot-master')?>
 
