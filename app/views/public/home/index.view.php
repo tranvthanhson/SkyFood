@@ -1,6 +1,4 @@
 <?php view_include('public.layouts.head-master', ['title' => 'Home'])?>
-<body>
-    <div class="se-pre-con"></div>
     <div class="wrapper">
         <?php view_include('public.partials.header')?>
         <div id="content">
@@ -242,6 +240,5 @@
         </div>
         <?php view_include('public.partials.footer')?>
     </div>
-</body>
 
 <?php view_include('public.layouts.foot-master')?>
