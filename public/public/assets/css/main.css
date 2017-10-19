@@ -1649,3 +1649,26 @@ body {
 
 .all-products .features .item select {
   border-color: transparent; }
+
+.noItem {
+    color: #bdc3c7;
+    font-size: 18px;
+}
+
+.no-spinners {
+  -moz-appearance:textfield;
+}
+
+.no-spinners::-webkit-outer-spin-button,
+.no-spinners::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.ggmap {
+  display: none;
+}
+.alert-danger a{
+  color: #a94442 !important;
+  font-weight: bold;
+}
+

@@ -1,7 +1,7 @@
 <?php view_include('public.layouts.head-master', ['title' => 'Detail'])?>
 
 
-<body data-spy="scroll" data-target=".navbar" data-offset="60">
+<body>
     <div class="wrapper">
         <?php view_include('public.partials.header')?>
 
@@ -24,7 +24,7 @@
                             <div class="infor-main">
                                 <div class="col-md-5 col-xs-5 image">
                                     <div class="wrp">
-                                        <img src="public/admin/assets/img/img-shop/<?=$shop[0]->VIEW?>" alt="">
+                                        <img src="/public/public/assets/img/img-shop/<?=$shop[0]->VIEW?>" alt="">
                                         <div class="ribbon">
                                             <p>
                                                 <span>Sale</span> <?=$shop[0]->DISCOUNT?>%
@@ -50,33 +50,56 @@
                                                 </div>
                                                 <div class="clearfix"> </div>
                                             </div>
-                                            <p class="item address "><i class="fa fa-location-arrow"></i><?=$shop[0]->ADDRESS?></p>
-                                            <p class="item phone "><i class="fa fa-phone"></i><?=$shop[0]->PHONE?></p>
-                                            <p class="item time "><i class="fa fa-clock-o"></i><?=$shop[0]->TIME_OPEN?> - <?=$shop[0]->TIME_CLOSE?></p>
-                                            <div class="item features">
-                                                <div id='notification'></div>
-                                                <form action="javascript:void(0)" method="POST">
-                                                    <div class="item-feature save">
-                                                        <div class="form-group">
-                                                            <?php
+
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                        <p class="item address "><i class="fa fa-location-arrow"></i><?=$shop[0]->ADDRESS?></p>
+                                       <p class="item phone "><i class="fa fa-phone"></i><?=$shop[0]->PHONE?></p>
+                                        <p class="item time "><i class="fa fa-clock-o"></i><?=$shop[0]->TIME_OPEN?> - <?=$shop[0]->TIME_CLOSE?></p>
+                                        <div class="item features">
+                                            <div id='notification'></div>
+
+                                                <div class="item-feature save">
+                                                    <div class="form-group">
+                                                        <?php
+
 $link = '';
 if ('' == $checkRate) {
-    $link = '/shop/ajaxRate?id=' . $shop[0]->sid;
+    $link = '/shop/rate?id=' . $shop[0]->sid;
 } else {
-    $link = '/shop/ajaxUpdateRate?id=' . $shop[0]->sid;
+    $link = '/shop/updateRate?id=' . $shop[0]->sid;
 }
-
+//die($link);
 if (0 == $check) {
     ?>
-                                                                <input type="submit" class=" btn btn-bg" value="Save" onclick="save('/shop/ajaxSave',<?=$shop[0]->sid?>)" />
-                                                                <?php } else {?>
-                                                                    <input type="submit" class=" btn btn-bg" value="Unsave" onclick="save('/shop/ajaxUnsave',<?=$shop[0]->sid?>)" />
-                                                                    <?php }?>
-                                                                </div>
-                                                            </div>
-                                                            <div class="item-feature rate">
-                                                                <div class="form-group">
-                                                                    <a href="javascript:void(0)" class="btn btn-bg" data-toggle="modal" data-target="#modal-rating" onclick="rate(<?=$link?>,<?=$shop[0]->SHOP_ID?>)">Rate</a>
+
+                                                        <input type="submit" class=" btn btn-bg" value="Save" onclick="save('/shop/ajaxSave',<?=$shop[0]->sid?>)" />
+                                                        <?php } else {?>
+                                                        <input type="submit" class=" btn btn-bg" value="Unsave" onclick="save('/shop/ajaxUnsave',<?=$shop[0]->sid?>)" />
+                                                        <?php }?>
+
+                                                    </div>
+                                                </div>
+                                                <div class="item-feature rate">
+                                                    <div class="form-group">
+                                                        <a href="javascript:void(0)" class="btn btn-bg" data-toggle="modal" data-target="#modal-rating" onclick="rate(<?=$link?>,<?=$shop[0]->SHOP_ID?>)">Rate</a>
+                                                    </div>
+                                                </div>
+                                                <div class="item-feature">
+                                                    <div class="form-group">
+                                                        <a href="javascript:void(0)" class="btn btn-bg" onclick="loadMap(<?=$shop[0]->LAT?>,<?=$shop[0]->LNG?>)">Map</a>
+                                                    </div>
+                                                </div>
+
+                                                <div id="modal-rating" class="modal fade" role="dialog">
+                                                    <div class="modal-dialog">
+                                                        <!-- Modal content-->
+                                                        <div class="modal-content content">
+                                                            <div class="wrp-ctn">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                    <h4 class="modal-title">Rating</h4>
+
                                                                 </div>
                                                             </div>
 
@@ -113,66 +136,67 @@ if (0 == $check) {
                                                         </form>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="ggmap">
-                                            <div id="map"></div>
+                                                <div class="clearfix"></div>
                                         </div>
                                         <div class="features"></div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="description">
-                                <div class="wrp-blur wrapper-content">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="title">
-                                                <h2>Description</h2>
-                                                <p class="underline"></p>
-                                            </div>
-                                            <div class="ctn-description ctn-main">
-                                                <div class="col-md-8 col-md-push-2">
-                                                    <p><?=$shop[0]->DETAIL?></p>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </div>
+                            <div class="ggmap">
+                                <div id="map"></div>
+                            </div>
+
+                            <div class="features"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="description">
+                    <div class="wrp-blur wrapper-content">
+                        <div class="container">
+                            <div class="row">
+                                <div class="title">
+                                    <h2>Description</h2>
+                                    <p class="underline"></p>
+                                </div>
+                                <div class="ctn-description ctn-main">
+                                    <div class="col-md-8 col-md-push-2">
+                                        <p><?=$shop[0]->DETAIL?></p>
                                     </div>
+                                    <div class="clearfix"></div>
                                 </div>
                             </div>
-                            <div class="album products wrapper-content">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="title">
-                                            <h2>Album</h2>
-                                            <p class="underline"></p>
-                                        </div>
-                                        <div class="ctn-products ctn-main">
-                                            <div class="item-product col-md-3 col-xs-4">
-                                                <div class="wrp-item">
-                                                    <div class="img-product">
-                                                        <img class="img" src="public/public/assets/img/food/food1.jpg" alt="">
-                                                        <div class="hover-view">
-                                                            <div class="view">
-                                                                <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="album products wrapper-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="title">
+                                <h2>Album</h2>
+                                <p class="underline"></p>
+                            </div>
+                            <div class="ctn-products ctn-main">
+                                <div class="item-product col-md-3 col-xs-4">
+                                    <div class="wrp-item">
+                                        <div class="img-product">
+                                            <img class="img" src="/public/public/assets/img/food/food1.jpg" alt="">
+                                            <div class="hover-view">
+                                                <div class="view">
+                                                    <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
+                                                </div>
+                                            </div>
+                                            <div id="modal-img" class="modal fade" role="dialog">
+                                                <div class="modal-dialog">
+                                                    <!-- Modal content-->
+                                                    <div class="modal-content content">
+                                                        <div class="wrp-ctn">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                             </div>
-                                                        </div>
-                                                        <div id="modal-img" class="modal fade" role="dialog">
-                                                            <div class="modal-dialog">
-                                                                <!-- Modal content-->
-                                                                <div class="modal-content content">
-                                                                    <div class="wrp-ctn">
-                                                                        <div class="modal-header">
-                                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <div class="wrp-item">
-                                                                                <div class="img-product">
-                                                                                    <img class="img" src="public/public/assets/img/restaurant/res5.jpg" alt="">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
+                                                            <div class="modal-body">
+                                                                <div class="wrp-item">
+                                                                    <div class="img-product">
+                                                                        <img class="img" src="/public/public/assets/img/restaurant/res5.jpg" alt="">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -180,231 +204,243 @@ if (0 == $check) {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="item-product col-md-3 col-xs-4">
-                                                <div class="wrp-item">
-                                                    <div class="img-product">
-                                                        <img class="img" src="public/public/assets/img/restaurant/res2.jpg" alt="">
-                                                        <div class="hover-view">
-                                                            <div class="view">
-                                                                <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-product col-md-3 col-xs-4">
-                                                <div class="wrp-item">
-                                                    <div class="img-product">
-                                                        <img class="img" src="public/public/assets/img/food/food3.jpg" alt="">
-                                                        <div class="hover-view">
-                                                            <div class="view">
-                                                                <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-product col-md-3 col-xs-4">
-                                                <div class="wrp-item">
-                                                    <div class="img-product">
-                                                        <img class="img" src="public/public/assets/img/restaurant/res4.jpg" alt="">
-                                                        <div class="hover-view">
-                                                            <div class="view">
-                                                                <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-product col-md-3 col-xs-4">
-                                                <div class="wrp-item">
-                                                    <div class="img-product">
-                                                        <img class="img" src="public/public/assets/img/restaurant/res6.jpg" alt="">
-                                                        <div class="hover-view">
-                                                            <div class="view">
-                                                                <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-product col-md-3 col-xs-4">
-                                                <div class="wrp-item">
-                                                    <div class="img-product">
-                                                        <img class="img" src="public/public/assets/img/food/food5.jpg" alt="">
-                                                        <div class="hover-view">
-                                                            <div class="view">
-                                                                <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-product col-md-3 col-xs-4">
-                                                <div class="wrp-item">
-                                                    <div class="img-product">
-                                                        <img class="img" src="public/public/assets/img/food/food7.jpg" alt="">
-                                                        <div class="hover-view">
-                                                            <div class="view">
-                                                                <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="item-product col-md-3 col-xs-4">
-                                                <div class="wrp-item">
-                                                    <div class="img-product">
-                                                        <img class="img" src="public/public/assets/img/restaurant/res5.jpg" alt="">
-                                                        <div class="hover-view">
-                                                            <div class="view">
-                                                                <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="view-more col-md-12 col-xs-12">
-                                                <button class="btn btn-bg" type="submit">View more</button>
-                                            </div>
-                                            <div class="clearfix"></div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="other wrapper-content">
-                                <div class="container">
-                                    <div class="row">
-                                        <div class="wrp">
-                                            <div class="title">
-                                                <h2>Others</h2>
-                                                <p class="underline"></p>
-                                            </div>
-                                            <div class="ctn-slide ctn-main">
-                                                <div class="slider-other slider">
-                                                    <div class="wrp-item">
-                                                        <img src="public/public/assets/img/slide_banner/hd1.jpg">
-                                                        <div class="hover-view">
-                                                            <div class="view">
-                                                                <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="wrp-item">
-                                                        <img src="public/public/assets/img/restaurant/res1.jpg">
-                                                        <div class="hover-view">
-                                                            <div class="view">
-                                                                <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="wrp-item">
-                                                        <img src="public/public/assets/img/food/food1.jpg">
-                                                        <div class="hover-view">
-                                                            <div class="view">
-                                                                <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="wrp-item">
-                                                        <img src="public/public/assets/img/food/food2.jpg">
-                                                        <div class="hover-view">
-                                                            <div class="view">
-                                                                <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="wrp-item">
-                                                        <img src="public/public/assets/img/restaurant/res3.jpg">
-                                                        <div class="hover-view">
-                                                            <div class="view">
-                                                                <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="wrp-item">
-                                                        <img src="public/public/assets/img/restaurant/res4.jpg">
-                                                        <div class="hover-view">
-                                                            <div class="view">
-                                                                <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="wrp-item">
-                                                        <img src="public/public/assets/img/food/food3.jpg">
-                                                        <div class="hover-view">
-                                                            <div class="view">
-                                                                <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="wrp-item">
-                                                        <img src="public/public/assets/img/food/food5.jpg">
-                                                        <div class="hover-view">
-                                                            <div class="view">
-                                                                <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                <div class="item-product col-md-3 col-xs-4">
+                                    <div class="wrp-item">
+                                        <div class="img-product">
+                                            <img class="img" src="/public/public/assets/img/restaurant/res2.jpg" alt="">
+                                            <div class="hover-view">
+                                                <div class="view">
+                                                    <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="comments wrapper-content">
-                                <?php
-if (0 == $check) {
-    ?>
-                                    <div class="container">
-                                       <h3><a href="login">Login to comment</a></h3>
-                                   </div>
-                                   <?php } else {
-    ?><div class="container">
-                                     <div class="row">
-                                        <div class="title">
-                                            <h2>Comments</h2>
-                                            <p class="underline"></p>
-                                        </div>
-                                        <div class="ctn-comments ctn-main">
-                                            <div class="media input-cmt">
-                                                <div class="media-left">
-                                                    <img src="public/public/assets/img/user/h5.jpg" class="media-object">
-                                                </div>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading"><?=$_SESSION['user']->USERNAME?> </h4>
-                                                    <form action="javascript:void(0)" class="form-border-color">
-                                                        <div class="form-group">
-                                                            <textarea class="form-control" rows="3" id="cmt"></textarea>
-                                                        </div>
-                                                        <div class="pull-right form-group">
-                                                            <input type="submit" class="btn btn-bg" value="Send" onclick="loadMyComments(<?=$shop[0]->sid?>)">
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                            <?php foreach ($comments as $value) {?>
-                                                <div class="media">
-                                                    <div class="media-left">
-                                                        <img src="public/public/assets/img/user/<?=$value->IMAGE?>" class="media-object">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <h4 class="media-heading"><?=$value->USERNAME?> <small><i><?=$value->DATE_CREATED?></i></small></h4>
-                                                        <p><?=$value->CONTENT?></p>
-                                                    </div>
-                                                </div>
-                                                <?php }?>
-                                                <div id="ajaxComment">
-
+                                <div class="item-product col-md-3 col-xs-4">
+                                    <div class="wrp-item">
+                                        <div class="img-product">
+                                            <img class="img" src="/public/public/assets/img/food/food3.jpg" alt="">
+                                            <div class="hover-view">
+                                                <div class="view">
+                                                    <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <?php }?>
                                     </div>
                                 </div>
+                                <div class="item-product col-md-3 col-xs-4">
+                                    <div class="wrp-item">
+                                        <div class="img-product">
+                                            <img class="img" src="/public/public/assets/img/restaurant/res4.jpg" alt="">
+                                            <div class="hover-view">
+                                                <div class="view">
+                                                    <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item-product col-md-3 col-xs-4">
+                                    <div class="wrp-item">
+                                        <div class="img-product">
+                                            <img class="img" src="/public/public/assets/img/restaurant/res6.jpg" alt="">
+                                            <div class="hover-view">
+                                                <div class="view">
+                                                    <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item-product col-md-3 col-xs-4">
+                                    <div class="wrp-item">
+                                        <div class="img-product">
+                                            <img class="img" src="/public/public/assets/img/food/food5.jpg" alt="">
+                                            <div class="hover-view">
+                                                <div class="view">
+                                                    <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item-product col-md-3 col-xs-4">
+                                    <div class="wrp-item">
+                                        <div class="img-product">
+                                            <img class="img" src="/public/public/assets/img/food/food7.jpg" alt="">
+                                            <div class="hover-view">
+                                                <div class="view">
+                                                    <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item-product col-md-3 col-xs-4">
+                                    <div class="wrp-item">
+                                        <div class="img-product">
+                                            <img class="img" src="/public/public/assets/img/restaurant/res5.jpg" alt="">
+                                            <div class="hover-view">
+                                                <div class="view">
+                                                    <a class="btn-view" href="" data-toggle="modal" data-target="#modal-img"><i class="fa fa-eye"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="view-more col-md-12 col-xs-12">
+                                    <button class="btn btn-bg" type="submit">View more</button>
+                                </div>
+                                <div class="clearfix"></div>
                             </div>
-                            <?php view_include('public.partials.footer')?>
                         </div>
-                    </body>
+                    </div>
+                </div>
+                <div class="other wrapper-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="wrp">
+                                <div class="title">
+                                    <h2>Others</h2>
+                                    <p class="underline"></p>
+                                </div>
+                                <div class="ctn-slide ctn-main">
+                                    <div class="slider-other slider">
+                                        <div class="wrp-item">
+                                            <img src="/public/public/assets/img/slide_banner/hd1.jpg">
+                                            <div class="hover-view">
+                                                <div class="view">
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wrp-item">
+                                            <img src="/public/public/assets/img/restaurant/res1.jpg">
+                                            <div class="hover-view">
+                                                <div class="view">
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wrp-item">
+                                            <img src="/public/public/assets/img/food/food1.jpg">
+                                            <div class="hover-view">
+                                                <div class="view">
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wrp-item">
+                                            <img src="/public/public/assets/img/food/food2.jpg">
+                                            <div class="hover-view">
+                                                <div class="view">
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wrp-item">
+                                            <img src="/public/public/assets/img/restaurant/res3.jpg">
+                                            <div class="hover-view">
+                                                <div class="view">
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wrp-item">
+                                            <img src="/public/public/assets/img/restaurant/res4.jpg">
+                                            <div class="hover-view">
+                                                <div class="view">
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wrp-item">
+                                            <img src="/public/public/assets/img/food/food3.jpg">
+                                            <div class="hover-view">
+                                                <div class="view">
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="wrp-item">
+                                            <img src="/public/public/assets/img/food/food5.jpg">
+                                            <div class="hover-view">
+                                                <div class="view">
+                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comments wrapper-content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="title">
+                                <h2>Comments</h2>
+                                <p class="underline"></p>
+                            </div>
+                            <div class="ctn-comments ctn-main">
+                                 <?php
+if (0 == $checkLogin) {
+    ?>
 
-                    <?php view_include('public.layouts.foot-master')?>
+                                    <div class="alert alert-danger">
+                                      <strong><a href="login">Please login to comment!</a></strong>
+                                    </div>
+                                    <?php
+} else {
+    ?>
+                                <div class="media input-cmt">
+                                    <div class="media-left">
+                                        <img src="/public/public/assets/img/user/<?=$_SESSION['user']->IMAGE?>" class="media-object">
+                                    </div>
+
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><?=$_SESSION['user']->USERNAME?></h4>
+                                        <form action="javascript:void(0)" class="form-border-color">
+                                            <div class="form-group">
+                                                <textarea class="form-control" rows="3" id="cmt"></textarea>
+                                            </div>
+                                            <div class="pull-right form-group">
+                                                <input type="submit" class="btn btn-bg" value="Send" onclick="loadMyComments(<?=$shop[0]->sid?>)">
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                </div><?php }?>
+                                <?php
+foreach ($comments as $value) {
+    ?>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <img src="/public/public/assets/img/user/<?=$value->IMAGE?>" class="media-object">
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="media-heading"><?=$value->USERNAME?> <small><i><?=$value->DATE_CREATED?></i></small></h4>
+                                        <p><?=$value->CONTENT?></p>
+                                    </div>
+                                </div>
+                                <?php }?>
+                                <div id="ajaxComment">
+
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <?php view_include('public.partials.footer')?>
+        </div>
+    </div>
+</body>
+
+
+<?php view_include('public.layouts.foot-master')?>
+

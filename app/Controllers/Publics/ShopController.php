@@ -29,11 +29,12 @@ class ShopController
         $comments = $this->comment->selectByShop($id);
         $shop = $this->shop->selectByKeyPublic($id);
         // die(var_dump($shop));
+        $checkLogin = $this->verify();
         $check = 0;
         $checkRate = '';
         if (isset($_SESSION['user'])) {
-            $check = $this->save->check();
-            $checkRate = $this->rate->check();
+            $check = $this->save->check($id);
+            $checkRate = $this->rate->check($id);
             //die(var_dump($check));
             if ($check[0]->test > 0) {
                 $check = 1;
@@ -47,7 +48,7 @@ class ShopController
             }
         }
 
-        return view('public/detail/index', compact('shop', 'check', 'checkRate', 'comments'));
+        return view('public/detail/index', compact('shop', 'check', 'checkRate', 'comments', 'checkLogin'));
     }
 
     public function verify()
@@ -68,11 +69,13 @@ class ShopController
 
     public function ajaxUnsave()
     {
+        //echo 'a';
         $this->save->deleteSave();
     }
 
     public function rate()
     {
+
         $_SESSION['rate'] = $_GET['id'];
         if ($this->verify() == 0) {
             return "<b style='color:red'>you don't<a href='/login'> login</a></b>";
@@ -84,8 +87,11 @@ class ShopController
 
     public function updateRate()
     {
+        die('a' . $_POST['rate']);
         $_SESSION['rate'] = $_GET['id'];
+        // die($_SESSION['rate']);
         $this->rate->updateRate();
+        //
         return redirect('shop');
     }
 
