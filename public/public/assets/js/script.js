@@ -2,6 +2,7 @@ new WOW().init();
 $(window).load(function() {
     $(".se-pre-con").fadeOut("slow");;
 });
+
 $(document).on('ready', function() {
     $(".slider-ad").slick({
         dots: true,
@@ -106,7 +107,7 @@ $(document).ready(function() {
 
 function loadMap(latValue,lngValue){
      $(".ggmap").css("display","block");initMap(latValue,lngValue);
-   
+
 }
 
 function initMap(latValue,lngValue) {

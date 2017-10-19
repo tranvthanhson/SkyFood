@@ -1,39 +1,35 @@
 <?php view_include('public.layouts.head-master', ['title' => 'Contact'])?>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="60">
-    <div class="wrapper">
-       <?php view_include('public.partials.header')?>
-       <div id="content">
-        <div class="contact wrapper-content">
-            <div class="container">
-                <div class="row">
-                    <div class="title">
-                        <h2>Contact Us</h2>
-                        <p class="underline"></p>
-                    </div>
-                    <div class="ctn-contact ctn-main">
-                        <div class="infor-contact">
-                            <div class="item-infor col-md-4 col-xs-4">
-                                <span><i class="fa fa-map-marker"></i></span>
-                                <div class="text">
-                                    <p>242 Nguyễn Hoàng, Đà Nẵng, Việt Nam</p>
-                                </div>
+<?php view_include('public.partials.header')?>
+<div id="content">
+    <div class="contact wrapper-content">
+        <div class="container">
+            <div class="row">
+                <div class="title">
+                    <h2>Contact Us</h2>
+                    <p class="underline"></p>
+                </div>
+                <div class="ctn-contact ctn-main">
+                    <div class="infor-contact">
+                        <div class="item-infor col-md-4 col-xs-4">
+                            <span><i class="fa fa-map-marker"></i></span>
+                            <div class="text">
+                                <p>242 Nguyễn Hoàng, Đà Nẵng, Việt Nam</p>
                             </div>
-                            <div class="item-infor col-md-4 col-xs-4">
-                                <span><i class="fa fa-phone"></i></span>
-                                <div class="text">
-                                    <p>01282143365</p>
-                                    <p>0905594382</p>
-                                </div>
+                        </div>
+                        <div class="item-infor col-md-4 col-xs-4">
+                            <span><i class="fa fa-phone"></i></span>
+                            <div class="text">
+                                <p>01282143365</p>
+                                <p>0905594382</p>
                             </div>
-                            <div class="item-infor col-md-4 col-xs-4">
-                                <span><i class="fa fa-envelope"></i></span>
-                                <div class="text">
-                                    <p>hieutran040495@gmail.com</p>
-                                    <p>tthieu040495@gmail.com</p>
-                                </div>
+                        </div>
+                        <div class="item-infor col-md-4 col-xs-4">
+                            <span><i class="fa fa-envelope"></i></span>
+                            <div class="text">
+                                <p>hieutran040495@gmail.com</p>
+                                <p>tthieu040495@gmail.com</p>
                             </div>
-                            <div class="clearfix"></div>
                         </div>
                         <div class="message">
                             <div class="title-mess">
@@ -83,12 +79,13 @@
             </div>
         </div>
     </div>
-    <button id="modalNotice" data-toggle="modal" data-target="#idModal" style="display:none;" onclink="">
+</div>
+<button id="modalNotice" data-toggle="modal" data-target="#idModal" style="display:none;" onclink="">
 
-    </button>
+</button>
 
 
-    <?php if (isset($_SESSION['notice_contact'])) {
+<?php if (isset($_SESSION['notice_contact'])) {
     $data = [
         'id_model' => 'idModal',
         'title' => 'THÔNG BÁO',
@@ -101,9 +98,8 @@
 }
 ?>
 
-    <?php view_include('public.partials.footer')?>
+<?php view_include('public.partials.footer')?>
 </div>
-</body>
 
 <?php view_include('public.layouts.foot-master')?>
 

@@ -15,5 +15,5 @@
 <script src="/public/public/assets/js/general.js"></script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbJTv1mpf9Tm1fWBip0XKIuE1tBcv9GMc&callback=initMap" async defer></script>
-
+</body>
 </html>
