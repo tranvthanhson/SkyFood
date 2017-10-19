@@ -1,4 +1,12 @@
 // $('#search').click();
+
+$('#input').on('keydown',function (e) {
+    if(e.which==13){
+      $('#searchId').click();
+   }
+});
+
+
 function search(link){
      var key = $('#input').val();
      var type = $('#type').val();
