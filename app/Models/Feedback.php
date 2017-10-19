@@ -33,7 +33,7 @@ class Feedback extends Model
     public function searchFeedback()
     {
         if (isset($_POST['ajaxKey'])) {
-            $sql = "SELECT FEEDBACK_ID, NAME, EMAIL, PHONE, CONTENT FROM FEEDBACK WHERE (CONTENT LIKE '%" . $_POST['ajaxKey'] . "%')";
+            $sql = "SELECT FEEDBACK_ID, NAME, EMAIL, PHONE, CONTENT FROM {$this->table} WHERE (CONTENT LIKE '%" . $_POST['ajaxKey'] . "%') ORDER BY {$this->primaryKey} DESC";
             return $this->rawQuery($sql);
         }
     }
