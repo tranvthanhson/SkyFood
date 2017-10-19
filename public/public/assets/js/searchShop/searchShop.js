@@ -1,22 +1,22 @@
 $('#input').on('keydown',function (e) {
     if(e.which==13){
       $('#searchId').click();
-      $(".se-pre-con").fadeIn();;
   }
 });
 
 function search(link){
- var key = $('#input').val();
- var type = $('#type').val();
- var sortBy = $('#sortBy').val();
- $.ajax({
-    url: link,
-    type: 'GET',
-    cache: false,
-    data: {
-        ajaxKey: key,
-        type: type,
-        sortBy: sortBy
+    $(".se-pre-con").fadeIn();;
+    var key = $('#input').val();
+    var type = $('#type').val();
+    var sortBy = $('#sortBy').val();
+    $.ajax({
+        url: link,
+        type: 'GET',
+        cache: false,
+        data: {
+            ajaxKey: key,
+            type: type,
+            sortBy: sortBy
         // active: active
     },
     success: function(data) {
