@@ -6,7 +6,6 @@ $arrLink = ['/admin/shop' => ['QL Địa điểm', 'note2'],
     '/admin/user' => ['QL Người dùng', 'user'],
     '/admin/type' => ['QL Danh mục', 'news-paper'],
     '/admin/feedback' => ['QL Phản hồi', 'back-2'],
-    '/admin/statistics' => ['QL Thống kê', 'graph1'],
 ];
 
 ?>

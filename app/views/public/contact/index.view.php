@@ -35,52 +35,49 @@
                             </div>
                             <div class="clearfix"></div>
                         </div>
-                        <form action="/contact/create" method="POST">
-                            <div class="message">
-                                <div class="title-mess">
-                                    <h3>SEND A MESSAGE</h3>
-                                </div>
-                                <div class="ctn-mess">
-                                    <form class="form-border-color" action="" data-toggle="validator" role="form">
-                                        <div class="row">
-                                            <div class="col-md-4 col-xs-4 item-ctn-mess">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control" id="name" name="name" placeholder="Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-xs-4 item-ctn-mess">
-                                                <div class="form-group">
-                                                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
-                                                    <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 col-xs-4 item-ctn-mess">
-                                                <div class="form-group">
-                                                    <input type="text" onkeypress="return isNumberKey(event)" maxlength="11" class="form-control" id="phone" name="phone" placeholder="Phone">
-                                                </div>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                        <div class="row textarea">
-                                            <div class="col-md-12 item-ctn-mess">
-                                                <div class="form-group">
-                                                    <textarea rows="5" class="form-control" placeholder="Message" value="" name="content" required></textarea>
-                                                    <div class="help-block with-errors"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <input  type="submit" class="btn btn-bg pull-right" value="Send">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                        <div class="message">
+                            <div class="title-mess">
+                                <h3>SEND A MESSAGE</h3>
                             </div>
-                        </form>
-
+                            <div class="ctn-mess">
+                                <form class="form-border-color" data-toggle="validator" role="form" action="/contact/create" method="POST">
+                                    <div class="row">
+                                        <div class="col-md-4 col-xs-4 item-ctn-mess">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-xs-4 item-ctn-mess">
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 col-xs-4 item-ctn-mess">
+                                            <div class="form-group">
+                                                <input type="text" onkeypress="return isNumberKey(event)" maxlength="11" class="form-control" id="phone" name="phone" placeholder="Phone">
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="row textarea">
+                                        <div class="col-md-12 item-ctn-mess">
+                                            <div class="form-group">
+                                                <textarea rows="5" class="form-control" placeholder="Message" value="" name="content" required></textarea>
+                                                <div class="help-block with-errors"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <input  type="submit" class="btn btn-bg pull-right" value="Send">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

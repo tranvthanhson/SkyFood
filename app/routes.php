@@ -65,9 +65,6 @@ $router->get('admin/type/edit', 'Admin\TypeController@edit');
 $router->post('admin/type/edit', 'Admin\TypeController@editType');
 $router->get('admin/type/delete', 'Admin\TypeController@deleteType');
 
-// Statistics
-$router->get('admin/statistics', 'Admin\StatisticsController@index');
-
 // PUBLIC
 // Home
 
