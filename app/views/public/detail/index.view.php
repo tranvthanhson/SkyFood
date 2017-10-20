@@ -1,7 +1,5 @@
 <?php view_include('public.layouts.head-master', ['title' => 'Detail'])?>
 
-
-<body>
     <div class="wrapper">
         <?php view_include('public.partials.header')?>
 
@@ -445,8 +443,8 @@ foreach ($comments as $value) {
                 <?php view_include('public.partials.footer')?>
         </div>
     </div>
-</body>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbJTv1mpf9Tm1fWBip0XKIuE1tBcv9GMc&callback=initMap" async defer></script>
 
 <?php view_include('public.layouts.foot-master')?>
 

@@ -1,6 +1,5 @@
 <?php view_include('public.layouts.head-master', ['title' => $_SESSION['user']->USERNAME])?>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="60">
     <div class="wrapper">
         <?php view_include('public.partials.header')?>
         <div id="content">
@@ -13,7 +12,7 @@
                         </div>
                         <div class="ctn-user ctn-main">
                             <div class="row ">
-                               <?php view_include('public.user.partials.side-bar', ['imageUser' => $detailUser[0]->IMAGE]);?>
+                               <?php view_include('public.user.partials.side-bar', ['imageUser' => $detailUser->IMAGE]);?>
                                 <div class="user-infor item-ctn col-md-9">
                                     <div class="wrp">
                                         <form data-toggle="validator" role="form" action="/editUserInfo" class="form-infor form-border-color" method="POST">
@@ -30,7 +29,7 @@
                                                 <div class="form-group username">
                                                     <label class="control-label col-sm-3">Username:</label>
                                                     <div class="col-sm-9 show-username">
-                                                        <p><?=$detailUser[0]->USERNAME;?></p>
+                                                        <p><?=$detailUser->USERNAME;?></p>
                                                     </div>
 
                                                     <div class="clearfix"></div>
@@ -40,7 +39,7 @@
                                                 <div class="form-group first-name">
                                                     <label class="control-label col-sm-3" for="inputFirstName">First Name:</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" name="firstName" class="form-control" id="inputFirstName" placeholder="First name" value="<?=$detailUser[0]->FIRST_NAME;?>" required>
+                                                        <input type="text" name="firstName" class="form-control" id="inputFirstName" placeholder="First name" value="<?=$detailUser->FIRST_NAME;?>" required>
                                                         <div class="help-block with-errors"></div>
                                                     </div>
                                                     <div class="clearfix"></div>
@@ -50,7 +49,7 @@
                                                 <div class="form-group last-name">
                                                     <label class="control-label col-sm-3" for="inputLastName">Last Name:</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" name="lastName" class="form-control" id="inputLastName" placeholder="Last name" value="<?=$detailUser[0]->LAST_NAME;?>" required>
+                                                        <input type="text" name="lastName" class="form-control" id="inputLastName" placeholder="Last name" value="<?=$detailUser->LAST_NAME;?>" required>
                                                         <div class="help-block with-errors"></div>
                                                     </div>
                                                     <div class="clearfix"></div>
@@ -60,7 +59,7 @@
                                                 <div class="form-group email">
                                                     <label class="control-label col-sm-3" for="inputEmail">Email:</label>
                                                     <div class="col-sm-9">
-                                                        <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email" value="<?=$detailUser[0]->EMAIL;?>" required>
+                                                        <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email" value="<?=$detailUser->EMAIL;?>" required>
                                                         <div class="help-block with-errors"></div>
                                                     </div>
                                                     <div class="clearfix"></div>
@@ -70,7 +69,7 @@
                                                 <div class="form-group email">
                                                     <label class="control-label col-sm-3" for="inputEmail">Phone:</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" onkeypress="return isNumberKey(event)" maxlength="11" name="phone" class="form-control" id="inputPhone" placeholder="Phone" value="<?=$detailUser[0]->PHONE;?>" required>
+                                                        <input type="text" onkeypress="return isNumberKey(event)" maxlength="11" name="phone" class="form-control" id="inputPhone" placeholder="Phone" value="<?=$detailUser->PHONE;?>" required>
                                                         <div class="help-block with-errors"></div>
                                                     </div>
                                                     <div class="clearfix"></div>
@@ -80,7 +79,7 @@
                                                 <div class="form-group email">
                                                     <label class="control-label col-sm-3" for="inputEmail">Address:</label>
                                                     <div class="col-sm-9">
-                                                        <input type="text" name="address" class="form-control" id="inputAddress" placeholder="Address" value="<?=$detailUser[0]->ADDRESS;?>" required>
+                                                        <input type="text" name="address" class="form-control" id="inputAddress" placeholder="Address" value="<?=$detailUser->ADDRESS;?>" required>
                                                         <div class="help-block with-errors"></div>
                                                     </div>
                                                     <div class="clearfix"></div>
@@ -107,6 +106,5 @@
         <?php view_include('public.partials.footer')?>
 
     </div>
-</body>
 <?php view_include('public.layouts.foot-master')?>
 

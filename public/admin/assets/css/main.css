@@ -324,3 +324,15 @@ width: 35%; } }
   -webkit-appearance: none;
   margin: 0;
 }
+.checked-box{
+    font-size: 20px;
+    color: #bdc3c7;
+    color: ;
+    text-align: center;
+}
+.checked-box.checked{
+    font-size: 20px;
+    color: #1DC7EA;
+    color: ;
+    text-align: center;
+}

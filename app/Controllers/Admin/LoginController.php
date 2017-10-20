@@ -27,6 +27,7 @@ class LoginController
         } else if ('User' == $result) {
             return redirect('');
         } else {
+            $_SESSION['notice_login'] = 'Sai Username hoặc Mật khẩu. Vui lòng đăng nhập lại!';
             redirect('');
         }
     }

@@ -27,7 +27,7 @@
                                                 </div>
                                             </div>
                                             <div class="panel-footer">
-                                                <a href="/shop">Xem <i class="fa fa-arrow-circle-right"></i></a>
+                                                <a href="/admin/shop">Xem <i class="fa fa-arrow-circle-right"></i></a>
                                             </div>
                                         </div>
                                     </div>
