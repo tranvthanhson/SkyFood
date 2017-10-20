@@ -1,15 +1,16 @@
  
-function save1(link){
-	alert(id);
+function saveAjax(link,id){
+	//alert(id);
    $.ajax({
         url: link,
         type: 'POST',
         cache: false,
         data: {
-           aid:id
+           aid:id,
+           
         },
         success: function(data) {
-            $('#save').val(data);
+            $('#save').html(data);
             //alert($data);
         },
         error: function(err) {

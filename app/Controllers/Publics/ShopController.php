@@ -81,6 +81,7 @@ class ShopController
 
     public function updateRate()
     {
+
         // die($_SESSION['rate']);
         $this->rate->updateRate();
         //

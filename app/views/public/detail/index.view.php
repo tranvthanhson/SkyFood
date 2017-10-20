@@ -57,7 +57,7 @@
                                             <form action="javascript:void(0)">
                                                 <div class="item-feature save">
 
-                                                    <div class="form-group">
+                                                    <div class="form-group" id='save'>
                                                         <?php
 $link = '';
 if ('' == $checkRate) {
@@ -74,9 +74,9 @@ if (1 == $checkLogin) {
 
 if (0 == $check) {
     ?>
-                                                        <input id='save' data-toggle="modal"  <?=$modalSave?> type="submit" class=" btn btn-bg" value="Save" onclick="save1('/shop/ajaxSave',<?=$shop[0]->sid?>);" />
+                                                        <input  data-toggle="modal"  <?=$modalSave?> type="submit" class=" btn btn-bg" value="Save" onclick="saveAjax('/shop/ajaxSave',<?=$shop[0]->sid?>);" />
                                                         <?php } else {?>
-                                                        <input id='save' <?=$modalSave?> type="submit" class=" btn btn-bg" value="Unsave" onclick="save('/shop/ajaxUnsave',<?=$shop[0]->sid?>)" />
+                                                        <input  <?=$modalSave?> type="submit" class=" btn btn-bg" value="Unsave" onclick="saveAjax('/shop/ajaxUnsave',<?=$shop[0]->sid?>)" />
                                                         <?php }?>
 
                                                     </div>
