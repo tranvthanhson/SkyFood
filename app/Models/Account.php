@@ -22,7 +22,7 @@ class Account extends Model
             'IMAGE' => $image,
             'EMAIL' => $email,
             'FULL_NAME' => $lastname . ' ' . $fisrtname,
-            'ROLE' => ('' == $role) ? 0 : $role,
+            'ROLE' => ('' == $role) ? 3 : $role,
             'PHONE' => $phone,
         ];
     }
@@ -40,11 +40,11 @@ class Account extends Model
             $username = $_POST['username'];
             $password = md5($_POST['password']);
 
-            $user = $this->checkUser($this->table, $username, $password);
+            $user = $this->findById($username);
 
-            if ($user[0]->USERNAME == $username && $user[0]->PASSWORD == $password) {
-                $_SESSION['user'] = $user[0];
-                if (3 != $user[0]->ROLE) {
+            if ($user->USERNAME == $username && $user->PASSWORD == $password) {
+                $_SESSION['user'] = $user;
+                if (3 != $user->ROLE) {
                     return 'Admin';
                 } else {
                     return 'User';
@@ -64,7 +64,6 @@ class Account extends Model
     public function register()
     {
         if (isset($_POST['add'])) {
-            //die($_POST['first_name']);
             $this->setValue(md5($_POST['password']), $_POST['first_name'], $_POST['last_name'], '', '', '', 3, '');
             $checkId = $this->findById($_POST['username'], 'USERNAME');
 
@@ -75,7 +74,6 @@ class Account extends Model
                 $this->insert($this->fillable);
                 $this->fillable = [];
 
-                // echo 'Register Successful!';
                 return redirect('');
             }
         }
@@ -124,8 +122,8 @@ class Account extends Model
     // Delete User
     public function deleteUser()
     {
-        $account = $this->getUser($_GET['username']);
-        unlink('public/admin/assets/img/imagesUser/' . $account[0]->IMAGE);
+        $account = $this->findById($_GET['username']);
+        unlink('public/admin/assets/img/imagesUser/' . $account->IMAGE);
         $_SESSION['notice'] = 'Deleted Successful!';
         return $this->deleteById($_GET['username']);
     }
@@ -140,10 +138,10 @@ class Account extends Model
     public function updateUser()
     {
         if (isset($_POST['add'])) {
-            $account = $this->getUser($_POST['username']);
+            $account = $this->findById($_POST['username']);
 
             if ('' == $_POST['password']) {
-                $_POST['password'] = $account[0]->PASSWORD;
+                $_POST['password'] = $account->PASSWORD;
             } else {
                 $_POST['password'] = md5($_POST['password']);
             }
@@ -151,11 +149,11 @@ class Account extends Model
             $image = $_FILES['file']['name'];
 
             if (null != $image) {
-                unlink('public/admin/assets/img/imagesUser/' . $account[0]->IMAGE);
+                unlink('public/admin/assets/img/imagesUser/' . $account->IMAGE);
                 $_POST['urlImage'] = $this->uploadImages($image, 'imagesUser');
             }
-            if (1 != $account[0]->ROLE) {
-                $_POST['role'] = $account[0]->ROLE;
+            if (1 != $account->ROLE) {
+                $_POST['role'] = $account->ROLE;
             }
 
             $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $_POST['urlImage'], $_POST['email'], $_POST['role'], $_POST['phone']);
@@ -223,14 +221,14 @@ class Account extends Model
     // Public
     public function detailUser()
     {
-        return $this->getUser($_SESSION['user']->USERNAME);
+        return $this->findById($_SESSION['user']->USERNAME);
     }
 
     public function updateUserInfo()
     {
         if (isset($_POST['edit'])) {
-            $account = $this->getUser($_SESSION['user']->USERNAME);
-            $this->setValue($account[0]->PASSWORD, $_POST['firstName'], $_POST['lastName'], $_POST['address'], $account[0]->IMAGE, $_POST['email'], $account[0]->ROLE, $_POST['phone']);
+            $account = $this->findById($_SESSION['user']->USERNAME);
+            $this->setValue($account->PASSWORD, $_POST['firstName'], $_POST['lastName'], $_POST['address'], $account->IMAGE, $_POST['email'], $account->ROLE, $_POST['phone']);
             $this->updateById($_SESSION['user']->USERNAME, $this->fillable);
             $_SESSION['notice'] = 'Sửa Username thành công!';
             redirect('profile');
@@ -241,8 +239,8 @@ class Account extends Model
     {
         if (isset($_POST['edit'])) {
             // die($_SESSION['user']->USERNAME);
-            $account = $this->getUser($_SESSION['user']->USERNAME);
-            $this->setValue(md5($_POST['password']), $account[0]->FIRST_NAME, $account[0]->LAST_NAME, $account[0]->ADDRESS, $account[0]->IMAGE, $account[0]->EMAIL, $account[0]->ROLE, $account[0]->PHONE);
+            $account = $this->findById($_SESSION['user']->USERNAME);
+            $this->setValue(md5($_POST['password']), $account->FIRST_NAME, $account->LAST_NAME, $account->ADDRESS, $account->IMAGE, $account->EMAIL, $account->ROLE, $account->PHONE);
             $this->updateById($_SESSION['user']->USERNAME, $this->fillable);
             $_SESSION['notice'] = 'Sửa Username thành công!';
             redirect('editUserPassword');
@@ -253,10 +251,10 @@ class Account extends Model
     {
         // Upload img
         if (isset($_POST['ajaxImages'])) {
-            $account = $this->getUser($_SESSION['user']->USERNAME);
+            $account = $this->findById($_SESSION['user']->USERNAME);
 
             $link = 'public/admin/assets/img/imagesUser/';
-            unlink($link . $account[0]->IMAGE);
+            unlink($link . $account->IMAGE);
             $img = $_POST['ajaxImages']; // Your data 'data:image/png;base64,AAAFBfj42Pj4';
             $img = str_replace('data:image/png;base64,', '', $img);
             $img = str_replace(' ', '+', $img);
@@ -265,7 +263,7 @@ class Account extends Model
             file_put_contents($link . $image, $data);
 
             //die($image);
-            $this->setValue($account[0]->PASSWORD, $account[0]->FIRST_NAME, $account[0]->LAST_NAME, $account[0]->ADDRESS, $image, $account[0]->EMAIL, 3, $account[0]->PHONE);
+            $this->setValue($account->PASSWORD, $account->FIRST_NAME, $account->LAST_NAME, $account->ADDRESS, $image, $account->EMAIL, $account->ROLE, $account->PHONE);
             // die($_SESSION['user']->USERNAME);
             $_SESSION['user']->IMAGE = $image;
 

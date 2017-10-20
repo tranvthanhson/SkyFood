@@ -1,6 +1,5 @@
 <?php view_include('public.layouts.head-master', ['title' => $_SESSION['user']->USERNAME])?>
 
-<body data-spy="scroll" data-target=".navbar" data-offset="60">
     <div class="wrapper">
         <?php view_include('public.partials.header')?>
 
@@ -14,7 +13,7 @@
                         </div>
                         <div class="ctn-user ctn-main">
                             <div class="row ">
-                                <?php view_include('public.user.partials.side-bar', ['imageUser' => $detailUser[0]->IMAGE]);?>
+                                <?php view_include('public.user.partials.side-bar', ['imageUser' => $detailUser->IMAGE]);?>
                                 <div class="user-infor edit-pass item-ctn col-md-9">
                                     <div class="wrp">
                                         <form data-toggle="validator" role="form" action="/editUserPassword" class="form-edit-pass form-infor form-border-color" method="POST">
@@ -60,6 +59,5 @@
         <?php view_include('public.partials.footer')?>
 
     </div>
-</body>
 
 <?php view_include('public.layouts.foot-master')?>

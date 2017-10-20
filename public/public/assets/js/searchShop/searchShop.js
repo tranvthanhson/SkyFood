@@ -1,8 +1,14 @@
-// $('#search').click();
+$('#input').on('keydown',function (e) {
+    if(e.which==13){
+      $('#searchId').click();
+  }
+});
+
 function search(link){
-     var key = $('#input').val();
-     var type = $('#type').val();
-     var sortBy = $('#sortBy').val();
+    $(".se-pre-con").fadeIn();;
+    var key = $('#input').val();
+    var type = $('#type').val();
+    var sortBy = $('#sortBy').val();
     $.ajax({
         url: link,
         type: 'GET',
@@ -11,14 +17,13 @@ function search(link){
             ajaxKey: key,
             type: type,
             sortBy: sortBy
-        // active: active
     },
     success: function(data) {
         $('.searchShopTable').html(data);
-        //alert(link);
+        $(".se-pre-con").fadeOut();;
     },
     error: function(err) {
-        alert('Có lỗi xảy ra' + err);
+        // alert('Có lỗi xảy ra' + err);
     }
-    });
+});
 }
