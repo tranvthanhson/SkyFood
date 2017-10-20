@@ -20,7 +20,8 @@ class Save extends Model
         $save['USERNAME'] = $_SESSION['user']->USERNAME;
         $save['SHOP_ID'] = $_POST['aid'];
         $this->insert($save);
-        echo "<b style='color:red'>saved</b>";
+        //echo 'saveAjax("//shop//ajaxSave")';
+        echo " <input  data-toggle='modal'  type='submit' class= 'btn btn-bg' value='unsave' onclick='saveAjax(" . '"/shop/ajaxUnsave"' . ',' . $_POST['aid'] . ");' />";
     }
 
     public function deleteSave()
@@ -28,6 +29,7 @@ class Save extends Model
         //echo $sql;
         $sql = "DELETE FROM SAVE WHERE USERNAME='{$_SESSION['user']->USERNAME}' AND SHOP_ID='{$_POST['aid']}'";
         $this->rawQuery($sql);
-        echo 'unsaved';
+        echo " <input  data-toggle='modal'   type='submit' class= 'btn btn-bg' value='Save' onclick='saveAjax(" . '"/shop/ajaxSave"' . ', ' . $_POST['aid'] . ");' />";
+        //echo 'saveAjax("//shop//ajaxSave")';
     }
 }
