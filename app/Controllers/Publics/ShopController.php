@@ -44,8 +44,12 @@ class ShopController
                 $checkRate = 0;
             }
         }
-
-        return view('public/detail/index', compact('shop', 'check', 'checkRate', 'comments', 'checkLogin'));
+        //die(var_dump($shop));
+        $avg = $shop[0]->AVG . '';
+        if ('' == $avg) {
+            $avg = 0;
+        }
+        return view('public/detail/index', compact('shop', 'check', 'checkRate', 'comments', 'checkLogin', 'avg'));
     }
 
     public function verify()
@@ -57,11 +61,8 @@ class ShopController
 
     public function ajaxSave()
     {
-        if ($this->verify() == 0) {
-            echo "<b style='color:red'>you don't login</b>";
-        } else {
-            $this->save->addSave();
-        }
+
+        $this->save->addSave();
     }
 
     public function ajaxUnsave()
@@ -72,11 +73,8 @@ class ShopController
 
     public function rate()
     {
-        if ($this->verify() == 0) {
-            return "<b style='color:red'>you don't<a href='/login'> login</a></b>";
-        } else {
-            $this->rate->addRate();
-        }
+        //echo $_POST[''];
+        $this->rate->addRate();
     }
 
     public function updateRate()
@@ -85,7 +83,6 @@ class ShopController
         // die($_SESSION['rate']);
         $this->rate->updateRate();
         //
-        return redirect('shop');
     }
 
     public function ajaxComment()

@@ -42,8 +42,8 @@
                                 <div class="col-md-7  col-xs-7 ctn">
                                     <div class="wrp">
                                         <div class="item name">
-                                            <div class="score">
-                                                <p><?=$shop[0]->AVG+''?></p>
+                                            <div class="score" >
+                                                <p><?=$avg?></p>
                                             </div>
                                             <div class="name-address">
                                                 <h3> <?=$shop[0]->SHOP_NAME?> </h3>
@@ -60,30 +60,34 @@
                                                     <div class="form-group" id='save'>
                                                         <?php
 $link = '';
+
 if ('' == $checkRate) {
-    $link = '/shop/rate?id=' . $shop[0]->sid;
+    $link = "'/shop/rate'";
 } else {
-    $link = '/shop/updateRate?id=' . $shop[0]->sid;
+    $link = "'/shop/updateRate'";
 }
 $modalSave = $modalRate = 'data-target="#modal-message"';
+$clickSave = $clickRate = '';
+$save = 'value="Save"';
 if (1 == $checkLogin) {
     $modalSave = '';
-
     $modalRate = 'data-target="#modal-rating"';
+    $clickRate = 'onclick="rate(' . $link . ',' . $shop[0]->sid . ',)"';
+    if (0 == $check) {
+        $clickSave = ' onclick="saveAjax(' . "'/shop/ajaxSave'" . ',' . $shop[0]->sid . ');"';
+    } else {
+        $save = 'value="unsave"';
+        $clickSave = ' onclick="saveAjax(' . "'/shop/ajaxUnsave'" . ',' . $shop[0]->sid . ');"';
+    }
 }
 
-if (0 == $check) {
-    ?>
-                                                        <input  data-toggle="modal"  <?=$modalSave?> type="submit" class=" btn btn-bg" value="Save" onclick="saveAjax('/shop/ajaxSave',<?=$shop[0]->sid?>);" />
-                                                        <?php } else {?>
-                                                        <input  <?=$modalSave?> type="submit" class=" btn btn-bg" value="Unsave" onclick="saveAjax('/shop/ajaxUnsave',<?=$shop[0]->sid?>)" />
-                                                        <?php }?>
-
+?>
+                                                        <input  data-toggle="modal"  <?=$modalSave?> type="submit" class=" btn btn-bg" <?=$save?> <?=$clickSave?> />
                                                     </div>
                                                 </div>
                                                 <div class="item-feature rate">
                                                     <div class="form-group">
-                                                        <a href="" class="btn btn-bg" data-toggle="modal" <?=$modalRate?> onclick="rate($link,<?=$shop[0]->sid?>,<?=$shop[0]->AVG?>)">Rate</a>
+                                                        <a href="" class="btn btn-bg" data-toggle="modal" <?=$modalRate?> onclick="rateButton()">Rate</a>
                                                     </div>
                                                 </div>
                                                 <div id="modal-rating" class="modal fade" role="dialog">
@@ -105,7 +109,7 @@ if (0 == $check) {
                                                                         </div>
                                                                         <div class="col-md-12">
                                                                             <div class="form-group button-action">
-                                                                                <input type="submit" class=" btn btn-bg" value="Send" / data-dismiss="modal">
+                                                                                <input  type="submit" <?=$clickRate?> class=" btn btn-bg" value="Send" / data-dismiss="modal">
                                                                             </div>
                                                                         </div>
                                                                         <div class="clearfix"></div>

@@ -39,8 +39,9 @@ function loadMyComments(id){
         }
     });
 }
-function rate(link,id,rate){
-    $(".rating").rate("setValue",rate);
+function rate(link,id){
+  
+    
     var value=$(".rating").rate("getValue");
    $.ajax({
         url: link,
@@ -51,13 +52,16 @@ function rate(link,id,rate){
            avalue:value
         },
         success: function(data) {
-            $('.score p').html(data);
+            $('.score p').text(data);
             //alert($data);
         },
         error: function(err) {
             alert('Có lỗi xảy ra' + err);
         }
     });
+}
+function rateButton(){
+  $(".rating").rate("setValue",rate);
 }
 
 
