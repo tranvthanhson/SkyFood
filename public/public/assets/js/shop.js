@@ -53,6 +53,7 @@ function rate(link,id){
         },
         success: function(data) {
             $('.score p').text(data);
+            
             //alert($data);
         },
         error: function(err) {
@@ -60,7 +61,7 @@ function rate(link,id){
         }
     });
 }
-function rateButton(){
+function rateButton(rate){
   $(".rating").rate("setValue",rate);
 }
 

@@ -23,14 +23,15 @@ class Rate extends Model
         $this->insert($rate);
         $sql = "SELECT AVG(SCORE) AS AVG FROM RATE  WHERE SHOP_ID={$_POST['aid']}";
         $avg = $this->rawQuery($sql);
-        echo 'a';
+        echo $avg[0]->AVG;
 
     }
 
     public function updateRate()
     {
 
-        $sql = "UPDATE RATE SET SCORE={$_POST['avalue']} WHERE SHOP_ID={$_POST['aid']} ";
+        $sql = "UPDATE RATE SET SCORE={$_POST['avalue']} WHERE SHOP_ID={$_POST['aid']} AND USERNAME='{$_SESSION['user']->USERNAME}' ";
+        //echo $sql;
         $this->rawQuery($sql);
         $sql = "SELECT AVG(SCORE) AS AVG FROM RATE  WHERE SHOP_ID={$_POST['aid']}";
         $avg = $this->rawQuery($sql);

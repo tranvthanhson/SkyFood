@@ -87,7 +87,7 @@ if (1 == $checkLogin) {
                                                 </div>
                                                 <div class="item-feature rate">
                                                     <div class="form-group">
-                                                        <a href="" class="btn btn-bg" data-toggle="modal" <?=$modalRate?> onclick="rateButton()">Rate</a>
+                                                        <a  href="" class="btn btn-bg" data-toggle="modal" <?=$modalRate?> onclick="rateButton(<?=$avg?>)">Rate</a>
                                                     </div>
                                                 </div>
                                                 <div id="modal-rating" class="modal fade" role="dialog">
