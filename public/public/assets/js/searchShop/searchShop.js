@@ -21,7 +21,7 @@ function search(link){
     },
     success: function(data) {
         $('.searchShopTable').html(data);
-        $(".se-pre-con").fadeOut("slow");;
+        $(".se-pre-con").fadeOut();;
 
         //alert(link);
     },
