@@ -1,6 +1,7 @@
 new WOW().init();
 $(window).load(function() {
-    $(".se-pre-con").fadeOut("slow");;
+    $(".se-pre-con").fadeOut("slow");
+    $(".modalNotice")[0].click();
 });
 $(document).on('ready', function() {
     $(".slider-ad").slick({
@@ -19,21 +20,21 @@ $(document).on('ready', function() {
         slidesToShow: 4,
         slidesToScroll: 4,
         responsive: [{
-                breakpoint: 1199,
-                settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 3,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 2
-                }
+            breakpoint: 1199,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true
             }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+            }
+        }
         ]
     });
 });
@@ -83,11 +84,11 @@ $(document).ready(function() {
     $('#image').click(function() {
         var imageData = $('.image-editor').cropit('export');
         $.ajax({
-        url: '/profile',
-        type: 'POST',
-        cache: false,
-        data: {
-            ajaxImages: imageData,
+            url: '/profile',
+            type: 'POST',
+            cache: false,
+            data: {
+                ajaxImages: imageData,
             // aactive: active
         },
         success: function(data) {
@@ -105,7 +106,7 @@ $(document).ready(function() {
 });
 
 function loadMap(latValue,lngValue){
-     $(".ggmap").css("display","block");initMap(latValue,lngValue);
+   $(".ggmap").css("display","block");initMap(latValue,lngValue);
    
 }
 

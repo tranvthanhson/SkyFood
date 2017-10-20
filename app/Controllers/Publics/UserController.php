@@ -22,6 +22,7 @@ class UserController
     public function editUser()
     {
         $this->account->updateUserInfo();
+        $_SESSION['notice_edit'] = 'Sửa thông tin thành công!';
     }
 
     public function viewEditPassword()
@@ -33,10 +34,12 @@ class UserController
     public function editUserPassword()
     {
         $this->account->editUserPassword();
+        $_SESSION['notice_edit'] = 'Sửa mật khẩu thành công!';
     }
 
     public function editUserImage()
     {
         $this->account->editUserImage();
+        // $_SESSION['notice_edit'] = 'Sửa hình đại diện thành công!';
     }
 }

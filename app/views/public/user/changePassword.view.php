@@ -13,7 +13,7 @@
                         </div>
                         <div class="ctn-user ctn-main">
                             <div class="row ">
-                                <?php view_include('public.user.partials.side-bar', ['imageUser' => $detailUser[0]->IMAGE]);?>
+                                <?php view_include('public.user.partials.side-bar', ['imageUser' => $detailUser->IMAGE]);?>
                                 <div class="user-infor edit-pass item-ctn col-md-9">
                                     <div class="wrp">
                                         <form data-toggle="validator" role="form" action="/editUserPassword" class="form-edit-pass form-infor form-border-color" method="POST">

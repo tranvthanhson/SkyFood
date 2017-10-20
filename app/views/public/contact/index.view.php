@@ -81,7 +81,7 @@
             </div>
         </div>
     </div>
-    <button id="modalNotice" data-toggle="modal" data-target="#idModal" style="display:none;" onclink="">
+    <button class="modalNotice" data-toggle="modal" data-target="#idModal" style="display:none;">
 
     </button>
 
@@ -104,8 +104,3 @@
 
 <?php view_include('public.layouts.foot-master')?>
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        $("#modalNotice").trigger('click');
-    });
-</script>
