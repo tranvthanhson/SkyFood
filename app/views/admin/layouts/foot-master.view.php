@@ -21,5 +21,5 @@
 <script src="/public/admin/assets/js/user/user.js"></script>
 <script src="/public/admin/assets/js/shop/shop.js"></script>
 <script src="/public/admin/assets/js/mapPost.js"></script>
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbJTv1mpf9Tm1fWBip0XKIuE1tBcv9GMc&libraries=places&callback=initMap" async defer></script> -->
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbJTv1mpf9Tm1fWBip0XKIuE1tBcv9GMc&libraries=places&callback=initMap" async defer></script>
 </html>
