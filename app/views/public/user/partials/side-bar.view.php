@@ -80,3 +80,22 @@ $arrLink = ['/profile' => ['-pencil-square-o', 'Edit'],
             <div class="wrp-blur"></div>
         </div>
     </div>
+    <button class="modalNotice" data-toggle="modal" data-target="#idModal" style="display:none;">
+
+        </button>
+
+
+        <?php if (isset($_SESSION['notice_edit'])) {
+    $data = [
+        'id_model' => 'idModal',
+        'title' => 'THÔNG BÁO',
+        'content' => $_SESSION['notice_edit'],
+        'bt' => 'OK',
+        'link' => '',
+    ];
+    view_include('admin.partials.modal', $data);
+
+    unset($_SESSION['notice_edit']);
+}
+
+?>
