@@ -17,16 +17,13 @@ function search(link){
             ajaxKey: key,
             type: type,
             sortBy: sortBy
-        // active: active
     },
     success: function(data) {
         $('.searchShopTable').html(data);
         $(".se-pre-con").fadeOut();;
-
-        //alert(link);
     },
     error: function(err) {
-        alert('Có lỗi xảy ra' + err);
+        // alert('Có lỗi xảy ra' + err);
     }
 });
 }
