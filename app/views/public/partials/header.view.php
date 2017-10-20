@@ -107,7 +107,7 @@ $arrLink = ['/contact' => 'contact',
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group button-action">
-                                    <input type="submit" class=" btn btn-bg" name="login" value="Sign in" required />
+                                    <input type="submit" class=" btn btn-bg" name="login" data-target="#idModal" value="Sign in" required />
                                 </div>
                             </div>
                             <div class="col-md-12 forgotPass">
@@ -129,6 +129,7 @@ $arrLink = ['/contact' => 'contact',
             </div>
         </div>
     </div>
+
     <!-- Modal forgotPass -->
     <div id="modal-forgot-pass" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -254,3 +255,4 @@ $arrLink = ['/contact' => 'contact',
             </div>
         </div>
     </div>
+
