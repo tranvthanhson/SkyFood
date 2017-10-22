@@ -38,4 +38,10 @@ class Rate extends Model
         echo $avg[0]->AVG;
 
     }
+
+    public function deleteByShop($id)
+    {
+        $sql = "DELETE FROM {$this->table} WHERE SHOP_ID={$id}";
+        return $this->rawQuery($sql);
+    }
 }

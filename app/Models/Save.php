@@ -32,4 +32,10 @@ class Save extends Model
         echo " <input  data-toggle='modal'   type='submit' class= 'btn btn-bg' value='Save' onclick='saveAjax(" . '"/shop/ajaxSave"' . ', ' . $_POST['aid'] . ");' />";
         //echo 'saveAjax("//shop//ajaxSave")';
     }
+
+    public function deleteByShop($id)
+    {
+        $sql = "DELETE FROM {$this->table} WHERE SHOP_ID={$id}";
+        return $this->rawQuery($sql);
+    }
 }
