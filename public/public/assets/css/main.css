@@ -1671,4 +1671,6 @@ body {
   color: #a94442 !important;
   font-weight: bold;
 }
-
+.user-profile .ctn-user .avatar-features .features nav ul li a:focus {
+  background: #f6b121 !important;
+}
