@@ -39,7 +39,7 @@ class Rate extends Model
 
     }
 
-    public function deleteShopById($id)
+    public function deleteRateByShop($id)
     {
         $sql = "DELETE FROM {$this->table} WHERE SHOP_ID={$id}";
         return $this->rawQuery($sql);

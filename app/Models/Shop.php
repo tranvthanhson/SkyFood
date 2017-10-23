@@ -120,7 +120,7 @@ class Shop extends Model
         return $this->updateById($id, $this->fillable);
     }
 
-    public function deleteshop($id)
+    public function deleteShopById($id)
     {
         $path = $_SERVER['DOCUMENT_ROOT'];
         if ('default-avatar.png' != $picture) {
@@ -129,13 +129,13 @@ class Shop extends Model
         } //die($_GET['id']);
         $this->deleteById($id);
         $shopType = new Shop_Type;
-        $shopType->deleteShopById($id);
+        $shopType->deleteShopTypeByShop($id);
         $save = new Save;
-        $save->deleteShopById($id);
+        $save->deleteSaveByShop($id);
         $comment = new Comment;
-        $comment->deleteShopById($id);
+        $comment->deleteCommentByShop($id);
         $rate = new Rate;
-        $rate->deleteShopById($id);
+        $rate->deleteRateByShop($id);
         //return;
     }
 
