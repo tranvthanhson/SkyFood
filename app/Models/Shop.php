@@ -90,7 +90,17 @@ class Shop extends Model
     public function selectByKeyPublic($id)
     {
 
-        $sql = "SELECT SHOP.*,AVG(SCORE) AS AVG, SHOP.SHOP_ID AS sid FROM SHOP LEFT JOIN RATE ON SHOP.SHOP_ID =RATE.SHOP_ID WHERE SHOP.SHOP_ID={$id}";
+        $sql = "SELECT SHOP.*,AVG(SCORE) AS AVG, SHOP.SHOP_ID AS sid,TYPE_ID
+                FROM SHOP LEFT JOIN RATE ON SHOP.SHOP_ID =RATE.SHOP_ID
+                        LEFT JOIN TYPE_SHOP ON SHOP.SHOP_ID =TYPE_SHOP.SHOP_ID
+                 WHERE SHOP.SHOP_ID={$id} ";
+        //die($sql);
+        return $this->rawQuery($sql);
+    }
+
+    public function selectShopByType($id)
+    {
+        $sql = "SELECT VIEW,SHOP.SHOP_ID AS sid FROM SHOP INNER JOIN TYPE_SHOP ON SHOP.SHOP_ID=TYPE_SHOP.SHOP_ID WHERE TYPE_SHOP.TYPE_ID = {$id}";
         //die($sql);
         return $this->rawQuery($sql);
     }

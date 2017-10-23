@@ -25,7 +25,10 @@ class ShopController
 
         $comments = $this->comment->selectByShop($id);
         $shop = $this->shop->selectByKeyPublic($id);
-        // die(var_dump($shop));
+        //die(var_dump($shop));
+        $id_type = $shop[0]->TYPE_ID;
+        //die($id_type);
+        $otherShops = $this->shop->selectShopByType($id_type);
         $checkLogin = $this->verify();
         $check = 0;
         $checkRate = '';
@@ -50,7 +53,7 @@ class ShopController
             $avg = 0;
         }
         //
-        return view('public/detail/index', compact('shop', 'check', 'checkRate', 'comments', 'checkLogin', 'avg'));
+        return view('public/detail/index', compact('shop', 'check', 'checkRate', 'comments', 'checkLogin', 'avg', 'otherShops'));
     }
 
     public function verify()

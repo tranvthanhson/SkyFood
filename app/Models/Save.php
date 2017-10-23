@@ -21,7 +21,7 @@ class Save extends Model
         $save['SHOP_ID'] = $_POST['aid'];
         $this->insert($save);
         //echo 'saveAjax("//shop//ajaxSave")';
-        echo " <input  data-toggle='modal'  type='submit' class= 'btn btn-bg' value='unsave' onclick='saveAjax(" . '"/shop/ajaxUnsave"' . ',' . $_POST['aid'] . ");' />";
+        echo " <input  data-toggle='modal'  type='submit' class= 'btn btn-bg' value='Unsave' onclick='saveAjax(" . '"/shop/ajaxUnsave"' . ',' . $_POST['aid'] . ");' />";
     }
 
     public function deleteSave()
