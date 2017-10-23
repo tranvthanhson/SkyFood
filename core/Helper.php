@@ -2,6 +2,11 @@
 
 session_start();
 
+function dd($variable)
+{
+    return die(var_dump($variable));
+}
+
 function view($name, $data = [])
 {
     extract($data);

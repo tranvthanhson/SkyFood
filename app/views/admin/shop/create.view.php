@@ -34,7 +34,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label for="discount" class="control-label">Giảm giá (<span>*</span>)</label>
-                                                        <input type="text" class="form-control" id="discount" placeholder="Khuyến mãi" name="discount" required>
+                                                        <input type="text" class="form-control" id="discount" placeholder="Khuyến mãi" name="discount" >
                                                     </div>
                                                 </div>
                                             </div>

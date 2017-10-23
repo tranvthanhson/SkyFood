@@ -122,19 +122,19 @@ class Account extends Model
     // Delete User
     public function deleteUser()
     {
-        $sql = "DELETE  FROM RATE WHERE USERNAME='{$_GET['username']}'";
-        $this->rawQuery($sql);
-        $sql1 = "DELETE  FROM SAVE WHERE USERNAME='{$_GET['username']}'";
-
-        $this->rawQuery($sql1);
-        $sql2 = "DELETE  FROM SHOP WHERE USERNAME='{$_GET['username']}'";
-        $this->rawQuery($sql2);
-        $sql3 = "DELETE  FROM COMMENT WHERE USERNAME='{$_GET['username']}'";
-        $this->rawQuery($sql3);
-        $account = $this->findById($_GET['username']);
+        $username = $_GET['username'];
+        $sql = "SELECT SHOP_ID FROM SHOP WHERE USERNAME='{$username}'";
+        $shopId = $this->rawQuery($sql);
+        // dd($shopId[0]->SHOP_ID);
+        $tables = ['RATE', 'SAVE', 'COMMENT'];
+        foreach ($tables as $table) {
+            $sql = "DELETE FROM {$table} WHERE USERNAME='{$username}'";
+            $this->rawQuery($sql);
+        }
+        $account = $this->findById($username);
         unlink('public/admin/assets/img/imagesUser/' . $account->IMAGE);
         $_SESSION['notice'] = 'Deleted Successful!';
-        return $this->deleteById($_GET['username']);
+        return $this->deleteById($username);
     }
 
     // Get User
