@@ -22,13 +22,14 @@
                             <div class="infor-main">
                                 <div class="col-md-5 col-xs-5 image">
                                     <div class="wrp">
-                                        <img src="/public/public/assets/img/img-shop/<?=$shop[0]->VIEW?>" alt="">
+                                        <img src="/public/admin/assets/img/img-shop/<?=$shop[0]->VIEW?>" alt="">
+                                        <?php if ($shop[0]->DISCOUNT > 0) {?>
                                         <div class="ribbon">
                                             <p>
                                                 <span>Sale</span> <?=$shop[0]->DISCOUNT?>%
                                             </p>
                                         </div>
-                                        <?php if (1 == $check) {?>
+                                        <?php }if (1 == $check) {?>
                                         <div class="ribbon bookmark">
                                             <p>
                                                 <span>Saved</span>
@@ -74,7 +75,7 @@ if (1 == $checkLogin) {
     if (0 == $check) {
         $clickSave = ' onclick="saveAjax(' . "'/shop/ajaxSave'" . ',' . $shop[0]->sid . ');"';
     } else {
-        $save = 'value="unsave"';
+        $save = 'value="Unsave"';
         $clickSave = ' onclick="saveAjax(' . "'/shop/ajaxUnsave'" . ',' . $shop[0]->sid . ');"';
     }
 }
