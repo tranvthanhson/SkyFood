@@ -52,6 +52,8 @@ class ShopController
         if ('' == $avg) {
             $avg = 0;
         }
+        $avg = number_format($avg, 1);
+        //die($avg);
         //
         return view('public/detail/index', compact('shop', 'check', 'checkRate', 'comments', 'checkLogin', 'avg', 'otherShops'));
     }
