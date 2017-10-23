@@ -33,7 +33,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label for="discount" class="control-label">Giảm giá (<span>*</span>)</label>
-                                                        <input type="text" onkeypress="return isNumberKey(event)" maxlength="3" class="form-control" id="discount" placeholder="Khuyến mãi" value="<?=$shop->DISCOUNT?>" name="discount" required>
+                                                        <input type="text" onkeypress="return isNumberKey(event)" maxlength="3" class="form-control" id="discount" placeholder="Khuyến mãi" value="<?=$shop->DISCOUNT?>" name="discount" >
                                                     </div>
                                                 </div>
                                             </div>
