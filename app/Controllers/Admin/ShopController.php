@@ -2,6 +2,8 @@
 namespace App\Controllers\Admin;
 
 use App\Models\Comment;
+use App\Models\Rate;
+use App\Models\Save;
 use App\Models\Shop;
 use App\Models\Shop_Type;
 use App\Models\Type;
@@ -22,6 +24,8 @@ class ShopController
             $this->shopType = new Shop_Type;
             $this->type = new Type;
             $this->comment = new Comment;
+            $this->rate = new Rate;
+            $this->save = new Save;
         } else {
             $link = '/login';
             return view('not-access', compact('link'));
@@ -74,8 +78,12 @@ class ShopController
 
     public function delete()
     {
+        $id = $_GET['id'];
         $this->shop->deleteshop();
-        $this->shopType->delete();
+        $this->shopType->deleteByShop($id);
+        $this->save->deleteByShop($id);
+        $this->comment->deleteByShop($id);
+        $this->rate->deleteByShop($id);
         $_SESSION['notice'] = 'Xóa thành công!';
         return redirect('admin/shop');
     }

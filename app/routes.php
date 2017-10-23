@@ -70,8 +70,8 @@ $router->get('admin/type/delete', 'Admin\TypeController@deleteType');
 
 //shop
 $router->get('shop', 'Publics\ShopController@index');
-$router->get('shop/rate', 'Publics\ShopController@rate');
-$router->get('shop/updateRate', 'Publics\ShopController@updateRate');
+$router->post('shop/rate', 'Publics\ShopController@rate');
+$router->post('shop/updateRate', 'Publics\ShopController@updateRate');
 
 $router->get('', 'Publics\HomeController@index');
 

@@ -30,7 +30,7 @@ class Comment extends Model
 
     public function selectByShop($id)
     {
-        $sql = "SELECT * FROM COMMENT INNER JOIN ACCOUNT ON COMMENT.USERNAME=ACCOUNT.USERNAME WHERE SHOP_ID={$id}";
+        $sql = "SELECT * FROM COMMENT INNER JOIN ACCOUNT ON COMMENT.USERNAME=ACCOUNT.USERNAME WHERE SHOP_ID={$id} ORDER BY COMMENT_ID DESC";
         return $this->rawQuery($sql);
     }
 
@@ -53,4 +53,5 @@ class Comment extends Model
         </div>
         </div>';
     }
+
 }
