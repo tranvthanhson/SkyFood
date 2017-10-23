@@ -22,11 +22,9 @@ class Shop_Type extends Model
         return $this->rawQuery($sql);
     }
 
-    public function delete()
+    public function deleteShopTypeByShop($id)
     {
-        $sql = "DELETE  FROM {$this->table} WHERE SHOP_ID={$_GET['id']}";
-        $this->rawQuery($sql);
-        $sql = "DELETE  FROM SHOP_TYPE WHERE SHOP_ID={$_GET['id']}";
-        $this->rawQuery($sql);
+        $sql = "DELETE FROM {$this->table} WHERE SHOP_ID={$id}";
+        return $this->rawQuery($sql);
     }
 }

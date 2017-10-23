@@ -33,7 +33,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label for="discount" class="control-label">Giảm giá (<span>*</span>)</label>
-                                                        <input type="text" onkeypress="return isNumberKey(event)" maxlength="3" class="form-control" id="discount" placeholder="Khuyến mãi" value="<?=$shop->DISCOUNT?>" name="discount" required>
+                                                        <input type="text" onkeypress="return isNumberKey(event)" maxlength="3" class="form-control" id="discount" placeholder="Khuyến mãi" value="<?=$shop->DISCOUNT?>" name="discount" >
                                                     </div>
                                                 </div>
                                             </div>
@@ -170,3 +170,4 @@ if (1 == $_SESSION['user']->ROLE) {
         </div>
     </div>
 <?php view_include('admin.layouts.foot-master');?>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbJTv1mpf9Tm1fWBip0XKIuE1tBcv9GMc&libraries=places&callback=initMap" async defer></script>

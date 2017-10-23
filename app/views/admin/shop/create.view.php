@@ -34,7 +34,7 @@
                                                 <div class="col-md-3">
                                                     <div class="form-group">
                                                         <label for="discount" class="control-label">Giảm giá (<span>*</span>)</label>
-                                                        <input type="text" class="form-control" id="discount" placeholder="Khuyến mãi" name="discount" required>
+                                                        <input type="text" class="form-control" id="discount" placeholder="Khuyến mãi" name="discount" >
                                                     </div>
                                                 </div>
                                             </div>
@@ -154,4 +154,6 @@ foreach ($types as $value) {
             <?php view_include('admin.partials.footer');?>
         </div>
     </div>
+
     <?php view_include('admin.layouts.foot-master');?>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbJTv1mpf9Tm1fWBip0XKIuE1tBcv9GMc&libraries=places&callback=initMap" async defer></script>

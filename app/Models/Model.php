@@ -18,6 +18,7 @@ class Model
 
     public function rawQuery($sql, $param = '')
     {
+        //die($id);
         return $this->db->execute($sql, $param);
     }
 

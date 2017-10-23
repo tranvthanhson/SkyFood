@@ -22,10 +22,7 @@ class ShopController
     public function index()
     {
         $id = $_GET['id'];
-        if (isset($_SESSION['rate'])) {
-            $id = $_SESSION['rate'];
-            unset($_SESSION['rate']);
-        }
+
         $comments = $this->comment->selectByShop($id);
         $shop = $this->shop->selectByKeyPublic($id);
         // die(var_dump($shop));
@@ -47,8 +44,13 @@ class ShopController
                 $checkRate = 0;
             }
         }
-
-        return view('public/detail/index', compact('shop', 'check', 'checkRate', 'comments', 'checkLogin'));
+        //die(var_dump($shop));
+        $avg = $shop[0]->AVG . '';
+        if ('' == $avg) {
+            $avg = 0;
+        }
+        //
+        return view('public/detail/index', compact('shop', 'check', 'checkRate', 'comments', 'checkLogin', 'avg'));
     }
 
     public function verify()
@@ -60,11 +62,8 @@ class ShopController
 
     public function ajaxSave()
     {
-        if ($this->verify() == 0) {
-            echo "<b style='color:red'>you don't login</b>";
-        } else {
-            $this->save->addSave();
-        }
+
+        $this->save->addSave();
     }
 
     public function ajaxUnsave()
@@ -75,24 +74,16 @@ class ShopController
 
     public function rate()
     {
-
-        $_SESSION['rate'] = $_GET['id'];
-        if ($this->verify() == 0) {
-            return "<b style='color:red'>you don't<a href='/login'> login</a></b>";
-        } else {
-            $this->rate->addRate();
-            return redirect('shop');
-        }
+        //echo $_POST[''];
+        $this->rate->addRate();
     }
 
     public function updateRate()
     {
-        die('a' . $_POST['rate']);
-        $_SESSION['rate'] = $_GET['id'];
+
         // die($_SESSION['rate']);
         $this->rate->updateRate();
         //
-        return redirect('shop');
     }
 
     public function ajaxComment()

@@ -30,7 +30,7 @@ class Comment extends Model
 
     public function selectByShop($id)
     {
-        $sql = "SELECT * FROM COMMENT INNER JOIN ACCOUNT ON COMMENT.USERNAME=ACCOUNT.USERNAME WHERE SHOP_ID={$id}";
+        $sql = "SELECT * FROM COMMENT INNER JOIN ACCOUNT ON COMMENT.USERNAME=ACCOUNT.USERNAME WHERE SHOP_ID={$id} ORDER BY COMMENT_ID DESC";
         return $this->rawQuery($sql);
     }
 
@@ -52,5 +52,11 @@ class Comment extends Model
         <p>' . $_POST['avalue'] . '</p>
         </div>
         </div>';
+    }
+
+    public function deleteCommentByShop($id)
+    {
+        $sql = "DELETE FROM {$this->table} WHERE SHOP_ID={$id}";
+        return $this->rawQuery($sql);
     }
 }

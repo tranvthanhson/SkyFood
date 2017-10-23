@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Mailer\Mailer;
 use App\Models\Model;
+use App\Models\Shop;
 
 class Account extends Model
 {
@@ -122,10 +123,24 @@ class Account extends Model
     // Delete User
     public function deleteUser()
     {
-        $account = $this->findById($_GET['username']);
+        $username = $_GET['username'];
+        $sql = "SELECT SHOP_ID FROM SHOP WHERE USERNAME='{$username}'";
+        $shopIds = $this->rawQuery($sql);
+        // dd($shopIds);
+        $shop = new Shop;
+        foreach ($shopIds as $shopId) {
+            $shop->deleteShopById($shopId->SHOP_ID);
+        }
+
+        $tables = ['RATE', 'SAVE', 'COMMENT'];
+        foreach ($tables as $table) {
+            $sql = "DELETE FROM {$table} WHERE USERNAME='{$username}'";
+            $this->rawQuery($sql);
+        }
+        $account = $this->findById($username);
         unlink('public/admin/assets/img/imagesUser/' . $account->IMAGE);
         $_SESSION['notice'] = 'Deleted Successful!';
-        return $this->deleteById($_GET['username']);
+        return $this->deleteById($username);
     }
 
     // Get User
