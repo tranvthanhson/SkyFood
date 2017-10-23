@@ -22,7 +22,7 @@
                             <div class="infor-main">
                                 <div class="col-md-5 col-xs-5 image">
                                     <div class="wrp">
-                                        <img src="/public/public/assets/img/img-shop/<?=$shop[0]->VIEW?>" alt="">
+                                        <img src="/public/admin/assets/img/img-shop/<?=$shop[0]->VIEW?>" alt="">
                                         <div class="ribbon">
                                             <p>
                                                 <span>Sale</span> <?=$shop[0]->DISCOUNT?>%
