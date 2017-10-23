@@ -23,7 +23,8 @@ class Rate extends Model
         $this->insert($rate);
         $sql = "SELECT AVG(SCORE) AS AVG FROM RATE  WHERE SHOP_ID={$_POST['aid']}";
         $avg = $this->rawQuery($sql);
-        echo $avg[0]->AVG;
+        $avg = number_format($avg[0]->AVG, 1);
+        echo $avg;
 
     }
 
@@ -35,7 +36,8 @@ class Rate extends Model
         $this->rawQuery($sql);
         $sql = "SELECT AVG(SCORE) AS AVG FROM RATE  WHERE SHOP_ID={$_POST['aid']}";
         $avg = $this->rawQuery($sql);
-        echo $avg[0]->AVG;
+        $avg = number_format($avg[0]->AVG, 1);
+        echo $avg;
 
     }
 
