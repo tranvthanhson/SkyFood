@@ -51,7 +51,6 @@
                         <p class="underline"></p>
                     </div>
                     <div class="ctn-products ctn-main">
-
                         <?php foreach ($interestedShop as $item) {?>
                         <div class="item-product col-md-3 col-xs-4">
                             <div class="wrp-item">
@@ -70,13 +69,13 @@
                                     </div>
                                     <div class="parameter">
                                         <div class="col-md-4 col-xs-4">
-                                            <p href=""><i class="fa fa-star"></i> <?=$item->AVG_RATE+'';?></p>
+                                            <p href=""><i class="fa fa-star"></i> <?=$item->SCORE+'';?></p>
                                         </div>
                                         <div class="col-md-4 col-xs-4">
-                                            <p href=""><i class="fa fa-comment"></i> <?=$item->SUM_COMMENT?></p>
+                                            <p href=""><i class="fa fa-comment"></i> <?=$item->COMMENTS?></p>
                                         </div>
                                         <div class="col-md-4 col-xs-4">
-                                            <p href=""><i class="fa fa-bookmark"></i> 50</p>
+                                            <p href=""><i class="fa fa-bookmark"></i> <?=$item->SAVED?></p>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
@@ -123,13 +122,13 @@
                                 </div>
                                 <div class="parameter">
                                     <div class="col-md-4 col-xs-4">
-                                        <p href=""><i class="fa fa-star"></i> <?=$item->AVG_RATE+'';?></p>
+                                        <p href=""><i class="fa fa-star"></i> <?=$item->SCORE+'';?></p>
                                     </div>
                                     <div class="col-md-4 col-xs-4">
-                                        <p href=""><i class="fa fa-comment"></i> <?=$item->SUM_COMMENT?></p>
+                                        <p href=""><i class="fa fa-comment"></i> <?=$item->COMMENTS?></p>
                                     </div>
                                     <div class="col-md-4 col-xs-4">
-                                        <p href=""><i class="fa fa-bookmark"></i> 50</p>
+                                        <p href=""><i class="fa fa-bookmark"></i> <?=$item->SAVED?></p>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>

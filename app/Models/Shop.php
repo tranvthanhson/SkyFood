@@ -91,9 +91,9 @@ class Shop extends Model
     {
 
         $sql = "SELECT SHOP.*,AVG(SCORE) AS AVG, SHOP.SHOP_ID AS sid,TYPE_ID
-                FROM SHOP LEFT JOIN RATE ON SHOP.SHOP_ID =RATE.SHOP_ID
-                        LEFT JOIN TYPE_SHOP ON SHOP.SHOP_ID =TYPE_SHOP.SHOP_ID
-                 WHERE SHOP.SHOP_ID={$id} ";
+        FROM SHOP LEFT JOIN RATE ON SHOP.SHOP_ID =RATE.SHOP_ID
+        LEFT JOIN TYPE_SHOP ON SHOP.SHOP_ID =TYPE_SHOP.SHOP_ID
+        WHERE SHOP.SHOP_ID={$id} ";
         //die($sql);
         return $this->rawQuery($sql);
     }
@@ -173,29 +173,39 @@ class Shop extends Model
     public function searchNameShop($name, $type, $sortBy)
     {
         $length = strlen($name);
-        $result = '';
+        $result = '%';
         for ($i = 0; $i < $length; $i++) {
             $result .= $name[$i] . '%';
         }
 
-        $sql = "SELECT SHOP_NAME, VIEW, DISCOUNT, ADDRESS, S.SHOP_ID,COUNT(C.COMMENT_ID) AS SUM_COMMENT,AVG(R.SCORE) AS AVG_RATE FROM
-        RATE AS R RIGHT JOIN SHOP AS S ON S.SHOP_ID = R.SHOP_ID LEFT JOIN
-        COMMENT AS C ON C.SHOP_ID = S.SHOP_ID
-        LEFT JOIN TYPE_SHOP AS TS ON S.SHOP_ID=TS.SHOP_ID
-        WHERE S.STATUS = 1 AND SHOP_NAME LIKE '%{$result}'";
+        $sqlType = [];
 
         if (0 != $type) {
-            $sql .= " AND TS.TYPE_ID = {$type}";
+            $sqlType[0] = ', TYPE';
+            $sqlType[1] = " AND TYPE_ID = {$type}";
         }
 
-        // $sortBy = 0 -> NEWEST
-        // $sortBy = 1 -> MOST RATE
-
+        $sqlSort = '';
         if (0 == $sortBy) {
-            $sql .= ' GROUP BY S.SHOP_ID ORDER BY S.SHOP_ID DESC';
+            $sqlSort .= ' ORDER BY SHOP_ID DESC';
         } else {
-            $sql .= ' GROUP BY S.SHOP_ID ORDER BY AVG_RATE DESC';
+            $sqlSort .= ' ORDER BY SCORE DESC';
         }
+
+        $sql = "SELECT `SHOP`.*, (SELECT COUNT(`COMMENT`.SHOP_ID) FROM `COMMENT` WHERE `COMMENT`.SHOP_ID = `SHOP`.`SHOP_ID`) AS 'COMMENTS', (SELECT AVG(`RATE`.SCORE) FROM `RATE` WHERE `RATE`.SHOP_ID = `SHOP`.`SHOP_ID`) AS 'SCORE', (SELECT COUNT(`SAVE`.SHOP_ID) FROM `SAVE` WHERE `SAVE`.SHOP_ID = `SHOP`.`SHOP_ID`) AS 'SAVED' FROM SHOP {$sqlType[0]} WHERE STATUS = 1 AND SHOP.SHOP_NAME LIKE '{$result}' {$sqlType[1]} {$sqlSort}";
+
+// SELECT `SHOP`.*, TYPE_ID ,(SELECT COUNT(`COMMENT`.SHOP_ID) FROM `COMMENT` WHERE `COMMENT`.SHOP_ID = `SHOP`.`SHOP_ID`) AS 'COMMENTS', (SELECT AVG(`RATE`.SCORE) FROM `RATE` WHERE `RATE`.SHOP_ID = `SHOP`.`SHOP_ID`) AS 'SCORE', (SELECT COUNT(`SAVE`.SHOP_ID) FROM `SAVE` WHERE `SAVE`.SHOP_ID = `SHOP`.`SHOP_ID`) AS 'SAVED' FROM SHOP , TYPE_SHOP WHERE SHOP.SHOP_ID = TYPE_SHOP.SHOP_ID AND STATUS = 1 AND SHOP.SHOP_NAME LIKE '%' AND TYPE_SHOP.TYPE_ID = 16 ORDER BY SHOP_ID DESC
+        // // // $sortBy = 0 -> NEWEST
+        // // // $sortBy = 1 -> MOST RATE
+
+        // // if (0 == $sortBy) {
+        // //     $sql .= ' GROUP BY S.SHOP_ID ORDER BY S.SHOP_ID DESC';
+        // // } else {
+        // //     $sql .= ' GROUP BY S.SHOP_ID ORDER BY AVG_RATE DESC';
+        // // }
+        // dd($sql);
+        // dd($this->rawQuery($sql));
+        echo $sql;
 
         return $this->rawQuery($sql);
     }

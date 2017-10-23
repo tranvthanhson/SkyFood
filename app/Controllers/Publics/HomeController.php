@@ -17,6 +17,7 @@ class HomeController
     public function index()
     {
         $interestedShop = $this->home->interestedShop();
+        // dd($interestedShop[0]->SHOP_ID);
         $latest = $this->home->latestShop();
         // die(var_dump($interestedShop));
         return view('public/home/index', compact('interestedShop', 'latest'));
