@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Mailer\Mailer;
 use App\Models\Model;
+use App\Models\Shop;
 
 class Account extends Model
 {
@@ -124,8 +125,13 @@ class Account extends Model
     {
         $username = $_GET['username'];
         $sql = "SELECT SHOP_ID FROM SHOP WHERE USERNAME='{$username}'";
-        $shopId = $this->rawQuery($sql);
-        // dd($shopId[0]->SHOP_ID);
+        $shopIds = $this->rawQuery($sql);
+        // dd($shopIds);
+        $shop = new Shop;
+        foreach ($shopIds as $shopId) {
+            $shop->deleteShopById($shopId->SHOP_ID);
+        }
+
         $tables = ['RATE', 'SAVE', 'COMMENT'];
         foreach ($tables as $table) {
             $sql = "DELETE FROM {$table} WHERE USERNAME='{$username}'";
