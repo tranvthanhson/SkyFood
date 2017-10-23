@@ -48,6 +48,8 @@
                                                     </div>
                                                 </td>
                                             </tr>
+                                            <?php view_include('admin.partials.modal', ['id_model' => 'delCat', 'title' => 'XÓA DANH MỤC ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => '/admin/type/delete?id=' . $type->TYPE_ID]);?>
+
                                         <?php endforeach;?>
                                     </tbody>
                                 </table>
@@ -61,5 +63,4 @@
     </div>
 </div>
 <!-- Modal -->
-<?php view_include('admin.partials.modal', ['id_model' => 'delCat', 'title' => 'XÓA DANH MỤC ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => '/admin/type/delete?id=' . $type->TYPE_ID]);?>
 <?php view_include('admin.layouts.foot-master');?>
