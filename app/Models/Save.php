@@ -33,7 +33,7 @@ class Save extends Model
         //echo 'saveAjax("//shop//ajaxSave")';
     }
 
-    public function deleteByShop($id)
+    public function deleteShopById($id)
     {
         $sql = "DELETE FROM {$this->table} WHERE SHOP_ID={$id}";
         return $this->rawQuery($sql);

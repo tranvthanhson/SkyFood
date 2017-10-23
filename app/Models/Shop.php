@@ -129,13 +129,13 @@ class Shop extends Model
         } //die($_GET['id']);
         $this->deleteById($id);
         $shopType = new Shop_Type;
-        $shopType->deleteByShop($id);
+        $shopType->deleteShopById($id);
         $save = new Save;
-        $save->deleteByShop($id);
+        $save->deleteShopById($id);
         $comment = new Comment;
-        $comment->deleteByShop($id);
+        $comment->deleteShopById($id);
         $rate = new Rate;
-        $rate->deleteByShop($id);
+        $rate->deleteShopById($id);
         //return;
     }
 
