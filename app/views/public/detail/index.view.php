@@ -29,66 +29,65 @@
                                             </p>
                                         </div>
                                         <?php if (1 == $check) {?>
-                                            <div class="ribbon bookmark">
-                                                <p>
-                                                    <span>Saved</span>
-                                                </p>
-                                            </div>
-                                            <?php }?>
+                                        <div class="ribbon bookmark">
+                                            <p>
+                                                <span>Saved</span>
+                                            </p>
                                         </div>
+                                        <?php }?>
                                     </div>
-                                    <div class="col-md-7  col-xs-7 ctn">
-                                        <div class="wrp">
-                                            <div class="item name">
-                                                <div class="score">
-                                                    <p><?=$shop[0]->AVG+''?></p>
-                                                </div>
-                                                <div class="name-address">
-                                                    <h3> <?=$shop[0]->SHOP_NAME?> </h3>
-                                                </div>
-                                                <div class="clearfix"> </div>
+                                </div>
+                                <div class="col-md-7  col-xs-7 ctn">
+                                    <div class="wrp">
+                                        <div class="item name">
+                                            <div class="score" >
+                                                <p><?=$avg?></p>
                                             </div>
-
+                                            <div class="name-address">
+                                                <h3> <?=$shop[0]->SHOP_NAME?> </h3>
+                                            </div>
                                             <div class="clearfix"> </div>
                                         </div>
                                         <p class="item address "><i class="fa fa-location-arrow"></i><?=$shop[0]->ADDRESS?></p>
-                                       <p class="item phone "><i class="fa fa-phone"></i><?=$shop[0]->PHONE?></p>
+                                        <p class="item phone "><i class="fa fa-phone"></i><?=$shop[0]->PHONE?></p>
                                         <p class="item time "><i class="fa fa-clock-o"></i><?=$shop[0]->TIME_OPEN?> - <?=$shop[0]->TIME_CLOSE?></p>
                                         <div class="item features">
-                                            <div id='notification'></div>
-
+                                            <form action="javascript:void(0)">
                                                 <div class="item-feature save">
-                                                    <div class="form-group">
+
+                                                    <div class="form-group" id='save'>
                                                         <?php
-
 $link = '';
+
 if ('' == $checkRate) {
-    $link = '/shop/rate?id=' . $shop[0]->sid;
+    $link = "'/shop/rate'";
 } else {
-    $link = '/shop/updateRate?id=' . $shop[0]->sid;
+    $link = "'/shop/updateRate'";
 }
-//die($link);
-if (0 == $check) {
-    ?>
+$modalSave = $modalRate = 'data-target="#modal-message"';
+$clickSave = $clickRate = '';
+$save = 'value="Save"';
+if (1 == $checkLogin) {
+    $modalSave = '';
+    $modalRate = 'data-target="#modal-rating"';
+    $clickRate = 'onclick="rate(' . $link . ',' . $shop[0]->sid . ',)"';
+    if (0 == $check) {
+        $clickSave = ' onclick="saveAjax(' . "'/shop/ajaxSave'" . ',' . $shop[0]->sid . ');"';
+    } else {
+        $save = 'value="unsave"';
+        $clickSave = ' onclick="saveAjax(' . "'/shop/ajaxUnsave'" . ',' . $shop[0]->sid . ');"';
+    }
+}
 
-                                                        <input type="submit" class=" btn btn-bg" value="Save" onclick="save('/shop/ajaxSave',<?=$shop[0]->sid?>)" />
-                                                        <?php } else {?>
-                                                        <input type="submit" class=" btn btn-bg" value="Unsave" onclick="save('/shop/ajaxUnsave',<?=$shop[0]->sid?>)" />
-                                                        <?php }?>
-
+?>
+                                                        <input  data-toggle="modal"  <?=$modalSave?> type="submit" class=" btn btn-bg" <?=$save?> <?=$clickSave?> />
                                                     </div>
                                                 </div>
                                                 <div class="item-feature rate">
                                                     <div class="form-group">
-                                                        <a href="javascript:void(0)" class="btn btn-bg" data-toggle="modal" data-target="#modal-rating" onclick="rate(<?=$link?>,<?=$shop[0]->SHOP_ID?>)">Rate</a>
+                                                        <a  href="" class="btn btn-bg" data-toggle="modal" <?=$modalRate?> onclick="rateButton(<?=$avg?>)">Rate</a>
                                                     </div>
                                                 </div>
-                                                <div class="item-feature">
-                                                    <div class="form-group">
-                                                        <a href="javascript:void(0)" class="btn btn-bg" onclick="loadMap(<?=$shop[0]->LAT?>,<?=$shop[0]->LNG?>)">Map</a>
-                                                    </div>
-                                                </div>
-
                                                 <div id="modal-rating" class="modal fade" role="dialog">
                                                     <div class="modal-dialog">
                                                         <!-- Modal content-->
@@ -97,54 +96,61 @@ if (0 == $check) {
                                                                 <div class="modal-header">
                                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                                     <h4 class="modal-title">Rating</h4>
-
                                                                 </div>
-                                                            </div>
-
-                                                            <div id="modal-rating" class="modal fade" role="dialog">
-                                                                <div class="modal-dialog">
-                                                                    <!-- Modal content-->
-                                                                    <div class="modal-content content">
-                                                                        <div class="wrp-ctn">
-                                                                            <div class="modal-header">
-                                                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                                                <h4 class="modal-title">Rating</h4>
-                                                                            </div>
-                                                                            <div class="modal-body">
-                                                                                <form action="<?=$link?>" role="form" name="form-rate" id="form-rate" class="form-horizontal" enctype="multipart/form-data" method="POST">
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="form-group item">
-                                                                                            <div class="rating"></div>
-                                                                                            <input id="input-rate" type="text" name='rate'>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="col-md-12">
-                                                                                        <div class="form-group button-action">
-                                                                                            <input type="submit" class=" btn btn-bg" value="Send" />
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="clearfix"></div>
-                                                                                </form>
+                                                                <div class="modal-body">
+                                                                    <form role="form" name="form-rate" id="form-rate" class="form-horizontal" enctype="multipart/form-data" method="POST">
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group item">
+                                                                                <div class="rating"></div>
+                                                                                <input id="input-rate" type="text">
                                                                             </div>
                                                                         </div>
+                                                                        <div class="col-md-12">
+                                                                            <div class="form-group button-action">
+                                                                                <input  type="submit" <?=$clickRate?> class=" btn btn-bg" value="Send" / data-dismiss="modal">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="clearfix"></div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="item-feature button-map">
+                                                    <div class="form-group">
+                                                        <a href="javascript:void(0)" class="btn btn-bg" onclick="loadMap(<?=$shop[0]->LAT?>,<?=$shop[0]->LNG?>)">Map</a>
+                                                    </div>
+                                                </div>
+                                                <div class="item-feature ">
+
+                                                    <div id="modal-message" class="modal fade" role="dialog">
+                                                        <div class="modal-dialog">
+                                                            <!-- Modal content-->
+                                                            <div class="modal-content content">
+                                                                <div class="wrp-ctn">
+                                                                    <div class="modal-header">
+                                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                        <h4 class="modal-title">Message</h4>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                       <h2>Please login to perform this action.</h2>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="clearfix"></div>
-                                                        </form>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 <div class="clearfix"></div>
+                                            </form>
                                         </div>
-                                        <div class="features"></div>
                                     </div>
+
                                 </div>
-                            </div>
+                                <div class="clearfix"></div>
                             <div class="ggmap">
                                 <div id="map"></div>
                             </div>
-
-                            <div class="features"></div>
                         </div>
                     </div>
                 </div>
@@ -404,10 +410,10 @@ if (0 == $checkLogin) {
                                         <h4 class="media-heading"><?=$_SESSION['user']->USERNAME?></h4>
                                         <form action="javascript:void(0)" class="form-border-color">
                                             <div class="form-group">
-                                                <textarea class="form-control" rows="3" id="cmt"></textarea>
+                                                <textarea class="form-control" rows="3" id="comment"></textarea>
                                             </div>
                                             <div class="pull-right form-group">
-                                                <input type="submit" class="btn btn-bg" value="Send" onclick="loadMyComments(<?=$shop[0]->sid?>)">
+                                                <input type="submit" class="btn btn-bg" value="Send" id="btnSend" onclick="loadMyComments(<?=$shop[0]->sid?>)">
                                             </div>
                                         </form>
                                     </div>
@@ -441,4 +447,5 @@ foreach ($comments as $value) {
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbJTv1mpf9Tm1fWBip0XKIuE1tBcv9GMc&callback=initMap" async defer></script>
 
 <?php view_include('public.layouts.foot-master')?>
+
 
