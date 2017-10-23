@@ -17,7 +17,7 @@
   z-index: 9999;
   background: url(../img/loader/food-loader4.gif) center no-repeat #fff; }
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain) 22
 */
@@ -1341,6 +1341,7 @@ body {
       height: 200px; }
 
 .detail .description {
+  margin-top: 50px;
   background: url("../img/background/bg14.jpg") no-repeat;
   background-position: center;
   background-size: cover; }
@@ -1673,4 +1674,7 @@ body {
 }
 .user-profile .ctn-user .avatar-features .features nav ul li a:focus {
   background: #f6b121 !important;
+}
+.media-body {
+  line-height: 20px;
 }

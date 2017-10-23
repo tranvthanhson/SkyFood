@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Model;
+use App\Models\Shop;
 
 class Type extends Model
 {
@@ -46,5 +47,13 @@ class Type extends Model
     public function deleteType($id)
     {
         $this->deleteById($id);
+        $sql = "SELECT SHOP_ID FROM TYPE_SHOP WHERE TYPE_ID = '{$id}'";
+        $listShopId = $this->rawQuery($sql);
+        // dd($listShopId);
+        $shop = new Shop;
+        // $shopType->delete();
+        foreach ($listShopId as $shopId) {
+            $shop->deleteShopById($shopId->SHOP_ID);
+        }
     }
 }

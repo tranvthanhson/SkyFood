@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Admin;
 
+use App\Models\Shop;
 use App\Models\Shop_Type;
 use App\Models\Type;
 use Core\App;
