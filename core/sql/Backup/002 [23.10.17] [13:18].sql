@@ -1,9 +1,33 @@
+-- Drop account table
+DROP TABLE ACCOUNT;
+
+-- Drop save table
+DROP TABLE SAVE;
+
+-- Drop comment table
+DROP TABLE COMMENT;
+
+-- Drop rate table
+DROP TABLE RATE;
+
+-- Drop type table
+DROP TABLE TYPE;
+
+-- Drop shop table
+DROP TABLE SHOP;
+
+-- Drop type_shop table
+DROP TABLE TYPE_SHOP;
+
+-- Drop feedback table
+DROP TABLE FEEDBACK;
+
 -- phpMyAdmin SQL Dump
 -- version 4.7.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: sql12.freemysqlhosting.net
--- Generation Time: Oct 23, 2017 at 03:27 AM
+-- Generation Time: Oct 23, 2017 at 06:16 AM
 -- Server version: 5.5.54-0ubuntu0.14.04.1
 -- PHP Version: 7.0.22-0ubuntu0.16.04.1
 
@@ -70,6 +94,22 @@ CREATE TABLE `COMMENT` (
   `DATE_CREATED` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `COMMENT`
+--
+
+INSERT INTO `COMMENT` (`COMMENT_ID`, `USERNAME`, `SHOP_ID`, `CONTENT`, `DATE_CREATED`) VALUES
+(102, 'Admin121212', 31, 'xin chao, minh la thuong', '2017-10-23 12:05:14'),
+(103, 'Admin121212', 31, 'quan nay ngon lam', '2017-10-23 12:05:22'),
+(104, 'Admin121212', 32, 'chao ban, minh la hieu', '2017-10-23 12:06:03'),
+(105, 'Admin121212', 32, 'biet danh cua minh la lep xinh dep', '2017-10-23 12:06:14'),
+(106, 'Admin121212', 32, 'minh khong noi la minh lep dau', '2017-10-23 12:06:21'),
+(107, 'Admin121212', 34, 'xinh xinh ', '2017-10-23 12:07:46'),
+(108, 'Admin121212', 34, 'dep dep', '2017-10-23 12:07:50'),
+(109, 'Admin121212', 34, 'dep qua', '2017-10-23 12:07:53'),
+(110, 'Admin121212', 35, 'son song c', '2017-10-23 12:10:52'),
+(111, 'Admin121212', 35, 'son delete', '2017-10-23 12:11:05');
+
 -- --------------------------------------------------------
 
 --
@@ -96,6 +136,21 @@ CREATE TABLE `RATE` (
   `USERNAME` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `SCORE` int(11) DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `RATE`
+--
+
+INSERT INTO `RATE` (`RATE_ID`, `SHOP_ID`, `USERNAME`, `SCORE`) VALUES
+(14, 31, 'Admin121212', 3),
+(15, 31, 'Admin121212', 5),
+(16, 32, 'Admin121212', 3),
+(17, 32, 'Admin121212', 4),
+(18, 34, 'Admin121212', 3),
+(19, 34, 'Admin121212', 1),
+(20, 34, 'Admin121212', 5),
+(21, 35, 'Admin121212', 2),
+(22, 35, 'Admin121212', 4);
 
 -- --------------------------------------------------------
 
@@ -240,7 +295,7 @@ ALTER TABLE `TYPE`
 -- AUTO_INCREMENT for table `COMMENT`
 --
 ALTER TABLE `COMMENT`
-  MODIFY `COMMENT_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
+  MODIFY `COMMENT_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 --
 -- AUTO_INCREMENT for table `FEEDBACK`
 --
@@ -250,7 +305,7 @@ ALTER TABLE `FEEDBACK`
 -- AUTO_INCREMENT for table `RATE`
 --
 ALTER TABLE `RATE`
-  MODIFY `RATE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `RATE_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `SAVE`
 --
