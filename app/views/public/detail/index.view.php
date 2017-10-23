@@ -354,30 +354,9 @@ if (1 == $checkLogin) {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="wrp-item">
-                                            <img src="/public/public/assets/img/restaurant/res4.jpg">
-                                            <div class="hover-view">
-                                                <div class="view">
-                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="wrp-item">
-                                            <img src="/public/public/assets/img/food/food3.jpg">
-                                            <div class="hover-view">
-                                                <div class="view">
-                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="wrp-item">
-                                            <img src="/public/public/assets/img/food/food5.jpg">
-                                            <div class="hover-view">
-                                                <div class="view">
-                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
+
+
+
                                     </div>
                                 </div>
                             </div>
