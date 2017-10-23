@@ -314,15 +314,19 @@ if (1 == $checkLogin) {
                                 </div>
                                 <div class="ctn-slide ctn-main">
                                     <div class="slider-other slider">
+                                        <?php
+foreach ($otherShops as $value) {
+    ?>
                                         <div class="wrp-item">
-                                            <img src="/public/public/assets/img/slide_banner/hd1.jpg">
+                                            <img src="/public/admin/assets/img/img-shop/<?=$value->VIEW?>">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="shop?id=<?=$value->sid?>"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="wrp-item">
+                                        <?php }?>
+                                        <!-- <div class="wrp-item">
                                             <img src="/public/public/assets/img/restaurant/res1.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
@@ -353,7 +357,7 @@ if (1 == $checkLogin) {
                                                     <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
 
 
 
@@ -399,6 +403,9 @@ if (0 == $checkLogin) {
                                     </div>
 
                                 </div><?php }?>
+                                <div id="ajaxComment">
+
+                                    </div>
                                 <?php
 foreach ($comments as $value) {
     ?>
@@ -412,9 +419,7 @@ foreach ($comments as $value) {
                                     </div>
                                 </div>
                                 <?php }?>
-                                <div id="ajaxComment">
 
-                                    </div>
                             </div>
                         </div>
                     </div>
