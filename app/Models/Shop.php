@@ -2,7 +2,11 @@
 
 namespace App\Models;
 
+use App\Models\Comment;
 use App\Models\Model;
+use App\Models\Rate;
+use App\Models\Save;
+use App\Models\Shop_Type;
 
 class Shop extends Model
 {
@@ -85,6 +89,7 @@ class Shop extends Model
 
     public function selectByKeyPublic($id)
     {
+
         $sql = "SELECT SHOP.*,AVG(SCORE) AS AVG, SHOP.SHOP_ID AS sid FROM SHOP LEFT JOIN RATE ON SHOP.SHOP_ID =RATE.SHOP_ID WHERE SHOP.SHOP_ID={$id}";
         //die($sql);
         return $this->rawQuery($sql);
@@ -115,14 +120,23 @@ class Shop extends Model
         return $this->updateById($id, $this->fillable);
     }
 
-    public function deleteshop()
+    public function deleteshop($id)
     {
         $path = $_SERVER['DOCUMENT_ROOT'];
         if ('default-avatar.png' != $picture) {
             $link = $path . '/public/admin/assets/img/img-shop/' . $picture;
             unlink($link);
         } //die($_GET['id']);
-        return $this->deleteById($_GET['id']);
+        $this->deleteById($id);
+        $shopType = new Shop_Type;
+        $shopType->deleteByShop($id);
+        $save = new Save;
+        $save->deleteByShop($id);
+        $comment = new Comment;
+        $comment->deleteByShop($id);
+        $rate = new Rate;
+        $rate->deleteByShop($id);
+        //return;
     }
 
     public function search()

@@ -79,11 +79,8 @@ class ShopController
     public function delete()
     {
         $id = $_GET['id'];
-        $this->shop->deleteshop();
-        $this->shopType->deleteByShop($id);
-        $this->save->deleteByShop($id);
-        $this->comment->deleteByShop($id);
-        $this->rate->deleteByShop($id);
+        $this->shop->deleteshop($id);
+
         $_SESSION['notice'] = 'Xóa thành công!';
         return redirect('admin/shop');
     }

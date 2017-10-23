@@ -18,13 +18,8 @@ class Model
 
     public function rawQuery($sql, $param = '')
     {
+        //die($id);
         return $this->db->execute($sql, $param);
-    }
-
-    public function deleteByShop($id)
-    {
-        $sql = "DELETE FROM {$this->table} WHERE SHOP_ID={$id}";
-        return $this->rawQuery($sql);
     }
 
     public function all($fields = '*')

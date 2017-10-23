@@ -49,7 +49,7 @@ class ShopController
         if ('' == $avg) {
             $avg = 0;
         }
-        //die($id);
+        //
         return view('public/detail/index', compact('shop', 'check', 'checkRate', 'comments', 'checkLogin', 'avg'));
     }
 
