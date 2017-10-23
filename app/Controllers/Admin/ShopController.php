@@ -78,9 +78,9 @@ class ShopController
 
     public function delete()
     {
-        $id - $_GET['id'];
+        $id = $_GET['id'];
         $this->shop->deleteshop();
-        $this->shopType->delete();
+        $this->shopType->deleteByShop($id);
         $this->save->deleteByShop($id);
         $this->comment->deleteByShop($id);
         $this->rate->deleteByShop($id);

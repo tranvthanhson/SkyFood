@@ -21,6 +21,12 @@ class Model
         return $this->db->execute($sql, $param);
     }
 
+    public function deleteByShop($id)
+    {
+        $sql = "DELETE FROM {$this->table} WHERE SHOP_ID={$id}";
+        return $this->rawQuery($sql);
+    }
+
     public function all($fields = '*')
     {
         $sql = "SELECT {$fields} FROM {$this->table}";

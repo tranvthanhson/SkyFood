@@ -1,4 +1,9 @@
- 
+$('#comment').on('keydown',function (e) {
+    if(e.which==13){
+        
+        $('#btnSend').click();
+    }
+}); 
 function saveAjax(link,id){
 	//alert(id);
    $.ajax({
@@ -20,7 +25,7 @@ function saveAjax(link,id){
 }
 
 function loadMyComments(id){
-     var value = $('#cmt').val();
+     var value = $('#comment').val();
      //alert(id)
       $.ajax({
         url: '/shop/ajaxComment',
@@ -32,6 +37,7 @@ function loadMyComments(id){
         },
         success: function(data) {
             $('#ajaxComment').append(data);
+             $('#comment').val('');
             //alert($data);
         },
         error: function(err) {

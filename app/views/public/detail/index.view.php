@@ -410,10 +410,10 @@ if (0 == $checkLogin) {
                                         <h4 class="media-heading"><?=$_SESSION['user']->USERNAME?></h4>
                                         <form action="javascript:void(0)" class="form-border-color">
                                             <div class="form-group">
-                                                <textarea class="form-control" rows="3" id="cmt"></textarea>
+                                                <textarea class="form-control" rows="3" id="comment"></textarea>
                                             </div>
                                             <div class="pull-right form-group">
-                                                <input type="submit" class="btn btn-bg" value="Send" onclick="loadMyComments(<?=$shop[0]->sid?>)">
+                                                <input type="submit" class="btn btn-bg" value="Send" id="btnSend" onclick="loadMyComments(<?=$shop[0]->sid?>)">
                                             </div>
                                         </form>
                                     </div>
