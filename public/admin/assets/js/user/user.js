@@ -1,13 +1,13 @@
 $('input[type=text]').on('keydown',function (e) {
     if(e.which==13){
-        
+
         $('#btnSearch').click();
     }
 });
 
 function checkUsernameAlready(){
     var key = $('#userName').val();
-//alert(key);
+// alert(key);
 $.ajax({
     url: '/admin/user/checkUser',
     type: 'POST',
@@ -25,3 +25,5 @@ $.ajax({
     }
 });
 }
+
+

@@ -40,13 +40,11 @@ class UserController
     public function editUserImage()
     {
         $this->account->editUserImage();
-        // $_SESSION['notice_edit'] = 'Sửa hình đại diện thành công!';
     }
 
     public function viewSaveShop()
     {
         $saveShop = $this->account->saveShopId();
-        // var_dump($saveShop);
         return view('public/user/saved', compact('saveShop'));
     }
 }
