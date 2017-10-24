@@ -1,5 +1,6 @@
  $('#search').click();
  function search(link){
+    showLoader();
     var key = $('#inputSearch').val();
    // alert(link);
    $.ajax({
@@ -11,6 +12,7 @@
             // aactive: active
         },
         success: function(data) {
+            hiddenLoader();
             $('.tableSearch').html(data);
             //alert($data);
         },
