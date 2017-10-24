@@ -344,7 +344,7 @@ width: 35%; } }
 }
 .status.active {
     background: #2ecc71;
-    box-shadow: 0px 0px 20px 3px #2ecc71;
+    box-shadow: 0px 0px 15px #2ecc71;
     opacity: 0.7;
 }
 .status.inactive {
