@@ -73,11 +73,8 @@
                                                         </form>
                                                     </td>
                                                     <td>
-                                                        <?php $checked = '';?>
-                                                        <?php if (1 == $value->STATUS) {$checked = 'checked';}?>
-                                                        <div class="checked-box <?=$checked;?>">
-                                                            <i class="fa fa-check-square-o" aria-hidden="true"></i>
-                                                        </div>
+                                                        <?php $status = (1 == $value->STATUS) ? 'active' : 'inactive'?>
+                                                        <div class="status <?=$status?>"></div>
                                                     </td>
                                                     <td>
                                                         <div class="form-group">

@@ -336,3 +336,18 @@ width: 35%; } }
     color: ;
     text-align: center;
 }
+.status {
+    width: 13px;
+    height: 13px;
+    margin-left: 30px;
+    border-radius: 100%;
+}
+.status.active {
+    background: #2ecc71;
+    box-shadow: 0px 0px 20px 3px #2ecc71;
+    opacity: 0.7;
+}
+.status.inactive {
+    background: #bdc3c7;
+    opacity: 0.8;
+}
