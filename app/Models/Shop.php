@@ -181,8 +181,8 @@ class Shop extends Model
         $sqlType = [];
 
         if (0 != $type) {
-            $sqlType[0] = ', TYPE';
-            $sqlType[1] = " AND TYPE_ID = {$type}";
+            $sqlType[0] = ', TYPE_SHOP ';
+            $sqlType[1] = " AND TYPE_ID = {$type} AND TYPE_SHOP.SHOP_ID = SHOP.SHOP_ID ";
         }
 
         $sqlSort = '';
@@ -192,20 +192,14 @@ class Shop extends Model
             $sqlSort .= ' ORDER BY SCORE DESC';
         }
 
-        $sql = "SELECT `SHOP`.*, (SELECT COUNT(`COMMENT`.SHOP_ID) FROM `COMMENT` WHERE `COMMENT`.SHOP_ID = `SHOP`.`SHOP_ID`) AS 'COMMENTS', (SELECT AVG(`RATE`.SCORE) FROM `RATE` WHERE `RATE`.SHOP_ID = `SHOP`.`SHOP_ID`) AS 'SCORE', (SELECT COUNT(`SAVE`.SHOP_ID) FROM `SAVE` WHERE `SAVE`.SHOP_ID = `SHOP`.`SHOP_ID`) AS 'SAVED' FROM SHOP {$sqlType[0]} WHERE STATUS = 1 AND SHOP.SHOP_NAME LIKE '{$result}' {$sqlType[1]} {$sqlSort}";
+        $sql = "SELECT `SHOP`.*, (SELECT COUNT(`COMMENT`.SHOP_ID) FROM `COMMENT`
+        WHERE `COMMENT`.SHOP_ID = `SHOP`.`SHOP_ID`) AS 'COMMENTS', (SELECT AVG(`RATE`.SCORE) FROM `RATE`
+        WHERE `RATE`.SHOP_ID = `SHOP`.`SHOP_ID`) AS 'SCORE', (SELECT COUNT(`SAVE`.SHOP_ID) FROM `SAVE`
+        WHERE `SAVE`.SHOP_ID = `SHOP`.`SHOP_ID`) AS 'SAVED' FROM SHOP {$sqlType[0]}
+        WHERE STATUS = 1 AND SHOP.SHOP_NAME LIKE '{$result}' {$sqlType[1]} {$sqlSort}";
 
-// SELECT `SHOP`.*, TYPE_ID ,(SELECT COUNT(`COMMENT`.SHOP_ID) FROM `COMMENT` WHERE `COMMENT`.SHOP_ID = `SHOP`.`SHOP_ID`) AS 'COMMENTS', (SELECT AVG(`RATE`.SCORE) FROM `RATE` WHERE `RATE`.SHOP_ID = `SHOP`.`SHOP_ID`) AS 'SCORE', (SELECT COUNT(`SAVE`.SHOP_ID) FROM `SAVE` WHERE `SAVE`.SHOP_ID = `SHOP`.`SHOP_ID`) AS 'SAVED' FROM SHOP , TYPE_SHOP WHERE SHOP.SHOP_ID = TYPE_SHOP.SHOP_ID AND STATUS = 1 AND SHOP.SHOP_NAME LIKE '%' AND TYPE_SHOP.TYPE_ID = 16 ORDER BY SHOP_ID DESC
-        // // // $sortBy = 0 -> NEWEST
-        // // // $sortBy = 1 -> MOST RATE
-
-        // // if (0 == $sortBy) {
-        // //     $sql .= ' GROUP BY S.SHOP_ID ORDER BY S.SHOP_ID DESC';
-        // // } else {
-        // //     $sql .= ' GROUP BY S.SHOP_ID ORDER BY AVG_RATE DESC';
-        // // }
-        // dd($sql);
-        // dd($this->rawQuery($sql));
-        echo $sql;
+        // $sortBy = 0 -> NEWEST
+        // $sortBy = 1 -> MOST RATE
 
         return $this->rawQuery($sql);
     }
