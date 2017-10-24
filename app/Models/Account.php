@@ -186,15 +186,12 @@ class Account extends Model
             $sql = "SELECT * FROM {$this->table} WHERE (USERNAME LIKE '%" . $_POST['ajaxKey'] . "%')";
             $users = [];
             $users['all'] = $this->rawQuery($sql);
-            // $users['currentPage'] = $currentPage;
-            // $users['totalPage'] = $totalPage;
 
             echo require 'app/views/admin/user/UsersTable.view.php';
         } else {
             $link = 'admin/user';
             $sql = "SELECT * from {$this->table} ";
             $selectAll = $this->rawQuery($sql);
-            // die(var_dump($selectAll));
             $countUser = count($selectAll);
 
             return $this->pagination($sql, $countUser, $link);
@@ -228,11 +225,6 @@ class Account extends Model
         }
     }
 
-    public function loadImages()
-    {
-        die(var_dump($_FILES));
-    }
-
     // Public
     public function detailUser()
     {
@@ -253,7 +245,6 @@ class Account extends Model
     public function editUserPassword()
     {
         if (isset($_POST['edit'])) {
-            // die($_SESSION['user']->USERNAME);
             $account = $this->findById($_SESSION['user']->USERNAME);
             $this->setValue(md5($_POST['password']), $account->FIRST_NAME, $account->LAST_NAME, $account->ADDRESS, $account->IMAGE, $account->EMAIL, $account->ROLE, $account->PHONE);
             $this->updateById($_SESSION['user']->USERNAME, $this->fillable);
@@ -277,9 +268,7 @@ class Account extends Model
             $image = 'image-' . time() . '.png';
             file_put_contents($link . $image, $data);
 
-            //die($image);
             $this->setValue($account->PASSWORD, $account->FIRST_NAME, $account->LAST_NAME, $account->ADDRESS, $image, $account->EMAIL, $account->ROLE, $account->PHONE);
-            // die($_SESSION['user']->USERNAME);
             $_SESSION['user']->IMAGE = $image;
 
             $this->updateById($_SESSION['user']->USERNAME, $this->fillable);
