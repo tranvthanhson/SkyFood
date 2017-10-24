@@ -1,3 +1,6 @@
+<?php if (count($feedbacks) == 0): ?>
+<h4>Không có kết quả nào</h4>
+<?php else: ?>
 <?php $index = 0;?>
 <?php foreach ($feedbacks as $feedback): ?>
     <tr>
@@ -61,3 +64,4 @@ $data = [
         </tr>
 
         <?php endforeach;?>
+<?php endif?>
