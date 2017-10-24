@@ -13,7 +13,7 @@
             </div>
             <div class="modal-footer">
                 <?php if ('' == $link) {?>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
+                    <button id="submitModal" type="button" class="btn btn-danger" data-dismiss="modal">OK</button>
                     <?php } else {?>
                         <a href="<?=$link?>"  class="btn btn-danger" ><?=$bt?></a>
                         <button type="button" class="btn btn-default" data-dismiss="modal">Huỷ</button>
