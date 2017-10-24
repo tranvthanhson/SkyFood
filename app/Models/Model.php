@@ -18,12 +18,12 @@ class Model
 
     public function rawQuery($sql, $param = '')
     {
+        //die($id);
         return $this->db->execute($sql, $param);
     }
 
-    public function all($fields = ['*'])
+    public function all($fields = '*')
     {
-        $fields = implode(',', $fields);
         $sql = "SELECT {$fields} FROM {$this->table}";
         return $this->rawQuery($sql);
     }
@@ -39,7 +39,7 @@ class Model
             $sql .= "'$value', ";
         }
         $sql = substr($sql, 0, -2) . ')';
-
+        //die($sql);
         return $this->rawQuery($sql);
     }
 
@@ -52,7 +52,7 @@ class Model
         }
         $sql = trim($sql, ',');
         $sql .= " WHERE $this->primaryKey = '{$id}'";
-        //die($sql);
+        // die($sql);
         return $this->rawQuery($sql);
     }
 
@@ -63,15 +63,68 @@ class Model
         return $this->rawQuery($sql, $param);
     }
 
-    public function findById($id, $fields = ['*'])
+    public function findById($id, $fields = '*')
     {
         $sql = "SELECT {$fields} FROM {$this->table} WHERE {$this->primaryKey} = '{$id}'";
-
         $models = $this->rawQuery($sql);
-
         if (count($models) > 0) {
             return $models[0];
         }
         return (object) [];
+    }
+
+    public function pagination($query, $countUser, $link, $orderBy = 0, $key = '')
+    {
+
+        if ('' == $key) {
+            $key = $this->primaryKey;
+        }
+        //die($key);
+        $total = $countUser;
+        //Find limit and current page
+        $currentPage = isset($_GET['page']) ? $_GET['page'] : 1;
+        // echo $_GET['page'];
+        $limit = 5;
+        // echo $limit;
+        $totalPage = ceil($total / $limit);
+
+        // Limit currentPage from 1 to totalPage
+        if ($currentPage > $totalPage) {
+            $currentPage = $totalPage;
+        }
+        if ($currentPage < 1) {
+            $currentPage = 1;
+        }
+
+        //  Find Start
+        $start = ($currentPage - 1) * $limit;
+
+        //echo $start;
+        $sql = $query;
+
+        if (1 == $orderBy) {
+            $sql .= " ORDER BY {$key} DESC ";
+        }
+        $sql .= " LIMIT {$start},{$limit}";
+        // echo $sql;
+        //die($sql);
+        $arrPagination = [];
+        $arrPagination['all'] = $this->rawQuery($sql);
+        $arrPagination['currentPage'] = $currentPage;
+        $arrPagination['totalPage'] = $totalPage;
+        $arrPagination['link'] = $link;
+
+        return $arrPagination;
+    }
+
+    public function uploadImages($imageName, $link)
+    {
+        $splitArray = explode('.', $imageName);
+        $extention = end($splitArray);
+        $image = 'hinh-' . time() . '.' . $extention;
+        $tmpName = $_FILES['file']['tmp_name'];
+        $pathUpload = $_SERVER['DOCUMENT_ROOT'] . '/public/admin/assets/img/' . $link . '/' . $image;
+        move_uploaded_file($tmpName, $pathUpload);
+        return $image;
     }
 }

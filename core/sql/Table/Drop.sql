@@ -19,5 +19,5 @@ DROP TABLE SHOP;
 -- Drop type_shop table
 DROP TABLE TYPE_SHOP;
 
--- Drop foods table
-DROP TABLE FOODS;
+-- Drop feedback table
+DROP TABLE FEEDBACK;

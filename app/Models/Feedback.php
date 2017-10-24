@@ -8,16 +8,39 @@ class Feedback extends Model
 {
     protected $table = 'FEEDBACK';
     protected $primaryKey = 'FEEDBACK_ID';
+    protected $fillable = [];
 
     public function selectAll()
     {
-        $sql = 'SELECT FEEDBACK_ID, FULL_NAME, EMAIL, PHONE, CONTENT FROM FEEDBACK A, ACCOUNT B
-            WHERE A.USERNAME = B.USERNAME';
-        return $this->rawQuery($sql);
+        return $this->all();
+    }
+
+    public function setValue($name, $phone, $email, $content)
+    {
+        $this->fillable = [
+            'NAME' => $name,
+            'PHONE' => $phone,
+            'EMAIL' => $email,
+            'CONTENT' => $content,
+        ];
     }
 
     public function deleteItem($id)
     {
         return $this->deleteById($id);
+    }
+
+    public function searchFeedback()
+    {
+        if (isset($_POST['ajaxKey'])) {
+            $sql = "SELECT FEEDBACK_ID, NAME, EMAIL, PHONE, CONTENT FROM FEEDBACK WHERE (CONTENT LIKE '%" . $_POST['ajaxKey'] . "%')";
+            return $this->rawQuery($sql);
+        }
+    }
+
+    public function createFeedback($name, $phone, $email, $content)
+    {
+        $this->setValue($name, $phone, $email, $content);
+        return $this->insert($this->fillable);
     }
 }
