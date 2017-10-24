@@ -62,7 +62,8 @@ class ShopController
     {
         if (!isset($_SESSION['user'])) {
             return 0;
-        }return 1;
+        }
+        return 1;
     }
 
     public function ajaxSave()
