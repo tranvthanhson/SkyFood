@@ -45,8 +45,17 @@ class FeedbackController
     public function reply()
     {
         if (isset($_POST['emailTo']) && isset($_POST['content'])) {
-            $this->mailer->setEmailTo($_POST['emailTo']);
-            $this->mailer->setContent($_POST['content']);
+            $feedbackFromUser = $_POST['feedbackFromUser'];
+            $email = $_POST['emailTo'];
+
+            $content = "{$email}: ";
+            $content .= '<br>';
+            $content .= "<i>\"{$feedbackFromUser}\"</i>";
+            $content .= '<br><br>';
+            $content .= $_POST['content'];
+
+            $this->mailer->setEmailTo($email);
+            $this->mailer->setContent($content);
             $this->mailer->sendMail();
             redirect('admin/feedback');
         }
