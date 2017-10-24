@@ -73,10 +73,11 @@
                                                         </form>
                                                     </td>
                                                     <td>
-                                                        <?php $checked = '';?>
-                                                        <?php if (1 == $value->STATUS) {$checked = 'checked';}?>
-                                                        <div class="checked-box <?=$checked;?>">
-                                                            <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                                                        <?php
+// if (1 == $value->STATUS) {$checked = 'checked';}
+?>
+                                                        <div>
+                                                            <img src="public/admin/assets/img/active.ico" alt="">
                                                         </div>
                                                     </td>
                                                     <td>
