@@ -19,7 +19,7 @@
                                             <div class="col-md-8">
                                                 <div class="form-group">
                                                     <label for="userName" class="control-label">Username (<span>*</span>)</label>
-                                                    <input type="text" name="username" value="test" class="form-control" id="userName" onkeyup="checkUsernameAlready()" placeholder="Nhập tài khoản đăng nhập" autocomplete="off" required>
+                                                    <input type="text" name="username" class="form-control" id="userName" onkeyup="checkUsernameAlready()" placeholder="Nhập tài khoản đăng nhập" autocomplete="off" required>
                                                 </div>
                                                 <div class="tableSearch">
                                                     <p></p>
@@ -42,7 +42,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="pass" class="control-label">Mật khẩu (<span>*</span>)</label>
-                                                    <input type="password" value="testth" data-minlength="6" class="form-control" name="password" id="pass" placeholder="Password" required>
+                                                    <input type="password" data-minlength="6" class="form-control" name="password" id="pass" placeholder="Password" required>
                                                     <div class="help-block">(Mật khẩu ít nhất 6 kí tự)</div>
                                                 </div>
                                             </div>
@@ -51,7 +51,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Xác nhận mật khẩu (<span>*</span>)</label>
-                                                    <input type="password" value="testth" class="form-control" id="confirmPass" name="confirmPass" data-match="#pass" data-match-error="Mật khẩu không trùng khớp" placeholder="Confirm" required>
+                                                    <input type="password"  class="form-control" id="confirmPass" name="confirmPass" data-match="#pass" data-match-error="Mật khẩu không trùng khớp" placeholder="Confirm" required>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
@@ -60,7 +60,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Địa chỉ </label>
-                                                    <input type="text" value="thuong" name="address" class="form-control" id="address" >
+                                                    <input type="text"  name="address" class="form-control" id="address" >
 
                                                 </div>
                                             </div>
@@ -69,7 +69,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Điện thoại </label>
-                                                    <input type="text" value="thuong" name="phone" class="form-control" id="phone">
+                                                    <input type="text"  name="phone" class="form-control" id="phone">
 
                                                 </div>
                                             </div>
@@ -78,7 +78,7 @@
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label for="confirmPass" class="control-label">Email (<span>*</span>)</label>
-                                                    <input type="email" value="thuong" name="email" class="form-control" id="confirmPass" required>
+                                                    <input type="email"  name="email" class="form-control" id="confirmPass" required>
                                                     <div class="help-block with-errors"></div>
                                                 </div>
                                             </div>
@@ -87,13 +87,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="firstName" class="control-label">Tên </label>
-                                                    <input type="text" name="firstName" class="form-control" value="test" placeholder="Họ" value="" id="firstName" >
+                                                    <input type="text" name="firstName" class="form-control"  placeholder="Họ" value="" id="firstName" >
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label for="lastName">Họ </label>
-                                                    <input type="text" name="lastName" class="form-control" value="test" placeholder="Tên" value="" id="lastName" >
+                                                    <input type="text" name="lastName" class="form-control" placeholder="Tên" value="" id="lastName" >
                                                 </div>
                                             </div>
                                         </div>
