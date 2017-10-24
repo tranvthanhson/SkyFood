@@ -70,11 +70,12 @@ class Account extends Model
 
             if (null != $checkId->USERNAME) {
                 echo 'Username already!';
+                // $_SESSION['notice_login'] = 'Tài khoản của bạn vừa được tạo!';
             } else {
                 $this->fillable['USERNAME'] = $_POST['username'];
                 $this->insert($this->fillable);
                 $this->fillable = [];
-
+                $_SESSION['notice_login'] = 'Tài khoản của bạn vừa được tạo!';
                 return redirect('');
             }
         }

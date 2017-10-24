@@ -176,7 +176,7 @@ $arrLink = ['/contact' => 'contact',
                             <div class="col-md-12 username">
                                 <div class="form-group item">
                                     <label>Username</label>
-                                    <input type="text" name="username" value="Admin" class="form-control input-userName" required>
+                                    <input type="text" name="username"  value="Admin" class="form-control input-userName" required>
                                     <div class="underline"></div>
                                     <div class="help-block with-errors"></div>
                                 </div>

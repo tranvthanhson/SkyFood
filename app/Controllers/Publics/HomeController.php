@@ -22,4 +22,5 @@ class HomeController
         // die(var_dump($interestedShop));
         return view('public/home/index', compact('interestedShop', 'latest'));
     }
+
 }
