@@ -286,4 +286,10 @@ class Account extends Model
             echo '<img src=' . $_POST['ajaxImages'] . ' alt="..." />';
         }
     }
+
+    public function saveShopId()
+    {
+        $sql = "SELECT `SHOP`.*, (SELECT COUNT(`COMMENT`.SHOP_ID) FROM `COMMENT` WHERE `COMMENT`.SHOP_ID = `SHOP`.`SHOP_ID`) AS 'COMMENTS', (SELECT AVG(`RATE`.SCORE) FROM `RATE` WHERE `RATE`.SHOP_ID = `SHOP`.`SHOP_ID`) AS 'SCORE', (SELECT COUNT(`SAVE`.SHOP_ID) FROM `SAVE` WHERE `SAVE`.SHOP_ID = `SHOP`.`SHOP_ID`) AS 'SAVED' FROM SHOP JOIN SAVE ON SHOP.SHOP_ID=SAVE.SHOP_ID WHERE STATUS = 1 AND SAVE.USERNAME='{$_SESSION['user']->USERNAME}'";
+        return $this->rawQuery($sql);
+    }
 }

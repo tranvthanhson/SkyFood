@@ -82,6 +82,7 @@ $router->post('editUserInfo', 'Publics\UserController@editUser');
 $router->get('editUserPassword', 'Publics\UserController@viewEditPassword');
 $router->post('editUserPassword', 'Publics\UserController@editUserPassword');
 $router->post('profile', 'Publics\UserController@editUserImage');
+$router->get('saveShop', 'Publics\UserController@viewSaveShop');
 
 // Contact
 $router->get('contact', 'Publics\ContactController@index');
