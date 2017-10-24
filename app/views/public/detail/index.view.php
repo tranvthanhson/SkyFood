@@ -387,7 +387,7 @@ if (0 == $checkLogin) {
     ?>
                                 <div class="media input-cmt">
                                     <div class="media-left">
-                                        <img src="/public/public/assets/img/user/<?=$_SESSION['user']->IMAGE?>" class="media-object">
+                                        <img src="/public/admin/assets/img/imagesUser/<?=$_SESSION['user']->IMAGE?>" class="media-object">
                                     </div>
 
                                     <div class="media-body">
@@ -411,7 +411,7 @@ foreach ($comments as $value) {
     ?>
                                 <div class="media">
                                     <div class="media-left">
-                                        <img src="/public/public/assets/img/user/<?=$value->IMAGE?>" class="media-object">
+                                        <img src="/public/admin/assets/img/imagesUser/<?=$value->IMAGE?>" class="media-object">
                                     </div>
                                     <div class="media-body">
                                         <h4 class="media-heading"><?=$value->USERNAME?> <small><i><?=$value->DATE_CREATED?></i></small></h4>
