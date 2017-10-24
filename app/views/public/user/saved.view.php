@@ -1,4 +1,4 @@
-<?php view_include('public.layouts.head-master', ['title' => 'Contact'])?>
+<?php view_include('public.layouts.head-master', ['title' => $_SESSION['user']->USERNAME])?>
 
     <div class="wrapper">
         <?php view_include('public.partials.header')?>
