@@ -63,7 +63,7 @@
 
                                             <tr>
                                                 <td><?=$i;?></td>
-                                                <td class="username"><a href=""><?=$user->USERNAME;?></a></td>
+                                                <td class="username"><a href="/admin/user/edit?idUser=<?=$user->USERNAME?>"><?=$user->USERNAME;?></a></td>
                                                 <td class="img-post">
                                                     <?php if (null != $user->IMAGE) {$image = $user->IMAGE;} else { $image = 'default-avatar.png';}?>
                                                     <a href=""><img  src="/public/admin/assets/img/imagesUser/<?=$image;?>" /></a>
