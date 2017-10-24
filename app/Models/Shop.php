@@ -151,7 +151,7 @@ class Shop extends Model
 
     public function search()
     {
-        $sql = "SELECT * FROM {$this->table} WHERE (SHOP_NAME LIKE '%" . $_POST['ajaxKey'] . "%')";
+        $sql = "SELECT SHOP.*,TYPE_NAME FROM TYPE_SHOP INNER JOIN SHOP ON SHOP.SHOP_ID =TYPE_SHOP.SHOP_ID INNER JOIN TYPE ON TYPE.TYPE_ID =TYPE_SHOP.TYPE_ID WHERE (SHOP_NAME LIKE '%" . $_POST['ajaxKey'] . "%')";
         //die($sql);
         $shops = $this->rawQuery($sql);
         return view('admin/shop/ShopTable', compact('shops'));
