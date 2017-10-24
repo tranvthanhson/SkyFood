@@ -48,9 +48,9 @@ class FeedbackController
             $feedbackFromUser = $_POST['feedbackFromUser'];
             $email = $_POST['emailTo'];
 
-            $content = "{$email}: ";
+            $content = "<blockquote style='padding-left: 20px; margin: 0; border-left: 3px solid #ecf0f1;'>{$email}: ";
             $content .= '<br>';
-            $content .= "<i>\"{$feedbackFromUser}\"</i>";
+            $content .= "<i>\"{$feedbackFromUser}\"</i></blockquote>";
             $content .= '<br><br>';
             $content .= $_POST['content'];
 
