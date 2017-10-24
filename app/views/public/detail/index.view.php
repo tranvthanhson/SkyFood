@@ -405,7 +405,7 @@ if (0 == $checkLogin) {
                                 </div><?php }?>
                                 <div id="ajaxComment">
 
-                                    </div>
+
                                 <?php
 foreach ($comments as $value) {
     ?>
@@ -419,7 +419,7 @@ foreach ($comments as $value) {
                                     </div>
                                 </div>
                                 <?php }?>
-
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -36,7 +36,7 @@ function loadMyComments(id){
            avalue:value
         },
         success: function(data) {
-            $('#ajaxComment').append(data);
+            $('#ajaxComment').html(data);
              $('#comment').val('');
             //alert($data);
         },

@@ -43,15 +43,9 @@ class Comment extends Model
         $comment['CONTENT'] = $_POST['avalue'];
         $comment['DATE_CREATED'] = $currentDate;
         $this->insert($comment);
-        echo ' <div class="media">
-        <div class="media-left">
-        <img src="public/public/assets/img/user/' . $_SESSION['user']->IMAGE . '" class="media-object">
-        </div>
-        <div class="media-body">
-        <h4 class="media-heading">' . $_SESSION['user']->USERNAME . ' <small><i>' . $currentDate . '</i></small></h4>
-        <p>' . $_POST['avalue'] . '</p>
-        </div>
-        </div>';
+        $comments = $this->selectByShop($_POST['aid']);
+        //die(var_dump($comments));
+        return view('public/detail/comment', compact('comments'));
     }
 
     public function deleteCommentByShop($id)
