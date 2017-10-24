@@ -1,7 +1,7 @@
  $('#search').click();
  function search(link){
     var key = $('#inputSearch').val();
-   // alert(link);
+   showLoader();
    $.ajax({
     url: link,
     type: 'POST',
@@ -13,6 +13,7 @@
         success: function(data) {
             $('.tableSearch').html(data);
             //alert($data);
+            hiddenLoader();
         },
         error: function(err) {
             alert('Có lỗi xảy ra' + err);

@@ -57,6 +57,7 @@
                                         <th>Chức năng</th>
                                     </thead>
                                     <tbody class="tableSearch">
+
                                         <?php $i = 1;?>
                                         <?php foreach ($users['all'] as $user): ?>
 
