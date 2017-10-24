@@ -27,7 +27,7 @@ class AdminController
     {
         $indexAdmin = $this->indexAdmin->indexAdmin();
         $title = ['Bài đăng' => 'pencil', ''];
-        die(var_dump($indexAdmin));
+        // die(var_dump($indexAdmin));
         return view('admin/index/index', compact('indexAdmin'));
     }
 }
