@@ -15,7 +15,7 @@ return [
 //     'database' => [
 //         'name' => 'SkyFoodDB',
 //         'username' => 'root',
-//         'password' => 'ht180395',
+//         'password' => '123456',
 //         'connection' => 'mysql:host=localhost',
 //         'options' => [
 
