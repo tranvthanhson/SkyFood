@@ -35,6 +35,7 @@ class ShopController
     public function index()
     {
         $shop = $this->shop->shopConnectToType();
+        //die(var_dump($shop));
         return view('admin/shop/index', compact('shop'));
     }
 

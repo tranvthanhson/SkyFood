@@ -8,20 +8,6 @@
       </td>
       <td><?=$value->TYPE_NAME?></td>
       <td class="change-discount<?=$value->SHOP_ID?>"><?=$value->DISCOUNT?></td>
-      <td class="percent-input">
-          <form action="javascript:void(0)">
-              <div class="form-group">
-                  <div class="item-col">
-                      <input type="text" onkeypress="return isNumberKey(event)" maxlength="3" class="form-control" id="discount<?=$value->SHOP_ID?>" value="<?=$value->DISCOUNT?>" >
-                      <!--  <div class="help-block with-errors"></div> -->
-                  </div>
-                  <div class="item-col">
-                      <button type="submit" class="btn btn-success" onclick="changeDiscount(<?=$value->SHOP_ID?>)">Nhập</button>
-                  </div>
-                  <div class="clearfix"></div>
-              </div>
-          </form>
-      </td>
       <td>
           <?php $status = (1 == $value->STATUS) ? 'active' : 'inactive'?>
           <div class="status <?=$status?>"></div>

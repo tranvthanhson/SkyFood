@@ -111,6 +111,7 @@ function loadMap(latValue,lngValue){
 }
 
 function initMap(latValue,lngValue) {
+    $(".se-pre-con").fadeIn();
     var myLatLng = { lat: latValue, lng: lngValue };
 
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -123,4 +124,5 @@ function initMap(latValue,lngValue) {
         map: map,
         title: 'Hello World!'
     });
+     $(".se-pre-con").fadeOut();
 }

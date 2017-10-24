@@ -34,8 +34,10 @@ function saveAjax(link,id,check){
 }
 
 function loadMyComments(id){
-  $(".se-pre-con").fadeIn();
+  
      var value = $('#comment').val();
+     if(value!='')
+      $(".se-pre-con").fadeIn();
      //alert(id)
       $.ajax({
         url: '/shop/ajaxComment',
@@ -47,9 +49,9 @@ function loadMyComments(id){
         },
         success: function(data) {
           $(".se-pre-con").fadeOut();
-            $('#ajaxComment').html(data);
-             $('#comment').val('');
-            //alert($data);
+          $('#ajaxComment').html(data);
+          $('#comment').val('');
+          //alert($data);
         },
         error: function(err) {
             alert('Có lỗi xảy ra' + err);
