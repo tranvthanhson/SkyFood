@@ -11,6 +11,7 @@
 <script src="/public/admin/assets/js/bootstrap-notify.js"></script>
 <!--  Google Maps Plugin    -->
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="/public/admin/assets/js/loader.js"></script>
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 <script src="/public/admin/assets/js/light-bootstrap-dashboard.js"></script>
 <!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
