@@ -55,6 +55,7 @@ class ShopController
         $avg = number_format($avg, 1);
         //die($avg);
         //
+        //die(var_dump($_SESSION['user']));
         return view('public/detail/index', compact('shop', 'check', 'checkRate', 'comments', 'checkLogin', 'avg', 'otherShops'));
     }
 

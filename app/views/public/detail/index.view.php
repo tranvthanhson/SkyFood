@@ -314,15 +314,19 @@ if (1 == $checkLogin) {
                                 </div>
                                 <div class="ctn-slide ctn-main">
                                     <div class="slider-other slider">
+                                        <?php
+foreach ($otherShops as $value) {
+    ?>
                                         <div class="wrp-item">
-                                            <img src="/public/public/assets/img/slide_banner/hd1.jpg">
+                                            <img src="/public/admin/assets/img/img-shop/<?=$value->VIEW?>">
                                             <div class="hover-view">
                                                 <div class="view">
-                                                    <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
+                                                    <a class="btn-view" href="shop?id=<?=$value->sid?>"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="wrp-item">
+                                        <?php }?>
+                                        <!-- <div class="wrp-item">
                                             <img src="/public/public/assets/img/restaurant/res1.jpg">
                                             <div class="hover-view">
                                                 <div class="view">
@@ -353,7 +357,7 @@ if (1 == $checkLogin) {
                                                     <a class="btn-view" href="#"><i class="fa fa-eye"></i></a>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
 
 
 
@@ -383,7 +387,7 @@ if (0 == $checkLogin) {
     ?>
                                 <div class="media input-cmt">
                                     <div class="media-left">
-                                        <img src="/public/public/assets/img/user/<?=$_SESSION['user']->IMAGE?>" class="media-object">
+                                        <img src="/public/admin/assets/img/imagesUser/<?=$_SESSION['user']->IMAGE?>" class="media-object">
                                     </div>
 
                                     <div class="media-body">
@@ -399,12 +403,15 @@ if (0 == $checkLogin) {
                                     </div>
 
                                 </div><?php }?>
+                                <div id="ajaxComment">
+
+
                                 <?php
 foreach ($comments as $value) {
     ?>
                                 <div class="media">
                                     <div class="media-left">
-                                        <img src="/public/public/assets/img/user/<?=$value->IMAGE?>" class="media-object">
+                                        <img src="/public/admin/assets/img/imagesUser/<?=$value->IMAGE?>" class="media-object">
                                     </div>
                                     <div class="media-body">
                                         <h4 class="media-heading"><?=$value->USERNAME?> <small><i><?=$value->DATE_CREATED?></i></small></h4>
@@ -412,9 +419,7 @@ foreach ($comments as $value) {
                                     </div>
                                 </div>
                                 <?php }?>
-                                <div id="ajaxComment">
-
-                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
