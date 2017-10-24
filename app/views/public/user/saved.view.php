@@ -18,6 +18,9 @@
                                 <div class="user-infor user-saved item-ctn products col-md-9">
                                     <div class="wrp">
                                         <div class="ctn-products">
+                                        <?php if (count($saveShop) == 0) {?>
+                                            <h1 class="noItem">Không có địa điểm nào được lưu!</h1>
+                                        <?php } else {?>
                                         <?php foreach ($saveShop as $item) {?>
                                             <div class="item-product col-md-4 col-xs-4">
                                                 <div class="wrp-item">
@@ -56,10 +59,8 @@
                                                     <?php }?>
                                                 </div>
                                             </div>
-                                            <?php }?>
-                                            <div class="view-more col-md-12 col-xs-12">
-                                                <button class="btn btn-bg" type="submit">View more</button>
-                                            </div>
+                                            <?php }}?>
+
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>
