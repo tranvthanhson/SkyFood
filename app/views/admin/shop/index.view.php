@@ -73,12 +73,8 @@
                                                         </form>
                                                     </td>
                                                     <td>
-                                                        <?php
-// if (1 == $value->STATUS) {$checked = 'checked';}
-?>
-                                                        <div>
-                                                            <img src="public/admin/assets/img/active.ico" alt="">
-                                                        </div>
+                                                        <?php $status = (1 == $value->STATUS) ? 'active' : 'inactive'?>
+                                                        <div class="status <?=$status?>"></div>
                                                     </td>
                                                     <td>
                                                         <div class="form-group">
