@@ -70,11 +70,12 @@ class Account extends Model
 
             if (null != $checkId->USERNAME) {
                 echo 'Username already!';
+                // $_SESSION['notice_login'] = 'Tài khoản của bạn vừa được tạo!';
             } else {
                 $this->fillable['USERNAME'] = $_POST['username'];
                 $this->insert($this->fillable);
                 $this->fillable = [];
-
+                $_SESSION['notice_login'] = 'Tài khoản của bạn vừa được tạo!';
                 return redirect('');
             }
         }
@@ -186,8 +187,11 @@ class Account extends Model
             $sql = "SELECT * FROM {$this->table} WHERE (USERNAME LIKE '%" . $_POST['ajaxKey'] . "%')";
             $users = [];
             $users['all'] = $this->rawQuery($sql);
-
-            echo require 'app/views/admin/user/UsersTable.view.php';
+            if (count($users['all']) != 0) {
+                echo require 'app/views/admin/user/UsersTable.view.php';
+            } else {
+                echo '<h4 style="color:#a94442">Không tìm thấy kết quả!</h4>';
+            }
         } else {
             $link = 'admin/user';
             $sql = "SELECT * from {$this->table} ";

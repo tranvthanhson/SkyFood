@@ -23,11 +23,11 @@
                                     <div class="col-md-2 col-sm-2 col-xs-4">
                                     </div>
                                     <div class="col-lg-offset-6 col-md-4 col-md-offset-6 col-sm-5 col-sm-offset-5 col-xs-8">
-                                        <div class="input-group search-btn">
+                                        <div id="searchFeedbackInput" class="input-group search-btn">
                                             <div class="input-group-addon"><span>Tìm kiếm</span></div>
                                             <input type="text" id="inputSearch" class="form-control" />
                                             <div class="input-group-btn">
-                                                <button class="btn btn-default" id="search" onclick="search('/admin/feedback/searchFeedback')" type="button"><i class="pe-7s-search"></i></button>
+                                                <button class="btn btn-default search" onclick="search('/admin/feedback/searchFeedback')" type="button"><i class="pe-7s-search"></i></button>
                                             </div>
                                         </div>
                                     </div>
