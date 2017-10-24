@@ -5,7 +5,7 @@ $('#comment').on('keydown',function (e) {
     }
 }); 
 function saveAjax(link,id,check){
-	
+	$(".se-pre-con").fadeIn();
    $.ajax({
         url: link,
         type: 'POST',
@@ -15,6 +15,7 @@ function saveAjax(link,id,check){
            
         },
         success: function(data) {
+          $(".se-pre-con").fadeOut();
             $('#save').html(data);
             if(check==0){
              $('#displaySaved').html('<div class="ribbon bookmark" ><p><span>Saved</span></p></div>');
@@ -33,6 +34,7 @@ function saveAjax(link,id,check){
 }
 
 function loadMyComments(id){
+  $(".se-pre-con").fadeIn();
      var value = $('#comment').val();
      //alert(id)
       $.ajax({
@@ -44,6 +46,7 @@ function loadMyComments(id){
            avalue:value
         },
         success: function(data) {
+          $(".se-pre-con").fadeOut();
             $('#ajaxComment').html(data);
              $('#comment').val('');
             //alert($data);
