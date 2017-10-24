@@ -19,7 +19,6 @@ return [
 //         'password' => '1',
 //         'connection' => 'mysql:host=localhost',
 //         'options' => [
-
 //         ],
 //     ],
 // ];

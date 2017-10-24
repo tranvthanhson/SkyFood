@@ -4,8 +4,8 @@ $('#comment').on('keydown',function (e) {
         $('#btnSend').click();
     }
 }); 
-function saveAjax(link,id){
-	//alert(id);
+function saveAjax(link,id,check){
+	
    $.ajax({
         url: link,
         type: 'POST',
@@ -16,7 +16,15 @@ function saveAjax(link,id){
         },
         success: function(data) {
             $('#save').html(data);
-            //alert($data);
+            if(check==0){
+             $('#displaySaved').html('<div class="ribbon bookmark" ><p><span>Saved</span></p></div>');
+            }
+           
+           else{
+              $('#displaySaved').html('');
+           }
+           // alert(check);
+          // $('#displaySaved').html(check);
         },
         error: function(err) {
             alert('Có lỗi xảy ra' + err);
