@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="parameter">
                                         <div class="col-md-4 col-xs-4">
-                                            <p href=""><i class="fa fa-star"></i> <?=$item->SCORE+'';?></p>
+                                            <p href=""><i class="fa fa-star"></i> <?=substr($item->SCORE, 0, 3)?></p>
                                         </div>
                                         <div class="col-md-4 col-xs-4">
                                             <p href=""><i class="fa fa-comment"></i> <?=$item->COMMENTS?></p>
@@ -122,7 +122,7 @@
                                 </div>
                                 <div class="parameter">
                                     <div class="col-md-4 col-xs-4">
-                                        <p href=""><i class="fa fa-star"></i> <?=$item->SCORE+'';?></p>
+                                        <p href=""><i class="fa fa-star"></i><?=substr($item->SCORE, 0, 3)?></p>
                                     </div>
                                     <div class="col-md-4 col-xs-4">
                                         <p href=""><i class="fa fa-comment"></i> <?=$item->COMMENTS?></p>

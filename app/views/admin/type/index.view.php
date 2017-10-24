@@ -40,26 +40,30 @@
                                                             </a>
                                                         </div>
                                                         <div class="item-col">
-                                                            <a data-toggle="modal" data-target="#delCat" href="" class="btn btn-danger" title="Xoá">
+                                                            <a data-toggle="modal" data-target="#delCat<?=$type->TYPE_ID?>" href="" class="btn btn-danger" title="Xoá">
                                                                 <i class="pe-7s-trash"></i>
                                                             </a>
                                                         </div>
                                                         <div class="clearfix"></div>
                                                     </div>
                                                 </td>
-                                            </tr>
-                                        <?php endforeach;?>
-                                    </tbody>
-                                </table>
+                                                <?php view_include('admin.partials.modal',
+    ['id_model' => 'delCat' . $type->TYPE_ID, 'title' => 'XÓA DANH MỤC ',
+        'content' => 'Bạn có chắc chắn muốn xóa không??',
+        'bt' => 'Xóa', 'link' => '/admin/type/delete?id=' . $type->TYPE_ID]);?>
+                                                </tr>
+
+                                            <?php endforeach;?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <?php view_include('admin.partials.footer');?>
         </div>
-        <?php view_include('admin.partials.footer');?>
     </div>
-</div>
-<!-- Modal -->
-<?php view_include('admin.partials.modal', ['id_model' => 'delCat', 'title' => 'XÓA DANH MỤC ', 'content' => 'Bạn có chắc chắn muốn xóa không??', 'bt' => 'Xóa', 'link' => '/admin/type/delete?id=' . $type->TYPE_ID]);?>
-<?php view_include('admin.layouts.foot-master');?>
+    <!-- Modal -->
+    <?php view_include('admin.layouts.foot-master');?>

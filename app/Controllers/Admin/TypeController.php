@@ -2,6 +2,8 @@
 
 namespace App\Controllers\Admin;
 
+use App\Models\Shop;
+use App\Models\Shop_Type;
 use App\Models\Type;
 use Core\App;
 
@@ -18,6 +20,8 @@ class TypeController
     {
         if (isset($_SESSION['user'])) {
             $this->type = new Type;
+            $this->shop_type = new Shop_Type;
+            $this->shop = new Shop;
         } else {
             $link = '/login';
             return view('not-access', compact('link'));
@@ -54,6 +58,7 @@ class TypeController
     public function deleteType()
     {
         $this->type->deleteType($_GET['id']);
+
         redirect('admin/type');
     }
 }

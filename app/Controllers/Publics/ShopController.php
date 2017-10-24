@@ -22,7 +22,6 @@ class ShopController
     public function index()
     {
         $id = $_GET['id'];
-
         $comments = $this->comment->selectByShop($id);
         $shop = $this->shop->selectByKeyPublic($id);
         //die(var_dump($shop));
@@ -47,7 +46,7 @@ class ShopController
                 $checkRate = 0;
             }
         }
-        //die(var_dump($shop));
+        // die(var_dump($shop));
         $avg = $shop[0]->AVG . '';
         if ('' == $avg) {
             $avg = 0;
@@ -63,7 +62,8 @@ class ShopController
     {
         if (!isset($_SESSION['user'])) {
             return 0;
-        }return 1;
+        }
+        return 1;
     }
 
     public function ajaxSave()

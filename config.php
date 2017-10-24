@@ -11,14 +11,14 @@ return [
         ],
     ],
 ];
+
 // return [
 //     'database' => [
 //         'name' => 'SkyFoodDB',
 //         'username' => 'root',
-//         'password' => '123456',
+//         'password' => '1',
 //         'connection' => 'mysql:host=localhost',
 //         'options' => [
-
 //         ],
 //     ],
 // ];
