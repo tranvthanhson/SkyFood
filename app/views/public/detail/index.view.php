@@ -29,13 +29,16 @@
                                                 <span>Sale</span> <?=$shop[0]->DISCOUNT?>%
                                             </p>
                                         </div>
-                                        <?php }if (1 == $check) {?>
-                                        <div class="ribbon bookmark">
+                                        <?php }?>
+                                        <div id="displaySaved">
+                                            <?php if (1 == $check) {?>
+                                            <div class="ribbon bookmark" >
                                             <p>
                                                 <span>Saved</span>
                                             </p>
+                                        </div><?php }?>
                                         </div>
-                                        <?php }?>
+
                                     </div>
                                 </div>
                                 <div class="col-md-7  col-xs-7 ctn">
@@ -73,10 +76,10 @@ if (1 == $checkLogin) {
     $modalRate = 'data-target="#modal-rating"';
     $clickRate = 'onclick="rate(' . $link . ',' . $shop[0]->sid . ',)"';
     if (0 == $check) {
-        $clickSave = ' onclick="saveAjax(' . "'/shop/ajaxSave'" . ',' . $shop[0]->sid . ');"';
+        $clickSave = ' onclick="saveAjax(' . "'/shop/ajaxSave'" . ',' . $shop[0]->sid . ',' . $check . ');"';
     } else {
         $save = 'value="Unsave"';
-        $clickSave = ' onclick="saveAjax(' . "'/shop/ajaxUnsave'" . ',' . $shop[0]->sid . ');"';
+        $clickSave = ' onclick="saveAjax(' . "'/shop/ajaxUnsave'" . ',' . $shop[0]->sid . ',' . $check . ');"';
     }
 }
 
