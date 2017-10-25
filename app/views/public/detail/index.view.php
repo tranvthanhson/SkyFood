@@ -299,9 +299,6 @@ if (1 == $checkLogin) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="view-more col-md-12 col-xs-12">
-                                    <button class="btn btn-bg" type="submit">View more</button>
-                                </div>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
