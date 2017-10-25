@@ -8,8 +8,8 @@
                 <div class="container">
                     <div class="row">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Detail</a></li>
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item">Detail</li>
                             <li class="breadcrumb-item active-breadcrumb"><?=$shop[0]->SHOP_NAME?></li>
                         </ol>
                     </div>

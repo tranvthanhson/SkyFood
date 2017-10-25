@@ -1683,3 +1683,6 @@ body {
 .media:first-child {
   padding-top: 20px;
 }
+.breadcrumb-item {
+    color: #fff;
+}
