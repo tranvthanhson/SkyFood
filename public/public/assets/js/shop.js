@@ -1,9 +1,9 @@
 $('#comment').on('keydown',function (e) {
     if(e.which==13){
-        
+
         $('#btnSend').click();
     }
-}); 
+});
 function saveAjax(link,id,check){
 	$(".se-pre-con").fadeIn();
    $.ajax({
@@ -12,7 +12,7 @@ function saveAjax(link,id,check){
         cache: false,
         data: {
            aid:id,
-           
+
         },
         success: function(data) {
           $(".se-pre-con").fadeOut();
@@ -20,7 +20,7 @@ function saveAjax(link,id,check){
             if(check==0){
              $('#displaySaved').html('<div class="ribbon bookmark" ><p><span>Saved</span></p></div>');
             }
-           
+
            else{
               $('#displaySaved').html('');
            }
@@ -34,7 +34,10 @@ function saveAjax(link,id,check){
 }
 
 function loadMyComments(id){
-  
+  if($('#comment').val().trim() == ""){
+    alert('Bạn không được để trống bình luận');
+    return;
+  }
      var value = $('#comment').val();
      if(value!='')
       $(".se-pre-con").fadeIn();
@@ -59,7 +62,7 @@ function loadMyComments(id){
     });
 }
 function rate(link,id){
-  
+
     $(".se-pre-con").fadeIn();
     var value=$(".rating").rate("getValue");
    $.ajax({
@@ -73,7 +76,7 @@ function rate(link,id){
         success: function(data) {
            $(".se-pre-con").fadeOut();
             $('.score p').text(data);
-            
+
             //alert($data);
         },
         error: function(err) {
