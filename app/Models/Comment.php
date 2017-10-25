@@ -42,9 +42,8 @@ class Comment extends Model
         $comment['SHOP_ID'] = $_POST['aid'];
         $comment['CONTENT'] = $_POST['avalue'];
         $comment['DATE_CREATED'] = $currentDate;
-        if ($_POST['avalue']) {
-            $this->insert($comment);
-        }
+
+        $this->insert($comment);
 
         $comments = $this->selectByShop($_POST['aid']);
         //die(var_dump($comments));
