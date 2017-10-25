@@ -931,8 +931,8 @@ body {
         top: 0;
         left: 0;
         width: 100%;
-        -webkit-transform: scale(3, 3);
-        transform: scale(3, 3);
+        -webkit-transform: scale(1.5, 1.5);
+        transform: scale(1.5, 1.5);
         -webkit-transition: .3s ease-in-out;
         transition: .3s ease-in-out; }
       .products .ctn-products .item-product .wrp-item .img-product .hover-view {
