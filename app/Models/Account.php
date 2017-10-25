@@ -65,7 +65,7 @@ class Account extends Model
     public function register()
     {
         if (isset($_POST['add'])) {
-            $this->setValue(md5($_POST['password']), $_POST['first_name'], $_POST['last_name'], '', '', '', 3, '');
+            $this->setValue(md5($_POST['password']), $_POST['first_name'], $_POST['last_name'], '', 'default.png', '', 3, '');
             $checkId = $this->findById($_POST['username'], 'USERNAME');
 
             if (null != $checkId->USERNAME) {
@@ -85,7 +85,7 @@ class Account extends Model
     {
         if (isset($_POST['add'])) {
             if (null == $_FILES['file']['name']) {
-                $this->setValue(md5($_POST['password']), $_POST['firstName'], $_POST['lastName'], $_POST['address'], '', $_POST['email'], $_POST['role'], $_POST['phone']);
+                $this->setValue(md5($_POST['password']), $_POST['firstName'], $_POST['lastName'], $_POST['address'], 'default.png', $_POST['email'], $_POST['role'], $_POST['phone']);
 
                 $checkId = $this->findById($_POST['username'], 'USERNAME');
                 if (null != $checkId->USERNAME) {

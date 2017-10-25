@@ -60,7 +60,7 @@ function loadMyComments(id){
 }
 function rate(link,id){
   
-    
+    $(".se-pre-con").fadeIn();
     var value=$(".rating").rate("getValue");
    $.ajax({
         url: link,
@@ -71,6 +71,7 @@ function rate(link,id){
            avalue:value
         },
         success: function(data) {
+           $(".se-pre-con").fadeOut();
             $('.score p').text(data);
             
             //alert($data);
