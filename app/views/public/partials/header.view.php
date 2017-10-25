@@ -45,8 +45,6 @@
     </div>
     <?php
 
-$_SERVER['REQUEST_URI'];
-
 $arrLink = ['/contact' => 'contact',
     '/search' => 'search',
 ];
@@ -58,9 +56,11 @@ $arrLink = ['/contact' => 'contact',
                 <div class="collapse navbar-collapse header-navbar">
                     <ul class="nav navbar-nav ">
                         <li><a href="/">home</a></li>
-                        <li><a href="#interested">interested</a></li>
-                        <li><a href="#news">news</a></li>
-                        <li><a href="#aboutUs">about us</a></li>
+                        <?php if ('/' == $_SERVER['REQUEST_URI']): ?>
+                            <li><a href="#interested">interested</a></li>
+                            <li><a href="#news">news</a></li>
+                            <li><a href="#aboutUs">about us</a></li>
+                        <?php endif?>
                         <?php foreach ($arrLink as $key => $value) {
     if ($_SERVER['REQUEST_URI'] == $key) {
         $active = 'active';
