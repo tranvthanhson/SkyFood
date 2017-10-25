@@ -312,7 +312,7 @@ table {
   .slider-other .wrp-item {
     position: relative;
     height: 0;
-    padding-top: 4%;
+    padding-top: 5%;
     background: black;
     overflow: hidden; }
     .slider-other .wrp-item:hover img {
@@ -325,8 +325,8 @@ table {
       top: 0;
       left: 0;
       width: 100%;
-      -webkit-transform: scale(2.5, 2.5);
-      transform: scale(2.5, 2.5);
+      -webkit-transform: scale(1.5, 1.5);
+      transform: scale(1.5, 1.5);
       -webkit-transition: .3s ease-in-out;
       transition: .3s ease-in-out; }
     .slider-other .wrp-item .hover-view {
@@ -1401,10 +1401,12 @@ body {
         font-size: 14px; } }
     .detail .comments .ctn-comments .media .media-left img {
       width: 45px;
+      height: 45px;
       border-radius: 50%; }
       @media (max-width: 480px) {
         .detail .comments .ctn-comments .media .media-left img {
-          width: 35px; } }
+          width: 35px;
+          height: 35px;} }
     .detail .comments .ctn-comments .media .media-body h4 {
       font-weight: bold; }
     .detail .comments .ctn-comments .media .media-body small {
