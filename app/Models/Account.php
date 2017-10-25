@@ -175,7 +175,7 @@ class Account extends Model
             $this->setValue($_POST['password'], $_POST['firstName'], $_POST['lastName'], $_POST['address'], $_POST['urlImage'], $_POST['email'], $_POST['role'], $_POST['phone']);
 
             $this->updateById($_POST['username'], $this->fillable);
-            $_SESSION['notice'] = 'Sửa Username thành công!';
+            $_SESSION['notice'] = 'Đã thay đổi thông tin.';
             redirect('admin/user');
         }
     }
@@ -241,7 +241,7 @@ class Account extends Model
             $account = $this->findById($_SESSION['user']->USERNAME);
             $this->setValue($account->PASSWORD, $_POST['firstName'], $_POST['lastName'], $_POST['address'], $account->IMAGE, $_POST['email'], $account->ROLE, $_POST['phone']);
             $this->updateById($_SESSION['user']->USERNAME, $this->fillable);
-            $_SESSION['notice'] = 'Sửa Username thành công!';
+            $_SESSION['notice'] = 'Đã thay đổi thông tin.';
             redirect('profile');
         }
     }

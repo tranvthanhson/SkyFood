@@ -83,18 +83,19 @@ $(document).ready(function() {
 
     $('#image').click(function() {
         var imageData = $('.image-editor').cropit('export');
+        $(".se-pre-con").fadeIn();
         $.ajax({
             url: '/profile',
             type: 'POST',
             cache: false,
             data: {
                 ajaxImages: imageData,
-            // aactive: active
         },
         success: function(data) {
-            // alert(data);
+             $(".se-pre-con").fadeOut();
+
             $('.img').html(data);
-            // alert($data);
+
         },
         error: function(err) {
             alert('Có lỗi xảy ra' + err);
@@ -103,11 +104,12 @@ $(document).ready(function() {
     });
 
 
+
 });
 
 function loadMap(latValue,lngValue){
    $(".ggmap").css("display","block");initMap(latValue,lngValue);
-   
+
 }
 
 function initMap(latValue,lngValue) {
