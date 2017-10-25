@@ -1,7 +1,9 @@
 new WOW().init();
 $(window).load(function() {
     $(".se-pre-con").fadeOut("slow");
-    $(".modalNotice")[0].click();
+    if($(".modalNotice")[0] != undefined){
+        $(".modalNotice")[0].click();
+    }
 });
 $(document).on('ready', function() {
     $(".slider-ad").slick({
