@@ -17,9 +17,9 @@ class Comment extends Model
         //die($sql);
         $selectAll = $this->rawQuery($sql);
         //die(var_dump($selectAll));
-        $countUser = count($selectAll);
+        $countComment = count($selectAll);
         //die('a' . $countUser);
-        return $this->pagination($sql, $countUser, $link, 1);
+        return $this->pagination($sql, $countComment, $link, 1);
     }
 
     public function deleteComment()
