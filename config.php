@@ -2,10 +2,10 @@
 
 return [
     'database' => [
-        'name' => 'sql12198667',
-        'username' => 'sql12198667',
-        'password' => 'mtuL5lSh7s',
-        'connection' => 'mysql:host=sql12.freemysqlhosting.net',
+        'name' => 'sql10201044',
+        'username' => 'sql10201044',
+        'password' => 'kUdTnFbyKR',
+        'connection' => 'mysql:host=sql10.freemysqlhosting.net',
         'options' => [
 
         ],
