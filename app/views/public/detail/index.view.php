@@ -299,14 +299,14 @@ if (1 == $checkLogin) {
                                         </div>
                                     </div>
                                 </div>
-                                <div class="view-more col-md-12 col-xs-12">
-                                    <button class="btn btn-bg" type="submit">View more</button>
-                                </div>
                                 <div class="clearfix"></div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <?php
+if (count($otherShops) >= 5) {
+    ?>
                 <div class="other wrapper-content">
                     <div class="container">
                         <div class="row">
@@ -319,7 +319,7 @@ if (1 == $checkLogin) {
                                     <div class="slider-other slider">
                                         <?php
 foreach ($otherShops as $value) {
-    ?>
+        ?>
                                         <div class="wrp-item">
                                             <img src="/public/admin/assets/img/img-shop/<?=$value->VIEW?>">
                                             <div class="hover-view">
@@ -370,6 +370,7 @@ foreach ($otherShops as $value) {
                         </div>
                     </div>
                 </div>
+                <?php }?>
                 <div class="comments wrapper-content">
                     <div class="container">
                         <div class="row">
@@ -397,7 +398,7 @@ if (0 == $checkLogin) {
                                         <h4 class="media-heading"><?=$_SESSION['user']->USERNAME?></h4>
                                         <form action="javascript:void(0)" class="form-border-color">
                                             <div class="form-group">
-                                                <textarea class="form-control" rows="3" id="comment"></textarea>
+                                                <textarea class="form-control" rows="3" id="comment" required=""></textarea>
                                             </div>
                                             <div class="pull-right form-group">
                                                 <input type="submit" class="btn btn-bg" value="Send" id="btnSend" onclick="loadMyComments(<?=$shop[0]->sid?>)">

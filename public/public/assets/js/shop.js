@@ -5,7 +5,7 @@ $('#comment').on('keydown',function (e) {
     }
 }); 
 function saveAjax(link,id,check){
-	
+	$(".se-pre-con").fadeIn();
    $.ajax({
         url: link,
         type: 'POST',
@@ -15,6 +15,7 @@ function saveAjax(link,id,check){
            
         },
         success: function(data) {
+          $(".se-pre-con").fadeOut();
             $('#save').html(data);
             if(check==0){
              $('#displaySaved').html('<div class="ribbon bookmark" ><p><span>Saved</span></p></div>');
@@ -33,7 +34,10 @@ function saveAjax(link,id,check){
 }
 
 function loadMyComments(id){
+  
      var value = $('#comment').val();
+     if(value!='')
+      $(".se-pre-con").fadeIn();
      //alert(id)
       $.ajax({
         url: '/shop/ajaxComment',
@@ -44,9 +48,10 @@ function loadMyComments(id){
            avalue:value
         },
         success: function(data) {
-            $('#ajaxComment').html(data);
-             $('#comment').val('');
-            //alert($data);
+          $(".se-pre-con").fadeOut();
+          $('#ajaxComment').html(data);
+          $('#comment').val('');
+          //alert($data);
         },
         error: function(err) {
             alert('Có lỗi xảy ra' + err);
@@ -55,7 +60,7 @@ function loadMyComments(id){
 }
 function rate(link,id){
   
-    
+    $(".se-pre-con").fadeIn();
     var value=$(".rating").rate("getValue");
    $.ajax({
         url: link,
@@ -66,6 +71,7 @@ function rate(link,id){
            avalue:value
         },
         success: function(data) {
+           $(".se-pre-con").fadeOut();
             $('.score p').text(data);
             
             //alert($data);
