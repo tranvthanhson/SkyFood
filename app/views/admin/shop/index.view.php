@@ -41,7 +41,7 @@
                                             <th>Tên địa điểm</th>
                                             <th>Ảnh</th>
                                             <th>Danh mục</th>
-                                            <th>%</th>
+                                            <th>khuyến mãi %</th>
                                             <th>Trạng thái</th>
                                             <th>Bình luận</th>
                                             <th>Chức năng</th>
