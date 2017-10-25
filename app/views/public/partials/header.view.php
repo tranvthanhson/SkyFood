@@ -176,7 +176,7 @@ $arrLink = ['/contact' => 'contact',
                             <div class="col-md-12 username">
                                 <div class="form-group item">
                                     <label>Username</label>
-                                    <input type="text" name="username"  value="Admin" class="form-control input-userName" required>
+                                    <input type="text" name="username"   class="form-control input-userName" required>
                                     <div class="underline"></div>
                                     <div class="help-block with-errors"></div>
                                 </div>
@@ -184,7 +184,7 @@ $arrLink = ['/contact' => 'contact',
                             <div class="col-md-12 password">
                                 <div class="form-group item">
                                     <label>Password</label>
-                                    <input type="password" name="password" value="Admin" class="form-control input-pass" id="pass" data-minlength="6" required data-error="Mật khẩu phải ít nhất 6 kí tự">
+                                    <input type="password" name="password" class="form-control input-pass" id="pass" data-minlength="6" required data-error="Mật khẩu phải ít nhất 6 kí tự">
                                     <div class="underline"></div>
                                     <div class="help-block with-errors"></div>
                                 </div>
@@ -200,7 +200,7 @@ $arrLink = ['/contact' => 'contact',
                             <div class="col-md-12 firstName">
                                 <div class="form-group item">
                                     <label>First Name</label>
-                                    <input type="text" class="form-control input-firstName" name="first_name" value="Admin" required>
+                                    <input type="text" class="form-control input-firstName" name="first_name"  required>
                                     <div class="underline"></div>
                                     <div class="help-block with-errors"></div>
                                 </div>
@@ -208,7 +208,7 @@ $arrLink = ['/contact' => 'contact',
                             <div class="col-md-12 lastName">
                                 <div class="form-group item">
                                     <label>Last Name</label>
-                                    <input type="text" class="form-control input-lastName" name="last_name" value="Admin" required>
+                                    <input type="text" class="form-control input-lastName" name="last_name"  required>
                                     <div class="underline"></div>
                                     <div class="help-block with-errors"></div>
                                 </div>
