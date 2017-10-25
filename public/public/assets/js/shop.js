@@ -39,7 +39,6 @@ function loadMyComments(id){
     return;
   }
      var value = $('#comment').val();
-     if(value!='')
       $(".se-pre-con").fadeIn();
      //alert(id)
       $.ajax({
