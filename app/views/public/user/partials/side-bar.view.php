@@ -37,7 +37,7 @@
                                             <div class="col-md-4 col-xs-4 item-feature-crop">
                                                 <div class="upload">
                                                     <i class="fa fa-cloud-upload"></i>
-                                                    <input id="image" type="button" class="export btn btn-bg" value="Upload" />
+                                                    <input id="image" type="button" data-dismiss="modal" class="export btn btn-bg" value="Upload" />
                                                 </div>
                                             </div>
                                             <div class="clearfix"></div>

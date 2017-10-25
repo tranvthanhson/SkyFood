@@ -22,7 +22,7 @@
                         <div class="user dropdown item-feature">
                             <img src="public/admin/assets/img/imagesUser/<?=$_SESSION['user']->IMAGE;?>" alt="">
                             <a href="" class="f-user  dropdown-toggle" data-toggle="dropdown">
-                                <?=$_SESSION['user']->LAST_NAME;?>
+                                <?=$_SESSION['user']->FIRST_NAME;?>
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
