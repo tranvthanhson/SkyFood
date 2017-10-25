@@ -11,27 +11,27 @@
             <form name="form" id="form" class="form-horizontal" enctype="multipart/form-data" method="POST" data-toggle="validator" role="form">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="username" value="Admin" placeholder="Tên đăng nhập" required>
+                        <input type="text" class="form-control" name="username"  placeholder="Tên đăng nhập" required>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <input type="password" class="form-control" name="password" value="Admin" placeholder="Mật khẩu" required>
+                        <input type="password" class="form-control" name="password"  placeholder="Mật khẩu" required>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="lastname" value="Admin" placeholder="Họ" required>
+                        <input type="text" class="form-control" name="lastname"  placeholder="Họ" required>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="firstname" value="Admin" placeholder="Tên" required>
+                        <input type="text" class="form-control" name="firstname"  placeholder="Tên" required>
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
-                        <input type="email" class="form-control" name="email"  value="Admin@gmail.com" placeholder="Email" required>
+                        <input type="email" class="form-control" name="email"  placeholder="Email" required>
                     </div>
                 </div>
                 <div class="col-md-6">

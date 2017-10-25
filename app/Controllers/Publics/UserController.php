@@ -16,6 +16,7 @@ class UserController
     {
 
         $detailUser = $this->account->detailUser();
+        $_SESSION['user'] = $detailUser;
         return view('public/user/index', compact('detailUser'));
     }
 

@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit7010e5e1bb9cfe7f62f5d905111e03f2
+class ComposerStaticInitee9dba0575127b172b73ae1f42b58996
 {
     public static $prefixLengthsPsr4 = array (
         'P' => 
@@ -21,19 +21,31 @@ class ComposerStaticInit7010e5e1bb9cfe7f62f5d905111e03f2
     );
 
     public static $classMap = array (
-        'App\\Controllers\\CategoryController' => __DIR__ . '/../..' . '/app/Controllers/CategoryController.php',
-        'App\\Controllers\\FeedbackController' => __DIR__ . '/../..' . '/app/Controllers/FeedbackController.php',
-        'App\\Controllers\\IndexController' => __DIR__ . '/../..' . '/app/Controllers/IndexController.php',
-        'App\\Controllers\\LoginController' => __DIR__ . '/../..' . '/app/Controllers/LoginController.php',
-        'App\\Controllers\\PageController' => __DIR__ . '/../..' . '/app/Controllers/PageController.php',
-        'App\\Controllers\\PostController' => __DIR__ . '/../..' . '/app/Controllers/PostController.php',
-        'App\\Controllers\\RegisterController' => __DIR__ . '/../..' . '/app/Controllers/RegisterController.php',
-        'App\\Controllers\\StatisticsController' => __DIR__ . '/../..' . '/app/Controllers/StatisticsController.php',
-        'App\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Controllers/UserController.php',
+        'App\\Controllers\\Admin\\AdminController' => __DIR__ . '/../..' . '/app/Controllers/Admin/AdminController.php',
+        'App\\Controllers\\Admin\\FeedbackController' => __DIR__ . '/../..' . '/app/Controllers/Admin/FeedbackController.php',
+        'App\\Controllers\\Admin\\LoginController' => __DIR__ . '/../..' . '/app/Controllers/Admin/LoginController.php',
+        'App\\Controllers\\Admin\\RegisterController' => __DIR__ . '/../..' . '/app/Controllers/Admin/RegisterController.php',
+        'App\\Controllers\\Admin\\ShopController' => __DIR__ . '/../..' . '/app/Controllers/Admin/ShopController.php',
+        'App\\Controllers\\Admin\\StatisticsController' => __DIR__ . '/../..' . '/app/Controllers/Admin/StatisticsController.php',
+        'App\\Controllers\\Admin\\TypeController' => __DIR__ . '/../..' . '/app/Controllers/Admin/TypeController.php',
+        'App\\Controllers\\Admin\\UserController' => __DIR__ . '/../..' . '/app/Controllers/Admin/UserController.php',
+        'App\\Controllers\\Publics\\ContactController' => __DIR__ . '/../..' . '/app/Controllers/Publics/ContactController.php',
+        'App\\Controllers\\Publics\\HomeController' => __DIR__ . '/../..' . '/app/Controllers/Publics/HomeController.php',
+        'App\\Controllers\\Publics\\SearchController' => __DIR__ . '/../..' . '/app/Controllers/Publics/SearchController.php',
+        'App\\Controllers\\Publics\\ShopController' => __DIR__ . '/../..' . '/app/Controllers/Publics/ShopController.php',
+        'App\\Controllers\\Publics\\UserController' => __DIR__ . '/../..' . '/app/Controllers/Publics/UserController.php',
+        'App\\Mailer\\Mailer' => __DIR__ . '/../..' . '/app/Mailer/Mailer.php',
         'App\\Models\\Account' => __DIR__ . '/../..' . '/app/Models/Account.php',
+        'App\\Models\\Comment' => __DIR__ . '/../..' . '/app/Models/Comment.php',
         'App\\Models\\Feedback' => __DIR__ . '/../..' . '/app/Models/Feedback.php',
+        'App\\Models\\Home' => __DIR__ . '/../..' . '/app/Models/Home.php',
+        'App\\Models\\IndexAdmin' => __DIR__ . '/../..' . '/app/Models/IndexAdmin.php',
         'App\\Models\\Model' => __DIR__ . '/../..' . '/app/Models/Model.php',
-        'App\\Models\\Project' => __DIR__ . '/../..' . '/app/Models/Project.php',
+        'App\\Models\\Rate' => __DIR__ . '/../..' . '/app/Models/Rate.php',
+        'App\\Models\\Save' => __DIR__ . '/../..' . '/app/Models/Save.php',
+        'App\\Models\\Shop' => __DIR__ . '/../..' . '/app/Models/Shop.php',
+        'App\\Models\\Shop_Type' => __DIR__ . '/../..' . '/app/Models/Shop_Type.php',
+        'App\\Models\\Type' => __DIR__ . '/../..' . '/app/Models/Type.php',
         'Core\\App' => __DIR__ . '/../..' . '/core/App.php',
         'Core\\Autoload' => __DIR__ . '/../..' . '/core/Autoload.php',
         'Core\\Database\\Connection' => __DIR__ . '/../..' . '/core/Database/Connection.php',
@@ -50,9 +62,9 @@ class ComposerStaticInit7010e5e1bb9cfe7f62f5d905111e03f2
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit7010e5e1bb9cfe7f62f5d905111e03f2::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit7010e5e1bb9cfe7f62f5d905111e03f2::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit7010e5e1bb9cfe7f62f5d905111e03f2::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitee9dba0575127b172b73ae1f42b58996::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitee9dba0575127b172b73ae1f42b58996::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitee9dba0575127b172b73ae1f42b58996::$classMap;
 
         }, null, ClassLoader::class);
     }
