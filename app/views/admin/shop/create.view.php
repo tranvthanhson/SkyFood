@@ -42,7 +42,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label for="type">Danh mục (<span>*</span>)</label>
-                                                        <select class="form-control" id="type" name="type">
+                                                        <select class="form-control" id="type" name="type" >
                                                             <option>[Chọn]</option>
                                                             <?php
 foreach ($types as $value) {
