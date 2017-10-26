@@ -15,7 +15,7 @@ class AdminController
 
     public function verify()
     {
-        if (null != $_SESSION['user'] && $_SESSION['user']->ROLE < 3) {
+        if (isset($_SESSION['user']) && $_SESSION['user']->ROLE < 3) {
             $this->indexAdmin = new IndexAdmin;
         } else {
             $link = '/login';

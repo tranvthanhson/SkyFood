@@ -42,9 +42,9 @@ class Shop extends Model
         }
         $selectAll = $this->rawQuery($sql);
         //die(var_dump($selectAll));
-        $countUser = count($selectAll);
+        $countShop = count($selectAll);
         //die(var_dump($countUser));
-        return $this->pagination($sql, $countUser, $link, 1);
+        return $this->pagination($sql, $countShop, $link, 1);
     }
 
     public function selectAll()
