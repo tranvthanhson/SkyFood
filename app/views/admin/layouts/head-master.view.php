@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/png" href="/public/admin/assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title><?=$title?></title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/png" href="/public/admin/assets/img/favicon.ico">
     <!-- Bootstrap core CSS     -->
     <link href="/public/admin/assets/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Animation library for notifications   -->
@@ -21,6 +21,7 @@
     <link href="/public/admin/assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
     <link href="/public/admin/assets/css/main.css" rel="stylesheet" />
     <link href="/public/admin/assets/css/loader.css" rel="stylesheet" />
+
 </head>
 <body>
     <div id="loader">
