@@ -17,7 +17,7 @@ class FeedbackController
 
     public function verify()
     {
-        if (null != $_SESSION['user'] && 1 == $_SESSION['user']->ROLE) {
+        if (isset($_SESSION['user']) && 1 == $_SESSION['user']->ROLE) {
             $this->feedback = new Feedback;
             $this->mailer = new Mailer;
         } else {

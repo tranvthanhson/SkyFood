@@ -18,7 +18,7 @@ class TypeController
 
     public function verify()
     {
-        if (null != $_SESSION['user'] && $_SESSION['user']->ROLE < 3) {
+        if (isset($_SESSION['user']) && $_SESSION['user']->ROLE < 3) {
             $this->type = new Type;
             $this->shop_type = new Shop_Type;
             $this->shop = new Shop;
