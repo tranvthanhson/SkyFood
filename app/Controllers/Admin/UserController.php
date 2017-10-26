@@ -16,7 +16,7 @@ class UserController
 
     public function verify()
     {
-        if ($_SESSION['user']->ROLE < 3) {
+        if (null != $_SESSION['user'] && $_SESSION['user']->ROLE < 3) {
             $this->account = new Account;
         } else {
             $link = '/login';
