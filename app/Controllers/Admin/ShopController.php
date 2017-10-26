@@ -19,7 +19,7 @@ class ShopController
 
     public function verify()
     {
-        if ($_SESSION['user']->ROLE < 3) {
+        if (null != $_SESSION['user'] && $_SESSION['user']->ROLE < 3) {
             $this->shop = new Shop;
             $this->shopType = new Shop_Type;
             $this->type = new Type;
